@@ -21,7 +21,7 @@ namespace Free_Accounting_Software
             {
                 if (str == "/cc" || str == "-cc")
                 {
-                    Application.Run(new Free_Accounting_Software.Internal.Forms.IConnectionProvider());
+                    Application.Run(new Free_Accounting_Software.Internal.Forms.IConnectionProvider("Free_Accounting_Software.Properties.Settings.FreeAccountingSoftwareConnectionString"));
                     return;
                 }
             }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Free_Accounting_Software.Internal.Classes;
+using System.Configuration;
 
 namespace Free_Accounting_Software.Internal.Forms
 {
@@ -18,15 +19,22 @@ namespace Free_Accounting_Software.Internal.Forms
         ITransactionHandler TransactionHandler = new ITransactionHandler();
         DataTable Table = new DataTable();
         String Database;
+        Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+        int index;
 
-        public IConnectionProvider()
+        public IConnectionProvider(String ConnectionStringName)
         {
             InitializeComponent();
+            for (int i = 0; i <= config.ConnectionStrings.ConnectionStrings.Count - 1; i++)
+            {
+                if (config.ConnectionStrings.ConnectionStrings[i].Name == ConnectionStringName)
+                    index = i;
+            }
         }
 
         private void IConnectionProvider_Load(object sender, EventArgs e)
         {
-            ConnectionBuilder.ConnectionString = Properties.Settings.Default.ConnStr;
+            ConnectionBuilder.ConnectionString = config.ConnectionStrings.ConnectionStrings[index].ConnectionString;
 
             radiobtnOne.Checked = true;
             if (!String.IsNullOrWhiteSpace(ConnectionBuilder.ConnectionString))
@@ -110,9 +118,9 @@ namespace Free_Accounting_Software.Internal.Forms
         {
             BuildConnStr();
             ConnectionBuilder.InitialCatalog = cmbDatabase.SelectedItem.ToString();
-            Properties.Settings.Default.Reset();
-            Properties.Settings.Default.ConnStr = ConnectionBuilder.ConnectionString;
-            Properties.Settings.Default.Save();
+            config.ConnectionStrings.ConnectionStrings[index].ConnectionString = ConnectionBuilder.ConnectionString;
+            config.ConnectionStrings.ConnectionStrings[index].ProviderName = "System.Data.SqlClient";
+            config.Save(ConfigurationSaveMode.Modified);
             Close();
         }
 

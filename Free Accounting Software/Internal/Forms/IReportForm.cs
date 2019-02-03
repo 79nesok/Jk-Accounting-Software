@@ -16,11 +16,6 @@ namespace Free_Accounting_Software.Internal.Forms
         public IReportForm()
         {
             InitializeComponent();
-            btnHolder.Visible = false;
-            btnNavigator.Visible = false;
-            lblCreatedBy.Visible = false;
-            lblModifiedBy.Visible = false;
-            lblMode.Visible = false;
         }
 
         protected override void UpdateControls()

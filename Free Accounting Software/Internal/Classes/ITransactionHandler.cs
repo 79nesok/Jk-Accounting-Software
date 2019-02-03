@@ -9,8 +9,7 @@ namespace Free_Accounting_Software.Internal.Classes
 {
     public class ITransactionHandler
     {
-        private string _connStr = Properties.Settings.Default.ConnStr;
-        private string VConnectionString { get { return _connStr; } set { _connStr = value; } }
+        private string VConnectionString { get { return Properties.Settings.Default.FreeAccountingSoftwareConnectionString; } }
 
         private SqlConnection VConnection;
         private SqlDataAdapter VDataAdapter;

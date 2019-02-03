@@ -10,7 +10,7 @@ namespace Free_Accounting_Software.Internal.Forms
         public ILookupProvider()
         {
             InitializeComponent();
-            cnConnection.ConnectionString = Properties.Settings.Default.ConnStr;
+            cnConnection.ConnectionString = Properties.Settings.Default.FreeAccountingSoftwareConnectionString;
         }
 
         public Object DataSetLookup(JkDataSet DataSet, String KeyField, Object KeyValue, String ResultField)

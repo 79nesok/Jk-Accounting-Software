@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Free_Accounting_Software.Internal.Datasources {
+namespace Free_Accounting_Software.External.Datasources {
     
     
     /// <summary>
@@ -22,7 +22,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("GeneralLedgerDS")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class GeneralLedgerDS : global::System.Data.DataSet {
+    public partial class EGeneralLedgerReportDS : global::System.Data.DataSet {
         
         private tblGeneralLedgerDataTable tabletblGeneralLedger;
         
@@ -34,7 +34,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public GeneralLedgerDS() {
+        public EGeneralLedgerReportDS() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected GeneralLedgerDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected EGeneralLedgerReportDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -144,7 +144,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            GeneralLedgerDS cln = ((GeneralLedgerDS)(base.Clone()));
+            EGeneralLedgerReportDS cln = ((EGeneralLedgerReportDS)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -264,7 +264,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            GeneralLedgerDS ds = new GeneralLedgerDS();
+            EGeneralLedgerReportDS ds = new EGeneralLedgerReportDS();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -594,7 +594,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GeneralLedgerDS ds = new GeneralLedgerDS();
+                EGeneralLedgerReportDS ds = new EGeneralLedgerReportDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -900,7 +900,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                GeneralLedgerDS ds = new GeneralLedgerDS();
+                EGeneralLedgerReportDS ds = new EGeneralLedgerReportDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1258,7 +1258,7 @@ namespace Free_Accounting_Software.Internal.Datasources {
         }
     }
 }
-namespace Free_Accounting_Software.Internal.Datasources.GeneralLedgerDSTableAdapters {
+namespace Free_Accounting_Software.External.Datasources.GeneralLedgerDSTableAdapters {
     
     
     /// <summary>
@@ -1415,7 +1415,7 @@ namespace Free_Accounting_Software.Internal.Datasources.GeneralLedgerDSTableAdap
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GeneralLedgerDS.tblGeneralLedgerDataTable dataTable, int CompanyId) {
+        public virtual int Fill(EGeneralLedgerReportDS.tblGeneralLedgerDataTable dataTable, int CompanyId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CompanyId));
             if ((this.ClearBeforeFill == true)) {
@@ -1429,10 +1429,10 @@ namespace Free_Accounting_Software.Internal.Datasources.GeneralLedgerDSTableAdap
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GeneralLedgerDS.tblGeneralLedgerDataTable GetData(int CompanyId) {
+        public virtual EGeneralLedgerReportDS.tblGeneralLedgerDataTable GetData(int CompanyId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CompanyId));
-            GeneralLedgerDS.tblGeneralLedgerDataTable dataTable = new GeneralLedgerDS.tblGeneralLedgerDataTable();
+            EGeneralLedgerReportDS.tblGeneralLedgerDataTable dataTable = new EGeneralLedgerReportDS.tblGeneralLedgerDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1612,7 +1612,7 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(GeneralLedgerDS.tblCompaniesDataTable dataTable) {
+        public virtual int Fill(EGeneralLedgerReportDS.tblCompaniesDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1625,9 +1625,9 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual GeneralLedgerDS.tblCompaniesDataTable GetData() {
+        public virtual EGeneralLedgerReportDS.tblCompaniesDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            GeneralLedgerDS.tblCompaniesDataTable dataTable = new GeneralLedgerDS.tblCompaniesDataTable();
+            EGeneralLedgerReportDS.tblCompaniesDataTable dataTable = new EGeneralLedgerReportDS.tblCompaniesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1635,14 +1635,14 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GeneralLedgerDS.tblCompaniesDataTable dataTable) {
+        public virtual int Update(EGeneralLedgerReportDS.tblCompaniesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(GeneralLedgerDS dataSet) {
+        public virtual int Update(EGeneralLedgerReportDS dataSet) {
             return this.Adapter.Update(dataSet, "tblCompanies");
         }
         
@@ -1856,7 +1856,7 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(GeneralLedgerDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(EGeneralLedgerReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1875,7 +1875,7 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(GeneralLedgerDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(EGeneralLedgerReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1893,7 +1893,7 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(GeneralLedgerDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(EGeneralLedgerReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1935,7 +1935,7 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(GeneralLedgerDS dataSet) {
+        public virtual int UpdateAll(EGeneralLedgerReportDS dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

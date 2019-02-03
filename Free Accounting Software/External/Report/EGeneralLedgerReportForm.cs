@@ -7,8 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using Free_Accounting_Software.Internal.Forms;
 using Free_Accounting_Software.Internal.Classes;
-using Free_Accounting_Software.Internal.Datasources;
-using Free_Accounting_Software.Internal.Datasources.GeneralLedgerDSTableAdapters;
+using Free_Accounting_Software.External.Datasources;
+using Free_Accounting_Software.External.Datasources.GeneralLedgerDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Free_Accounting_Software.External.Report
@@ -47,17 +47,17 @@ namespace Free_Accounting_Software.External.Report
             //    new ReportParameter("CompanyId", ISecurityHandler.CompanyId.ToString())  
             //};
 
-            GeneralLedgerDS gl = new GeneralLedgerDS();
-            tblGeneralLedgerTableAdapter adap1 = new tblGeneralLedgerTableAdapter();
-            tblCompaniesTableAdapter adap2 = new tblCompaniesTableAdapter();
+            EGeneralLedgerReportDS glDataSource = new EGeneralLedgerReportDS();
+            tblGeneralLedgerTableAdapter GeneralLedgerAdapter = new tblGeneralLedgerTableAdapter();
+            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
 
-            adap1.Fill(gl.tblGeneralLedger, ISecurityHandler.CompanyId + 1);
-            adap2.Fill(gl.tblCompanies);
+            GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, ISecurityHandler.CompanyId);
+            CompanyAdapter.Fill(glDataSource.tblCompanies);
 
             reportViewer.Reset();
-            reportViewer.LocalReport.ReportPath = @"E:\Projects\C#\Free Accounting Software\Free Accounting Software\External\Report\General Ledger.rdlc";
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GeneralLedger", gl.Tables[0]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", gl.Tables[1]));
+            reportViewer.LocalReport.ReportPath = "../../External/Report/General Ledger.rdlc";
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GeneralLedger", glDataSource.Tables["tblGeneralLedger"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", glDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

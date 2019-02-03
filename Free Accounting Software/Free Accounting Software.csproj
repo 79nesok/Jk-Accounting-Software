@@ -62,6 +62,7 @@
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Entity.Design" />
@@ -172,14 +173,14 @@
     <Compile Include="Internal\Classes\IImageHandler.cs" />
     <Compile Include="Internal\Classes\ISecurityHandler.cs" />
     <Compile Include="Internal\Classes\ISystemMessages.cs" />
-    <Compile Include="Internal\Datasources\GeneralLedgerDS.cs">
-      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+    <Compile Include="External\Datasources\EGeneralLedgerReportDS.cs">
+      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Internal\Datasources\GeneralLedgerDS.Designer.cs">
+    <Compile Include="External\Datasources\EGeneralLedgerReportDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="Internal\Forms\IConnectionProvider.cs">
       <SubType>Form</SubType>
@@ -350,16 +351,16 @@
     <EmbeddedResource Include="Internal\Forms\ITextPropertyEditor.resx">
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Internal\Datasources\GeneralLedgerDS.xsc">
-      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+    <None Include="External\Datasources\EGeneralLedgerReportDS.xsc">
+      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </None>
-    <None Include="Internal\Datasources\GeneralLedgerDS.xsd">
+    <None Include="External\Datasources\EGeneralLedgerReportDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>GeneralLedgerDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>EGeneralLedgerReportDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Internal\Datasources\GeneralLedgerDS.xss">
-      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+    <None Include="External\Datasources\EGeneralLedgerReportDS.xss">
+      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -399,6 +400,10 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
