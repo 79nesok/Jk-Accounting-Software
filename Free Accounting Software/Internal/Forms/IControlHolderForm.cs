@@ -167,7 +167,7 @@ namespace Free_Accounting_Software
             {
                 ITransactionHandler VTransactionHandler = new ITransactionHandler();
                 String  VCommandText =
-                    "SELECT ssc.Name, ssc.Structure, ssc.ListForm, ssc.MasterForm " +
+                    "SELECT sc.Name AS Category, ssc.Name, ssc.Structure, ssc.ListForm, ssc.MasterForm " +
                     "FROM tblSystemSubCategories ssc " +
                     "   INNER JOIN tblSystemCategories sc ON sc.Id = ssc.CategoryId " +
                     "ORDER BY sc.[Index], ssc.[Index]";
@@ -271,7 +271,7 @@ namespace Free_Accounting_Software
             {
                 lblCompanyValue.Text = ISecurityHandler.CompanyName;
                 lblUserValue.Text = ISecurityHandler.SecurityUserName;
-                lblTimeValue.Text = IAppHandler.ConvertDefaultValue("@Date").ToString();
+                lblTimeValue.Text = IAppHandler.ConvertMaskValue("@Date").ToString();
                 timerDuration.Start();
             }
         #endregion

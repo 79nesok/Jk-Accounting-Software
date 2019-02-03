@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.dstSecurityUsers = new JkComponents.JkDataSet();
+            this.cnConnection = new JkComponents.JkConnection();
             this.dstSubsidiaryTypes = new JkComponents.JkDataSet();
             this.dstJournalTypes = new JkComponents.JkDataSet();
-            this.cnConnection = new JkComponents.JkConnection();
+            this.dstAccountTypes = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -45,6 +46,17 @@
             this.dstSecurityUsers.TabIndex = 0;
             this.dstSecurityUsers.Text = "jkDataSet1";
             this.dstSecurityUsers.ZLoadColumns = false;
+            // 
+            // cnConnection
+            // 
+            this.cnConnection.BackColor = System.Drawing.Color.LightGray;
+            this.cnConnection.ConnectionString = "Data Source=.\\sqlexpress2014;Persist Security Info=True;User ID=sa;Password=maste" +
+    "rkey;Initial Catalog=FreeAccountingSoftware";
+            this.cnConnection.Location = new System.Drawing.Point(4, 4);
+            this.cnConnection.Name = "cnConnection";
+            this.cnConnection.Size = new System.Drawing.Size(71, 20);
+            this.cnConnection.TabIndex = 3;
+            this.cnConnection.Text = "jkConnection1";
             // 
             // dstSubsidiaryTypes
             // 
@@ -70,22 +82,24 @@
             this.dstJournalTypes.Text = "jkDataSet3";
             this.dstJournalTypes.ZLoadColumns = false;
             // 
-            // cnConnection
+            // dstAccountTypes
             // 
-            this.cnConnection.BackColor = System.Drawing.Color.LightGray;
-            this.cnConnection.ConnectionString = "Data Source=.\\sqlexpress2014;Persist Security Info=True;User ID=sa;Password=maste" +
-    "rkey;Initial Catalog=FreeAccountingSoftware";
-            this.cnConnection.Location = new System.Drawing.Point(4, 4);
-            this.cnConnection.Name = "cnConnection";
-            this.cnConnection.Size = new System.Drawing.Size(71, 20);
-            this.cnConnection.TabIndex = 3;
-            this.cnConnection.Text = "jkConnection1";
+            this.dstAccountTypes.BackColor = System.Drawing.Color.Khaki;
+            this.dstAccountTypes.CommandText = "SELECT Id, Code, Name\r\nFROM tblAccountTypes";
+            this.dstAccountTypes.Connection = this.cnConnection;
+            this.dstAccountTypes.Location = new System.Drawing.Point(361, 4);
+            this.dstAccountTypes.Name = "dstAccountTypes";
+            this.dstAccountTypes.Size = new System.Drawing.Size(87, 20);
+            this.dstAccountTypes.TabIndex = 4;
+            this.dstAccountTypes.Text = "jkDataSet3";
+            this.dstAccountTypes.ZLoadColumns = false;
             // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.dstAccountTypes);
             this.Controls.Add(this.cnConnection);
             this.Controls.Add(this.dstJournalTypes);
             this.Controls.Add(this.dstSubsidiaryTypes);
@@ -102,5 +116,6 @@
         public JkComponents.JkDataSet dstSubsidiaryTypes;
         public JkComponents.JkDataSet dstJournalTypes;
         private JkComponents.JkConnection cnConnection;
+        public JkComponents.JkDataSet dstAccountTypes;
     }
 }

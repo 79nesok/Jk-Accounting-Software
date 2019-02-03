@@ -189,7 +189,9 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (c.GetType().Name == "TextBox" ||
                         c.GetType().Name == "CheckBox" ||
                         c.GetType().Name == "ComboBox" ||
-                        c.GetType().Name == "DateTimePicker")
+                        c.GetType().Name == "DateTimePicker" ||
+                        c.GetType().Name == "PictureBox" ||
+                        c.GetType().Name == "LinkLabel")
                     {
                         c.Enabled = (FormState != FormStates.fsView);
                     }

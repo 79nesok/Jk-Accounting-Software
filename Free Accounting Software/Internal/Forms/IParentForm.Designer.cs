@@ -67,7 +67,7 @@
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer.IsSplitterFixed = true;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer.Name = "splitContainer";
             this.splitContainer.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -91,7 +91,7 @@
             this.flowLayoutPanelTop.Controls.Add(this.panelButton);
             this.flowLayoutPanelTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanelTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanelTop.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
             this.flowLayoutPanelTop.Size = new System.Drawing.Size(852, 68);
             this.flowLayoutPanelTop.TabIndex = 6;
@@ -117,7 +117,7 @@
             this.lblCaption.Location = new System.Drawing.Point(0, 0);
             this.lblCaption.Margin = new System.Windows.Forms.Padding(0);
             this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(815, 39);
+            this.lblCaption.Size = new System.Drawing.Size(815, 40);
             this.lblCaption.TabIndex = 10;
             this.lblCaption.Text = "Parent Form";
             this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,9 +172,10 @@
             this.NavigatorSeparatorFourth,
             this.btnLastRecord});
             this.btnNavigator.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigator.Location = new System.Drawing.Point(623, 0);
+            this.btnNavigator.Location = new System.Drawing.Point(626, 0);
             this.btnNavigator.Name = "btnNavigator";
-            this.btnNavigator.Size = new System.Drawing.Size(229, 26);
+            this.btnNavigator.Padding = new System.Windows.Forms.Padding(0);
+            this.btnNavigator.Size = new System.Drawing.Size(226, 26);
             this.btnNavigator.Stretch = true;
             this.btnNavigator.TabIndex = 18;
             this.btnNavigator.Text = "toolStrip1";
@@ -183,23 +184,25 @@
             // 
             this.btnFirstRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnFirstRecord.Image")));
             this.btnFirstRecord.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnFirstRecord.Margin = new System.Windows.Forms.Padding(0);
             this.btnFirstRecord.Name = "btnFirstRecord";
-            this.btnFirstRecord.Size = new System.Drawing.Size(23, 23);
+            this.btnFirstRecord.Size = new System.Drawing.Size(23, 26);
             this.btnFirstRecord.Tag = "1";
             this.btnFirstRecord.ToolTipText = "Shows the first record";
             // 
             // NavigatorSeparatorFirst
             // 
             this.NavigatorSeparatorFirst.Name = "NavigatorSeparatorFirst";
-            this.NavigatorSeparatorFirst.Size = new System.Drawing.Size(6, 24);
+            this.NavigatorSeparatorFirst.Size = new System.Drawing.Size(6, 26);
             // 
             // btnPreviousRecord
             // 
             this.btnPreviousRecord.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnPreviousRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnPreviousRecord.Image")));
             this.btnPreviousRecord.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnPreviousRecord.Margin = new System.Windows.Forms.Padding(0);
             this.btnPreviousRecord.Name = "btnPreviousRecord";
-            this.btnPreviousRecord.Size = new System.Drawing.Size(31, 21);
+            this.btnPreviousRecord.Size = new System.Drawing.Size(31, 26);
             this.btnPreviousRecord.Tag = "2";
             this.btnPreviousRecord.Text = " ";
             this.btnPreviousRecord.ToolTipText = "Shows the previous record";
@@ -207,26 +210,28 @@
             // NavigatorSeparatorSecond
             // 
             this.NavigatorSeparatorSecond.Name = "NavigatorSeparatorSecond";
-            this.NavigatorSeparatorSecond.Size = new System.Drawing.Size(6, 24);
+            this.NavigatorSeparatorSecond.Size = new System.Drawing.Size(6, 26);
             // 
             // txtRecordCount
             // 
+            this.txtRecordCount.Margin = new System.Windows.Forms.Padding(0);
             this.txtRecordCount.Name = "txtRecordCount";
-            this.txtRecordCount.Size = new System.Drawing.Size(75, 24);
+            this.txtRecordCount.Size = new System.Drawing.Size(75, 26);
             this.txtRecordCount.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtRecordCount.ToolTipText = "Shows the current record count";
             // 
             // NavigatorSeparatorThird
             // 
             this.NavigatorSeparatorThird.Name = "NavigatorSeparatorThird";
-            this.NavigatorSeparatorThird.Size = new System.Drawing.Size(6, 24);
+            this.NavigatorSeparatorThird.Size = new System.Drawing.Size(6, 26);
             // 
             // btnNextRecord
             // 
             this.btnNextRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnNextRecord.Image")));
             this.btnNextRecord.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnNextRecord.Margin = new System.Windows.Forms.Padding(0);
             this.btnNextRecord.Name = "btnNextRecord";
-            this.btnNextRecord.Size = new System.Drawing.Size(31, 21);
+            this.btnNextRecord.Size = new System.Drawing.Size(31, 26);
             this.btnNextRecord.Tag = "3";
             this.btnNextRecord.Text = " ";
             this.btnNextRecord.ToolTipText = "Shows the next record";
@@ -234,14 +239,15 @@
             // NavigatorSeparatorFourth
             // 
             this.NavigatorSeparatorFourth.Name = "NavigatorSeparatorFourth";
-            this.NavigatorSeparatorFourth.Size = new System.Drawing.Size(6, 24);
+            this.NavigatorSeparatorFourth.Size = new System.Drawing.Size(6, 26);
             // 
             // btnLastRecord
             // 
             this.btnLastRecord.Image = ((System.Drawing.Image)(resources.GetObject("btnLastRecord.Image")));
             this.btnLastRecord.ImageTransparentColor = System.Drawing.Color.White;
+            this.btnLastRecord.Margin = new System.Windows.Forms.Padding(0);
             this.btnLastRecord.Name = "btnLastRecord";
-            this.btnLastRecord.Size = new System.Drawing.Size(31, 21);
+            this.btnLastRecord.Size = new System.Drawing.Size(31, 26);
             this.btnLastRecord.Tag = "4";
             this.btnLastRecord.Text = " ";
             this.btnLastRecord.ToolTipText = "Shows the last record";
@@ -259,7 +265,7 @@
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(311, 26);
+            this.btnHolder.Size = new System.Drawing.Size(280, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -269,7 +275,7 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(52, 21);
+            this.btnNew.Size = new System.Drawing.Size(51, 23);
             this.btnNew.Text = "&New";
             this.btnNew.ToolTipText = "Create new transaction (Alt+N)";
             // 
@@ -278,7 +284,7 @@
             this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
             this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(57, 21);
+            this.btnOpen.Size = new System.Drawing.Size(56, 23);
             this.btnOpen.Text = "&Open";
             this.btnOpen.ToolTipText = "Open the details of transaction (Alt+O)";
             // 
@@ -287,7 +293,7 @@
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(48, 21);
+            this.btnEdit.Size = new System.Drawing.Size(47, 23);
             this.btnEdit.Text = "&Edit";
             this.btnEdit.ToolTipText = "Modify the transaction (Alt+E)";
             // 
@@ -296,7 +302,7 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(53, 21);
+            this.btnSave.Size = new System.Drawing.Size(51, 23);
             this.btnSave.Text = "&Save";
             this.btnSave.ToolTipText = "Save the transaction (Alt+S)";
             // 
@@ -305,7 +311,7 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(62, 21);
+            this.btnCancel.Size = new System.Drawing.Size(63, 23);
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.ToolTipText = "Cancel the current transaction (Alt+C)";
             // 
@@ -316,7 +322,7 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Controls.Add(this.splitContainer);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "IParentForm";
             this.Size = new System.Drawing.Size(852, 476);
             this.Resize += new System.EventHandler(this.IParentForm_Resize);

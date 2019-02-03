@@ -36,11 +36,11 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(844, 465);
+            this.splitContainer.Size = new System.Drawing.Size(775, 481);
             // 
             // EJournalVouchersListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Journal Vouchers";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
@@ -57,7 +57,7 @@
             this.OpenFormName = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(844, 465);
+            this.Size = new System.Drawing.Size(775, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();

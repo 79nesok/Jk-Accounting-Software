@@ -6,16 +6,16 @@ EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = 'Subsidiaries'
 EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = 'Subsidiaries', @Name = 'Others', @ListForm = 'EOthersListForm', @MasterForm = 'ESubsidiaryForm', @Index = 4
 
 --Administration
-EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Company', @ListForm = NULL, @MasterForm = NULL, @Index = 0
+EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Company', @ListForm = 'ECompanyForm', @MasterForm = NULL, @Index = 0
 EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Security', @ListForm = NULL, @MasterForm = NULL, @Index = 1
 
 --Accounting
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Chart of Accounts', @ListForm = NULL, @MasterForm = NULL, @Index = 0
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Assets', @ListForm = NULL, @MasterForm = NULL, @Index = 1
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Liabilities', @ListForm = NULL, @MasterForm = NULL, @Index = 2
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Equities', @ListForm = NULL, @MasterForm = NULL, @Index = 3
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Income', @ListForm = NULL, @MasterForm = NULL, @Index = 4
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Expenses', @ListForm = NULL, @MasterForm = NULL, @Index = 5
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Assets', @ListForm = 'EAssetsListForm', @MasterForm = NULL, @Index = 1
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Liabilities', @ListForm = 'ELiabilitiesListForm', @MasterForm = 'EAccountForm', @Index = 2
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Equities', @ListForm = 'EEquitiesListForm', @MasterForm = 'EAccountForm', @Index = 3
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Income', @ListForm = 'EIncomeListForm', @MasterForm = 'EAccountForm', @Index = 4
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Expenses', @ListForm = 'EExpensesListForm', @MasterForm = 'EAccountForm', @Index = 5
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Journal Vouchers', @ListForm = 'EJournalVouchersListForm', @MasterForm = NULL, @Index = 6
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Purchase Vouchers', @ListForm = NULL, @MasterForm = NULL, @Index = 7
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Sales Vouchers', @ListForm = NULL, @MasterForm = NULL, @Index = 8
@@ -23,7 +23,7 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = '
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Disbursement Vouchers', @ListForm = NULL, @MasterForm = NULL, @Index = 10
 
 --Report
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'General Ledger', @ListForm = NULL, @MasterForm = NULL, @Index = 0
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'General Ledger', @ListForm = 'EGeneralLedgerReportForm', @MasterForm = NULL, @Index = 0
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Subsidiary Ledger', @ListForm = NULL, @MasterForm = NULL, @Index = 1
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Trial Balance', @ListForm = NULL, @MasterForm = NULL, @Index = 2
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Income Statement', @ListForm = NULL, @MasterForm = NULL, @Index = 3

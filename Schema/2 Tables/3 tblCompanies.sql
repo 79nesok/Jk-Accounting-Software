@@ -4,6 +4,7 @@ IF OBJECT_ID('tblCompanies') IS NULL
 		Code VARCHAR(50) NOT NULL,
 		Name VARCHAR(100) NULL,
 		[Address] VARCHAR(250) NULL,
+		Logo IMAGE NULL,
 		Remarks VARCHAR(1000) NULL,
 		Active BIT NOT NULL CONSTRAINT DEF_tblCompanies_Active DEFAULT 1,
 		CreatedById INT NOT NULL,

@@ -40,7 +40,7 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(844, 529);
+            this.splitContainer.Size = new System.Drawing.Size(775, 366);
             // 
             // FormFooter
             // 
@@ -51,9 +51,9 @@
             this.FormFooter.Controls.Add(this.lblModifiedBy);
             this.FormFooter.Controls.Add(this.lblMode);
             this.FormFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FormFooter.Location = new System.Drawing.Point(0, 495);
+            this.FormFooter.Location = new System.Drawing.Point(0, 332);
             this.FormFooter.Name = "FormFooter";
-            this.FormFooter.Size = new System.Drawing.Size(844, 34);
+            this.FormFooter.Size = new System.Drawing.Size(775, 34);
             this.FormFooter.TabIndex = 4;
             // 
             // lblCreatedBy
@@ -86,7 +86,7 @@
             this.lblMode.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode.ForeColor = System.Drawing.Color.Black;
-            this.lblMode.Location = new System.Drawing.Point(736, 0);
+            this.lblMode.Location = new System.Drawing.Point(667, 0);
             this.lblMode.Name = "lblMode";
             this.lblMode.Padding = new System.Windows.Forms.Padding(5);
             this.lblMode.Size = new System.Drawing.Size(104, 25);
@@ -100,7 +100,7 @@
             this.Caption = "Master Form";
             this.Controls.Add(this.FormFooter);
             this.Name = "IMasterForm";
-            this.Size = new System.Drawing.Size(844, 529);
+            this.Size = new System.Drawing.Size(775, 366);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterForm_BeforeRun);
             this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterForm_BeforeSave);
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterForm_AfterRun);
@@ -117,10 +117,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblCreatedBy;
-        private System.Windows.Forms.Label lblModifiedBy;
-        private System.Windows.Forms.Label lblMode;
         private System.Windows.Forms.Panel FormFooter;
+        protected System.Windows.Forms.Label lblCreatedBy;
+        protected System.Windows.Forms.Label lblModifiedBy;
+        protected System.Windows.Forms.Label lblMode;
 
 
 

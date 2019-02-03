@@ -106,7 +106,7 @@ namespace Free_Accounting_Software.Internal.Forms
             if (VDataTable.Rows.Count > 0)
                 foreach (JkMasterColumn column in MasterColumns)
                 {
-                    column.Value = VDataTable.Rows[0][column.Name].ToString();
+                    column.Value = VDataTable.Rows[0][column.Name];
                     if (!String.IsNullOrWhiteSpace(column.ControlName))
                     {
                         IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), column.Value);
@@ -120,7 +120,7 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 if (!String.IsNullOrWhiteSpace(column.ControlName))
                 {
-                    IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), IAppHandler.ConvertDefaultValue(column.DefaultValue));
+                    IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), IAppHandler.ConvertMaskValue(column.DefaultValue));
                 }
             }
         }
@@ -330,7 +330,7 @@ namespace Free_Accounting_Software.Internal.Forms
                         if ((col.Name == "CreatedById" || col.Name == "DateCreated") && FormState == FormStates.fsEdit)
                             col.Value = col.Value;
                         else
-                            col.Value = IAppHandler.ConvertDefaultValue(col.DefaultValue);
+                            col.Value = IAppHandler.ConvertMaskValue(col.DefaultValue);
                     }
                 }
                 else

@@ -53,7 +53,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer.Size = new System.Drawing.Size(872, 481);
+            this.splitContainer.Size = new System.Drawing.Size(775, 481);
             // 
             // flowLayoutPanel1
             // 
@@ -70,7 +70,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(330, 419);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(330, 412);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // label1
@@ -79,7 +79,7 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(84, 25);
+            this.label1.Size = new System.Drawing.Size(84, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Code:";
             // 
@@ -88,87 +88,87 @@
             this.txtCode.Location = new System.Drawing.Point(90, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
-            this.txtCode.Size = new System.Drawing.Size(233, 22);
+            this.txtCode.Size = new System.Drawing.Size(233, 23);
             this.txtCode.TabIndex = 1;
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(0, 32);
+            this.label2.Location = new System.Drawing.Point(0, 33);
             this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label2.Size = new System.Drawing.Size(84, 25);
+            this.label2.Size = new System.Drawing.Size(84, 27);
             this.label2.TabIndex = 2;
             this.label2.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(90, 37);
+            this.txtName.Location = new System.Drawing.Point(90, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(233, 22);
+            this.txtName.Size = new System.Drawing.Size(233, 23);
             this.txtName.TabIndex = 2;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(0, 64);
+            this.label4.Location = new System.Drawing.Point(0, 66);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label4.Size = new System.Drawing.Size(84, 25);
+            this.label4.Size = new System.Drawing.Size(84, 27);
             this.label4.TabIndex = 7;
             this.label4.Text = "Address:";
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(90, 69);
+            this.txtAddress.Location = new System.Drawing.Point(90, 71);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(233, 90);
+            this.txtAddress.Size = new System.Drawing.Size(233, 96);
             this.txtAddress.TabIndex = 3;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(0, 164);
+            this.label3.Location = new System.Drawing.Point(0, 172);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label3.Size = new System.Drawing.Size(84, 25);
+            this.label3.Size = new System.Drawing.Size(84, 27);
             this.label3.TabIndex = 4;
             this.label3.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(90, 169);
+            this.txtRemarks.Location = new System.Drawing.Point(90, 177);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(233, 90);
+            this.txtRemarks.Size = new System.Drawing.Size(233, 96);
             this.txtRemarks.TabIndex = 4;
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(0, 264);
+            this.label5.Location = new System.Drawing.Point(0, 278);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label5.Size = new System.Drawing.Size(84, 25);
+            this.label5.Size = new System.Drawing.Size(84, 27);
             this.label5.TabIndex = 8;
             this.label5.Text = "Active:";
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(90, 269);
+            this.chkActive.Location = new System.Drawing.Point(90, 283);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
-            this.chkActive.Size = new System.Drawing.Size(15, 25);
+            this.chkActive.Size = new System.Drawing.Size(15, 27);
             this.chkActive.TabIndex = 5;
             this.chkActive.UseVisualStyleBackColor = true;
             // 
             // ESubsidiaryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Subsidiary";
             this.CommandText = "SELECT Id, CompanyId, SubsidiaryTypeId, Code, Name, [Address],\r\n\tRemarks, Active," +
@@ -188,7 +188,7 @@
             this.Name = "ESubsidiaryForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(872, 481);
+            this.Size = new System.Drawing.Size(775, 481);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ESubsidiaryForm_BeforeRun);
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();

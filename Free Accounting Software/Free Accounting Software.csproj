@@ -61,29 +61,77 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="External\Accounting\EAccountForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EAccountForm.Designer.cs">
+      <DependentUpon>EAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\EAssetsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EAssetsListForm.Designer.cs">
+      <DependentUpon>EAssetsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\EEquitiesListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EEquitiesListForm.Designer.cs">
+      <DependentUpon>EEquitiesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\EExpensesListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EExpensesListForm.Designer.cs">
+      <DependentUpon>EExpensesListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\EIncomeListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EIncomeListForm.Designer.cs">
+      <DependentUpon>EIncomeListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\EJournalVouchersListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="External\Accounting\EJournalVouchersListForm.Designer.cs">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Accounting\ELiabilitiesListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ELiabilitiesListForm.Designer.cs">
+      <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\EVoucherForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="External\Accounting\EVoucherForm.Designer.cs">
       <DependentUpon>EVoucherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Administration\ECompanyForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Administration\ECompanyForm.Designer.cs">
+      <DependentUpon>ECompanyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Maintenance\EEmployeesListForm.cs">
       <SubType>UserControl</SubType>
@@ -115,8 +163,24 @@
     <Compile Include="External\Maintenance\ESuppliersListForm.Designer.cs">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\EGeneralLedgerReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EGeneralLedgerReportForm.Designer.cs">
+      <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Classes\IImageHandler.cs" />
     <Compile Include="Internal\Classes\ISecurityHandler.cs" />
     <Compile Include="Internal\Classes\ISystemMessages.cs" />
+    <Compile Include="Internal\Datasources\GeneralLedgerDS.cs">
+      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Internal\Datasources\GeneralLedgerDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Internal\Forms\IConnectionProvider.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +220,12 @@
       <DependentUpon>IParentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Internal\Classes\IMessageHandler.cs" />
+    <Compile Include="Internal\Forms\IReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\Forms\IReportForm.Designer.cs">
+      <DependentUpon>IReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Internal\Forms\UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,11 +259,32 @@
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Testing\MainApplication.cs" />
+    <EmbeddedResource Include="External\Accounting\EAccountForm.resx">
+      <DependentUpon>EAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\EAssetsListForm.resx">
+      <DependentUpon>EAssetsListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\EEquitiesListForm.resx">
+      <DependentUpon>EEquitiesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\EExpensesListForm.resx">
+      <DependentUpon>EExpensesListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\EIncomeListForm.resx">
+      <DependentUpon>EIncomeListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EJournalVouchersListForm.resx">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ELiabilitiesListForm.resx">
+      <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EVoucherForm.resx">
       <DependentUpon>EVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Administration\ECompanyForm.resx">
+      <DependentUpon>ECompanyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\EEmployeesListForm.resx">
       <DependentUpon>EEmployeesListForm.cs</DependentUpon>
@@ -210,6 +301,10 @@
     <EmbeddedResource Include="External\Maintenance\ESuppliersListForm.resx">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\EGeneralLedgerReportForm.resx">
+      <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\General Ledger.rdlc" />
     <EmbeddedResource Include="Internal\Forms\IConnectionProvider.resx">
       <DependentUpon>IConnectionProvider.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\IParentForm.resx">
       <DependentUpon>IParentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\Forms\IReportForm.resx">
+      <DependentUpon>IReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>
@@ -252,6 +350,17 @@
     <EmbeddedResource Include="Internal\Forms\ITextPropertyEditor.resx">
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Internal\Datasources\GeneralLedgerDS.xsc">
+      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+    </None>
+    <None Include="Internal\Datasources\GeneralLedgerDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GeneralLedgerDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Internal\Datasources\GeneralLedgerDS.xss">
+      <DependentUpon>GeneralLedgerDS.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -288,10 +397,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="External\Administration\" />
-    <Folder Include="External\Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

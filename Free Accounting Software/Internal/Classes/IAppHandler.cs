@@ -102,7 +102,7 @@ namespace Free_Accounting_Software.Internal.Classes
 
         public static Object GetControlsValue(Control PControl)
         {
-            String result = "";
+            Object result = null;
 
             if (PControl.GetType().Name == "TextBox")
                 result = (PControl as TextBox).Text;
@@ -110,6 +110,8 @@ namespace Free_Accounting_Software.Internal.Classes
                 result = (PControl as CheckBox).Checked.ToString();
             else if (PControl.GetType().Name == "DateTimePicker")
                 result = (PControl as DateTimePicker).Value.ToString();
+            else if (PControl.GetType().Name == "PictureBox")
+                result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
 
             return result;
         }
@@ -122,9 +124,11 @@ namespace Free_Accounting_Software.Internal.Classes
                 (PControl as CheckBox).Checked = Convert.ToBoolean(PValue);
             else if (PControl.GetType().Name == "DateTimePicker")
                 (PControl as DateTimePicker).Value = new DateTime(Convert.ToDateTime(PValue).Year, Convert.ToDateTime(PValue).Month, Convert.ToDateTime(PValue).Day);
+            else if (PControl.GetType().Name == "PictureBox")
+                (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
         }
 
-        public static Object ConvertDefaultValue(Object PDefaultValue)
+        public static Object ConvertMaskValue(Object PDefaultValue)
         {
             Object value;
 

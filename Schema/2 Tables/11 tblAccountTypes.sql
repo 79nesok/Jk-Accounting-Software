@@ -1,0 +1,15 @@
+IF OBJECT_ID('tblAccountTypes') IS NULL
+	CREATE TABLE tblAccountTypes(
+		Id INT IDENTITY(1, 1) NOT NULL,
+		Code VARCHAR(50) NOT NULL,
+		Name VARCHAR(100) NULL,
+	)
+GO
+
+IF OBJECT_ID('tblAccountTypes_PK') IS NOT NULL
+	ALTER TABLE tblAccountTypes DROP CONSTRAINT tblAccountTypes_PK
+GO
+
+ALTER TABLE tblAccountTypes ADD CONSTRAINT tblAccountTypes_PK PRIMARY KEY(Id)
+GO
+

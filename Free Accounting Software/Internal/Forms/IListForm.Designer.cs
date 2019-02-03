@@ -44,7 +44,7 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.dataGridView);
             this.splitContainer.Panel2.Controls.Add(this.GridFooter);
-            this.splitContainer.Size = new System.Drawing.Size(844, 440);
+            this.splitContainer.Size = new System.Drawing.Size(775, 506);
             // 
             // GridFooter
             // 
@@ -52,9 +52,9 @@
             this.GridFooter.BackColor = System.Drawing.Color.Silver;
             this.GridFooter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GridFooter.Location = new System.Drawing.Point(0, 346);
+            this.GridFooter.Location = new System.Drawing.Point(0, 403);
             this.GridFooter.Name = "GridFooter";
-            this.GridFooter.Size = new System.Drawing.Size(844, 32);
+            this.GridFooter.Size = new System.Drawing.Size(775, 34);
             this.GridFooter.TabIndex = 0;
             this.GridFooter.WrapContents = false;
             // 
@@ -64,18 +64,18 @@
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(844, 346);
+            this.dataGridView.Size = new System.Drawing.Size(775, 403);
             this.dataGridView.TabIndex = 6;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView_ColumnWidthChanged);
             // 
             // IListForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "List Form";
             this.Name = "IListForm";
-            this.Size = new System.Drawing.Size(844, 440);
+            this.Size = new System.Drawing.Size(775, 506);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IListForm_BeforeRun);
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);

@@ -218,6 +218,13 @@ namespace Free_Accounting_Software.Internal.Forms
                     }
                 }
             }
+
+            protected override void UpdateControls()
+            {
+                base.UpdateControls();
+                btnNew.Enabled = !String.IsNullOrWhiteSpace(NewFormName);
+                btnOpen.Enabled = !String.IsNullOrWhiteSpace(OpenFormName) && dataGridView.Rows.Count > 0;
+            }
         #endregion
 
         #region Custom procedures and functions

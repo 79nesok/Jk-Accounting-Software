@@ -77,7 +77,7 @@ namespace Free_Accounting_Software.Internal.Classes
                                 VDataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, 0);
                             else
                             {
-                                VDataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, IAppHandler.ConvertDefaultValue(PParamList[i].Value));
+                                VDataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, IAppHandler.ConvertMaskValue(PParamList[i].Value));
                             }
                         }
                     }
@@ -149,7 +149,7 @@ namespace Free_Accounting_Software.Internal.Classes
 
         private void Edit(ref DataTable PDataTable, List<JkMasterColumn> PMasterColumn, List<JkFormParameter> PParams)
         {
-            DataRow row = PDataTable.Rows.Find(PParams[0].Value);
+            DataRow row = PDataTable.Rows.Find(IAppHandler.ConvertMaskValue(PParams[0].Value));
             SqlCommandBuilder CommandBuilder = new SqlCommandBuilder();
             try
             {
