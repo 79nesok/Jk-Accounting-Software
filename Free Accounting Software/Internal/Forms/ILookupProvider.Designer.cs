@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ILookupProvider));
             this.dstSecurityUsers = new JkComponents.JkDataSet();
             this.cnConnection = new JkComponents.JkConnection();
             this.dstSubsidiaryTypes = new JkComponents.JkDataSet();
             this.dstJournalTypes = new JkComponents.JkDataSet();
             this.dstAccountTypes = new JkComponents.JkDataSet();
+            this.dstSubsidiaries = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -94,11 +96,25 @@
             this.dstAccountTypes.Text = "jkDataSet3";
             this.dstAccountTypes.ZLoadColumns = false;
             // 
+            // dstSubsidiaries
+            // 
+            this.dstSubsidiaries.BackColor = System.Drawing.Color.Khaki;
+            this.dstSubsidiaries.CommandText = resources.GetString("dstSubsidiaries.CommandText");
+            this.dstSubsidiaries.Connection = this.cnConnection;
+            this.dstSubsidiaries.Location = new System.Drawing.Point(454, 4);
+            this.dstSubsidiaries.Name = "dstSubsidiaries";
+            this.dstSubsidiaries.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstSubsidiaries.Parameters"))));
+            this.dstSubsidiaries.Size = new System.Drawing.Size(77, 20);
+            this.dstSubsidiaries.TabIndex = 5;
+            this.dstSubsidiaries.Text = "jkDataSet1";
+            this.dstSubsidiaries.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstSubsidiaries);
             this.Controls.Add(this.dstAccountTypes);
             this.Controls.Add(this.cnConnection);
             this.Controls.Add(this.dstJournalTypes);
@@ -117,5 +133,6 @@
         public JkComponents.JkDataSet dstJournalTypes;
         private JkComponents.JkConnection cnConnection;
         public JkComponents.JkDataSet dstAccountTypes;
+        private JkComponents.JkDataSet dstSubsidiaries;
     }
 }

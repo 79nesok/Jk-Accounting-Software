@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Data;
 using Free_Accounting_Software.Internal.Forms;
 using System.Threading;
+using JkComponents;
 
 namespace Free_Accounting_Software.Internal.Classes
 {
@@ -112,6 +113,8 @@ namespace Free_Accounting_Software.Internal.Classes
                 result = (PControl as DateTimePicker).Value.ToString();
             else if (PControl.GetType().Name == "PictureBox")
                 result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
+            else if (PControl.GetType().Name == "JkLookUpComboBox")
+                result = (PControl as JkLookUpComboBox).SelectedKey;
 
             return result;
         }
@@ -126,6 +129,8 @@ namespace Free_Accounting_Software.Internal.Classes
                 (PControl as DateTimePicker).Value = new DateTime(Convert.ToDateTime(PValue).Year, Convert.ToDateTime(PValue).Month, Convert.ToDateTime(PValue).Day);
             else if (PControl.GetType().Name == "PictureBox")
                 (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
+            else if (PControl.GetType().Name == "JkLookUpComboBox")
+                (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
         }
 
         public static Object ConvertMaskValue(Object PDefaultValue)

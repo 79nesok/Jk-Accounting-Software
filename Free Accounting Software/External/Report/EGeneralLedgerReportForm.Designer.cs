@@ -37,6 +37,11 @@
             // reportViewer
             // 
             this.reportViewer.Size = new System.Drawing.Size(775, 249);
+            this.reportViewer.Drillthrough += new Microsoft.Reporting.WinForms.DrillthroughEventHandler(this.reportViewer_Drillthrough);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(667, 0);
             // 
             // splitContainer
             // 

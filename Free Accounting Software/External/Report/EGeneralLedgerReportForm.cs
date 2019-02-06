@@ -8,8 +8,10 @@ using System.Windows.Forms;
 using Free_Accounting_Software.Internal.Forms;
 using Free_Accounting_Software.Internal.Classes;
 using Free_Accounting_Software.External.Datasources;
-using Free_Accounting_Software.External.Datasources.GeneralLedgerDSTableAdapters;
+using Free_Accounting_Software.External.Datasources.EGeneralLedgerReportDSTableAdapters;
 using Microsoft.Reporting.WinForms;
+
+using Free_Accounting_Software.External.Datasources.EJournalReportDSTableAdapters;
 
 namespace Free_Accounting_Software.External.Report
 {
@@ -52,13 +54,27 @@ namespace Free_Accounting_Software.External.Report
             tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
 
             GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, ISecurityHandler.CompanyId);
-            CompanyAdapter.Fill(glDataSource.tblCompanies);
+            CompanyAdapter.Fill(glDataSource.tblCompanies, ISecurityHandler.CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = "../../External/Report/General Ledger.rdlc";
+
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GeneralLedger", glDataSource.Tables["tblGeneralLedger"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", glDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
+        }
+
+        private void reportViewer_Drillthrough(object sender, DrillthroughEventArgs e)
+        {
+            EJournalReportDS jDataSource = new EJournalReportDS();
+            tblJournalsTableAdapter JournalAdapter = new tblJournalsTableAdapter();
+            tblCompaniesJournalTableAdapter CompanyAdapter = new tblCompaniesJournalTableAdapter();
+
+            JournalAdapter.Fill(jDataSource.tblJournals, ISecurityHandler.CompanyId, DateTime.Now);
+            CompanyAdapter.Fill(jDataSource.tblCompaniesJournal);
+
+            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Journal", jDataSource.Tables[0]));
+            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", jDataSource.Tables[1]));
         }
     }
 }

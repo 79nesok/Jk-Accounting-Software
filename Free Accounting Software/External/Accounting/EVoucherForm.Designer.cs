@@ -37,7 +37,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbSubsidiary = new System.Windows.Forms.ComboBox();
+            this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
@@ -47,13 +47,17 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(667, 0);
+            // 
             // splitContainer
             // 
             // 
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(844, 280);
+            this.splitContainer.Size = new System.Drawing.Size(775, 481);
             // 
             // flowLayoutPanel2
             // 
@@ -70,7 +74,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 211);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 412);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // label6
@@ -141,10 +145,17 @@
             // 
             // cmbSubsidiary
             // 
+            this.cmbSubsidiary.DataSet = "dstSubsidiaries";
+            this.cmbSubsidiary.DisplayText = "NameWithType";
+            this.cmbSubsidiary.DropDownHeight = 200;
+            this.cmbSubsidiary.DropDownWidth = 300;
             this.cmbSubsidiary.FormattingEnabled = true;
+            this.cmbSubsidiary.IntegralHeight = false;
+            this.cmbSubsidiary.Key = "Id";
             this.cmbSubsidiary.Location = new System.Drawing.Point(116, 104);
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
+            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(205, 23);
             this.cmbSubsidiary.TabIndex = 10;
             // 
@@ -190,7 +201,7 @@
             this.Name = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(844, 280);
+            this.Size = new System.Drawing.Size(775, 481);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
@@ -213,7 +224,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbSubsidiary;
+        private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtRemarks;
     }

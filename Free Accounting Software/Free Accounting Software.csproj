@@ -134,6 +134,24 @@
     <Compile Include="External\Administration\ECompanyForm.Designer.cs">
       <DependentUpon>ECompanyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EGeneralLedgerReportDS.cs">
+      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EGeneralLedgerReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\EJournalReportDS.cs">
+      <DependentUpon>EJournalReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EJournalReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EJournalReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Maintenance\EEmployeesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,15 +191,6 @@
     <Compile Include="Internal\Classes\IImageHandler.cs" />
     <Compile Include="Internal\Classes\ISecurityHandler.cs" />
     <Compile Include="Internal\Classes\ISystemMessages.cs" />
-    <Compile Include="External\Datasources\EGeneralLedgerReportDS.cs">
-      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="External\Datasources\EGeneralLedgerReportDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Internal\Forms\IConnectionProvider.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +315,7 @@
       <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\General Ledger.rdlc" />
+    <EmbeddedResource Include="External\Report\Journal.rdlc" />
     <EmbeddedResource Include="Internal\Forms\IConnectionProvider.resx">
       <DependentUpon>IConnectionProvider.cs</DependentUpon>
     </EmbeddedResource>
@@ -361,6 +371,17 @@
     </None>
     <None Include="External\Datasources\EGeneralLedgerReportDS.xss">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EJournalReportDS.xsc">
+      <DependentUpon>EJournalReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EJournalReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EJournalReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EJournalReportDS.xss">
+      <DependentUpon>EJournalReportDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -92,7 +92,7 @@ namespace Free_Accounting_Software.Internal.Forms
 
         #region Variable Declarations
             public ITransactionHandler VTransactionHandler = new ITransactionHandler();
-            public ILookupProvider VLookupProvider = new ILookupProvider(); 
+            public ILookupProvider VLookupProvider; 
             public DataTable VDataTable = new DataTable();
             public Color VGridAlternateRowColor = Color.FromArgb(180, 255, 200);
         #endregion
@@ -100,6 +100,7 @@ namespace Free_Accounting_Software.Internal.Forms
         #region Built-in Events
             public IParentForm()
             {
+                VLookupProvider = new ILookupProvider();
                 InitializeComponent();
                 this.Hide();
                 this.Dock = DockStyle.Fill;
@@ -191,9 +192,14 @@ namespace Free_Accounting_Software.Internal.Forms
                         c.GetType().Name == "ComboBox" ||
                         c.GetType().Name == "DateTimePicker" ||
                         c.GetType().Name == "PictureBox" ||
-                        c.GetType().Name == "LinkLabel")
+                        c.GetType().Name == "LinkLabel" ||
+                        c.GetType().Name == "JkLookUpComboBox")
                     {
                         c.Enabled = (FormState != FormStates.fsView);
+                    }
+                    if (c.GetType().Name == "JkLookUpComboBox")
+                    {
+                        (c as JkLookUpComboBox).LoadData();
                     }
                     ProcessControls(c);
                 }
