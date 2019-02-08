@@ -115,6 +115,8 @@ namespace Free_Accounting_Software.Internal.Classes
                 result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
             else if (PControl.GetType().Name == "JkLookUpComboBox")
                 result = (PControl as JkLookUpComboBox).SelectedKey;
+            else if (PControl.GetType().Name == "JkTextBox")
+                result = (PControl as JkTextBox).Text;
 
             return result;
         }
@@ -131,13 +133,29 @@ namespace Free_Accounting_Software.Internal.Classes
                 (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
             else if (PControl.GetType().Name == "JkLookUpComboBox")
                 (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
+            else if (PControl.GetType().Name == "JkTextBox")
+                (PControl as JkTextBox).Text = Convert.ToString(PValue);
+        }
+
+        public static void ClearControlsValue(Control PControl)
+        {
+            if (PControl.GetType().Name == "TextBox")
+                (PControl as TextBox).Text = String.Empty;
+            else if (PControl.GetType().Name == "CheckBox")
+                (PControl as CheckBox).Checked = false;
+            else if (PControl.GetType().Name == "PictureBox")
+                (PControl as PictureBox).Image = null;
+            else if (PControl.GetType().Name == "JkLookUpComboBox")
+                    (PControl as JkLookUpComboBox).Text = String.Empty;
+            else if (PControl.GetType().Name == "JkTextBox")
+                (PControl as JkTextBox).Text = String.Empty;
         }
 
         public static Object ConvertMaskValue(Object PDefaultValue)
         {
             Object value;
 
-            if (PDefaultValue == null)
+            if (String.IsNullOrWhiteSpace(Convert.ToString(PDefaultValue)))
                 return null;
 
             switch (PDefaultValue.ToString())

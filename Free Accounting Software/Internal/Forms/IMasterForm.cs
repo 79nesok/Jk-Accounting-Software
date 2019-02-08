@@ -69,6 +69,7 @@ namespace Free_Accounting_Software.Internal.Forms
 
         #region Variable Declarations
         public List<String> KeyList;
+        private bool ValidationFails;
         #endregion
 
         public IMasterForm()
@@ -116,11 +117,39 @@ namespace Free_Accounting_Software.Internal.Forms
 
         public void AssignControlsDefaultValue()
         {
+            Control control;
+
             foreach (JkMasterColumn column in MasterColumns)
             {
                 if (!String.IsNullOrWhiteSpace(column.ControlName))
                 {
-                    IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), IAppHandler.ConvertMaskValue(column.DefaultValue));
+                    control = Controls.Find(column.ControlName, true).First();
+
+                    if (String.IsNullOrWhiteSpace(column.DefaultValue))
+                        IAppHandler.ClearControlsValue(control);
+                    else
+                        IAppHandler.SetControlsValue(control, IAppHandler.ConvertMaskValue(column.DefaultValue));
+                }
+            }
+        }
+
+        public void SetRequiredControls()
+        {
+            Control control;
+
+            foreach (JkMasterColumn column in MasterColumns)
+            {
+                if (!String.IsNullOrWhiteSpace(column.ControlName))
+                {
+                    control = Controls.Find(column.ControlName, true).First();
+
+                    if (control.GetType().Name == "JkTextBox")
+                    {
+                        if (FormState == FormStates.fsView)
+                            (control as JkTextBox).Required = false;
+                        else
+                            (control as JkTextBox).Required = column.Required;
+                    }
                 }
             }
         }
@@ -159,11 +188,14 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 if (IMessageHandler.Confirm(ISystemMessages.SavingQuestion) == DialogResult.Yes)
                 {
+                    
+                    this.splitContainer.Panel2.Focus();
+                    OnValidateSave();
+                    if (ValidationFails)
+                        return;
                     try
                     {
                         IAppHandler.StartBusy("Executing Save");
-                        this.splitContainer.Panel2.Focus();
-                        OnValidateSave();
                         OnBeforeSave();
                         VTransactionHandler.SaveData(ref VDataTable, MasterColumns, Parameters, FormState);
                         if (FormState == FormStates.fsNew)
@@ -346,9 +378,15 @@ namespace Free_Accounting_Software.Internal.Forms
         private void IMasterForm_BeforeRun()
         {
             if (FormState == FormStates.fsNew)
+            {
                 AssignControlsDefaultValue();
+                SetRequiredControls();
+            }
             else
+            {
+                SetRequiredControls();
                 AssignValuesToControls();
+            }
         }
 
         protected override void UpdateControls()
@@ -377,6 +415,26 @@ namespace Free_Accounting_Software.Internal.Forms
         {
             SetColumnsValue();
         }
-        #endregion    
+
+        private void IMasterForm_ValidateSave()
+        {
+            ValidationFails = false;
+            Object value = null;
+
+            foreach (JkMasterColumn column in MasterColumns)
+            {
+                if (!String.IsNullOrWhiteSpace(column.ControlName) && column.Required)
+                {
+                    value = IAppHandler.GetControlsValue(Controls.Find(column.ControlName, true).First());
+
+                    if (String.IsNullOrWhiteSpace(Convert.ToString(value)))
+                    {
+                        IMessageHandler.Inform(ISystemMessages.FillRequiredFieldMessage);
+                        ValidationFails = true;
+                    }
+                }
+            }
+        }
+        #endregion
     }
 }

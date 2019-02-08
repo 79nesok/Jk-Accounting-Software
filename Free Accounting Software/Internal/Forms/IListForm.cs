@@ -184,10 +184,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                 dataGridView.AllowUserToOrderColumns = true;
 
-                btnOpen.Click += (obj, e) =>
-                {
-                    OnOpenForm(null, btnOpen);
-                };
                 btnNew.Click += (obj, e) =>
                 {
                     OnOpenForm(null, btnNew);
@@ -223,7 +219,6 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 base.UpdateControls();
                 btnNew.Enabled = !String.IsNullOrWhiteSpace(NewFormName);
-                btnOpen.Enabled = !String.IsNullOrWhiteSpace(OpenFormName) && dataGridView.Rows.Count > 0;
             }
         #endregion
 

@@ -47,7 +47,6 @@
             this.btnLastRecord = new System.Windows.Forms.ToolStripButton();
             this.btnHolder = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
-            this.btnOpen = new System.Windows.Forms.ToolStripButton();
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
@@ -258,14 +257,13 @@
             this.btnHolder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHolder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnNew,
-            this.btnOpen,
             this.btnEdit,
             this.btnSave,
             this.btnCancel});
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(280, 26);
+            this.btnHolder.Size = new System.Drawing.Size(172, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -275,26 +273,17 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(51, 23);
-            this.btnNew.Text = "&New";
+            this.btnNew.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnNew.Size = new System.Drawing.Size(40, 23);
             this.btnNew.ToolTipText = "Create new transaction (Alt+N)";
-            // 
-            // btnOpen
-            // 
-            this.btnOpen.Image = ((System.Drawing.Image)(resources.GetObject("btnOpen.Image")));
-            this.btnOpen.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(56, 23);
-            this.btnOpen.Text = "&Open";
-            this.btnOpen.ToolTipText = "Open the details of transaction (Alt+O)";
             // 
             // btnEdit
             // 
             this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(47, 23);
-            this.btnEdit.Text = "&Edit";
+            this.btnEdit.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnEdit.Size = new System.Drawing.Size(40, 23);
             this.btnEdit.ToolTipText = "Modify the transaction (Alt+E)";
             // 
             // btnSave
@@ -302,8 +291,8 @@
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(51, 23);
-            this.btnSave.Text = "&Save";
+            this.btnSave.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnSave.Size = new System.Drawing.Size(40, 23);
             this.btnSave.ToolTipText = "Save the transaction (Alt+S)";
             // 
             // btnCancel
@@ -311,8 +300,8 @@
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(63, 23);
-            this.btnCancel.Text = "&Cancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.btnCancel.Size = new System.Drawing.Size(40, 23);
             this.btnCancel.ToolTipText = "Cancel the current transaction (Alt+C)";
             // 
             // IParentForm
@@ -362,7 +351,6 @@
         protected System.Windows.Forms.ToolStripButton btnLastRecord;
         protected System.Windows.Forms.ToolStrip btnHolder;
         protected System.Windows.Forms.ToolStripButton btnNew;
-        protected System.Windows.Forms.ToolStripButton btnOpen;
         protected System.Windows.Forms.ToolStripButton btnEdit;
         protected System.Windows.Forms.ToolStripButton btnSave;
         protected System.Windows.Forms.ToolStripButton btnCancel;

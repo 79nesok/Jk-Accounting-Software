@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EVoucherForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtTransactionNo = new System.Windows.Forms.TextBox();
+            this.txtTransactionNo = new JkComponents.JkTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtReferenceNo = new System.Windows.Forms.TextBox();
+            this.txtReferenceNo = new JkComponents.JkTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new JkComponents.JkTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
@@ -89,9 +89,11 @@
             // 
             // txtTransactionNo
             // 
+            this.txtTransactionNo.BackColor = System.Drawing.SystemColors.Control;
             this.txtTransactionNo.Location = new System.Drawing.Point(116, 5);
             this.txtTransactionNo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtTransactionNo.Name = "txtTransactionNo";
+            this.txtTransactionNo.ReadOnly = true;
             this.txtTransactionNo.Size = new System.Drawing.Size(205, 23);
             this.txtTransactionNo.TabIndex = 1;
             // 
@@ -146,7 +148,7 @@
             // cmbSubsidiary
             // 
             this.cmbSubsidiary.DataSet = "dstSubsidiaries";
-            this.cmbSubsidiary.DisplayText = "NameWithType";
+            this.cmbSubsidiary.DisplayText = "Name";
             this.cmbSubsidiary.DropDownHeight = 200;
             this.cmbSubsidiary.DropDownWidth = 300;
             this.cmbSubsidiary.FormattingEnabled = true;
@@ -161,7 +163,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(0, 132);
+            this.label9.Location = new System.Drawing.Point(0, 130);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -171,7 +173,7 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(116, 137);
+            this.txtRemarks.Location = new System.Drawing.Point(116, 135);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -218,14 +220,14 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtTransactionNo;
+        private JkComponents.JkTextBox txtTransactionNo;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtReferenceNo;
+        private JkComponents.JkTextBox txtReferenceNo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker datePicker;
         private System.Windows.Forms.Label label1;
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtRemarks;
+        private JkComponents.JkTextBox txtRemarks;
     }
 }

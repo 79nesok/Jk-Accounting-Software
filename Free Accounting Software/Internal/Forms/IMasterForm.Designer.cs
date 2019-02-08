@@ -102,6 +102,7 @@
             this.Name = "IMasterForm";
             this.Size = new System.Drawing.Size(775, 409);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterForm_BeforeRun);
+            this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.IMasterForm_ValidateSave);
             this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterForm_BeforeSave);
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterForm_AfterRun);
             this.Controls.SetChildIndex(this.splitContainer, 0);

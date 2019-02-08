@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECompanyForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
+            this.txtCode = new JkComponents.JkTextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtName = new JkComponents.JkTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtAddress = new JkComponents.JkTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new JkComponents.JkTextBox();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.lblLink = new System.Windows.Forms.LinkLabel();
             this.logoBox = new System.Windows.Forms.PictureBox();
@@ -230,13 +230,13 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtCode;
+        private JkComponents.JkTextBox txtCode;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtName;
+        private JkComponents.JkTextBox txtName;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtAddress;
+        private JkComponents.JkTextBox txtAddress;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtRemarks;
+        private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox logoBox;
         private System.Windows.Forms.OpenFileDialog openFileDialog;

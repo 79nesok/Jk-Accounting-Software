@@ -37,6 +37,7 @@ namespace Free_Accounting_Software.Internal.Classes
             "Name: Jake A. Oandasan" + "\r" +
             "Country: Philippines" + "\r" +
             "E-mail: jake.oandasan@yahoo.com";
-        public static String TestConnectionSuccess = "Test connection succeded.";
+        public const String TestConnectionSuccess = "Test connection succeded.";
+        public const String FillRequiredFieldMessage = "Please fill up all required fields.";
     }
 }

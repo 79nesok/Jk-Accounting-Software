@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESubsidiaryForm));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtCode = new System.Windows.Forms.TextBox();
+            this.txtCode = new JkComponents.JkTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtName = new JkComponents.JkTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtAddress = new System.Windows.Forms.TextBox();
+            this.txtAddress = new JkComponents.JkTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.txtRemarks = new JkComponents.JkTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.chkActive = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
@@ -47,13 +47,17 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(667, 0);
+            // 
             // splitContainer
             // 
             // 
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel1);
-            this.splitContainer.Size = new System.Drawing.Size(775, 481);
+            this.splitContainer.Size = new System.Drawing.Size(775, 250);
             // 
             // flowLayoutPanel1
             // 
@@ -70,7 +74,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(330, 412);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(330, 181);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // label1
@@ -85,9 +89,11 @@
             // 
             // txtCode
             // 
+            this.txtCode.ForeColor = System.Drawing.SystemColors.WindowText;
             this.txtCode.Location = new System.Drawing.Point(90, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
+            this.txtCode.Required = false;
             this.txtCode.Size = new System.Drawing.Size(233, 23);
             this.txtCode.TabIndex = 1;
             // 
@@ -188,7 +194,7 @@
             this.Name = "ESubsidiaryForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(775, 481);
+            this.Size = new System.Drawing.Size(775, 250);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ESubsidiaryForm_BeforeRun);
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
@@ -205,13 +211,13 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCode;
+        private JkComponents.JkTextBox txtCode;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtName;
+        private JkComponents.JkTextBox txtName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtAddress;
+        private JkComponents.JkTextBox txtAddress;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtRemarks;
+        private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.CheckBox chkActive;
         private System.Windows.Forms.Label label5;
     }

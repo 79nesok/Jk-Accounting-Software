@@ -168,8 +168,6 @@ namespace Free_Accounting_Software.Internal.Forms
             protected virtual void UpdateControls()
             {
                 btnNew.Visible = (FormState == FormStates.fsView);
-                btnOpen.Visible = (FormState == FormStates.fsView) && (!IsMasterForm());
-                btnOpen.Enabled = VDataTable.Rows.Count > 0;
                 btnEdit.Visible = (FormState == FormStates.fsView) && (IsMasterForm()); ;
                 btnSave.Visible = (FormState != FormStates.fsView);
                 btnCancel.Visible = (FormState != FormStates.fsView);
@@ -193,10 +191,12 @@ namespace Free_Accounting_Software.Internal.Forms
                         c.GetType().Name == "DateTimePicker" ||
                         c.GetType().Name == "PictureBox" ||
                         c.GetType().Name == "LinkLabel" ||
-                        c.GetType().Name == "JkLookUpComboBox")
+                        c.GetType().Name == "JkLookUpComboBox" ||
+                        c.GetType().Name == "JkTextBox")
                     {
                         c.Enabled = (FormState != FormStates.fsView);
                     }
+
                     if (c.GetType().Name == "JkLookUpComboBox")
                     {
                         (c as JkLookUpComboBox).LoadData();
