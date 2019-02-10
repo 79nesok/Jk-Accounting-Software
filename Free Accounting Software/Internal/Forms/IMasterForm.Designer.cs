@@ -40,7 +40,7 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(775, 409);
+            this.splitContainer.Size = new System.Drawing.Size(789, 434);
             // 
             // FormFooter
             // 
@@ -51,9 +51,9 @@
             this.FormFooter.Controls.Add(this.lblModifiedBy);
             this.FormFooter.Controls.Add(this.lblMode);
             this.FormFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FormFooter.Location = new System.Drawing.Point(0, 375);
+            this.FormFooter.Location = new System.Drawing.Point(0, 400);
             this.FormFooter.Name = "FormFooter";
-            this.FormFooter.Size = new System.Drawing.Size(775, 34);
+            this.FormFooter.Size = new System.Drawing.Size(789, 34);
             this.FormFooter.TabIndex = 4;
             // 
             // lblCreatedBy
@@ -86,7 +86,7 @@
             this.lblMode.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode.ForeColor = System.Drawing.Color.Black;
-            this.lblMode.Location = new System.Drawing.Point(667, 0);
+            this.lblMode.Location = new System.Drawing.Point(681, 0);
             this.lblMode.Name = "lblMode";
             this.lblMode.Padding = new System.Windows.Forms.Padding(5);
             this.lblMode.Size = new System.Drawing.Size(104, 25);
@@ -100,10 +100,11 @@
             this.Caption = "Master Form";
             this.Controls.Add(this.FormFooter);
             this.Name = "IMasterForm";
-            this.Size = new System.Drawing.Size(775, 409);
+            this.Size = new System.Drawing.Size(789, 434);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterForm_BeforeRun);
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.IMasterForm_ValidateSave);
             this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterForm_BeforeSave);
+            this.AfterSave += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterSaveHandler(this.IMasterForm_AfterSave);
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterForm_AfterRun);
             this.Controls.SetChildIndex(this.splitContainer, 0);
             this.Controls.SetChildIndex(this.FormFooter, 0);

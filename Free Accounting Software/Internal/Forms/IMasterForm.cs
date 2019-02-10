@@ -372,21 +372,39 @@ namespace Free_Accounting_Software.Internal.Forms
             }
             return;
         }
+
+        private void InitSeriesProviders()
+        {
+            if (FormState == FormStates.fsNew)
+            {
+                foreach (Control control in IAppHandler.FindControlByType("JkSeriesProvider", this))
+                {
+                    JkSeriesProvider series = (control as JkSeriesProvider);
+
+                    series.ConnectionString = Properties.Settings.Default.FreeAccountingSoftwareConnectionString;
+                    series.CompanyId = ISecurityHandler.CompanyId.ToString();
+                    series.GetSeries();
+
+                    foreach(JkMasterColumn column in MasterColumns)
+                    {
+                        if (column.Name == series.TransactionColumn && !String.IsNullOrWhiteSpace(column.ControlName))
+                        {
+                            IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), series.Value);
+                        }
+                    }
+                }
+            }
+        }
+
         #endregion
 
         #region Built-in Events
         private void IMasterForm_BeforeRun()
         {
             if (FormState == FormStates.fsNew)
-            {
                 AssignControlsDefaultValue();
-                SetRequiredControls();
-            }
             else
-            {
-                SetRequiredControls();
                 AssignValuesToControls();
-            }
         }
 
         protected override void UpdateControls()
@@ -408,11 +426,15 @@ namespace Free_Accounting_Software.Internal.Forms
 
         private void IMasterForm_AfterRun()
         {
+            InitSeriesProviders();
+            SetRequiredControls();
             SetFormFooter();
         }
 
         private void IMasterForm_BeforeSave()
         {
+            //re-update series number before saving
+            InitSeriesProviders();
             SetColumnsValue();
         }
 
@@ -435,6 +457,16 @@ namespace Free_Accounting_Software.Internal.Forms
                 }
             }
         }
+
+        private void IMasterForm_AfterSave()
+        {
+            if (FormState == FormStates.fsNew)
+                foreach (JkSeriesProvider series in IAppHandler.FindControlByType("JkSeriesProvider", this))
+                {
+                    series.UpdateSeries();
+                }
+        }
+
         #endregion
     }
 }

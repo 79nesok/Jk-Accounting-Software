@@ -40,6 +40,7 @@
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
+            this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
@@ -49,15 +50,16 @@
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(667, 0);
+            this.lblMode.Location = new System.Drawing.Point(681, 0);
             // 
             // splitContainer
             // 
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.jkSeriesProvider1);
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(775, 481);
+            this.splitContainer.Size = new System.Drawing.Size(789, 35);
             // 
             // flowLayoutPanel2
             // 
@@ -74,7 +76,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 412);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 221);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // label6
@@ -94,6 +96,7 @@
             this.txtTransactionNo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtTransactionNo.Name = "txtTransactionNo";
             this.txtTransactionNo.ReadOnly = true;
+            this.txtTransactionNo.Required = false;
             this.txtTransactionNo.Size = new System.Drawing.Size(205, 23);
             this.txtTransactionNo.TabIndex = 1;
             // 
@@ -112,6 +115,7 @@
             this.txtReferenceNo.Location = new System.Drawing.Point(116, 38);
             this.txtReferenceNo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtReferenceNo.Name = "txtReferenceNo";
+            this.txtReferenceNo.Required = false;
             this.txtReferenceNo.Size = new System.Drawing.Size(205, 23);
             this.txtReferenceNo.TabIndex = 2;
             // 
@@ -163,7 +167,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(0, 130);
+            this.label9.Location = new System.Drawing.Point(0, 132);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -173,12 +177,27 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(116, 135);
+            this.txtRemarks.Location = new System.Drawing.Point(116, 137);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Required = false;
             this.txtRemarks.Size = new System.Drawing.Size(205, 96);
             this.txtRemarks.TabIndex = 12;
+            // 
+            // jkSeriesProvider1
+            // 
+            this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
+            this.jkSeriesProvider1.Code = "JV";
+            this.jkSeriesProvider1.CompanyId = "@CompanyId";
+            this.jkSeriesProvider1.ConnectionString = "test";
+            this.jkSeriesProvider1.Location = new System.Drawing.Point(448, 66);
+            this.jkSeriesProvider1.Name = "jkSeriesProvider1";
+            this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
+            this.jkSeriesProvider1.TabIndex = 14;
+            this.jkSeriesProvider1.Text = "jkSeriesProvider1";
+            this.jkSeriesProvider1.TransactionColumn = "TransactionNo";
+            this.jkSeriesProvider1.Value = null;
             // 
             // EVoucherForm
             // 
@@ -203,7 +222,7 @@
             this.Name = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(775, 481);
+            this.Size = new System.Drawing.Size(789, 35);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
             ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
@@ -229,5 +248,6 @@
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
         private JkComponents.JkTextBox txtRemarks;
+        private JkComponents.JkSeriesProvider jkSeriesProvider1;
     }
 }

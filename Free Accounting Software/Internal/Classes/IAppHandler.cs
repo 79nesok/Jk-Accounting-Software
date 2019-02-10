@@ -216,5 +216,21 @@ namespace Free_Accounting_Software.Internal.Classes
 
             return value;
         }
+
+        public static List<Control> FindControlByType(String type, Control start)
+        {
+            List<Control> list = new List<Control>();
+
+            foreach (Control control in start.Controls)
+            {
+                if (control.GetType().Name == type && list.Find(l => (l as Control).Name == control.Name) == null)
+                    list.Add(control);
+
+                foreach (Control c in FindControlByType(type, control))
+                    list.Add(c);
+            }
+
+            return list;
+        }
     }
 }
