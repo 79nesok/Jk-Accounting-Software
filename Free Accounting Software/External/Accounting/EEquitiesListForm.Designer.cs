@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EEquitiesListForm));
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
@@ -57,7 +57,7 @@
             this.Size = new System.Drawing.Size(775, 318);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);

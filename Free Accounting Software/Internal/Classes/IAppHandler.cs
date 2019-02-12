@@ -108,7 +108,7 @@ namespace Free_Accounting_Software.Internal.Classes
             if (PControl.GetType().Name == "TextBox")
                 result = (PControl as TextBox).Text;
             else if (PControl.GetType().Name == "CheckBox")
-                result = (PControl as CheckBox).Checked.ToString();
+                result = (PControl as CheckBox).Checked;
             else if (PControl.GetType().Name == "DateTimePicker")
                 result = (PControl as DateTimePicker).Value.ToString();
             else if (PControl.GetType().Name == "PictureBox")

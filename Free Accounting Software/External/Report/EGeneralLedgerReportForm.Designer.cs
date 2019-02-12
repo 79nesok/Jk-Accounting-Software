@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -53,7 +53,7 @@
             this.Name = "EGeneralLedgerReportForm";
             this.Size = new System.Drawing.Size(775, 318);
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EGeneralLedgerReportForm_AfterRun);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);

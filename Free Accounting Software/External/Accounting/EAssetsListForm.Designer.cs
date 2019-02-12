@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EAssetsListForm));
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(775, 318);
+            this.splitContainer.Size = new System.Drawing.Size(789, 290);
             // 
             // EAssetsListForm
             // 
@@ -54,10 +54,10 @@
             this.OpenFormName = "EAccountForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(775, 318);
+            this.Size = new System.Drawing.Size(789, 290);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.ResumeLayout(false);

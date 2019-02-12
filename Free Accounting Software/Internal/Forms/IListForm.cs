@@ -85,7 +85,6 @@ namespace Free_Accounting_Software.Internal.Forms
 
             private bool _GridAutoSize = true;
             [Category("(Custom)")]
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
             public bool GridAutoSize { get { return _GridAutoSize; }
                 set
                 {
@@ -196,7 +195,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 ComputeFooterValues();
                 
                 if(dataGridView.DataSource == null)
-                    dataGridView.DataSource = VDataTable;
+                    dataGridView.DataSource = VMasterDataTable;
             }
 
             private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -395,7 +394,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (ic.Visible && ic.FooterType != JkColumn.ColumnFooterTypes.ftNone) 
                     {
                         if (ic.FooterType == JkColumn.ColumnFooterTypes.ftCount)
-                            value = VDataTable.Rows.Count.ToString();
+                            value = VMasterDataTable.Rows.Count.ToString();
                         //todo: other footer types
 
                         foreach (Control c in GridFooter.Controls)

@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using JkComponents;
 using Free_Accounting_Software.Internal.Forms;
+using System.Data.SqlTypes;
 
 namespace Free_Accounting_Software.Internal.Classes
 {
@@ -12,34 +13,32 @@ namespace Free_Accounting_Software.Internal.Classes
         private string VConnectionString { get { return Properties.Settings.Default.FreeAccountingSoftwareConnectionString; } }
 
         private SqlConnection VConnection;
-        private SqlDataAdapter VDataAdapter;
         private SqlTransaction VTransaction;
         private DataSet VDataset = new DataSet();
-        private String VTableName = null;
 
-        private void Connect()
+        public void Connect()
         {
             VConnection = new SqlConnection(VConnectionString);
             VConnection.Open();
         }
 
-        private void Disconnect()
+        public void Disconnect()
         {
             if (VConnection.State == ConnectionState.Open)
                 VConnection.Close();
         }
 
-        private void BeginTran()
+        public void BeginTran()
         {
             VTransaction = VConnection.BeginTransaction();
         }
 
-        private void CommitTran()
+        public void CommitTran()
         {
             VTransaction.Commit();
         }
 
-        private void Rollback()
+        public void Rollback()
         {
             VTransaction.Rollback();
         }
@@ -54,35 +53,60 @@ namespace Free_Accounting_Software.Internal.Classes
                     result = PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 4, PCommandText.IndexOf("WHERE", 0) - PCommandText.IndexOf("FROM", 0) - 5).Trim();
                 else
                     result = PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 4, PCommandText.Length - PCommandText.IndexOf("FROM", 0) - 4).Trim();
-
-                VTableName = result;
             }
 
             return result;
         }
 
+        private SqlCommand GetInsertCommand(String PCommandText, List<JkFormParameter> PParams)
+        {
+            SqlCommand Command = new SqlCommand();
+            SqlDataAdapter Adapter = new SqlDataAdapter(PCommandText, VConnectionString);
+            SqlCommandBuilder CommandBuilder = new SqlCommandBuilder();
+
+            if (PParams != null)
+            {
+                for (int i = 0; i <= PParams.Count - 1; i++)
+                {
+                    if (String.IsNullOrWhiteSpace(PParams[i].Value))
+                        Adapter.SelectCommand.Parameters.AddWithValue("@" + PParams[i].Name, 0);
+                    else
+                    {
+                        Adapter.SelectCommand.Parameters.AddWithValue("@" + PParams[i].Name, IAppHandler.ConvertMaskValue(PParams[i].Value));
+                    }
+                }
+            }
+
+            CommandBuilder.DataAdapter = Adapter;
+            Command = CommandBuilder.GetInsertCommand();
+
+            return Command;
+        }
+
         public void LoadData(String PCommandText, ref DataTable PDataTable, List<JkFormParameter> PParamList, String CustomConnectionString = null)
         {
+            SqlDataAdapter DataAdapter = new SqlDataAdapter(PCommandText, CustomConnectionString ?? VConnectionString);
+            String TableName = ExtractTableName(PCommandText);
+
             try
             {
                 try
                 {
-                    VDataAdapter = new SqlDataAdapter(PCommandText, CustomConnectionString ?? VConnectionString);
                     if(PParamList != null)
                     {
                         for (int i = 0; i <= PParamList.Count - 1; i++)
                         {
                             if (String.IsNullOrWhiteSpace(PParamList[i].Value))
-                                VDataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, 0);
+                                DataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, 0);
                             else
                             {
-                                VDataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, IAppHandler.ConvertMaskValue(PParamList[i].Value));
+                                DataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, IAppHandler.ConvertMaskValue(PParamList[i].Value));
                             }
                         }
                     }
-                    VDataAdapter.FillSchema(VDataset, SchemaType.Source, ExtractTableName(PCommandText));
-                    VDataAdapter.Fill(VDataset, VTableName);
-                    PDataTable = VDataset.Tables[VTableName];
+                    DataAdapter.FillSchema(VDataset, SchemaType.Source, TableName);
+                    DataAdapter.Fill(VDataset, TableName);
+                    PDataTable = VDataset.Tables[TableName];
                 }
                 catch(Exception err)
                 {
@@ -91,92 +115,115 @@ namespace Free_Accounting_Software.Internal.Classes
             }
             finally
             {
-                VDataAdapter.SelectCommand.Connection.Close();
+                DataAdapter.SelectCommand.Connection.Close();
+                DataAdapter.Dispose();
             }
         }
 
-        public void SaveData(ref DataTable PDataTable, List<JkMasterColumn> PMasterColumn, List<JkFormParameter> PParams, IParentForm.FormStates PFormState)
+        public void SaveMaster(String PCommandText, ref DataTable PDataTable, List<JkFormParameter> PParams)
         {
-            if (PFormState == IParentForm.FormStates.fsNew)
-                Save(ref PDataTable, PMasterColumn, PParams);
-            else
-                Edit(ref PDataTable, PMasterColumn, PParams);
-            PDataTable.Clear();
-        }
-
-        private void Save(ref DataTable PDataTable, List<JkMasterColumn> PMasterColumn, List<JkFormParameter> PParams)
-        {
-            int i = 0;
-            SqlCommandBuilder CommandBuilder = new SqlCommandBuilder();
+            SqlCommand Command = new SqlCommand();
             SqlParameter InsertedId = new SqlParameter("@Id", DbType.Int64);
+            int i = 0;
 
             try
             {
-                try
+                Command = GetInsertCommand(PCommandText, PParams);
+                Command.CommandText = Command.CommandText + ";\r SET @Id = SCOPE_IDENTITY();";
+                foreach (DataColumn column in PDataTable.Columns)
                 {
-                    CommandBuilder.DataAdapter = VDataAdapter;
-                    VDataAdapter.InsertCommand = CommandBuilder.GetInsertCommand();
-                    VDataAdapter.InsertCommand.CommandText = VDataAdapter.InsertCommand.CommandText
-                        + ";\r SET @Id = SCOPE_IDENTITY();";
-                    InsertedId.Direction = ParameterDirection.Output;
-                    VDataAdapter.InsertCommand.Parameters.Add(InsertedId);
-                    foreach (JkMasterColumn column in PMasterColumn)
+                    if (!column.AutoIncrement)
                     {
-                        VDataAdapter.InsertCommand.Parameters[i].Value = column.Value ?? DBNull.Value;
+                        Command.Parameters[i].Value = PDataTable.Rows[0][column.ColumnName];
                         i += 1;
                     }
-                    VDataAdapter.InsertCommand.Connection = new SqlConnection(VConnectionString);
-                    VDataAdapter.InsertCommand.Connection.Open();
-                    VTransaction = VDataAdapter.InsertCommand.Connection.BeginTransaction();
-                    VDataAdapter.InsertCommand.Transaction = VTransaction;
-                    VDataAdapter.InsertCommand.ExecuteNonQuery();
-                    VTransaction.Commit();
-                    PParams[0].Value = VDataAdapter.InsertCommand.Parameters[VDataAdapter.InsertCommand.Parameters.Count - 1].Value.ToString();
                 }
-                catch (Exception err)
-                {
-                    VTransaction.Rollback();
-                    IMessageHandler.ShowError(ISystemMessages.SaveDataError + err.Message);
-                }
+                InsertedId.Direction = ParameterDirection.Output;
+                Command.Parameters.Add(InsertedId);
+                Command.Connection = VConnection;
+                Command.Transaction = VTransaction;
+                Command.ExecuteNonQuery();
+                PParams.Find(p => p.Name == "Id").Value = Command.Parameters[Command.Parameters.Count - 1].Value.ToString();
             }
             finally
             {
-                VDataAdapter.InsertCommand.Connection.Close();
-                CommandBuilder.Dispose();
+                Command.Dispose();
             }
         }
 
-        private void Edit(ref DataTable PDataTable, List<JkMasterColumn> PMasterColumn, List<JkFormParameter> PParams)
+        public void SaveDetail(String PCommandText, ref DataTable PDataTable, List<JkFormParameter> PMasterParams, List<JkFormParameter> PDetailParams)
         {
-            DataRow row = PDataTable.Rows.Find(IAppHandler.ConvertMaskValue(PParams[0].Value));
-            SqlCommandBuilder CommandBuilder = new SqlCommandBuilder();
+            SqlCommand Command = new SqlCommand();
+            int i = 0;
+
             try
             {
-                try
+                Command = GetInsertCommand(PCommandText, PMasterParams);
+
+                foreach (DataRow row in PDataTable.Rows)
                 {
-                    row.BeginEdit();
-                    foreach (JkMasterColumn column in PMasterColumn)
+                    i = 0;
+                    foreach (DataColumn column in PDataTable.Columns)
                     {
-                        row[column.Name] = column.Value ?? DBNull.Value;
+                        if (!column.AutoIncrement)
+                        {
+                            if (!Convert.IsDBNull(row[column.ColumnName]) && Convert.ToInt32(row[column.ColumnName]) == -1)
+                            {
+                                row[column.ColumnName] = PMasterParams.Find(pm => pm.Name == "Id").Value;
+                            }
+                            Command.Parameters[i].Value = row[column.ColumnName] ?? DBNull.Value;
+
+                            i += 1;
+                        }
                     }
-                    row.EndEdit();
-                    CommandBuilder.DataAdapter = VDataAdapter;
-                    VDataAdapter.UpdateCommand = CommandBuilder.GetUpdateCommand();
-                    Connect();
-                    BeginTran();
-                    VDataAdapter.Update(VDataset, VTableName);
-                    CommitTran();
-                }
-                catch (Exception err)
-                {
-                    Rollback();
-                    IMessageHandler.ShowError(ISystemMessages.EditDataError + err.Message);
+                    Command.Connection = VConnection;
+                    Command.Transaction = VTransaction;
+                    Command.ExecuteNonQuery();
                 }
             }
             finally
             {
-                Disconnect();
+                Command.Dispose();
+            }
+        }
+
+        public void EditMaster(String PCommandText, List<JkFormParameter> PParams)
+        {
+            SqlDataAdapter DataAdapter = new SqlDataAdapter(PCommandText, VConnection);
+            SqlCommandBuilder CommandBuilder = new SqlCommandBuilder();
+
+            try
+            {
+                if (PParams != null)
+                {
+                    for (int i = 0; i <= PParams.Count - 1; i++)
+                    {
+                        if (String.IsNullOrWhiteSpace(PParams[i].Value))
+                            DataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParams[i].Name, 0);
+                        else
+                        {
+                            DataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParams[i].Name, PParams[i].Value);
+                        }
+                    }
+                }
+                DataAdapter.SelectCommand.Transaction = VTransaction;
+                CommandBuilder.DataAdapter = DataAdapter;
+
+                DataAdapter.InsertCommand = CommandBuilder.GetInsertCommand();
+                DataAdapter.InsertCommand.Transaction = VTransaction;
+
+                DataAdapter.UpdateCommand = CommandBuilder.GetUpdateCommand();
+                DataAdapter.UpdateCommand.Transaction = VTransaction;
+
+                DataAdapter.DeleteCommand = CommandBuilder.GetDeleteCommand();
+                DataAdapter.DeleteCommand.Transaction = VTransaction;
+
+                DataAdapter.Update(VDataset, ExtractTableName(PCommandText));
+            }
+            finally
+            {
                 CommandBuilder.Dispose();
+                DataAdapter.Dispose();
             }
         }
     }

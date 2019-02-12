@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -63,7 +63,7 @@
             this.Caption = "Report";
             this.Name = "IReportForm";
             this.Size = new System.Drawing.Size(775, 318);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);

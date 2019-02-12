@@ -42,7 +42,7 @@
             this.lblLink = new System.Windows.Forms.LinkLabel();
             this.logoBox = new System.Windows.Forms.PictureBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -213,7 +213,7 @@
             this.Size = new System.Drawing.Size(775, 481);
             this.ZLoadMasterColumns = true;
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECompanyForm_AfterRun);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);

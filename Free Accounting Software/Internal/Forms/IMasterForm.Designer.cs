@@ -32,7 +32,7 @@
             this.lblCreatedBy = new System.Windows.Forms.Label();
             this.lblModifiedBy = new System.Windows.Forms.Label();
             this.lblMode = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.FormFooter.SuspendLayout();
@@ -40,7 +40,7 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 434);
+            this.splitContainer.Size = new System.Drawing.Size(789, 324);
             // 
             // FormFooter
             // 
@@ -51,7 +51,7 @@
             this.FormFooter.Controls.Add(this.lblModifiedBy);
             this.FormFooter.Controls.Add(this.lblMode);
             this.FormFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FormFooter.Location = new System.Drawing.Point(0, 400);
+            this.FormFooter.Location = new System.Drawing.Point(0, 290);
             this.FormFooter.Name = "FormFooter";
             this.FormFooter.Size = new System.Drawing.Size(789, 34);
             this.FormFooter.TabIndex = 4;
@@ -100,7 +100,7 @@
             this.Caption = "Master Form";
             this.Controls.Add(this.FormFooter);
             this.Name = "IMasterForm";
-            this.Size = new System.Drawing.Size(789, 434);
+            this.Size = new System.Drawing.Size(789, 324);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterForm_BeforeRun);
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.IMasterForm_ValidateSave);
             this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterForm_BeforeSave);
@@ -108,7 +108,7 @@
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterForm_AfterRun);
             this.Controls.SetChildIndex(this.splitContainer, 0);
             this.Controls.SetChildIndex(this.FormFooter, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
             this.FormFooter.ResumeLayout(false);

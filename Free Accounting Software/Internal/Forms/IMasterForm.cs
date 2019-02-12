@@ -14,459 +14,526 @@ namespace Free_Accounting_Software.Internal.Forms
     {
 
         #region Added Properties
-        private List<JkMasterColumn> _MasterColumns = new List<JkMasterColumn>();
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Category("(Custom)")]
-        public List<JkMasterColumn> MasterColumns { get { return _MasterColumns; } set { _MasterColumns = value; } }
+            private List<JkMasterColumn> _MasterColumns = new List<JkMasterColumn>();
+            [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+            [Category("(Custom)")]
+            public List<JkMasterColumn> MasterColumns { get { return _MasterColumns; } set { _MasterColumns = value; } }
 
-        private bool _ZLoadMasterColumns;
-        [Category("(Custom)")]
-        public bool ZLoadMasterColumns
-        {
-            get { return _ZLoadMasterColumns; }
-            set
+            private bool _ZLoadMasterColumns;
+            [Category("(Custom)")]
+            public bool ZLoadMasterColumns
             {
-                if (value)
+                get { return _ZLoadMasterColumns; }
+                set
                 {
-                    try
+                    if (value)
                     {
-                        CreateMasterColumns();
+                        try
+                        {
+                            CreateMasterColumns();
+                        }
+                        catch (Exception ex)
+                        {
+                            IMessageHandler.ShowError(ISystemMessages.LoadColumnsError + ex.Message);
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        IMessageHandler.ShowError(ISystemMessages.LoadColumnsError + ex.Message);
+                        if (_MasterColumns.Count > 0)
+                        {
+                            if (IMessageHandler.Confirm(ISystemMessages.ColumnReloadQuestion) == DialogResult.Yes)
+                                _MasterColumns.Clear();
+                            else
+                                return;
+                        }
                     }
+                    _ZLoadMasterColumns = value;
                 }
-                else
-                {
-                    if (_MasterColumns.Count > 0)
-                    {
-                        if (IMessageHandler.Confirm(ISystemMessages.ColumnReloadQuestion) == DialogResult.Yes)
-                            _MasterColumns.Clear();
-                        else
-                            return;
-                    }
-                }
-                _ZLoadMasterColumns = value;
             }
-        }
 
-        private int _KeyId;
-        [Browsable(false)]
-        public int KeyId
-        {
-            get
+            private int _KeyId;
+            [Browsable(false)]
+            public int KeyId
             {
-                return _KeyId;
+                get
+                {
+                    return _KeyId;
+                }
+                set
+                {
+                    _KeyId = value;
+                    txtRecordCount.Text = (value + 1).ToString();
+                }
             }
-            set
-            {
-                _KeyId = value;
-                txtRecordCount.Text = (value + 1).ToString();
-            }
-        }
         #endregion
 
         #region Variable Declarations
-        public List<String> KeyList;
-        private bool ValidationFails;
+            public List<String> KeyList;
+            private bool ValidationFails;
+            public DataTable VDetailDataTable = new DataTable();
         #endregion
 
-        public IMasterForm()
-        {
-            KeyList = new List<String>();
-            InitializeComponent();
-            AssignEventOnButtons();
-        }
-
-        #region Custom Procedures
-        public void CreateMasterColumns()
-        {
-            ITransactionHandler VTransactionHandler = new ITransactionHandler();
-            DataTable table = new DataTable();
-
-            VTransactionHandler.LoadData(CommandText, ref table, this.Parameters);
-            foreach (DataColumn dc in table.Columns)
+        #region Built-in Events
+            public IMasterForm()
             {
-                if (!dc.AutoIncrement)
-                {
-                    JkMasterColumn column = new JkMasterColumn();
-                    column.Name = dc.ColumnName;
-                    column.DataType = ConvertTypeToSqlType(dc.DataType);
-                    column.Required = !dc.AllowDBNull;
-                    column.DefaultValue = IAppHandler.SetColumnsDefaultValue(dc.ColumnName);
-
-                    if (MasterColumns.Find(col => col.Name == column.Name) == null)
-                        _MasterColumns.Add(column);
-                }
+                KeyList = new List<String>();
+                InitializeComponent();
+                AssignEventOnButtons();
             }
-        }
 
-        public void AssignValuesToControls()
-        {
-            if (VDataTable.Rows.Count > 0)
+            private void IMasterForm_BeforeRun()
+            {
+                if (FormState == FormStates.fsNew)
+                    AssignControlsDefaultValue();
+                else
+                    AssignValuesToControls();
+            }
+
+            protected override void UpdateControls()
+            {
+                base.UpdateControls();
+
+                btnFirstRecord.Enabled = btnFirstRecord.Enabled && KeyId != 0;
+                btnPreviousRecord.Enabled = btnPreviousRecord.Enabled && KeyId != 0;
+                btnNextRecord.Enabled = btnLastRecord.Enabled && KeyId != KeyList.Count - 1;
+                btnLastRecord.Enabled = btnLastRecord.Enabled && KeyId != KeyList.Count - 1;
+                lblCreatedBy.Visible = (MasterColumns.Find(col => col.Name == "CreatedById") != null) && (FormState != FormStates.fsNew);
+                lblModifiedBy.Visible = (MasterColumns.Find(col => col.Name == "ModifiedById") != null) && (FormState != FormStates.fsNew);
+
+                if (FormState == FormStates.fsNew)
+                    txtRecordCount.Clear();
+                else
+                    KeyId = _KeyId;
+            }
+
+            private void IMasterForm_AfterRun()
+            {
+                InitSeriesProviders();
+                SetRequiredControls();
+                SetFormFooter();
+            }
+
+            private void IMasterForm_BeforeSave()
+            {
+                //re-update series number before saving
+                InitSeriesProviders();
+                SetColumnsValue();
+            }
+
+            private void IMasterForm_ValidateSave()
+            {
+                ValidationFails = false;
+                Object value = null;
+
                 foreach (JkMasterColumn column in MasterColumns)
                 {
-                    column.Value = VDataTable.Rows[0][column.Name];
+                    if (!String.IsNullOrWhiteSpace(column.ControlName) && column.Required)
+                    {
+                        value = IAppHandler.GetControlsValue(Controls.Find(column.ControlName, true).First());
+
+                        if (String.IsNullOrWhiteSpace(Convert.ToString(value)))
+                        {
+                            IMessageHandler.Inform(ISystemMessages.FillRequiredFieldMessage);
+                            ValidationFails = true;
+                        }
+                    }
+                }
+            }
+
+            private void IMasterForm_AfterSave()
+            {
+                if (FormState == FormStates.fsNew)
+                    foreach (JkSeriesProvider series in IAppHandler.FindControlByType("JkSeriesProvider", this))
+                    {
+                        series.UpdateSeries();
+                    }
+            }
+        #endregion
+
+        #region Custom Procedures
+            public void CreateMasterColumns()
+            {
+                ITransactionHandler VTransactionHandler = new ITransactionHandler();
+                DataTable table = new DataTable();
+
+                VTransactionHandler.LoadData(CommandText, ref table, this.Parameters);
+                foreach (DataColumn dc in table.Columns)
+                {
+                    if (!dc.AutoIncrement)
+                    {
+                        JkMasterColumn column = new JkMasterColumn();
+                        column.Name = dc.ColumnName;
+                        column.DataType = ConvertTypeToSqlType(dc.DataType);
+                        column.Required = !dc.AllowDBNull;
+                        column.DefaultValue = IAppHandler.SetColumnsDefaultValue(dc.ColumnName);
+
+                        if (MasterColumns.Find(col => col.Name == column.Name) == null)
+                            _MasterColumns.Add(column);
+                    }
+                }
+            }
+
+            //Gets the value from MasterColumn then assign it to controls such as textbox
+            public void AssignValuesToControls()
+            {
+                if (VMasterDataTable.Rows.Count > 0)
+                    foreach (JkMasterColumn column in MasterColumns)
+                    {
+                        column.Value = VMasterDataTable.Rows[0][column.Name];
+                        if (!String.IsNullOrWhiteSpace(column.ControlName))
+                        {
+                            IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), column.Value);
+                        }
+                    }
+            }
+
+            //Gets the default value set from MasterColumn then assign it to controls upon creating new transaction
+            public void AssignControlsDefaultValue()
+            {
+                Control control;
+
+                foreach (JkMasterColumn column in MasterColumns)
+                {
                     if (!String.IsNullOrWhiteSpace(column.ControlName))
                     {
-                        IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), column.Value);
-                    }
-                }
-        }
+                        control = Controls.Find(column.ControlName, true).First();
 
-        public void AssignControlsDefaultValue()
-        {
-            Control control;
-
-            foreach (JkMasterColumn column in MasterColumns)
-            {
-                if (!String.IsNullOrWhiteSpace(column.ControlName))
-                {
-                    control = Controls.Find(column.ControlName, true).First();
-
-                    if (String.IsNullOrWhiteSpace(column.DefaultValue))
-                        IAppHandler.ClearControlsValue(control);
-                    else
-                        IAppHandler.SetControlsValue(control, IAppHandler.ConvertMaskValue(column.DefaultValue));
-                }
-            }
-        }
-
-        public void SetRequiredControls()
-        {
-            Control control;
-
-            foreach (JkMasterColumn column in MasterColumns)
-            {
-                if (!String.IsNullOrWhiteSpace(column.ControlName))
-                {
-                    control = Controls.Find(column.ControlName, true).First();
-
-                    if (control.GetType().Name == "JkTextBox")
-                    {
-                        if (FormState == FormStates.fsView)
-                            (control as JkTextBox).Required = false;
+                        if (String.IsNullOrWhiteSpace(column.DefaultValue))
+                            IAppHandler.ClearControlsValue(control);
                         else
-                            (control as JkTextBox).Required = column.Required;
+                            IAppHandler.SetControlsValue(control, IAppHandler.ConvertMaskValue(column.DefaultValue));
                     }
                 }
             }
-        }
 
-        public void AssignEventOnButtons()
-        {
-            btnNew.Click += (obj, e) =>
+            public void SetRequiredControls()
             {
-                try
-                {
-                    IAppHandler.StartBusy("Executing New");
-                    FormState = FormStates.fsNew;
-                    Run();
-                }
-                finally
-                {
-                    IAppHandler.EndBusy("Executing New");   
-                }
-            };
+                Control control;
 
-            btnEdit.Click += (obj, e) =>
-            {
-                try
+                foreach (JkMasterColumn column in MasterColumns)
                 {
-                    IAppHandler.StartBusy("Executing Edit");
-                    FormState = FormStates.fsEdit;
-                    Run();
-                }
-                finally
-                {
-                    IAppHandler.EndBusy("Executing Edit");
-                }
-            };
+                    if (!String.IsNullOrWhiteSpace(column.ControlName))
+                    {
+                        control = Controls.Find(column.ControlName, true).First();
 
-            btnSave.Click += (obj, e) =>
+                        if (control.GetType().Name == "JkTextBox")
+                        {
+                            if (FormState == FormStates.fsView)
+                                (control as JkTextBox).Required = false;
+                            else
+                                (control as JkTextBox).Required = column.Required;
+                        }
+                    }
+                }
+            }
+
+            public void AssignEventOnButtons()
             {
-                if (IMessageHandler.Confirm(ISystemMessages.SavingQuestion) == DialogResult.Yes)
+                btnNew.Click += (obj, e) =>
                 {
-                    
-                    this.splitContainer.Panel2.Focus();
-                    OnValidateSave();
-                    if (ValidationFails)
-                        return;
                     try
                     {
-                        IAppHandler.StartBusy("Executing Save");
-                        OnBeforeSave();
-                        VTransactionHandler.SaveData(ref VDataTable, MasterColumns, Parameters, FormState);
-                        if (FormState == FormStates.fsNew)
-                        {
-                            KeyList.Add(Parameters[0].Value);
-                            KeyId = KeyList.Count() - 1;
-                        }
-                        OnAfterSave();
-                        FormState = FormStates.fsView;
+                        IAppHandler.StartBusy("Executing New");
+                        FormState = FormStates.fsNew;
+                        Run();
+                        VMasterDataTable.Clear();
+                        VDetailDataTable.Clear();
+                    }
+                    finally
+                    {
+                        IAppHandler.EndBusy("Executing New");   
+                    }
+                };
+
+                btnEdit.Click += (obj, e) =>
+                {
+                    try
+                    {
+                        IAppHandler.StartBusy("Executing Edit");
+                        FormState = FormStates.fsEdit;
                         Run();
                     }
                     finally
                     {
-                        IAppHandler.EndBusy("Executing Save");
+                        IAppHandler.EndBusy("Executing Edit");
                     }
-                }
-            };
+                };
 
-            btnCancel.Click += (obj, e) =>
-            {
-                if (IMessageHandler.Confirm(ISystemMessages.ClosingOrCancellingQuestion) == DialogResult.Yes)
+                btnSave.Click += (obj, e) =>
                 {
-                    try
+                    if (IMessageHandler.Confirm(ISystemMessages.SavingQuestion) == DialogResult.Yes)
                     {
-                        IAppHandler.StartBusy("Executing Cancel");
-                        if (FormState == FormStates.fsNew)
+                    
+                        this.splitContainer.Panel2.Focus();
+                        OnValidateSave();
+                        if (ValidationFails)
+                            return;
+                        try
                         {
-                            if (ParametersHasValues())
+                            IAppHandler.StartBusy("Executing Save");
+                            OnBeforeSave();
+                            try
+                            {
+                                try
+                                {
+                                    VTransactionHandler.Connect();
+                                    VTransactionHandler.BeginTran();
+
+                                    if (FormState == FormStates.fsNew)
+                                    {
+                                        VTransactionHandler.SaveMaster(CommandText, ref VMasterDataTable, Parameters);
+                                        SaveDetail();
+                                    }
+                                    else if (FormState == FormStates.fsEdit)
+                                    {
+                                        VTransactionHandler.EditMaster(CommandText, Parameters);
+                                        EditDetail();
+                                    }
+
+                                    VTransactionHandler.CommitTran();
+                                }
+                                catch (Exception ex)
+                                {
+                                    VTransactionHandler.Rollback();
+                                    if (FormState == FormStates.fsNew)
+                                        IMessageHandler.ShowError(ISystemMessages.SaveDataError + ex.Message);
+                                    else
+                                        IMessageHandler.ShowError(ISystemMessages.EditDataError + ex.Message);
+
+                                    return;
+                                }
+                            }
+                            finally
+                            {
+                                VTransactionHandler.Disconnect();
+                            }
+                            
+                            
+                            if (FormState == FormStates.fsNew)
+                            {
+                                KeyList.Add(Parameters[0].Value);
+                                KeyId = KeyList.Count() - 1;
+                            }
+                            OnAfterSave();
+                            FormState = FormStates.fsView;
+                            VMasterDataTable.Clear();
+                            Run();
+                        }
+                        finally
+                        {
+                            IAppHandler.EndBusy("Executing Save");
+                        }
+                    }
+                };
+
+                btnCancel.Click += (obj, e) =>
+                {
+                    if (IMessageHandler.Confirm(ISystemMessages.ClosingOrCancellingQuestion) == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            IAppHandler.StartBusy("Executing Cancel");
+                            if (FormState == FormStates.fsNew)
+                            {
+                                if (ParametersHasValues())
+                                {
+                                    FormState = FormStates.fsView;
+                                    Run();
+                                }
+                                else
+                                    CloseForm();
+                            }
+                            else
                             {
                                 FormState = FormStates.fsView;
                                 Run();
                             }
-                            else
-                                CloseForm();
                         }
-                        else
+                        finally
                         {
-                            FormState = FormStates.fsView;
-                            Run();
+                            IAppHandler.EndBusy("Executing Cancel");
                         }
                     }
-                    finally
-                    {
-                        IAppHandler.EndBusy("Executing Cancel");
-                    }
-                }
-            };
+                };
 
-            btnFirstRecord.Click += (obj, e) =>
-            {
-                ReQuery(obj, e);
-            };
-
-            btnPreviousRecord.Click += (obj, e) =>
-            {
-                ReQuery(obj, e);
-            };
-
-            btnNextRecord.Click += (obj, e) =>
-            {
-                ReQuery(obj, e);
-            };
-
-            btnLastRecord.Click += (obj, e) =>
-            {
-                ReQuery(obj, e);
-            };
-
-            txtRecordCount.KeyDown += (obj, e) =>
-            {
-                if (e.KeyCode == Keys.Enter)
+                btnFirstRecord.Click += (obj, e) =>
                 {
-                    try
-                    {
-                        int input = Convert.ToInt32(txtRecordCount.Text);
+                    ReQuery(obj, e);
+                };
 
-                        if (input <= 0 || input > KeyList.Count)
+                btnPreviousRecord.Click += (obj, e) =>
+                {
+                    ReQuery(obj, e);
+                };
+
+                btnNextRecord.Click += (obj, e) =>
+                {
+                    ReQuery(obj, e);
+                };
+
+                btnLastRecord.Click += (obj, e) =>
+                {
+                    ReQuery(obj, e);
+                };
+
+                txtRecordCount.KeyDown += (obj, e) =>
+                {
+                    if (e.KeyCode == Keys.Enter)
+                    {
+                        try
                         {
-                            IMessageHandler.ShowError(ISystemMessages.RecordCountInputError(KeyList.Count.ToString()));
+                            int input = Convert.ToInt32(txtRecordCount.Text);
+
+                            if (input <= 0 || input > KeyList.Count)
+                            {
+                                IMessageHandler.ShowError(ISystemMessages.RecordCountInputError(KeyList.Count.ToString()));
+                                txtRecordCount.SelectAll();
+                            }
+                            else
+                            {
+                                KeyId = input - 1;
+                                Parameters[0].Value = Convert.ToString(KeyList[KeyId]);
+                                Run();
+                            }
+                        }
+                        catch
+                        {
+                            IMessageHandler.ShowError(ISystemMessages.InvalidInputError);
                             txtRecordCount.SelectAll();
                         }
-                        else
-                        {
-                            KeyId = input - 1;
-                            Parameters[0].Value = Convert.ToString(KeyList[KeyId]);
-                            Run();
-                        }
                     }
-                    catch
+                };
+            }
+
+            private void ReQuery(object sender, EventArgs e)
+            {
+                try
+                {
+                    IAppHandler.StartBusy("Fetching record");
+                    switch (Convert.ToInt16((sender as ToolStripButton).Tag))
                     {
-                        IMessageHandler.ShowError(ISystemMessages.InvalidInputError);
-                        txtRecordCount.SelectAll();
+                        case 1:
+                            KeyId = 0;
+                            break;
+                        case 2:
+                            KeyId -= 1;
+                            break;
+                        case 3:
+                            KeyId += 1;
+                            break;
+                        case 4:
+                            KeyId = KeyList.Count - 1;
+                            break;
+                    }
+
+                    Parameters[0].Value = Convert.ToString(KeyList[KeyId]);
+                    VMasterDataTable.Clear();
+                    Run();
+                }
+                finally
+                {
+                    IAppHandler.EndBusy("Fetching record");
+                }
+            }
+
+            public void SetFormFooter()
+            {
+                lblMode.Text = "Mode: " + FormState.ToString().Substring(2);
+
+                if (lblCreatedBy.Visible)
+                {
+                    lblCreatedBy.Text = String.Format("Created By: {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSecurityUsers, "Id", MasterColumns.Find(col => col.Name == "CreatedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateCreated").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+                }
+
+                if (lblModifiedBy.Visible)
+                {
+                    lblModifiedBy.Text = String.Format("Modified By: {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSecurityUsers, "Id", MasterColumns.Find(col => col.Name == "ModifiedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateModified").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+
+                    if (MasterColumns.Find(col => col.Name == "DateCreated").Value.ToString() == MasterColumns.Find(col => col.Name == "DateModified").Value.ToString())
+                    {
+                        lblModifiedBy.Visible = false;
+                        lblCreatedBy.Padding = new Padding(5, 5, 5, 5);
+                    }
+                    else
+                    {
+                        lblModifiedBy.Visible = true;
+                        lblCreatedBy.Padding = new Padding(5, 0, 0, 0);
+                        lblModifiedBy.Padding = new Padding(5, 0, 0, 0);
                     }
                 }
-            };
-        }
-
-        private void ReQuery(object sender, EventArgs e)
-        {
-            try
-            {
-                IAppHandler.StartBusy("Fetching record");
-                switch (Convert.ToInt16((sender as ToolStripButton).Tag))
-                {
-                    case 1:
-                        KeyId = 0;
-                        break;
-                    case 2:
-                        KeyId -= 1;
-                        break;
-                    case 3:
-                        KeyId += 1;
-                        break;
-                    case 4:
-                        KeyId = KeyList.Count - 1;
-                        break;
-                }
-
-                Parameters[0].Value = Convert.ToString(KeyList[KeyId]);
-                VDataTable.Clear();
-                Run();
-            }
-            finally
-            {
-                IAppHandler.EndBusy("Fetching record");
-            }
-        }
-
-        public void SetFormFooter()
-        {
-            lblMode.Text = "Mode: " + FormState.ToString().Substring(2);
-
-            if (lblCreatedBy.Visible)
-            {
-                lblCreatedBy.Text = String.Format("Created By: {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSecurityUsers, "Id", MasterColumns.Find(col => col.Name == "CreatedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateCreated").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
             }
 
-            if (lblModifiedBy.Visible)
+            //This will update the value on MasterColumns and DataTables before performing Save or Edit
+            public void SetColumnsValue()
             {
-                lblModifiedBy.Text = String.Format("Modified By: {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSecurityUsers, "Id", MasterColumns.Find(col => col.Name == "ModifiedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateModified").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+                DataRow row = null;
 
-                if (MasterColumns.Find(col => col.Name == "DateCreated").Value.ToString() == MasterColumns.Find(col => col.Name == "DateModified").Value.ToString())
-                {
-                    lblModifiedBy.Visible = false;
-                    lblCreatedBy.Padding = new Padding(5, 5, 5, 5);
-                }
+                if (FormState == FormStates.fsNew)
+                    row = VMasterDataTable.NewRow();
                 else
                 {
-                    lblModifiedBy.Visible = true;
-                    lblCreatedBy.Padding = new Padding(5, 0, 0, 0);
-                    lblModifiedBy.Padding = new Padding(5, 0, 0, 0);
+                    row = VMasterDataTable.Rows.Find(Parameters.Find(p => p.Name == "Id").Value);
+                    row.BeginEdit();
                 }
-            }
-        }
 
-        public void SetColumnsValue()
-        {
-            foreach (JkMasterColumn col in MasterColumns)
-            {
-                if (String.IsNullOrWhiteSpace(col.ControlName))
+                foreach (JkMasterColumn col in MasterColumns)
                 {
-                    if (!String.IsNullOrWhiteSpace(col.DefaultValue))
+                    if (String.IsNullOrWhiteSpace(col.ControlName))
                     {
-                        if ((col.Name == "CreatedById" || col.Name == "DateCreated") && FormState == FormStates.fsEdit)
-                            col.Value = col.Value;
-                        else
-                            col.Value = IAppHandler.ConvertMaskValue(col.DefaultValue);
-                    }
-                }
-                else
-                {
-                    col.Value = IAppHandler.GetControlsValue(Controls.Find(col.ControlName, true).First());
-                }
-            }
-            return;
-        }
-
-        private void InitSeriesProviders()
-        {
-            if (FormState == FormStates.fsNew)
-            {
-                foreach (Control control in IAppHandler.FindControlByType("JkSeriesProvider", this))
-                {
-                    JkSeriesProvider series = (control as JkSeriesProvider);
-
-                    series.ConnectionString = Properties.Settings.Default.FreeAccountingSoftwareConnectionString;
-                    series.CompanyId = ISecurityHandler.CompanyId.ToString();
-                    series.GetSeries();
-
-                    foreach(JkMasterColumn column in MasterColumns)
-                    {
-                        if (column.Name == series.TransactionColumn && !String.IsNullOrWhiteSpace(column.ControlName))
+                        if (!String.IsNullOrWhiteSpace(col.DefaultValue))
                         {
-                            IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), series.Value);
+                            if ((col.Name == "CreatedById" || col.Name == "DateCreated") && FormState == FormStates.fsEdit)
+                                col.Value = col.Value;
+                            else
+                                col.Value = IAppHandler.ConvertMaskValue(col.DefaultValue);
+                        }
+                    }
+                    else
+                    {
+                        col.Value = IAppHandler.GetControlsValue(Controls.Find(col.ControlName, true).First());
+                    }
+
+                    row[col.Name] = col.Value ?? DBNull.Value;
+                }
+
+                if (FormState == FormStates.fsNew)
+                    VMasterDataTable.Rows.Add(row);
+                else
+                    row.EndEdit();
+            }
+
+            private void InitSeriesProviders()
+            {
+                if (FormState == FormStates.fsNew)
+                {
+                    foreach (Control control in IAppHandler.FindControlByType("JkSeriesProvider", this))
+                    {
+                        JkSeriesProvider series = (control as JkSeriesProvider);
+
+                        series.ConnectionString = Properties.Settings.Default.FreeAccountingSoftwareConnectionString;
+                        series.CompanyId = ISecurityHandler.CompanyId.ToString();
+                        series.GetSeries();
+
+                        foreach(JkMasterColumn column in MasterColumns)
+                        {
+                            if (column.Name == series.TransactionColumn && !String.IsNullOrWhiteSpace(column.ControlName))
+                            {
+                                IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), series.Value);
+                            }
                         }
                     }
                 }
             }
-        }
 
-        #endregion
-
-        #region Built-in Events
-        private void IMasterForm_BeforeRun()
-        {
-            if (FormState == FormStates.fsNew)
-                AssignControlsDefaultValue();
-            else
-                AssignValuesToControls();
-        }
-
-        protected override void UpdateControls()
-        {
-            base.UpdateControls();
-
-            btnFirstRecord.Enabled = btnFirstRecord.Enabled && KeyId != 0;
-            btnPreviousRecord.Enabled = btnPreviousRecord.Enabled && KeyId != 0;
-            btnNextRecord.Enabled = btnLastRecord.Enabled && KeyId != KeyList.Count - 1;
-            btnLastRecord.Enabled = btnLastRecord.Enabled && KeyId != KeyList.Count - 1;
-            lblCreatedBy.Visible = (MasterColumns.Find(col => col.Name == "CreatedById") != null) && (FormState != FormStates.fsNew);
-            lblModifiedBy.Visible = (MasterColumns.Find(col => col.Name == "ModifiedById") != null) && (FormState != FormStates.fsNew);
-
-            if (FormState == FormStates.fsNew)
-                txtRecordCount.Clear();
-            else
-                KeyId = _KeyId;
-        }
-
-        private void IMasterForm_AfterRun()
-        {
-            InitSeriesProviders();
-            SetRequiredControls();
-            SetFormFooter();
-        }
-
-        private void IMasterForm_BeforeSave()
-        {
-            //re-update series number before saving
-            InitSeriesProviders();
-            SetColumnsValue();
-        }
-
-        private void IMasterForm_ValidateSave()
-        {
-            ValidationFails = false;
-            Object value = null;
-
-            foreach (JkMasterColumn column in MasterColumns)
+            protected virtual void SaveDetail()
             {
-                if (!String.IsNullOrWhiteSpace(column.ControlName) && column.Required)
-                {
-                    value = IAppHandler.GetControlsValue(Controls.Find(column.ControlName, true).First());
-
-                    if (String.IsNullOrWhiteSpace(Convert.ToString(value)))
-                    {
-                        IMessageHandler.Inform(ISystemMessages.FillRequiredFieldMessage);
-                        ValidationFails = true;
-                    }
-                }
+                //to be override in MasterDetailForm and to put Saving of detail 
             }
-        }
 
-        private void IMasterForm_AfterSave()
-        {
-            if (FormState == FormStates.fsNew)
-                foreach (JkSeriesProvider series in IAppHandler.FindControlByType("JkSeriesProvider", this))
-                {
-                    series.UpdateSeries();
-                }
-        }
-
+            protected virtual void EditDetail()
+            { 
+                //to be override in MasterDetailForm and to put Edit of detail
+            }
         #endregion
     }
 }

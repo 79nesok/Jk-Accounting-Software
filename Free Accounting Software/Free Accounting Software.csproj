@@ -206,6 +206,12 @@
     <Compile Include="Internal\Forms\ILookupProvider.Designer.cs">
       <DependentUpon>ILookupProvider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Internal\Forms\IMasterDetailForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Internal\Forms\IMasterDetailForm.Designer.cs">
+      <DependentUpon>IMasterDetailForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Internal\Forms\IMasterForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -324,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\ILookupProvider.resx">
       <DependentUpon>ILookupProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\Forms\IMasterDetailForm.resx">
+      <DependentUpon>IMasterDetailForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\IMasterForm.resx">
       <DependentUpon>IMasterForm.cs</DependentUpon>

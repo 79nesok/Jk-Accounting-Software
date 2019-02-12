@@ -35,6 +35,7 @@
             this.dstJournalTypes = new JkComponents.JkDataSet();
             this.dstAccountTypes = new JkComponents.JkDataSet();
             this.dstSubsidiaries = new JkComponents.JkDataSet();
+            this.dstAccounts = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -109,11 +110,25 @@
             this.dstSubsidiaries.Text = "jkDataSet1";
             this.dstSubsidiaries.ZLoadColumns = false;
             // 
+            // dstAccounts
+            // 
+            this.dstAccounts.BackColor = System.Drawing.Color.Khaki;
+            this.dstAccounts.CommandText = resources.GetString("dstAccounts.CommandText");
+            this.dstAccounts.Connection = this.cnConnection;
+            this.dstAccounts.Location = new System.Drawing.Point(4, 30);
+            this.dstAccounts.Name = "dstAccounts";
+            this.dstAccounts.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstAccounts.Parameters"))));
+            this.dstAccounts.Size = new System.Drawing.Size(64, 20);
+            this.dstAccounts.TabIndex = 6;
+            this.dstAccounts.Text = "jkDataSet1";
+            this.dstAccounts.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstAccounts);
             this.Controls.Add(this.dstSubsidiaries);
             this.Controls.Add(this.dstAccountTypes);
             this.Controls.Add(this.cnConnection);
@@ -134,5 +149,6 @@
         private JkComponents.JkConnection cnConnection;
         public JkComponents.JkDataSet dstAccountTypes;
         private JkComponents.JkDataSet dstSubsidiaries;
+        private JkComponents.JkDataSet dstAccounts;
     }
 }

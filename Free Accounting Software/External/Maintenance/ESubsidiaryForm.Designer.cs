@@ -40,7 +40,7 @@
             this.txtRemarks = new JkComponents.JkTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.chkActive = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -197,7 +197,7 @@
             this.Size = new System.Drawing.Size(775, 250);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ESubsidiaryForm_BeforeRun);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);

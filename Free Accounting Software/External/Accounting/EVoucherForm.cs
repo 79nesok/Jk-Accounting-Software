@@ -11,7 +11,7 @@ using Free_Accounting_Software.Internal.Forms;
 
 namespace Free_Accounting_Software.External.Accounting
 {
-    public partial class EVoucherForm : IMasterForm
+    public partial class EVoucherForm : IMasterDetailForm
     {
         public EVoucherForm()
         {

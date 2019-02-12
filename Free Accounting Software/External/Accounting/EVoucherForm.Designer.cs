@@ -36,17 +36,31 @@
             this.txtReferenceNo = new JkComponents.JkTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
+            this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            this.cmbAccounts = new JkComponents.JkLookUpComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
+            this.splitContainerMasterDetail.Panel1.SuspendLayout();
+            this.splitContainerMasterDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // splitContainerMasterDetail
+            // 
+            // 
+            // splitContainerMasterDetail.Panel1
+            // 
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 264);
             // 
             // lblMode
             // 
@@ -54,12 +68,7 @@
             // 
             // splitContainer
             // 
-            // 
-            // splitContainer.Panel2
-            // 
-            this.splitContainer.Panel2.Controls.Add(this.jkSeriesProvider1);
-            this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(789, 35);
+            this.splitContainer.Size = new System.Drawing.Size(789, 333);
             // 
             // flowLayoutPanel2
             // 
@@ -69,15 +78,13 @@
             this.flowLayoutPanel2.Controls.Add(this.txtReferenceNo);
             this.flowLayoutPanel2.Controls.Add(this.label8);
             this.flowLayoutPanel2.Controls.Add(this.datePicker);
-            this.flowLayoutPanel2.Controls.Add(this.label1);
-            this.flowLayoutPanel2.Controls.Add(this.cmbSubsidiary);
             this.flowLayoutPanel2.Controls.Add(this.label9);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 221);
-            this.flowLayoutPanel2.TabIndex = 13;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 218);
+            this.flowLayoutPanel2.TabIndex = 14;
             // 
             // label6
             // 
@@ -139,15 +146,25 @@
             this.datePicker.Size = new System.Drawing.Size(205, 23);
             this.datePicker.TabIndex = 8;
             // 
-            // label1
+            // label9
             // 
-            this.label1.Location = new System.Drawing.Point(0, 99);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(110, 27);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Subsidiary:";
+            this.label9.Location = new System.Drawing.Point(0, 99);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.label9.Size = new System.Drawing.Size(110, 27);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Remarks:";
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Location = new System.Drawing.Point(116, 104);
+            this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Required = false;
+            this.txtRemarks.Size = new System.Drawing.Size(205, 76);
+            this.txtRemarks.TabIndex = 12;
             // 
             // cmbSubsidiary
             // 
@@ -158,46 +175,43 @@
             this.cmbSubsidiary.FormattingEnabled = true;
             this.cmbSubsidiary.IntegralHeight = false;
             this.cmbSubsidiary.Key = "Id";
-            this.cmbSubsidiary.Location = new System.Drawing.Point(116, 104);
+            this.cmbSubsidiary.Location = new System.Drawing.Point(690, 74);
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
+            this.cmbSubsidiary.Required = false;
             this.cmbSubsidiary.SelectedKey = 0;
-            this.cmbSubsidiary.Size = new System.Drawing.Size(205, 23);
+            this.cmbSubsidiary.Size = new System.Drawing.Size(66, 23);
             this.cmbSubsidiary.TabIndex = 10;
-            // 
-            // label9
-            // 
-            this.label9.Location = new System.Drawing.Point(0, 132);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(110, 27);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Remarks:";
-            // 
-            // txtRemarks
-            // 
-            this.txtRemarks.Location = new System.Drawing.Point(116, 137);
-            this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtRemarks.Multiline = true;
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Required = false;
-            this.txtRemarks.Size = new System.Drawing.Size(205, 96);
-            this.txtRemarks.TabIndex = 12;
+            this.cmbSubsidiary.Visible = false;
             // 
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
             this.jkSeriesProvider1.Code = "JV";
-            this.jkSeriesProvider1.CompanyId = "@CompanyId";
-            this.jkSeriesProvider1.ConnectionString = "test";
-            this.jkSeriesProvider1.Location = new System.Drawing.Point(448, 66);
+            this.jkSeriesProvider1.CompanyId = "";
+            this.jkSeriesProvider1.ConnectionString = "";
+            this.jkSeriesProvider1.Location = new System.Drawing.Point(411, 33);
             this.jkSeriesProvider1.Name = "jkSeriesProvider1";
             this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
-            this.jkSeriesProvider1.TabIndex = 14;
+            this.jkSeriesProvider1.TabIndex = 15;
             this.jkSeriesProvider1.Text = "jkSeriesProvider1";
             this.jkSeriesProvider1.TransactionColumn = "TransactionNo";
             this.jkSeriesProvider1.Value = null;
+            this.jkSeriesProvider1.Visible = false;
+            // 
+            // cmbAccounts
+            // 
+            this.cmbAccounts.DataSet = "dstAccounts";
+            this.cmbAccounts.DisplayText = "Name";
+            this.cmbAccounts.FormattingEnabled = true;
+            this.cmbAccounts.Key = "Id";
+            this.cmbAccounts.Location = new System.Drawing.Point(690, 38);
+            this.cmbAccounts.Name = "cmbAccounts";
+            this.cmbAccounts.Required = false;
+            this.cmbAccounts.SelectedKey = 0;
+            this.cmbAccounts.Size = new System.Drawing.Size(66, 23);
+            this.cmbAccounts.TabIndex = 16;
+            this.cmbAccounts.Visible = false;
             // 
             // EVoucherForm
             // 
@@ -205,6 +219,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Voucher Form";
             this.CommandText = resources.GetString("$this.CommandText");
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns"))));
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns1"))));
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns2"))));
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns3"))));
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns4"))));
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns5"))));
+            this.DetailColumns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("$this.DetailColumns6"))));
+            this.DetailCommandText = "SELECT Id, JournalId, AccountId, SubsidiaryId,\r\n\tDebit, Credit, Remarks\r\nFROM tbl" +
+    "JournalDetails\r\nWHERE JournalId = @Id";
+            this.DetailParameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.DetailParameters"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns2"))));
@@ -222,10 +246,15 @@
             this.Name = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 35);
+            this.Size = new System.Drawing.Size(789, 333);
+            this.ZLoadColumns = true;
+            this.ZLoadDetailGrid = true;
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
+            this.splitContainerMasterDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
@@ -244,10 +273,10 @@
         private JkComponents.JkTextBox txtReferenceNo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.Label label1;
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
         private JkComponents.JkTextBox txtRemarks;
         private JkComponents.JkSeriesProvider jkSeriesProvider1;
+        private JkComponents.JkLookUpComboBox cmbAccounts;
     }
 }

@@ -25,7 +25,8 @@ namespace Free_Accounting_Software.Internal.Forms
             [Browsable(false)]
             public bool IsSave { get { return btnSave.Visible; } }
 
-            [Editor(typeof(ITextPropertyTypeEditor), typeof(UITypeEditor))][Category("(Custom)")]
+            [Editor(typeof(ITextPropertyTypeEditor), typeof(UITypeEditor))]
+            [Category("(Custom)")]
             public string CommandText { get; set; }
 
             [Category("(Custom)")]
@@ -49,7 +50,7 @@ namespace Free_Accounting_Software.Internal.Forms
             protected virtual void OnBeforeRun()
             {
                 if (CommandText != null && CommandText != "")
-                    VTransactionHandler.LoadData(CommandText, ref VDataTable, this.Parameters);
+                    VTransactionHandler.LoadData(CommandText, ref VMasterDataTable, this.Parameters);
 
                 UpdateControls();
 
@@ -93,7 +94,7 @@ namespace Free_Accounting_Software.Internal.Forms
         #region Variable Declarations
             public ITransactionHandler VTransactionHandler = new ITransactionHandler();
             public ILookupProvider VLookupProvider; 
-            public DataTable VDataTable = new DataTable();
+            public DataTable VMasterDataTable = new DataTable();
             public Color VGridAlternateRowColor = Color.FromArgb(180, 255, 200);
         #endregion
 
@@ -168,10 +169,10 @@ namespace Free_Accounting_Software.Internal.Forms
             protected virtual void UpdateControls()
             {
                 btnNew.Visible = (FormState == FormStates.fsView);
-                btnEdit.Visible = (FormState == FormStates.fsView) && (IsMasterForm()); ;
+                btnEdit.Visible = (FormState == FormStates.fsView) && (!IsListForm()); ;
                 btnSave.Visible = (FormState != FormStates.fsView);
                 btnCancel.Visible = (FormState != FormStates.fsView);
-                btnNavigator.Visible = IsMasterForm();
+                btnNavigator.Visible = !IsListForm();
                 btnFirstRecord.Enabled = (FormState == FormStates.fsView);
                 btnPreviousRecord.Enabled = (FormState == FormStates.fsView);
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
@@ -227,9 +228,9 @@ namespace Free_Accounting_Software.Internal.Forms
                 return param.SqlDbType;
             }
 
-            public bool IsMasterForm()
+            public bool IsListForm()
             {
-                return (this.GetType().BaseType.ToString().Contains("IMasterForm"));
+                return (this.GetType().BaseType.ToString().Contains("IListForm"));
             }
 
             public bool ParametersHasValues()
@@ -247,7 +248,7 @@ namespace Free_Accounting_Software.Internal.Forms
 
             public void CloseForm()
             {
-                VDataTable.Clear();
+                VMasterDataTable.Clear();
                 this.Hide();
                 txtRecordCount.Clear();
 

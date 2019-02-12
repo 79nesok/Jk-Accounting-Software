@@ -133,4 +133,20 @@ ORDER BY s.Name</value>
         AAAGAwAAAAlDb21wYW55SWQGBAAAAApAQ29tcGFueUlkCw==
 </value>
   </data>
+  <data name="dstAccounts.CommandText" xml:space="preserve">
+    <value>SELECT a.Id, a.Code, a.Name, a.Active,
+	'Name: ' + a.Name + ' Type: ' + at.Name AS NameWithType
+FROM tblAccounts a
+	INNER JOIN tblAccountTypes at ON at.Id = a.AccountTypeId
+WHERE a.CompanyId = @CompanyId
+ORDER BY a.Name</value>
+  </data>
+  <data name="dstAccounts.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAfSmtDb21wb25lbnRzLkprRGF0YVNldFBh
+        cmFtZXRlcgIAAAAVPE5hbWU+a19fQmFja2luZ0ZpZWxkFjxWYWx1ZT5rX19CYWNraW5nRmllbGQBAQIA
+        AAAGAwAAAAlDb21wYW55SWQGBAAAAApAQ29tcGFueUlkCw==
+</value>
+  </data>
 </root>

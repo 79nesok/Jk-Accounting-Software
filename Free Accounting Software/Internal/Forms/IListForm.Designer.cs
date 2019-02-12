@@ -31,7 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridFooter = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -45,7 +45,7 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.dataGridView);
             this.splitContainer.Panel2.Controls.Add(this.GridFooter);
-            this.splitContainer.Size = new System.Drawing.Size(775, 481);
+            this.splitContainer.Size = new System.Drawing.Size(789, 506);
             // 
             // GridFooter
             // 
@@ -53,9 +53,9 @@
             this.GridFooter.BackColor = System.Drawing.Color.Silver;
             this.GridFooter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GridFooter.Location = new System.Drawing.Point(0, 378);
+            this.GridFooter.Location = new System.Drawing.Point(0, 403);
             this.GridFooter.Name = "GridFooter";
-            this.GridFooter.Size = new System.Drawing.Size(775, 34);
+            this.GridFooter.Size = new System.Drawing.Size(789, 34);
             this.GridFooter.TabIndex = 0;
             this.GridFooter.WrapContents = false;
             // 
@@ -75,8 +75,7 @@
             this.dataGridView.GridColor = System.Drawing.Color.Peru;
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.Size = new System.Drawing.Size(775, 378);
+            this.dataGridView.Size = new System.Drawing.Size(789, 403);
             this.dataGridView.TabIndex = 6;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView_ColumnWidthChanged);
@@ -87,9 +86,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "List Form";
             this.Name = "IListForm";
-            this.Size = new System.Drawing.Size(775, 481);
+            this.Size = new System.Drawing.Size(789, 506);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IListForm_BeforeRun);
-            ((System.ComponentModel.ISupportInitialize)(this.VDataTable)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
