@@ -11,7 +11,6 @@ namespace Free_Accounting_Software
     public partial class IControlHolderForm : Form
     {
         # region Variable Declarations
-            IParentForm form;
             int day, hour, min, sec;
         #endregion
 
@@ -43,16 +42,17 @@ namespace Free_Accounting_Software
             {
                 string formname = null;
                 TreeView treeView = (sender as TreeView);
+                IParentForm form;
 
                 if (treeView.SelectedNode.Nodes.Count == 0)
                 {
                     try
                     {
                         IAppHandler.StartBusy("Opening list form");
-                        if (form != null)
+                        if (IAppHandler.FindActiveForm() != null)
                         {
-                            form.Hide();
-                            IAppHandler.AddForm(form);
+                            IAppHandler.AddForm(IAppHandler.FindActiveForm());
+                            IAppHandler.FindActiveForm().Hide();
                         }
 
                         formname = IAppHandler.GetSubCategory(treeView.SelectedNode.Text, "ListForm");

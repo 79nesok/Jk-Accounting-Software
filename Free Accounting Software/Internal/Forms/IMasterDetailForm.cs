@@ -91,7 +91,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (value)
                     {
                         CreateDetailGrid();
-                        //CreateFooter();
+                        CreateFooter();
                     }
                     else
                     {
@@ -100,10 +100,22 @@ namespace Free_Accounting_Software.Internal.Forms
                     _ZLoadDetailGrid = value;
                 }
             }
-        #endregion
 
-        #region Variable Declarations
-            //private BindingSource VBindingSource = new BindingSource();
+            private int VisibleColumnCount
+            {
+                get
+                {
+                    int count = 0;
+
+                    for (int i = 0; i <= dataGridView.Columns.Count - 1; i++)
+                    {
+                        if (dataGridView.Columns[i].Visible)
+                            count += 1;
+                    }
+
+                    return count;
+                }
+            }
         #endregion
 
         #region Built-in Events
@@ -113,7 +125,6 @@ namespace Free_Accounting_Software.Internal.Forms
 
                 dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
                 dataGridView.AlternatingRowsDefaultCellStyle.BackColor = VGridAlternateRowColor;
-                
             }
 
             private void IMasterDetailForm_BeforeRun()
@@ -142,6 +153,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     dataGridView.DataSource = VDetailDataTable;
 
                 LoadLookUpOnGrid();
+                ComputeFooterValues();
             }
 
             private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -152,7 +164,14 @@ namespace Free_Accounting_Software.Internal.Forms
             protected override void UpdateControls()
             {
                 base.UpdateControls();
-                dataGridView.Enabled = FormState != FormStates.fsView;
+
+                if (FormState == FormStates.fsView)
+                    dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
+                else
+                    dataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
+
+                dataGridView.AllowUserToAddRows = FormState != FormStates.fsView;
+                dataGridView.AllowUserToDeleteRows = FormState != FormStates.fsView;
             }
 
             protected override void SaveDetail()
@@ -165,6 +184,45 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 base.EditDetail();
                 VTransactionHandler.EditMaster(DetailCommandText, DetailParameters);
+            }
+
+            private void dataGridView_MouseClick(object sender, MouseEventArgs e)
+            {
+                if (e.Button == MouseButtons.Right && dataGridView.SelectedRows.Count > 0 && dataGridView.AllowUserToDeleteRows)
+                {
+                    if (IMessageHandler.Confirm("Delete?") == DialogResult.Yes)
+                    {
+                        foreach (DataGridViewRow row in dataGridView.SelectedRows)
+                        {
+                            if (!row.IsNewRow)
+                                dataGridView.Rows.RemoveAt(row.Index);
+
+                            dataGridView.RefreshEdit();
+                        }
+                    }
+                }
+            }
+
+            private void dataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
+            {
+                foreach (JkDetailColumn column in DetailColumns)
+                {
+                    if (!String.IsNullOrWhiteSpace(column.DefaultValue))
+                    {
+                        e.Row.Cells["dataGridViewColumn" + column.Name.Trim()].Value = IAppHandler.ConvertMaskValue(column.DefaultValue);
+                    }
+                }
+            }
+
+            private void IMasterDetailForm_Resize(object sender, EventArgs e)
+            {
+                panelGrid.Size = new Size(splitContainerMasterDetail.Panel2.Width, splitContainerMasterDetail.Panel2.Height - FormFooter.Height);
+                dataGridView.Size = new Size(panelGrid.Width, panelGrid.Height - GridFooter.Height);
+            }
+
+            private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+            {
+                ComputeFooterValues();
             }
         #endregion
 
@@ -303,8 +361,9 @@ namespace Free_Accounting_Software.Internal.Forms
 
                             if (col.DataType == SqlDbType.Money || col.DataType == SqlDbType.Float || col.DataType == SqlDbType.Decimal)
                             {
-                                GridColText.DefaultCellStyle.Format = "C";
+                                GridColText.DefaultCellStyle.Format = "N2";
                                 GridColText.ValueType = Type.GetType("System.Decimal");
+                                GridColText.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                             }
 
                             dataGridView.Columns.AddRange(new DataGridViewColumn[] { GridColText });
@@ -331,6 +390,101 @@ namespace Free_Accounting_Software.Internal.Forms
                         }
                 }
                 dataGridView.Update();
+            }
+
+            private void CreateFooter()
+            {
+                JkDetailColumn ic;
+                int EstimatedWidth = 0, offset = 35;
+
+                if (VisibleColumnCount != 0)
+                    EstimatedWidth = Convert.ToInt32((dataGridView.Width) / VisibleColumnCount) - 18;
+
+                GridFooter.Padding = new Padding(offset, 3, 3, 3);
+
+                if (DetailColumns.Count > 0)
+                {
+                    for (int i = 0; i <= DetailColumns.Count - 1; i++)
+                    {
+                        ic = DetailColumns[i];
+                        if (ic.Visible)
+                        {
+                            Label lblFooter = new Label();
+                            lblFooter.Name = "lblFooter" + ic.Caption.Trim();
+                            lblFooter.TextAlign = ContentAlignment.MiddleCenter;
+                            lblFooter.Text = AssignFooterValue(ic.FooterType, "0");
+                            lblFooter.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
+
+                            if (GridAutoSize)
+                                lblFooter.Width = EstimatedWidth;
+                            else
+                                lblFooter.Width = ic.Width;
+
+                            if (i == 0)
+                                lblFooter.Width -= offset;
+
+                            if (ic.FooterType != JkDetailColumn.ColumnFooterTypes.ftNone)
+                                lblFooter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+
+                            GridFooter.Controls.Add(lblFooter);
+                        }
+                    }
+                }
+            }
+
+            private String AssignFooterValue(JkDetailColumn.ColumnFooterTypes FooterType, String value)
+            {
+                String text = "";
+
+                if (FooterType == JkDetailColumn.ColumnFooterTypes.ftNone)
+                    text = "";
+                else if (FooterType == JkDetailColumn.ColumnFooterTypes.ftAvg)
+                    text = "Avg:   " + value;
+                else if (FooterType == JkDetailColumn.ColumnFooterTypes.ftCount)
+                    text = "Count:   " + value;
+                else if (FooterType == JkDetailColumn.ColumnFooterTypes.ftMax)
+                    text = "Max:   " + value;
+                else if (FooterType == JkDetailColumn.ColumnFooterTypes.ftMin)
+                    text = "Min:   " + value;
+                else if (FooterType == JkDetailColumn.ColumnFooterTypes.ftSum)
+                    text = "Sum:   " + value;
+
+                return text;
+            }
+
+            private void ComputeFooterValues()
+            {
+                String value = "";
+
+                foreach (JkDetailColumn ic in DetailColumns)
+                {
+                    if (ic.Visible && ic.FooterType != JkDetailColumn.ColumnFooterTypes.ftNone)
+                    {
+                        if (ic.FooterType == JkDetailColumn.ColumnFooterTypes.ftCount)
+                            value = VDetailDataTable.Rows.Count.ToString();
+                        //todo: other footer types
+
+                        if (ic.FooterType == JkDetailColumn.ColumnFooterTypes.ftSum)
+                        {
+                            double total = 0;
+
+                            foreach (DataRow row in VDetailDataTable.Rows)
+                            {
+                                total += Convert.ToDouble(row[ic.Name]);
+                            }
+
+                            value = total.ToString("N2");
+                        }
+
+                        foreach (Control c in GridFooter.Controls)
+                        {
+                            if (c.Name == "lblFooter" + ic.Caption.Trim())
+                            {
+                                c.Text = AssignFooterValue(ic.FooterType, value);
+                            }
+                        }
+                    }
+                }
             }
         #endregion
     }

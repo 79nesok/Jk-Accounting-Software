@@ -17,6 +17,7 @@ namespace Free_Accounting_Software.Internal.Classes
         public static ToolStripStatusLabel StatusLabel;
         public static ToolStripProgressBar StatusProgressBar;
         private static String InitialStatus;
+        public static List<String> OpenedForm = new List<String>();
 
         public static String GetSubCategory(String Name, String Result)
         {
@@ -38,7 +39,7 @@ namespace Free_Accounting_Software.Internal.Classes
                 Classes.Add(PClassname);
         }
 
-        public static IParentForm FindForm(String PClassname)
+        public static IParentForm FindForm(String PClassname, bool IsReport = false)
         {
             IParentForm form = null;
 
@@ -46,16 +47,40 @@ namespace Free_Accounting_Software.Internal.Classes
                 if (Classes[i].Name == PClassname)
                     form = Classes[i];
 
-            foreach (DataRow category in Categories.Rows)
+            if (IsReport)
             {
-                if (form == null && Type.GetType("Free_Accounting_Software.External." + category["Name"] + "." + PClassname) != null)
-                    form = Activator.CreateInstance(Type.GetType("Free_Accounting_Software.External." + category["Name"] + "." + PClassname)) as IParentForm;
+                if (form == null && Type.GetType("Free_Accounting_Software.External.Report." + PClassname) != null)
+                    form = Activator.CreateInstance(Type.GetType("Free_Accounting_Software.External.Report." + PClassname)) as IParentForm;
             }
+            else
+                foreach (DataRow category in Categories.Rows)
+                {
+                    if (form == null && Type.GetType("Free_Accounting_Software.External." + category["Name"] + "." + PClassname) != null)
+                        form = Activator.CreateInstance(Type.GetType("Free_Accounting_Software.External." + category["Name"] + "." + PClassname)) as IParentForm;
+                }
 
             if (form != null)
+            {
                 form.Parent = ParentPanel;
+                OpenedForm.Add(form.Name);
+            }
 
             return form;
+        }
+
+        public static IParentForm OpenPreviousForm(String CurrentFormName)
+        {
+            OpenedForm.Remove(CurrentFormName);
+
+            for (int i = OpenedForm.Count - 1; i >= 0; i--)
+            {
+                if (OpenedForm[i] != null)
+                { 
+                    return FindForm(OpenedForm[i]);     
+                }
+            }
+            
+            return null;
         }
 
         public static IParentForm FindActiveForm()

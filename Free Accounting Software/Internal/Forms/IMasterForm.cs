@@ -69,7 +69,7 @@ namespace Free_Accounting_Software.Internal.Forms
 
         #region Variable Declarations
             public List<String> KeyList;
-            private bool ValidationFails;
+            public bool ValidationFails;
             public DataTable VDetailDataTable = new DataTable();
         #endregion
 
@@ -472,7 +472,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     row = VMasterDataTable.NewRow();
                 else
                 {
-                    row = VMasterDataTable.Rows.Find(Parameters.Find(p => p.Name == "Id").Value);
+                    row = VMasterDataTable.Rows.Find(IAppHandler.ConvertMaskValue(Parameters[0].Value));
                     row.BeginEdit();
                 }
 

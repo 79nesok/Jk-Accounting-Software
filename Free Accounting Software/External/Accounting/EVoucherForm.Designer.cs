@@ -39,11 +39,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
-            this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
+            this.jkSeriesProvider = new JkComponents.JkSeriesProvider();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).BeginInit();
+            this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel2.SuspendLayout();
@@ -57,18 +59,18 @@
             // splitContainerMasterDetail.Panel1
             // 
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 264);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 437);
             // 
-            // lblMode
+            // FormFooter
             // 
-            this.lblMode.Location = new System.Drawing.Point(681, 0);
+            this.FormFooter.Location = new System.Drawing.Point(0, 472);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 333);
+            this.splitContainer.Size = new System.Drawing.Size(789, 506);
             // 
             // flowLayoutPanel2
             // 
@@ -184,20 +186,20 @@
             this.cmbSubsidiary.TabIndex = 10;
             this.cmbSubsidiary.Visible = false;
             // 
-            // jkSeriesProvider1
+            // jkSeriesProvider
             // 
-            this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "JV";
-            this.jkSeriesProvider1.CompanyId = "";
-            this.jkSeriesProvider1.ConnectionString = "";
-            this.jkSeriesProvider1.Location = new System.Drawing.Point(411, 33);
-            this.jkSeriesProvider1.Name = "jkSeriesProvider1";
-            this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
-            this.jkSeriesProvider1.TabIndex = 15;
-            this.jkSeriesProvider1.Text = "jkSeriesProvider1";
-            this.jkSeriesProvider1.TransactionColumn = "TransactionNo";
-            this.jkSeriesProvider1.Value = null;
-            this.jkSeriesProvider1.Visible = false;
+            this.jkSeriesProvider.BackColor = System.Drawing.Color.Tan;
+            this.jkSeriesProvider.Code = "JV";
+            this.jkSeriesProvider.CompanyId = "";
+            this.jkSeriesProvider.ConnectionString = "";
+            this.jkSeriesProvider.Location = new System.Drawing.Point(411, 33);
+            this.jkSeriesProvider.Name = "jkSeriesProvider";
+            this.jkSeriesProvider.Size = new System.Drawing.Size(83, 20);
+            this.jkSeriesProvider.TabIndex = 15;
+            this.jkSeriesProvider.Text = "jkSeriesProvider1";
+            this.jkSeriesProvider.TransactionColumn = "TransactionNo";
+            this.jkSeriesProvider.Value = null;
+            this.jkSeriesProvider.Visible = false;
             // 
             // cmbAccounts
             // 
@@ -246,14 +248,18 @@
             this.Name = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 333);
+            this.Size = new System.Drawing.Size(789, 506);
             this.ZLoadColumns = true;
             this.ZLoadDetailGrid = true;
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
+            this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EVoucherForm_ValidateSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).EndInit();
+            this.FormFooter.ResumeLayout(false);
+            this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
@@ -276,7 +282,7 @@
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
         private JkComponents.JkTextBox txtRemarks;
-        private JkComponents.JkSeriesProvider jkSeriesProvider1;
+        private JkComponents.JkSeriesProvider jkSeriesProvider;
         private JkComponents.JkLookUpComboBox cmbAccounts;
     }
 }

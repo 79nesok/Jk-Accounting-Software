@@ -52,10 +52,10 @@ namespace Free_Accounting_Software.Internal.Forms
                 if (CommandText != null && CommandText != "")
                     VTransactionHandler.LoadData(CommandText, ref VMasterDataTable, this.Parameters);
 
-                UpdateControls();
-
                 if (BeforeRun != null)
                     BeforeRun();
+
+                UpdateControls();
             }
 
             public delegate void ValidateSaveHandler();
@@ -133,6 +133,20 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 btnClose.ForeColor = Color.RoyalBlue;
             }
+
+            private void btnPrint_Click(object sender, EventArgs e)
+            {
+                String reportFormName = VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "PrintoutFormName").ToString();
+                IParentForm reportForm = IAppHandler.FindForm(reportFormName, true);
+
+                if (reportForm == null)
+                    IMessageHandler.ShowError(ISystemMessages.PrintoutNotSet);
+                else
+                {
+                    this.Hide();
+                    reportForm.Run();
+                }
+            }
         #endregion
 
         #region Custom Functions and Procedures
@@ -178,6 +192,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
                 btnLastRecord.Enabled = (FormState == FormStates.fsView);
                 txtRecordCount.Enabled = (FormState == FormStates.fsView);
+                btnPrint.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
 
                 ProcessControls(splitContainer.Panel2);
             }
@@ -248,12 +263,15 @@ namespace Free_Accounting_Software.Internal.Forms
 
             public void CloseForm()
             {
-                VMasterDataTable.Clear();
-                this.Hide();
-                txtRecordCount.Clear();
+                foreach (String str in IAppHandler.OpenedForm)
+                    IMessageHandler.Inform(str);
 
-                if (!String.IsNullOrWhiteSpace(ListForm))
-                    IAppHandler.FindForm(ListForm).Run();
+                VMasterDataTable.Clear();
+                txtRecordCount.Clear();
+                this.Hide();
+
+                if (IAppHandler.OpenPreviousForm(this.Name) != null)
+                    IAppHandler.OpenPreviousForm(this.Name).Run();
             }
 
             public void CreateToolStripItem(String PCaption, Action<Object, EventArgs> POnItemClick, Image img, String PToolTipText = "")
@@ -280,6 +298,5 @@ namespace Free_Accounting_Software.Internal.Forms
                     btnHolder.Items.Add(btn);
             }
         #endregion
-
     }
 }

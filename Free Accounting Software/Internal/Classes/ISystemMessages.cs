@@ -25,6 +25,8 @@ namespace Free_Accounting_Software.Internal.Classes
         {
             return "Development Error: " + error;
         }
+        public const String DebitCreditNotEqual = "Total debit must be equal to total credit.";
+        public const String PrintoutNotSet = "Printout not set properly.";
 
         //Messages
         public const String NoFormMessage = "No form available";

@@ -36,6 +36,7 @@
             this.dstAccountTypes = new JkComponents.JkDataSet();
             this.dstSubsidiaries = new JkComponents.JkDataSet();
             this.dstAccounts = new JkComponents.JkDataSet();
+            this.dstSystemPrintouts = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -123,11 +124,26 @@
             this.dstAccounts.Text = "jkDataSet1";
             this.dstAccounts.ZLoadColumns = false;
             // 
+            // dstSystemPrintouts
+            // 
+            this.dstSystemPrintouts.BackColor = System.Drawing.Color.Khaki;
+            this.dstSystemPrintouts.CommandText = "SELECT FormCaption, Report, PrintoutFormName\r\nFROM tblSystemPrintouts\r\nORDER BY F" +
+    "ormCaption, Report";
+            this.dstSystemPrintouts.Connection = this.cnConnection;
+            this.dstSystemPrintouts.Location = new System.Drawing.Point(73, 30);
+            this.dstSystemPrintouts.Name = "dstSystemPrintouts";
+            this.dstSystemPrintouts.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstSystemPrintouts.Parameters"))));
+            this.dstSystemPrintouts.Size = new System.Drawing.Size(98, 20);
+            this.dstSystemPrintouts.TabIndex = 7;
+            this.dstSystemPrintouts.Text = "jkDataSet1";
+            this.dstSystemPrintouts.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstSystemPrintouts);
             this.Controls.Add(this.dstAccounts);
             this.Controls.Add(this.dstSubsidiaries);
             this.Controls.Add(this.dstAccountTypes);
@@ -148,7 +164,8 @@
         public JkComponents.JkDataSet dstJournalTypes;
         private JkComponents.JkConnection cnConnection;
         public JkComponents.JkDataSet dstAccountTypes;
-        private JkComponents.JkDataSet dstSubsidiaries;
-        private JkComponents.JkDataSet dstAccounts;
+        public JkComponents.JkDataSet dstSystemPrintouts;
+        public JkComponents.JkDataSet dstSubsidiaries;
+        public JkComponents.JkDataSet dstAccounts;
     }
 }

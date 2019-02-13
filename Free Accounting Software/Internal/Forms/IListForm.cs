@@ -93,8 +93,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 } 
             }
 
-            [Browsable(false)]
-            public int VisibleColumnCount
+            private int VisibleColumnCount
             {
                 get
                 {
@@ -151,6 +150,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (OpenForm != null)
                         OpenForm();
 
+                    IAppHandler.AddForm(this);
                     this.Hide();
 
                     (Form as IMasterForm).KeyList.Clear();

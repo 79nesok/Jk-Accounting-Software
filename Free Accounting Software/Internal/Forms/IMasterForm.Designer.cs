@@ -40,7 +40,7 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 324);
+            this.splitContainer.Size = new System.Drawing.Size(789, 434);
             // 
             // FormFooter
             // 
@@ -51,7 +51,7 @@
             this.FormFooter.Controls.Add(this.lblModifiedBy);
             this.FormFooter.Controls.Add(this.lblMode);
             this.FormFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FormFooter.Location = new System.Drawing.Point(0, 290);
+            this.FormFooter.Location = new System.Drawing.Point(0, 400);
             this.FormFooter.Name = "FormFooter";
             this.FormFooter.Size = new System.Drawing.Size(789, 34);
             this.FormFooter.TabIndex = 4;
@@ -100,7 +100,7 @@
             this.Caption = "Master Form";
             this.Controls.Add(this.FormFooter);
             this.Name = "IMasterForm";
-            this.Size = new System.Drawing.Size(789, 324);
+            this.Size = new System.Drawing.Size(789, 434);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterForm_BeforeRun);
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.IMasterForm_ValidateSave);
             this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterForm_BeforeSave);
@@ -119,10 +119,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel FormFooter;
         protected System.Windows.Forms.Label lblCreatedBy;
         protected System.Windows.Forms.Label lblModifiedBy;
         protected System.Windows.Forms.Label lblMode;
+        protected System.Windows.Forms.Panel FormFooter;
 
 
 

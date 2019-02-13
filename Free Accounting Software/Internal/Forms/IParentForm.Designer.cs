@@ -50,6 +50,7 @@
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
+            this.btnPrint = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -259,11 +260,12 @@
             this.btnNew,
             this.btnEdit,
             this.btnSave,
-            this.btnCancel});
+            this.btnCancel,
+            this.btnPrint});
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(224, 26);
+            this.btnHolder.Size = new System.Drawing.Size(307, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -303,6 +305,16 @@
             this.btnCancel.Size = new System.Drawing.Size(63, 23);
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.ToolTipText = "Cancel the current transaction (Alt+C)";
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(52, 23);
+            this.btnPrint.Text = "&Print";
+            this.btnPrint.ToolTipText = "Opens the printing window";
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // IParentForm
             // 
@@ -354,6 +366,7 @@
         protected System.Windows.Forms.ToolStripButton btnEdit;
         protected System.Windows.Forms.ToolStripButton btnSave;
         protected System.Windows.Forms.ToolStripButton btnCancel;
+        protected System.Windows.Forms.ToolStripButton btnPrint;
     }
 }
 
