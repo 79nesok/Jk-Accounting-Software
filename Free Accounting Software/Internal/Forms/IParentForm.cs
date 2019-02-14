@@ -143,7 +143,12 @@ namespace Free_Accounting_Software.Internal.Forms
                     IMessageHandler.ShowError(ISystemMessages.PrintoutNotSet);
                 else
                 {
+                    IAppHandler.AddUsedForm(this);
                     this.Hide();
+
+                    if (reportForm.Parameters.Find(p => p.Name == "Id") != null)
+                        reportForm.Parameters.Find(p => p.Name == "Id").Value = this.Parameters.Find(pa => pa.Name == "Id").Value;
+
                     reportForm.Run();
                 }
             }
@@ -191,7 +196,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 btnPreviousRecord.Enabled = (FormState == FormStates.fsView);
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
                 btnLastRecord.Enabled = (FormState == FormStates.fsView);
-                txtRecordCount.Enabled = (FormState == FormStates.fsView);
                 btnPrint.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
 
                 ProcessControls(splitContainer.Panel2);
@@ -263,15 +267,12 @@ namespace Free_Accounting_Software.Internal.Forms
 
             public void CloseForm()
             {
-                foreach (String str in IAppHandler.OpenedForm)
-                    IMessageHandler.Inform(str);
-
                 VMasterDataTable.Clear();
-                txtRecordCount.Clear();
+                IAppHandler.AddUsedForm(this);
                 this.Hide();
 
-                if (IAppHandler.OpenPreviousForm(this.Name) != null)
-                    IAppHandler.OpenPreviousForm(this.Name).Run();
+                if (IAppHandler.OpenPreviousForm(this.Tag) != null)
+                    IAppHandler.OpenPreviousForm(this.Tag).Run();
             }
 
             public void CreateToolStripItem(String PCaption, Action<Object, EventArgs> POnItemClick, Image img, String PToolTipText = "")

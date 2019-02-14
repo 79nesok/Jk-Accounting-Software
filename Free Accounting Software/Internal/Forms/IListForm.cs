@@ -119,8 +119,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 {
                     IAppHandler.StartBusy("Opening master form");
 
-                    this.Hide();
-                    IAppHandler.AddForm(this as IParentForm);
                     Form = IAppHandler.FindForm(this.OpenFormName);
                     if (sender.GetType().Name == "ToolStripButton" && (sender as ToolStripButton).Name == "btnNew")
                         Form.FormState = FormStates.fsNew;
@@ -150,9 +148,6 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (OpenForm != null)
                         OpenForm();
 
-                    IAppHandler.AddForm(this);
-                    this.Hide();
-
                     (Form as IMasterForm).KeyList.Clear();
                     for (int i = 0; i <= dataGridView.Rows.Count - 1; i++)
                     {
@@ -163,6 +158,8 @@ namespace Free_Accounting_Software.Internal.Forms
                         }
                     }
 
+                    IAppHandler.AddUsedForm(this);
+                    this.Hide();
                     Form.Run();
                 }
                 finally

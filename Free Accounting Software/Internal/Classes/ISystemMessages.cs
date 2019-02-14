@@ -10,6 +10,8 @@ namespace Free_Accounting_Software.Internal.Classes
         public const String ColumnReloadQuestion = "Columns are already loaded, do you want to remove it?";
         public const String LogoutQuestion = "Are you sure do you want to logout?";
         public const String RestartQuestion = "Are you sure do you want to restart the application?";
+        public const String DeleteGridRow = "Delete selected row(s)?";
+        public const String RemoveGridValue = "Remove assigned value on this cell?";
 
         //Errors
         public const String LoadDataError = "Unable to load data: ";
@@ -27,6 +29,13 @@ namespace Free_Accounting_Software.Internal.Classes
         }
         public const String DebitCreditNotEqual = "Total debit must be equal to total credit.";
         public const String PrintoutNotSet = "Printout not set properly.";
+        public static String ErrorOnPosting(String error, bool IsPost)
+        {
+            if (IsPost)
+                return "Unable to post transaction: " + error;
+            else
+                return "Unable to unpost transaction: " + error;
+        }
 
         //Messages
         public const String NoFormMessage = "No form available";

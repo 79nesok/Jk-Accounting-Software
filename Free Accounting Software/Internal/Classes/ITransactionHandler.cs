@@ -12,8 +12,8 @@ namespace Free_Accounting_Software.Internal.Classes
     {
         private string VConnectionString { get { return Properties.Settings.Default.FreeAccountingSoftwareConnectionString; } }
 
-        private SqlConnection VConnection;
-        private SqlTransaction VTransaction;
+        public SqlConnection VConnection;
+        public SqlTransaction VTransaction;
         private DataSet VDataset = new DataSet();
 
         public void Connect()

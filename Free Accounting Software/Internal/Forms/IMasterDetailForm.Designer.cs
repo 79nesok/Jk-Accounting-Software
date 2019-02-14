@@ -48,7 +48,7 @@
             // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 527);
+            this.FormFooter.Location = new System.Drawing.Point(0, 480);
             // 
             // splitContainer
             // 
@@ -56,7 +56,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.splitContainerMasterDetail);
-            this.splitContainer.Size = new System.Drawing.Size(789, 561);
+            this.splitContainer.Size = new System.Drawing.Size(789, 514);
             // 
             // splitContainerMasterDetail
             // 
@@ -70,7 +70,7 @@
             // splitContainerMasterDetail.Panel2
             // 
             this.splitContainerMasterDetail.Panel2.Controls.Add(this.panelGrid);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 492);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 445);
             this.splitContainerMasterDetail.SplitterDistance = 218;
             this.splitContainerMasterDetail.SplitterWidth = 1;
             this.splitContainerMasterDetail.TabIndex = 0;
@@ -121,6 +121,8 @@
             this.dataGridView.TabIndex = 15;
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
+            this.dataGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_DefaultValuesNeeded);
+            this.dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             this.dataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseClick);
             // 
             // IMasterDetailForm
@@ -129,7 +131,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Master Detail Form";
             this.Name = "IMasterDetailForm";
-            this.Size = new System.Drawing.Size(789, 561);
+            this.Size = new System.Drawing.Size(789, 514);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterDetailForm_BeforeRun);
             this.Resize += new System.EventHandler(this.IMasterDetailForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).EndInit();

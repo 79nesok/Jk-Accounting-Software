@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsBQEAAAAcSmtDb21wb25lbnRzLkprRm9ybVBhcmFt
+        ZXRlcgIAAAAVPE5hbWU+a19fQmFja2luZ0ZpZWxkFjxWYWx1ZT5rX19CYWNraW5nRmllbGQBAQIAAAAG
+        AwAAAAJJZAYEAAAAA0BJZAs=
+</value>
+  </data>
 </root>

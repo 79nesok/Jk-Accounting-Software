@@ -39,9 +39,6 @@
             this.btnFirstRecord = new System.Windows.Forms.ToolStripButton();
             this.NavigatorSeparatorFirst = new System.Windows.Forms.ToolStripSeparator();
             this.btnPreviousRecord = new System.Windows.Forms.ToolStripButton();
-            this.NavigatorSeparatorSecond = new System.Windows.Forms.ToolStripSeparator();
-            this.txtRecordCount = new System.Windows.Forms.ToolStripTextBox();
-            this.NavigatorSeparatorThird = new System.Windows.Forms.ToolStripSeparator();
             this.btnNextRecord = new System.Windows.Forms.ToolStripButton();
             this.NavigatorSeparatorFourth = new System.Windows.Forms.ToolStripSeparator();
             this.btnLastRecord = new System.Windows.Forms.ToolStripButton();
@@ -165,17 +162,14 @@
             this.btnFirstRecord,
             this.NavigatorSeparatorFirst,
             this.btnPreviousRecord,
-            this.NavigatorSeparatorSecond,
-            this.txtRecordCount,
-            this.NavigatorSeparatorThird,
             this.btnNextRecord,
             this.NavigatorSeparatorFourth,
             this.btnLastRecord});
             this.btnNavigator.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigator.Location = new System.Drawing.Point(626, 0);
+            this.btnNavigator.Location = new System.Drawing.Point(682, 0);
             this.btnNavigator.Name = "btnNavigator";
             this.btnNavigator.Padding = new System.Windows.Forms.Padding(0);
-            this.btnNavigator.Size = new System.Drawing.Size(226, 26);
+            this.btnNavigator.Size = new System.Drawing.Size(170, 26);
             this.btnNavigator.Stretch = true;
             this.btnNavigator.TabIndex = 18;
             this.btnNavigator.Text = "toolStrip1";
@@ -206,24 +200,6 @@
             this.btnPreviousRecord.Tag = "2";
             this.btnPreviousRecord.Text = " ";
             this.btnPreviousRecord.ToolTipText = "Shows the previous record";
-            // 
-            // NavigatorSeparatorSecond
-            // 
-            this.NavigatorSeparatorSecond.Name = "NavigatorSeparatorSecond";
-            this.NavigatorSeparatorSecond.Size = new System.Drawing.Size(6, 26);
-            // 
-            // txtRecordCount
-            // 
-            this.txtRecordCount.Margin = new System.Windows.Forms.Padding(0);
-            this.txtRecordCount.Name = "txtRecordCount";
-            this.txtRecordCount.Size = new System.Drawing.Size(75, 26);
-            this.txtRecordCount.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtRecordCount.ToolTipText = "Shows the current record count";
-            // 
-            // NavigatorSeparatorThird
-            // 
-            this.NavigatorSeparatorThird.Name = "NavigatorSeparatorThird";
-            this.NavigatorSeparatorThird.Size = new System.Drawing.Size(6, 26);
             // 
             // btnNextRecord
             // 
@@ -265,7 +241,7 @@
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(307, 26);
+            this.btnHolder.Size = new System.Drawing.Size(276, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -355,9 +331,6 @@
         protected System.Windows.Forms.ToolStripButton btnFirstRecord;
         private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFirst;
         protected System.Windows.Forms.ToolStripButton btnPreviousRecord;
-        private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorSecond;
-        protected System.Windows.Forms.ToolStripTextBox txtRecordCount;
-        private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorThird;
         protected System.Windows.Forms.ToolStripButton btnNextRecord;
         private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFourth;
         protected System.Windows.Forms.ToolStripButton btnLastRecord;

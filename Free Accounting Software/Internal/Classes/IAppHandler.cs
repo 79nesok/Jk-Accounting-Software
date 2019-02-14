@@ -17,7 +17,7 @@ namespace Free_Accounting_Software.Internal.Classes
         public static ToolStripStatusLabel StatusLabel;
         public static ToolStripProgressBar StatusProgressBar;
         private static String InitialStatus;
-        public static List<String> OpenedForm = new List<String>();
+        private static int CurrentTag = 0;
 
         public static String GetSubCategory(String Name, String Result)
         {
@@ -33,19 +33,15 @@ namespace Free_Accounting_Software.Internal.Classes
             return null;
         }
 
-        public static void AddForm(IParentForm PClassname)
+        //This will store the opened forms for further retrieving rather than creating a new instance of the form
+        public static void AddUsedForm(IParentForm PClassname)
         {
-            if(Classes.Find(frm => frm.Name == PClassname.Name) == null)
-                Classes.Add(PClassname);
+            Classes.Add(PClassname);
         }
 
         public static IParentForm FindForm(String PClassname, bool IsReport = false)
         {
             IParentForm form = null;
-
-            for (int i = 0; i <= Classes.Count - 1; i++)
-                if (Classes[i].Name == PClassname)
-                    form = Classes[i];
 
             if (IsReport)
             {
@@ -62,24 +58,24 @@ namespace Free_Accounting_Software.Internal.Classes
             if (form != null)
             {
                 form.Parent = ParentPanel;
-                OpenedForm.Add(form.Name);
+                form.Tag = CurrentTag;
+                CurrentTag++;
             }
 
             return form;
         }
 
-        public static IParentForm OpenPreviousForm(String CurrentFormName)
+        public static IParentForm OpenPreviousForm(object Tag)
         {
-            OpenedForm.Remove(CurrentFormName);
+            if (Classes.Find(c => c.Tag.ToString() == Tag.ToString()) != null)
+                Classes.Remove(Classes.Find(c => c.Tag.ToString() == Tag.ToString()));
 
-            for (int i = OpenedForm.Count - 1; i >= 0; i--)
-            {
-                if (OpenedForm[i] != null)
-                { 
-                    return FindForm(OpenedForm[i]);     
-                }
-            }
-            
+            foreach (IParentForm frm in Classes)
+                IMessageHandler.Inform(frm.Name + " " + frm.Tag.ToString());
+
+            if (Classes.Count > 0)
+                return Classes[Classes.Count - 1];
+
             return null;
         }
 

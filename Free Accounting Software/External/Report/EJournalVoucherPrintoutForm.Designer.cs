@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EJournalVoucherPrintoutForm));
             ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).BeginInit();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
@@ -53,7 +54,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.Caption = "Printout";
             this.Name = "EJournalVoucherPrintoutForm";
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(789, 506);
+            this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EJournalVoucherPrintoutForm_AfterRun);
             ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).EndInit();
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

@@ -5,7 +5,8 @@
     }
 }
 
-namespace Free_Accounting_Software.EGeneralLedgerReportDSTableAdapters {
+namespace Free_Accounting_Software.External.Datasources.EGeneralLedgerReportDSTableAdapters
+{
     partial class tblCompaniesTableAdapter
     {
     }

@@ -53,11 +53,11 @@ namespace Free_Accounting_Software.External.Report
             tblGeneralLedgerTableAdapter GeneralLedgerAdapter = new tblGeneralLedgerTableAdapter();
             tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
 
-            GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, ISecurityHandler.CompanyId);
+            GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, ISecurityHandler.CompanyId, 0, DateTime.Parse("31/12/2050"));
             CompanyAdapter.Fill(glDataSource.tblCompanies, ISecurityHandler.CompanyId);
 
             reportViewer.Reset();
-            reportViewer.LocalReport.ReportPath = "../../External/Report/General Ledger.rdlc";
+            reportViewer.LocalReport.ReportPath = "../../External/Printouts/General Ledger.rdlc";
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GeneralLedger", glDataSource.Tables["tblGeneralLedger"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", glDataSource.Tables["tblCompanies"]));

@@ -179,6 +179,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EJournalVoucherPrintoutDS.cs">
+      <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EJournalVoucherPrintoutDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Maintenance\EEmployeesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -362,14 +371,15 @@
     <EmbeddedResource Include="External\Maintenance\ESuppliersListForm.resx">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Printouts\Journal Voucher.rdlc" />
     <EmbeddedResource Include="External\Report\EGeneralLedgerReportForm.resx">
       <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EJournalVoucherPrintoutForm.resx">
       <DependentUpon>EJournalVoucherPrintoutForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Report\General Ledger.rdlc" />
-    <EmbeddedResource Include="External\Report\Journal.rdlc" />
+    <EmbeddedResource Include="External\Printouts\General Ledger.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Journal.rdlc" />
     <EmbeddedResource Include="Internal\Forms\IConnectionProvider.resx">
       <DependentUpon>IConnectionProvider.cs</DependentUpon>
     </EmbeddedResource>
@@ -439,6 +449,17 @@
     </None>
     <None Include="External\Datasources\EJournalReportDS.xss">
       <DependentUpon>EJournalReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EJournalVoucherPrintoutDS.xsc">
+      <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EJournalVoucherPrintoutDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EJournalVoucherPrintoutDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EJournalVoucherPrintoutDS.xss">
+      <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -8,6 +8,7 @@ IF OBJECT_ID('tblJournals') IS NULL
 		[Date] DATETIME NOT NULL,
 		SubsidiaryId INT NULL,
 		Remarks VARCHAR(1000) NULL,
+		Posted BIT NOT NULL CONSTRAINT DF_tblJournals_Posted DEFAULT 0,
 		Voided BIT NOT NULL CONSTRAINT DF_tblJournals_Voided DEFAULT 0,
 		VoidedById INT NULL,
 		DateVoided DATETIME NULL,

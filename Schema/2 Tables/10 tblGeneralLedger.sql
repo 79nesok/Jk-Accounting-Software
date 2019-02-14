@@ -5,6 +5,7 @@ IF OBJECT_ID('tblGeneralLedger') IS NULL
 		AccountId INT NOT NULL,
 		Debit MONEY NOT NULL CONSTRAINT DF_tblGeneralLedger_Debit DEFAULT 0,
 		Credit MONEY NOT NULL CONSTRAINT DF_tblGeneralLedger_Credit DEFAULT 0,
+		Balance MONEY NOT NULL CONSTRAINT DF_tblGeneralLedger_Balance DEFAULT 0,
 	)
 GO
 

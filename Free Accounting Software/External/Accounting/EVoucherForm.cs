@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Free_Accounting_Software.Internal.Forms;
 using Free_Accounting_Software.Internal.Classes;
+using System.Data.SqlClient;
 
 namespace Free_Accounting_Software.External.Accounting
 {
@@ -42,6 +43,48 @@ namespace Free_Accounting_Software.External.Accounting
                 ValidationFails = true;
                 return;
             }
+        }
+
+        private void Post(bool IsPost)
+        {
+            SqlCommand Command = new SqlCommand();
+
+            try
+            {
+                try
+                {
+                    VTransactionHandler.Connect();
+                    VTransactionHandler.BeginTran();
+                    Command.CommandType = CommandType.StoredProcedure;
+                    Command.CommandText = "uspUpdateGeneralLedger";
+                    Command.Parameters.AddWithValue("@Id", Parameters[0].Value);
+                    Command.Parameters.AddWithValue("@IsPost", IsPost);
+                    Command.Connection = VTransactionHandler.VConnection;
+                    Command.Transaction = VTransactionHandler.VTransaction;
+                    Command.ExecuteNonQuery();
+
+                    VTransactionHandler.CommitTran();
+                }
+                finally
+                {
+                    VTransactionHandler.Disconnect();
+                }
+            }
+            catch (Exception ex)
+            {
+                IMessageHandler.Inform(ISystemMessages.ErrorOnPosting(ex.Message, IsPost));
+            }
+        }
+
+        private void EVoucherForm_BeforeSave()
+        {
+            if (FormState == FormStates.fsEdit)
+                Post(false);
+        }
+
+        private void EVoucherForm_AfterSave()
+        {
+            Post(true);
         }
     }
 }

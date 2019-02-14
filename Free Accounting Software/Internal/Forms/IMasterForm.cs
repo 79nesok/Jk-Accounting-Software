@@ -62,7 +62,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 set
                 {
                     _KeyId = value;
-                    txtRecordCount.Text = (value + 1).ToString();
                 }
             }
         #endregion
@@ -100,9 +99,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 lblCreatedBy.Visible = (MasterColumns.Find(col => col.Name == "CreatedById") != null) && (FormState != FormStates.fsNew);
                 lblModifiedBy.Visible = (MasterColumns.Find(col => col.Name == "ModifiedById") != null) && (FormState != FormStates.fsNew);
 
-                if (FormState == FormStates.fsNew)
-                    txtRecordCount.Clear();
-                else
+                if (FormState != FormStates.fsNew)
                     KeyId = _KeyId;
             }
 
@@ -206,6 +203,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 }
             }
 
+            //Sets the watermark for required columns
             public void SetRequiredControls()
             {
                 Control control;
@@ -374,34 +372,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 btnLastRecord.Click += (obj, e) =>
                 {
                     ReQuery(obj, e);
-                };
-
-                txtRecordCount.KeyDown += (obj, e) =>
-                {
-                    if (e.KeyCode == Keys.Enter)
-                    {
-                        try
-                        {
-                            int input = Convert.ToInt32(txtRecordCount.Text);
-
-                            if (input <= 0 || input > KeyList.Count)
-                            {
-                                IMessageHandler.ShowError(ISystemMessages.RecordCountInputError(KeyList.Count.ToString()));
-                                txtRecordCount.SelectAll();
-                            }
-                            else
-                            {
-                                KeyId = input - 1;
-                                Parameters[0].Value = Convert.ToString(KeyList[KeyId]);
-                                Run();
-                            }
-                        }
-                        catch
-                        {
-                            IMessageHandler.ShowError(ISystemMessages.InvalidInputError);
-                            txtRecordCount.SelectAll();
-                        }
-                    }
                 };
             }
 

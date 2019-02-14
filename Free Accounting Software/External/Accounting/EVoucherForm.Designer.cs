@@ -62,15 +62,15 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 437);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 492);
             // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 472);
+            this.FormFooter.Location = new System.Drawing.Point(0, 527);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 506);
+            this.splitContainer.Size = new System.Drawing.Size(789, 561);
             // 
             // flowLayoutPanel2
             // 
@@ -248,12 +248,14 @@
             this.Name = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 506);
+            this.Size = new System.Drawing.Size(789, 561);
             this.ZLoadColumns = true;
             this.ZLoadDetailGrid = true;
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EVoucherForm_ValidateSave);
+            this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.EVoucherForm_BeforeSave);
+            this.AfterSave += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterSaveHandler(this.EVoucherForm_AfterSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);

@@ -168,7 +168,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 if (FormState == FormStates.fsView)
                     dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                 else
-                    dataGridView.EditMode = DataGridViewEditMode.EditOnEnter;
+                    dataGridView.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
 
                 dataGridView.AllowUserToAddRows = FormState != FormStates.fsView;
                 dataGridView.AllowUserToDeleteRows = FormState != FormStates.fsView;
@@ -184,23 +184,6 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 base.EditDetail();
                 VTransactionHandler.EditMaster(DetailCommandText, DetailParameters);
-            }
-
-            private void dataGridView_MouseClick(object sender, MouseEventArgs e)
-            {
-                if (e.Button == MouseButtons.Right && dataGridView.SelectedRows.Count > 0 && dataGridView.AllowUserToDeleteRows)
-                {
-                    if (IMessageHandler.Confirm("Delete?") == DialogResult.Yes)
-                    {
-                        foreach (DataGridViewRow row in dataGridView.SelectedRows)
-                        {
-                            if (!row.IsNewRow)
-                                dataGridView.Rows.RemoveAt(row.Index);
-
-                            dataGridView.RefreshEdit();
-                        }
-                    }
-                }
             }
 
             private void dataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -223,6 +206,88 @@ namespace Free_Accounting_Software.Internal.Forms
             private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
             {
                 ComputeFooterValues();
+            }
+
+            private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+            {
+                if (FormState != FormStates.fsView && e.Control != null && e.Control is ComboBox)
+                {
+                    (e.Control as ComboBox).IntegralHeight = false;
+                    (e.Control as ComboBox).MaxDropDownItems = 10;
+                }
+            }
+
+            private void dataGridView_MouseClick(object sender, MouseEventArgs e)
+            {
+                if (e.Button == MouseButtons.Right
+                    && dataGridView.HitTest(e.X, e.Y).Type == DataGridViewHitTestType.Cell
+                    && dataGridView.HitTest(e.X, e.Y).RowIndex != dataGridView.NewRowIndex)
+                {
+                    int RowIndex = dataGridView.HitTest(e.X, e.Y).RowIndex,
+                        ColumnIndex = dataGridView.HitTest(e.X, e.Y).ColumnIndex;
+                    ContextMenu menu = new ContextMenu();
+
+                    MenuItem ClearMenu = new MenuItem();
+                    MenuItem CopyMenu = new MenuItem();
+                    MenuItem DeleteMenu = new MenuItem();
+                    MenuItem PasteMenu = new MenuItem();
+
+                    //set text
+                    ClearMenu.Text = "Clear Cell";
+                    CopyMenu.Text = "Copy";
+                    DeleteMenu.Text = "Delete Row";
+                    PasteMenu.Text = "Paste";
+
+                    //set event
+                    ClearMenu.Click += delegate(object s, EventArgs ea)
+                    {
+                        if (VDetailDataTable.Columns[dataGridView.Columns[ColumnIndex].DataPropertyName].AllowDBNull)
+                            VDetailDataTable.Rows[RowIndex][dataGridView.Columns[ColumnIndex].DataPropertyName] = DBNull.Value;
+                        else
+                            VDetailDataTable.Rows[RowIndex][dataGridView.Columns[ColumnIndex].DataPropertyName] = 0;
+                        splitContainerMasterDetail.Panel1.Focus();
+                        dataGridView.Focus();
+                    };
+                    CopyMenu.Click += delegate(object s, EventArgs ea)
+                    {
+                        Clipboard.SetText(dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value.ToString(), TextDataFormat.Text);
+                    };
+                    DeleteMenu.Click += delegate(object s, EventArgs ea)
+                    {
+                        if (dataGridView.SelectedRows.Count > 0)
+                        {
+                            foreach (DataGridViewRow row in dataGridView.SelectedRows)
+                            {
+                                if (!row.IsNewRow)
+                                    dataGridView.Rows.RemoveAt(row.Index);
+                            }
+                        }
+                        else
+                            dataGridView.Rows.RemoveAt(RowIndex);
+
+                        splitContainerMasterDetail.Panel1.Focus();
+                        dataGridView.Focus();
+                    };
+                    PasteMenu.Click += delegate(object s, EventArgs ea)
+                    {
+                        VDetailDataTable.Rows[RowIndex][dataGridView.Columns[ColumnIndex].DataPropertyName] = Clipboard.GetText();
+                        splitContainerMasterDetail.Panel1.Focus();
+                        dataGridView.Focus();
+                    };
+
+                    //set if enabled
+                    ClearMenu.Enabled = dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value != null;
+                    CopyMenu.Enabled = !String.IsNullOrEmpty(dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value.ToString());
+                    PasteMenu.Enabled = Clipboard.ContainsText();
+
+                    //add on ContextMenu
+                    menu.MenuItems.Add(ClearMenu);
+                    menu.MenuItems.Add(CopyMenu);
+                    menu.MenuItems.Add(DeleteMenu);
+                    menu.MenuItems.Add(PasteMenu);
+
+                    menu.Show(dataGridView, new Point(e.X, e.Y));
+                }
             }
         #endregion
 
@@ -345,7 +410,8 @@ namespace Free_Accounting_Software.Internal.Forms
                             GridColCombo.Width = col.Width;
                             GridColCombo.Visible = col.Visible;
                             GridColCombo.DataPropertyName = col.Name;
-                            GridColCombo.MaxDropDownItems = 10;
+                            GridColCombo.DisplayStyle = DataGridViewComboBoxDisplayStyle.ComboBox;
+                            GridColCombo.DropDownWidth = 200;
 
                             dataGridView.Columns.AddRange(new DataGridViewColumn[] { GridColCombo });
                             if (_DetailGridColumn.Find(gridCol => gridCol.Name == GridColCombo.Name) == null)

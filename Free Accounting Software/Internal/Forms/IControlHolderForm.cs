@@ -51,7 +51,7 @@ namespace Free_Accounting_Software
                         IAppHandler.StartBusy("Opening list form");
                         if (IAppHandler.FindActiveForm() != null)
                         {
-                            IAppHandler.AddForm(IAppHandler.FindActiveForm());
+                            IAppHandler.AddUsedForm(IAppHandler.FindActiveForm());
                             IAppHandler.FindActiveForm().Hide();
                         }
 
