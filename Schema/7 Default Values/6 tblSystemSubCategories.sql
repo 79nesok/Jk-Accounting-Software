@@ -29,7 +29,7 @@ EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Gene
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Subsidiary Ledger', @ListForm = NULL, @MasterForm = NULL, @Index = 1
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Trial Balance', @ListForm = NULL, @MasterForm = NULL, @Index = 2
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Income Statement', @ListForm = NULL, @MasterForm = NULL, @Index = 3
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Balance Sheet', @ListForm = NULL, @MasterForm = NULL, @Index = 4
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Balance Sheet', @ListForm = 'EBalanceSheetReportForm', @MasterForm = NULL, @Index = 4
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Cash Flow', @ListForm = NULL, @MasterForm = NULL, @Index = 5
 GO
 

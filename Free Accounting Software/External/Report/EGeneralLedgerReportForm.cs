@@ -22,42 +22,29 @@ namespace Free_Accounting_Software.External.Report
             InitializeComponent();
         }
 
-        private void EGeneralLedgerReportForm_AfterRun()
+        protected override void RefreshReport()
         {
-            //GeneralLedgerDS gl = new GeneralLedgerDS();
+            base.RefreshReport();
 
-            //DataSet gl = Activator.CreateInstance(Type.GetType("Free_Accounting_Software.Internal.Datasources.GeneralLedgerDS")) as DataSet;
-
-            //SqlConnection connection = new SqlConnection(Properties.Settings.Default.ConnStr);
-            //SqlCommand cmd = new SqlCommand();
-            //cmd.CommandText = "SELECT * FROM tblGeneralLedger WHERE CompanyId = @CompanyId";
-            //cmd.Parameters.AddWithValue("CompanyId", IAppHandler.ConvertDefaultValue("@CompanyId"));
-            //cmd.Connection = connection;
-            //SqlDataAdapter da = new SqlDataAdapter();
-            //da.SelectCommand = cmd;
-            //da.Fill(gl, gl.Tables[0].TableName);
-
-            //ReportDataSource rds = new ReportDataSource("GeneralLedger", gl.Tables[0]);
-            //reportViewer.LocalReport.ReportPath = @"E:\Projects\C#\Free Accounting Software\Free Accounting Software\External\Report\General Ledger.rdlc";
-
-            //reportViewer.LocalReport.DataSources.Clear();
-            //reportViewer.LocalReport.DataSources.Add(rds);
-            //reportViewer.LocalReport.Refresh();
-            //reportViewer.RefreshReport();
-
-            //ReportParameter[] param = new ReportParameter[] {
-            //    new ReportParameter("CompanyId", ISecurityHandler.CompanyId.ToString())  
-            //};
+            int CompanyId = int.Parse(Parameters.Find(p => p.Name == "CompanyId").Value);
+            DateTime FromDate = DateTime.Parse(Parameters.Find(p => p.Name == "FromDate").Value);
+            DateTime ToDate = DateTime.Parse(Parameters.Find(p => p.Name == "ToDate").Value);
+            ReportParameter[] reportParam = new ReportParameter[2];
 
             EGeneralLedgerReportDS glDataSource = new EGeneralLedgerReportDS();
             tblGeneralLedgerTableAdapter GeneralLedgerAdapter = new tblGeneralLedgerTableAdapter();
             tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
 
-            GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, ISecurityHandler.CompanyId, 0, DateTime.Parse("31/12/2050"));
-            CompanyAdapter.Fill(glDataSource.tblCompanies, ISecurityHandler.CompanyId);
+            GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, CompanyId, FromDate, ToDate);
+            CompanyAdapter.Fill(glDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = "../../External/Printouts/General Ledger.rdlc";
+
+            reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
+            reportParam[1] = new ReportParameter("ToDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
+
+            reportViewer.LocalReport.SetParameters(reportParam);
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GeneralLedger", glDataSource.Tables["tblGeneralLedger"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", glDataSource.Tables["tblCompanies"]));

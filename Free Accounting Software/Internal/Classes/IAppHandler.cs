@@ -70,9 +70,6 @@ namespace Free_Accounting_Software.Internal.Classes
             if (Classes.Find(c => c.Tag.ToString() == Tag.ToString()) != null)
                 Classes.Remove(Classes.Find(c => c.Tag.ToString() == Tag.ToString()));
 
-            foreach (IParentForm frm in Classes)
-                IMessageHandler.Inform(frm.Name + " " + frm.Tag.ToString());
-
             if (Classes.Count > 0)
                 return Classes[Classes.Count - 1];
 

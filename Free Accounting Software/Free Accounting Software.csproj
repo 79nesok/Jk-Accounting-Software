@@ -161,6 +161,15 @@
     <Compile Include="External\Administration\ECompanyForm.Designer.cs">
       <DependentUpon>ECompanyForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EBalanceSheetReportDS.cs">
+      <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EBalanceSheetReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\EGeneralLedgerReportDS.cs">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -217,6 +226,12 @@
     </Compile>
     <Compile Include="External\Maintenance\ESuppliersListForm.Designer.cs">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\EBalanceSheetReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EBalanceSheetReportForm.Designer.cs">
+      <DependentUpon>EBalanceSheetReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Report\EGeneralLedgerReportForm.cs">
       <SubType>UserControl</SubType>
@@ -371,7 +386,11 @@
     <EmbeddedResource Include="External\Maintenance\ESuppliersListForm.resx">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Voucher.rdlc" />
+    <EmbeddedResource Include="External\Report\EBalanceSheetReportForm.resx">
+      <DependentUpon>EBalanceSheetReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EGeneralLedgerReportForm.resx">
       <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -428,6 +447,17 @@
     <EmbeddedResource Include="Internal\Forms\ITextPropertyEditor.resx">
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="External\Datasources\EBalanceSheetReportDS.xsc">
+      <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EBalanceSheetReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EBalanceSheetReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EBalanceSheetReportDS.xss">
+      <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
+    </None>
     <None Include="External\Datasources\EGeneralLedgerReportDS.xsc">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </None>
