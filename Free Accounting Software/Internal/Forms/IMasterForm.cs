@@ -274,8 +274,14 @@ namespace Free_Accounting_Software.Internal.Forms
                             {
                                 try
                                 {
+                                    //all of the events which interacts with the database
+                                    //should be just put in one connection, so if in case
+                                    //error occurs all the processes will be rolled back
                                     VTransactionHandler.Connect();
                                     VTransactionHandler.BeginTran();
+
+                                    if (FormState == FormStates.fsEdit)
+                                        UnPost();
 
                                     if (FormState == FormStates.fsNew)
                                     {
@@ -287,6 +293,8 @@ namespace Free_Accounting_Software.Internal.Forms
                                         VTransactionHandler.EditMaster(CommandText, Parameters);
                                         EditDetail();
                                     }
+
+                                    Post();
 
                                     VTransactionHandler.CommitTran();
                                 }
@@ -503,6 +511,16 @@ namespace Free_Accounting_Software.Internal.Forms
             protected virtual void EditDetail()
             { 
                 //to be override in MasterDetailForm and to put Edit of detail
+            }
+
+            protected virtual void UnPost()
+            { 
+                //to be override in Forms and to put unposting event
+            }
+
+            protected virtual void Post()
+            { 
+                //to be override in Forms and to put posting event
             }
         #endregion
     }

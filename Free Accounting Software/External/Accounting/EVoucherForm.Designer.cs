@@ -254,8 +254,6 @@
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EVoucherForm_ValidateSave);
-            this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.EVoucherForm_BeforeSave);
-            this.AfterSave += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterSaveHandler(this.EVoucherForm_AfterSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);

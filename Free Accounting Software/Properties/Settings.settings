@@ -13,5 +13,8 @@
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)">Data Source=.\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Security Info=True;User ID=sa;Password=masterkey</Value>
     </Setting>
+    <Setting Name="ReportPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Printouts</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

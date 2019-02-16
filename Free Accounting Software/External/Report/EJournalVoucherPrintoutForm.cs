@@ -32,7 +32,7 @@ namespace Free_Accounting_Software.External.Report
             CompanyAdapter.Fill(jvDataSource.tblCompanies, ISecurityHandler.CompanyId);
 
             reportViewer.Reset();
-            reportViewer.LocalReport.ReportPath = "../../External/Printouts/Journal Voucher.rdlc";
+            reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Journal Voucher.rdlc";
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Journals", jvDataSource.Tables["tblJournals"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("JournalDetails", jvDataSource.Tables["tblJournalDetails"]));

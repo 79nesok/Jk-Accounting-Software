@@ -1,6 +1,6 @@
 ﻿namespace Free_Accounting_Software.External.Report
 {
-    partial class EGeneralLedgerReportForm
+    partial class EIncomeStatementReportForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EGeneralLedgerReportForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EIncomeStatementReportForm));
             ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).BeginInit();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
@@ -38,25 +38,20 @@
             // 
             // reportViewer
             // 
-            this.reportViewer.Size = new System.Drawing.Size(789, 247);
-            this.reportViewer.Drillthrough += new Microsoft.Reporting.WinForms.DrillthroughEventHandler(this.reportViewer_Drillthrough);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 345);
+            this.reportViewer.Size = new System.Drawing.Size(789, 374);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 379);
+            this.splitContainer.Size = new System.Drawing.Size(789, 506);
             // 
-            // EGeneralLedgerReportForm
+            // EIncomeStatementReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Name = "EGeneralLedgerReportForm";
+            this.Name = "EIncomeStatementReportForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters2"))));
-            this.Size = new System.Drawing.Size(789, 379);
+            this.Size = new System.Drawing.Size(789, 506);
             ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).EndInit();
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

@@ -276,9 +276,12 @@ namespace Free_Accounting_Software.Internal.Forms
                     };
 
                     //set if enabled
-                    ClearMenu.Enabled = dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value != null;
+                    ClearMenu.Enabled = dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value != null
+                        && dataGridView.AllowUserToDeleteRows;
                     CopyMenu.Enabled = !String.IsNullOrEmpty(dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value.ToString());
-                    PasteMenu.Enabled = Clipboard.ContainsText();
+                    DeleteMenu.Enabled = dataGridView.AllowUserToDeleteRows;
+                    PasteMenu.Enabled = Clipboard.ContainsText()
+                        && dataGridView.AllowUserToAddRows;
 
                     //add on ContextMenu
                     menu.MenuItems.Add(ClearMenu);

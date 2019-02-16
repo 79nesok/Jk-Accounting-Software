@@ -27,8 +27,8 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = '
 --Report
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'General Ledger', @ListForm = 'EGeneralLedgerReportForm', @MasterForm = NULL, @Index = 0
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Subsidiary Ledger', @ListForm = NULL, @MasterForm = NULL, @Index = 1
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Trial Balance', @ListForm = NULL, @MasterForm = NULL, @Index = 2
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Income Statement', @ListForm = NULL, @MasterForm = NULL, @Index = 3
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Trial Balance', @ListForm = 'ETrialBalanceReportForm', @MasterForm = NULL, @Index = 2
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Income Statement', @ListForm = 'EIncomeStatementReportForm', @MasterForm = NULL, @Index = 3
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Balance Sheet', @ListForm = 'EBalanceSheetReportForm', @MasterForm = NULL, @Index = 4
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Cash Flow', @ListForm = NULL, @MasterForm = NULL, @Index = 5
 GO

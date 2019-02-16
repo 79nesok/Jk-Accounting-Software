@@ -39,7 +39,7 @@ namespace Free_Accounting_Software.External.Report
             CompanyAdapter.Fill(glDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
-            reportViewer.LocalReport.ReportPath = "../../External/Printouts/General Ledger.rdlc";
+            reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "General Ledger.rdlc";
 
             reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
             reportParam[1] = new ReportParameter("ToDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);

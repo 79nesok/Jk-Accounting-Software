@@ -46,5 +46,18 @@ namespace Free_Accounting_Software.Properties {
                 return ((string)(this["FreeAccountingSoftwareConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("E:\\Projects\\C#\\Free-Accounting-Software\\Free Accounting Software\\External\\Printou" +
+            "ts")]
+        public string ReportPath {
+            get {
+                return ((string)(this["ReportPath"]));
+            }
+            set {
+                this["ReportPath"] = value;
+            }
+        }
     }
 }

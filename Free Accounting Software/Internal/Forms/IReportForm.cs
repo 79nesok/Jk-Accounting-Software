@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using JkComponents;
 using Free_Accounting_Software.Internal.Classes;
+using Microsoft.Reporting.WinForms;
 
 namespace Free_Accounting_Software.Internal.Forms
 {
@@ -43,6 +44,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     ToolStripLabel labelTo = new ToolStripLabel();
                     DateTimePicker dateTimePickerFrom = new DateTimePicker();
                     DateTimePicker dateTimePickerTo = new DateTimePicker();
+                    Button btnDateRangeSelection = new Button();
 
                     labelFrom.Name = "ControlLabelFromDate";
                     labelFrom.Text = "From:";
@@ -60,16 +62,31 @@ namespace Free_Accounting_Software.Internal.Forms
                     dateTimePickerTo.CustomFormat = "MM/dd/yyyy";
                     dateTimePickerTo.Width = 100;
 
+                    btnDateRangeSelection.Name = "ControlDateRangeSelection";
+                    btnDateRangeSelection.Text = "...";
+                    btnDateRangeSelection.Width = 30;
+                    btnDateRangeSelection.BackColor = Color.Gainsboro;
+                    btnDateRangeSelection.Click += btnDateRangeSelection_Click;
+
                     toolStripReportParam.Items.Add(labelFrom);
                     toolStripReportParam.Items.Add(new ToolStripControlHost(dateTimePickerFrom));
                     toolStripReportParam.Items.Add(labelTo);
                     toolStripReportParam.Items.Add(new ToolStripControlHost(dateTimePickerTo));
+                    toolStripReportParam.Items.Add(new ToolStripControlHost(btnDateRangeSelection));
                 }
 
                 foreach (JkFormParameter param in this.Parameters)
                 {
                     if (param.Visible)
                     {
+                        if (toolStripReportParam.Items.Count > 0)
+                        {
+                            ToolStripSeparator separator = new ToolStripSeparator();
+
+                            separator.Name = "Separator" + param.Name;
+                            toolStripReportParam.Items.Add(separator);
+                        }
+
                         //not lookup
                         if (String.IsNullOrWhiteSpace(param.ControlName))
                         {
@@ -90,6 +107,20 @@ namespace Free_Accounting_Software.Internal.Forms
 
                                     toolStripReportParam.Items.Add(label);
                                     toolStripReportParam.Items.Add(new ToolStripControlHost(dateTimePicker));
+                                }
+                                else if (param.Type == SqlDbType.Bit)
+                                {
+                                    ToolStripLabel label = new ToolStripLabel();
+                                    CheckBox checkBox = new CheckBox();
+
+                                    label.Name = "ControlLabel" + param.Name;
+                                    label.Text = param.Caption + ":";
+
+                                    checkBox.Name = "Control" + param.Name;
+                                    checkBox.Checked = Boolean.Parse(param.Value);
+
+                                    toolStripReportParam.Items.Add(label);
+                                    toolStripReportParam.Items.Add(new ToolStripControlHost(checkBox));
                                 }
                             }
                         }
@@ -126,7 +157,7 @@ namespace Free_Accounting_Software.Internal.Forms
 
                     button.Name = "ControlButtonGo";
                     button.DisplayStyle = ToolStripItemDisplayStyle.Text;
-                    button.Text = "GO";
+                    button.Text = "  GO  ";
                     button.BackColor = Color.SteelBlue;
                     button.Click += delegate(object s, EventArgs ea)
                     {
@@ -144,6 +175,130 @@ namespace Free_Accounting_Software.Internal.Forms
                     toolStripReportParam.Items.Add(btnSeparator);
                     toolStripReportParam.Items.Add(button);
                 }
+            }
+        }
+
+        private void btnDateRangeSelection_Click(object sender, EventArgs e)
+        {
+            if (Parameters.Find(p => p.Name == "FromDate") != null && Parameters.Find(p => p.Name == "ToDate") != null)
+            {
+                Control control = sender as Control;
+                DateTimePicker FromDate = (Controls.Find("ControlFromDate", true).First() as DateTimePicker);
+                DateTimePicker ToDate = (Controls.Find("ControlToDate", true).First() as DateTimePicker);
+                ContextMenu menu = new ContextMenu();
+
+                //init
+                MenuItem AllDates = new MenuItem();
+                MenuItem PreviousYear = new MenuItem();
+                MenuItem CurrentYear = new MenuItem();
+                MenuItem NextYear = new MenuItem();
+                MenuItem PreviousMonth = new MenuItem();
+                MenuItem CurrentMonth = new MenuItem();
+                MenuItem NextMonth = new MenuItem();
+                MenuItem Yesterday = new MenuItem();
+                MenuItem Today = new MenuItem();
+                MenuItem Tomorrow = new MenuItem();
+
+                //text
+                AllDates.Text = "All Dates";
+                PreviousYear.Text = "Previous Year";
+                CurrentYear.Text = "Current Year";
+                NextYear.Text = "Next Year";
+                PreviousMonth.Text = "Previous Month";
+                CurrentMonth.Text = "Current Month";
+                NextMonth.Text = "Next Month";
+                Yesterday.Text = "Yesterday";
+                Today.Text = "Today";
+                Tomorrow.Text = "Tomorrow";
+
+                //events
+                AllDates.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.AllDates(true);
+                    ToDate.Value = IDateHandler.AllDates(false);
+
+                    RefreshReport();
+                };
+                PreviousYear.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.PreviousYear(true);
+                    ToDate.Value = IDateHandler.PreviousYear(false);
+
+                    RefreshReport();
+                };
+                CurrentYear.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.CurrentYear(true);
+                    ToDate.Value = IDateHandler.CurrentYear(false);
+
+                    RefreshReport();
+                };
+                NextYear.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.NextYear(true);
+                    ToDate.Value = IDateHandler.NextYear(false);
+
+                    RefreshReport();
+                };
+                PreviousMonth.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.PreviousMonth(true);
+                    ToDate.Value = IDateHandler.PreviousMonth(false);
+
+                    RefreshReport();
+                };
+                CurrentMonth.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.CurrentMonth(true);
+                    ToDate.Value = IDateHandler.CurrentMonth(false);
+
+                    RefreshReport();
+                };
+                NextMonth.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = IDateHandler.NextMonth(true);
+                    ToDate.Value = IDateHandler.NextMonth(false);
+
+                    RefreshReport();
+                };
+                Yesterday.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = DateTime.Now.AddDays(-1);
+                    ToDate.Value = DateTime.Now.AddDays(-1);
+
+                    RefreshReport();
+                };
+                Today.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = DateTime.Now;
+                    ToDate.Value = DateTime.Now;
+
+                    RefreshReport();
+                };
+                Tomorrow.Click += delegate(object s, EventArgs ea)
+                {
+                    FromDate.Value = DateTime.Now.AddDays(1);
+                    ToDate.Value = DateTime.Now.AddDays(1);
+
+                    RefreshReport();
+                };
+
+                //add
+                menu.MenuItems.Add(AllDates);
+                menu.MenuItems.Add("-");
+                menu.MenuItems.Add(PreviousYear);
+                menu.MenuItems.Add(CurrentYear);
+                menu.MenuItems.Add(NextYear);
+                menu.MenuItems.Add("-");
+                menu.MenuItems.Add(PreviousMonth);
+                menu.MenuItems.Add(CurrentMonth);
+                menu.MenuItems.Add(NextMonth);
+                menu.MenuItems.Add("-");
+                menu.MenuItems.Add(Yesterday);
+                menu.MenuItems.Add(Today);
+                menu.MenuItems.Add(Tomorrow);
+
+                menu.Show(this, new Point(control.Location.X + control.Size.Width, control.Location.Y));
             }
         }
 
@@ -166,9 +321,9 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (item is ToolStripControlHost)
                     {
                         if ((item as ToolStripControlHost).Control is DateTimePicker)
-                        {
                             param.Value = ((item as ToolStripControlHost).Control as DateTimePicker).Value.ToShortDateString();
-                        }
+                        else if ((item as ToolStripControlHost).Control is CheckBox)
+                            param.Value = ((item as ToolStripControlHost).Control as CheckBox).Checked.ToString();
                     }
                 }
             }

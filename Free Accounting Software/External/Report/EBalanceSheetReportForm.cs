@@ -39,7 +39,7 @@ namespace Free_Accounting_Software.External.Report
             companyAdapter.Fill(bsDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
-            reportViewer.LocalReport.ReportPath = "../../External/Printouts/Balance Sheet.rdlc";
+            reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Balance Sheet.rdlc";
 
             reportParam[0] = new ReportParameter("Date", Date.ToString("MM'/'dd'/'yyyy"), false);
 

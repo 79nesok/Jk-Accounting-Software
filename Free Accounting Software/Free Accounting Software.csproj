@@ -179,6 +179,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EIncomeStatementReportDS.cs">
+      <DependentUpon>EIncomeStatementReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EIncomeStatementReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EIncomeStatementReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\EJournalReportDS.cs">
       <DependentUpon>EJournalReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -196,6 +205,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\ETrialBalanceReportDS.cs">
+      <DependentUpon>ETrialBalanceReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\ETrialBalanceReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ETrialBalanceReportDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="External\Maintenance\EEmployeesListForm.cs">
       <SubType>UserControl</SubType>
@@ -239,12 +257,25 @@
     <Compile Include="External\Report\EGeneralLedgerReportForm.Designer.cs">
       <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\EIncomeStatementReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EIncomeStatementReportForm.Designer.cs">
+      <DependentUpon>EIncomeStatementReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\EJournalVoucherPrintoutForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="External\Report\EJournalVoucherPrintoutForm.Designer.cs">
       <DependentUpon>EJournalVoucherPrintoutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\ETrialBalanceReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ETrialBalanceReportForm.Designer.cs">
+      <DependentUpon>ETrialBalanceReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Internal\Classes\IDateHandler.cs" />
     <Compile Include="Internal\Classes\IImageHandler.cs" />
     <Compile Include="Internal\Classes\ISecurityHandler.cs" />
     <Compile Include="Internal\Classes\ISystemMessages.cs" />
@@ -387,18 +418,26 @@
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Voucher.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Trial Balance.rdlc" />
     <EmbeddedResource Include="External\Report\EBalanceSheetReportForm.resx">
       <DependentUpon>EBalanceSheetReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EGeneralLedgerReportForm.resx">
       <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\EIncomeStatementReportForm.resx">
+      <DependentUpon>EIncomeStatementReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EJournalVoucherPrintoutForm.resx">
       <DependentUpon>EJournalVoucherPrintoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Printouts\General Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal.rdlc" />
+    <EmbeddedResource Include="External\Report\ETrialBalanceReportForm.resx">
+      <DependentUpon>ETrialBalanceReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\IConnectionProvider.resx">
       <DependentUpon>IConnectionProvider.cs</DependentUpon>
     </EmbeddedResource>
@@ -469,6 +508,17 @@
     <None Include="External\Datasources\EGeneralLedgerReportDS.xss">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </None>
+    <None Include="External\Datasources\EIncomeStatementReportDS.xsc">
+      <DependentUpon>EIncomeStatementReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EIncomeStatementReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EIncomeStatementReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EIncomeStatementReportDS.xss">
+      <DependentUpon>EIncomeStatementReportDS.xsd</DependentUpon>
+    </None>
     <None Include="External\Datasources\EJournalReportDS.xsc">
       <DependentUpon>EJournalReportDS.xsd</DependentUpon>
     </None>
@@ -490,6 +540,17 @@
     </None>
     <None Include="External\Datasources\EJournalVoucherPrintoutDS.xss">
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ETrialBalanceReportDS.xsc">
+      <DependentUpon>ETrialBalanceReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ETrialBalanceReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ETrialBalanceReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\ETrialBalanceReportDS.xss">
+      <DependentUpon>ETrialBalanceReportDS.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

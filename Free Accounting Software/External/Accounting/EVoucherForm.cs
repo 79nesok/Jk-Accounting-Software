@@ -51,24 +51,13 @@ namespace Free_Accounting_Software.External.Accounting
 
             try
             {
-                try
-                {
-                    VTransactionHandler.Connect();
-                    VTransactionHandler.BeginTran();
-                    Command.CommandType = CommandType.StoredProcedure;
-                    Command.CommandText = "uspUpdateGeneralLedger";
-                    Command.Parameters.AddWithValue("@Id", Parameters[0].Value);
-                    Command.Parameters.AddWithValue("@IsPost", IsPost);
-                    Command.Connection = VTransactionHandler.VConnection;
-                    Command.Transaction = VTransactionHandler.VTransaction;
-                    Command.ExecuteNonQuery();
-
-                    VTransactionHandler.CommitTran();
-                }
-                finally
-                {
-                    VTransactionHandler.Disconnect();
-                }
+                Command.CommandType = CommandType.StoredProcedure;
+                Command.CommandText = "uspUpdateGeneralLedger";
+                Command.Parameters.AddWithValue("@Id", Parameters[0].Value);
+                Command.Parameters.AddWithValue("@IsPost", IsPost);
+                Command.Connection = VTransactionHandler.VConnection;
+                Command.Transaction = VTransactionHandler.VTransaction;
+                Command.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -76,14 +65,15 @@ namespace Free_Accounting_Software.External.Accounting
             }
         }
 
-        private void EVoucherForm_BeforeSave()
+        protected override void UnPost()
         {
-            if (FormState == FormStates.fsEdit)
-                Post(false);
+            base.UnPost();
+            Post(false);
         }
 
-        private void EVoucherForm_AfterSave()
+        protected override void Post()
         {
+            base.Post();
             Post(true);
         }
     }
