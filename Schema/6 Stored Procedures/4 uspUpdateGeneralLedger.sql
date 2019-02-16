@@ -26,13 +26,7 @@ BEGIN
 	UPDATE gl
 	SET gl.Debit = gl.Debit + t.Debit,
 		gl.Credit = gl.Credit + t.Credit,
-		gl.Balance = (
-			SELECT MAX(glb.Balance)
-			FROM tblGeneralLedger glb
-			WHERE glb.CompanyId = @CompanyId
-				AND glb.[Date] <= @Date
-				AND glb.AccountId = t.AccountId
-		) + (t.Debit - t.Credit)
+		gl.Balance = gl.Balance + (t.Debit - t.Credit)
 	FROM tblGeneralLedger gl
 		INNER JOIN @tmp t ON gl.AccountId = t.AccountId
 	WHERE gl.CompanyId = @CompanyId
@@ -40,11 +34,11 @@ BEGIN
 
 	INSERT INTO tblGeneralLedger(CompanyId, [Date], AccountId, Debit, Credit, Balance)
 	SELECT @CompanyId, @Date, t.AccountId, t.Debit, t.Credit, ISNULL((
-			SELECT MAX(glb.Balance)
-			FROM tblGeneralLedger glb
-			WHERE glb.CompanyId = @CompanyId
-				AND glb.[Date] <= @Date
-				AND glb.AccountId = t.AccountId
+		SELECT gl2.Balance
+		FROM tblGeneralLedger gl2
+		WHERE gl2.CompanyId = @CompanyId
+			AND gl2.AccountId = t.AccountId
+			AND gl2.[Date] = (SELECT MAX(gl3.[Date]) FROM tblGeneralLedger gl3 WHERE gl3.CompanyId = @CompanyId AND gl3.AccountId = gl2.AccountId AND gl3.[Date] < @Date)
 		), 0) + (t.Debit - t.Credit)
 	FROM @tmp t
 	WHERE NOT EXISTS(
@@ -60,13 +54,7 @@ BEGIN
 	UPDATE gl
 	SET gl.Debit = gl.Debit - t.Debit,
 		gl.Credit = gl.Credit - t.Credit,
-		gl.Balance = (
-			SELECT MAX(glb.Balance)
-			FROM tblGeneralLedger glb
-			WHERE glb.CompanyId = @CompanyId
-				AND glb.[Date] <= @Date
-				AND glb.AccountId = t.AccountId
-		) - (t.Debit - t.Credit)
+		gl.Balance = gl.Balance - (t.Debit - t.Credit)
 	FROM tblGeneralLedger gl
 		INNER JOIN @tmp t ON gl.AccountId = t.AccountId
 	WHERE gl.CompanyId = @CompanyId

@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.85479cm</Width>
+              <Width>5.25166cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.00271cm</Width>
@@ -104,7 +104,7 @@
         <Top>0.8435cm</Top>
         <Left>1.21391cm</Left>
         <Height>0.6cm</Height>
-        <Width>7.8575cm</Width>
+        <Width>8.25438cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -115,10 +115,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.85479cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>3.00271cm</Width>
+              <Width>5.25166cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.00271cm</Width>
@@ -147,38 +144,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Account1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox25">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox25</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -235,7 +200,6 @@
           <TablixMembers>
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -249,7 +213,7 @@
         <Top>3.07129cm</Top>
         <Left>1.21391cm</Left>
         <Height>0.6cm</Height>
-        <Width>10.86021cm</Width>
+        <Width>8.25438cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -261,10 +225,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.85479cm</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>3.00271cm</Width>
+              <Width>5.25166cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>3.00271cm</Width>
@@ -293,38 +254,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Account2</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox26">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox26</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -381,7 +310,6 @@
           <TablixMembers>
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -395,7 +323,7 @@
         <Top>5.13504cm</Top>
         <Left>1.21391cm</Left>
         <Height>0.6cm</Height>
-        <Width>10.86021cm</Width>
+        <Width>8.25438cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -504,7 +432,7 @@
       </Textbox>
       <Line Name="Line2">
         <Top>1.51025cm</Top>
-        <Left>7.01969cm</Left>
+        <Left>7.40069cm</Left>
         <Height>0cm</Height>
         <Width>2.05172cm</Width>
         <ZIndex>6</ZIndex>
@@ -516,7 +444,7 @@
       </Line>
       <Line Name="Line3">
         <Top>3.7455cm</Top>
-        <Left>9.8866cm</Left>
+        <Left>7.30544cm</Left>
         <Height>0cm</Height>
         <Width>2.15838cm</Width>
         <ZIndex>7</ZIndex>
@@ -528,7 +456,7 @@
       </Line>
       <Line Name="Line4">
         <Top>5.80925cm</Top>
-        <Left>9.8866cm</Left>
+        <Left>7.30544cm</Left>
         <Height>0cm</Height>
         <Width>2.15838cm</Width>
         <ZIndex>8</ZIndex>
@@ -560,7 +488,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>1.59491cm</Top>
-        <Left>6.0687cm</Left>
+        <Left>6.4497cm</Left>
         <Height>0.54708cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>9</ZIndex>
@@ -596,7 +524,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>3.85296cm</Top>
-        <Left>9.07141cm</Left>
+        <Left>6.4585cm</Left>
         <Height>0.54708cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>10</ZIndex>
@@ -632,7 +560,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>5.92214cm</Top>
-        <Left>9.07402cm</Left>
+        <Left>6.46111cm</Left>
         <Height>0.54708cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>11</ZIndex>
@@ -648,7 +576,7 @@
       </Textbox>
       <Line Name="Line5">
         <Top>2.2314cm</Top>
-        <Left>7.01969cm</Left>
+        <Left>7.40069cm</Left>
         <Height>0cm</Height>
         <Width>2.05172cm</Width>
         <ZIndex>12</ZIndex>
@@ -660,7 +588,7 @@
       </Line>
       <Line Name="Line6">
         <Top>2.32665cm</Top>
-        <Left>7.01969cm</Left>
+        <Left>7.40069cm</Left>
         <Height>0cm</Height>
         <Width>2.05172cm</Width>
         <ZIndex>13</ZIndex>
@@ -672,7 +600,7 @@
       </Line>
       <Line Name="Line7">
         <Top>4.54468cm</Top>
-        <Left>9.8866cm</Left>
+        <Left>7.30544cm</Left>
         <Height>0cm</Height>
         <Width>2.15838cm</Width>
         <ZIndex>14</ZIndex>
@@ -684,7 +612,7 @@
       </Line>
       <Line Name="Line9">
         <Top>6.64561cm</Top>
-        <Left>9.8866cm</Left>
+        <Left>7.30544cm</Left>
         <Height>0cm</Height>
         <Width>2.15838cm</Width>
         <ZIndex>15</ZIndex>
@@ -714,7 +642,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>1.58813cm</Top>
-        <Left>2.3181cm</Left>
+        <Left>1.6831cm</Left>
         <Height>0.54708cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>16</ZIndex>
@@ -748,7 +676,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>3.85296cm</Top>
-        <Left>2.3181cm</Left>
+        <Left>1.6831cm</Left>
         <Height>0.54708cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>17</ZIndex>
@@ -782,7 +710,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>5.91143cm</Top>
-        <Left>2.3181cm</Left>
+        <Left>1.6831cm</Left>
         <Height>0.66362cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>18</ZIndex>
@@ -818,7 +746,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>6.75497cm</Top>
-        <Left>9.07402cm</Left>
+        <Left>6.46111cm</Left>
         <Height>0.54708cm</Height>
         <Width>3.00271cm</Width>
         <ZIndex>19</ZIndex>
@@ -852,9 +780,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>6.75144cm</Top>
-        <Left>2.3181cm</Left>
+        <Left>1.6831cm</Left>
         <Height>0.55061cm</Height>
-        <Width>4.51084cm</Width>
+        <Width>4.60162cm</Width>
         <ZIndex>20</ZIndex>
         <Style>
           <Border>
@@ -868,7 +796,7 @@
       </Textbox>
       <Line Name="Line10">
         <Top>7.41494cm</Top>
-        <Left>9.8866cm</Left>
+        <Left>7.30544cm</Left>
         <Height>0cm</Height>
         <Width>2.15838cm</Width>
         <ZIndex>21</ZIndex>
@@ -880,7 +808,7 @@
       </Line>
       <Line Name="Line11">
         <Top>7.5243cm</Top>
-        <Left>9.8866cm</Left>
+        <Left>7.30544cm</Left>
         <Height>0cm</Height>
         <Width>2.15838cm</Width>
         <ZIndex>22</ZIndex>
@@ -897,7 +825,7 @@
   <Width>7.48031in</Width>
   <Page>
     <PageHeader>
-      <Height>2.69874cm</Height>
+      <Height>2.80457cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -920,7 +848,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.39445cm</Top>
+          <Top>0.11073cm</Top>
           <Left>4.39208cm</Left>
           <Height>0.40597cm</Height>
           <Width>10.21583cm</Width>
@@ -940,7 +868,7 @@
                   <Value>BALANCE SHEET</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -950,7 +878,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.00797cm</Top>
+          <Top>1.33298cm</Top>
           <Left>7.01146cm</Left>
           <Height>0.66709cm</Height>
           <Width>4.97708cm</Width>
@@ -962,7 +890,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>1.20775cm</Top>
+          <Top>1.2395cm</Top>
           <Height>0cm</Height>
           <Width>19cm</Width>
           <ZIndex>2</ZIndex>
@@ -979,8 +907,8 @@
           <Value>=First(Fields!Logo.Value, "Company")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>1.33095cm</Top>
-          <Left>17.87842cm</Left>
+          <Top>0.06664cm</Top>
+          <Left>17.77775cm</Left>
           <Height>1cm</Height>
           <Width>1cm</Width>
           <ZIndex>3</ZIndex>
@@ -1009,7 +937,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.80042cm</Top>
+          <Top>0.5167cm</Top>
           <Left>4.39208cm</Left>
           <Height>0.50896cm</Height>
           <Width>10.21583cm</Width>
@@ -1040,9 +968,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>0.78971cm</Top>
-          <Left>4.70077cm</Left>
-          <Height>0.29457cm</Height>
+          <Top>2.07063cm</Top>
+          <Left>4.70078cm</Left>
+          <Height>0.61207cm</Height>
           <Width>9.59845cm</Width>
           <ZIndex>5</ZIndex>
           <Style>

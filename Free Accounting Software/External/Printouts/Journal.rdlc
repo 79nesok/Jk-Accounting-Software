@@ -7,7 +7,7 @@
   <Width>7.48031in</Width>
   <Page>
     <PageHeader>
-      <Height>2.38125cm</Height>
+      <Height>2.11667cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -30,7 +30,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.31857cm</Top>
+          <Top>0.08543cm</Top>
           <Left>4.39208cm</Left>
           <Height>0.40597cm</Height>
           <Width>10.21583cm</Width>
@@ -47,10 +47,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>JOURNAL</Value>
+                  <Value>JOURNALS</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>16pt</FontSize>
+                    <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -60,10 +60,10 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.28493cm</Top>
-          <Left>8.08302cm</Left>
-          <Height>0.70583cm</Height>
-          <Width>2.83396cm</Width>
+          <Top>1.30769cm</Top>
+          <Left>7.01146cm</Left>
+          <Height>0.66709cm</Height>
+          <Width>4.97708cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -72,7 +72,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>1.13187cm</Top>
+          <Top>1.2142cm</Top>
           <Height>0cm</Height>
           <Width>19cm</Width>
           <ZIndex>2</ZIndex>
@@ -84,6 +84,22 @@
             </Border>
           </Style>
         </Line>
+        <Image Name="imgLogo">
+          <Source>Database</Source>
+          <Value>=First(Fields!Logo.Value, "Company")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.04134cm</Top>
+          <Left>17.77775cm</Left>
+          <Height>1cm</Height>
+          <Width>1cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
         <Textbox Name="txtCompanyAddress">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -103,33 +119,17 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.76688cm</Top>
+          <Top>0.4914cm</Top>
           <Left>4.39208cm</Left>
-          <Height>0.30896cm</Height>
+          <Height>0.50896cm</Height>
           <Width>10.21583cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Textbox>
-        <Image Name="imgLogo">
-          <Source>Database</Source>
-          <Value>=First(Fields!Logo.Value, "Company")</Value>
-          <MIMEType>image/jpeg</MIMEType>
-          <Sizing>FitProportional</Sizing>
-          <Top>1.25507cm</Top>
-          <Left>17.87842cm</Left>
-          <Height>1cm</Height>
-          <Width>1cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
           </Style>
-        </Image>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -149,10 +149,10 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

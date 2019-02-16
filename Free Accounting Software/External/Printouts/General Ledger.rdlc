@@ -690,7 +690,7 @@
       <Width>19cm</Width>
       <Page>
         <PageHeader>
-          <Height>2.70927cm</Height>
+          <Height>2.95371cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -713,7 +713,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.41823cm</Top>
+              <Top>0.24945cm</Top>
               <Left>4.39208cm</Left>
               <Height>0.40597cm</Height>
               <Width>10.21583cm</Width>
@@ -733,7 +733,7 @@
                       <Value>GENERAL LEDGER</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
-                        <FontSize>16pt</FontSize>
+                        <FontSize>14pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -743,7 +743,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.03175cm</Top>
+              <Top>1.4717cm</Top>
               <Left>7.01146cm</Left>
               <Height>0.66709cm</Height>
               <Width>4.97708cm</Width>
@@ -755,7 +755,7 @@
               </Style>
             </Textbox>
             <Line Name="Line1">
-              <Top>1.23153cm</Top>
+              <Top>1.37822cm</Top>
               <Height>0cm</Height>
               <Width>19cm</Width>
               <ZIndex>2</ZIndex>
@@ -772,8 +772,8 @@
               <Value>=First(Fields!Logo.Value, "Company")</Value>
               <MIMEType>image/jpeg</MIMEType>
               <Sizing>FitProportional</Sizing>
-              <Top>1.35473cm</Top>
-              <Left>17.87842cm</Left>
+              <Top>0.20536cm</Top>
+              <Left>17.77775cm</Left>
               <Height>1cm</Height>
               <Width>1cm</Width>
               <ZIndex>3</ZIndex>
@@ -802,7 +802,7 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>1.84577cm</Top>
+              <Top>0.65542cm</Top>
               <Left>4.39208cm</Left>
               <Height>0.50896cm</Height>
               <Width>10.21583cm</Width>
@@ -820,7 +820,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>="From the period of " &amp; Parameters!FromDate.Value &amp; " to " &amp; Parameters!ToDate.Value</Value>
+                      <Value>="For the period of " &amp; Parameters!FromDate.Value &amp; " to " &amp; Parameters!ToDate.Value</Value>
                       <Style>
                         <FontFamily>Segoe UI</FontFamily>
                         <FontSize>9pt</FontSize>
@@ -833,9 +833,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>0.81349cm</Top>
-              <Left>4.70077cm</Left>
-              <Height>0.29457cm</Height>
+              <Top>2.20935cm</Top>
+              <Left>4.70078cm</Left>
+              <Height>0.61207cm</Height>
               <Width>9.59845cm</Width>
               <ZIndex>5</ZIndex>
               <Style>

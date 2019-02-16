@@ -527,125 +527,6 @@
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="txtCompanyName">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!Name.Value, "Company")</Value>
-                  <Style>
-                    <FontFamily>Segoe UI</FontFamily>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <Top>1.1073cm</Top>
-          <Left>4.39208cm</Left>
-          <Height>0.40597cm</Height>
-          <Width>10.21583cm</Width>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Textbox>
-        <Textbox Name="txtHeader">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>JOURNAL VOUCHER</Value>
-                  <Style>
-                    <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>16pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <Top>0.06484cm</Top>
-          <Left>6.61458cm</Left>
-          <Height>0.70583cm</Height>
-          <Width>5.77083cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Textbox>
-        <Line Name="Line1">
-          <Top>0.9206cm</Top>
-          <Height>0cm</Height>
-          <Width>19cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Color>Maroon</Color>
-              <Style>Solid</Style>
-              <Width>2pt</Width>
-            </Border>
-          </Style>
-        </Line>
-        <Image Name="imgLogo">
-          <Source>Database</Source>
-          <Value>=First(Fields!Logo.Value, "Company")</Value>
-          <MIMEType>image/jpeg</MIMEType>
-          <Sizing>FitProportional</Sizing>
-          <Top>1.0438cm</Top>
-          <Left>17.87842cm</Left>
-          <Height>1cm</Height>
-          <Width>1cm</Width>
-          <ZIndex>3</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Image>
-        <Textbox Name="txtCompanyAddress">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!Address.Value, "Company")</Value>
-                  <Style>
-                    <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>9pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <Top>1.53484cm</Top>
-          <Left>4.39208cm</Left>
-          <Height>0.30896cm</Height>
-          <Width>10.21583cm</Width>
-          <ZIndex>4</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox18">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -668,7 +549,6 @@
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
-          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -701,7 +581,7 @@
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
-          <ZIndex>6</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -734,7 +614,7 @@
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
-          <ZIndex>7</ZIndex>
+          <ZIndex>2</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -767,7 +647,7 @@
           <Left>10.65953cm</Left>
           <Height>0.6cm</Height>
           <Width>1.70744cm</Width>
-          <ZIndex>8</ZIndex>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -801,7 +681,7 @@
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
-          <ZIndex>9</ZIndex>
+          <ZIndex>4</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -835,7 +715,7 @@
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
-          <ZIndex>10</ZIndex>
+          <ZIndex>5</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -870,7 +750,7 @@
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
-          <ZIndex>11</ZIndex>
+          <ZIndex>6</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -904,7 +784,7 @@
           <Left>12.67037cm</Left>
           <Height>1.96228cm</Height>
           <Width>5.96604cm</Width>
-          <ZIndex>12</ZIndex>
+          <ZIndex>7</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -913,6 +793,126 @@
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
             <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="txtCompanyName">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Name.Value, "Company")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.06106cm</Top>
+          <Left>4.39208cm</Left>
+          <Height>0.40597cm</Height>
+          <Width>10.21583cm</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Textbox>
+        <Textbox Name="txtHeader">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>JOURNAL VOUCHER</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>1.28331cm</Top>
+          <Left>7.01146cm</Left>
+          <Height>0.66709cm</Height>
+          <Width>4.97708cm</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Textbox>
+        <Line Name="Line1">
+          <Top>1.18983cm</Top>
+          <Height>0cm</Height>
+          <Width>19cm</Width>
+          <ZIndex>10</ZIndex>
+          <Style>
+            <Border>
+              <Color>Maroon</Color>
+              <Style>Solid</Style>
+              <Width>2pt</Width>
+            </Border>
+          </Style>
+        </Line>
+        <Image Name="imgLogo">
+          <Source>Database</Source>
+          <Value>=First(Fields!Logo.Value, "Company")</Value>
+          <MIMEType>image/jpeg</MIMEType>
+          <Sizing>FitProportional</Sizing>
+          <Top>0.01697cm</Top>
+          <Left>17.77775cm</Left>
+          <Height>1cm</Height>
+          <Width>1cm</Width>
+          <ZIndex>11</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="txtCompanyAddress">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!Address.Value, "Company")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontSize>9pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <Top>0.46703cm</Top>
+          <Left>4.39208cm</Left>
+          <Height>0.50896cm</Height>
+          <Width>10.21583cm</Width>
+          <ZIndex>12</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
           </Style>
         </Textbox>
       </ReportItems>
