@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Data;
 using Free_Accounting_Software.Internal.Forms;
-using System.Threading;
 using JkComponents;
+using System.Drawing;
+using System.Data.SqlClient;
+using System.ComponentModel;
 
 namespace Free_Accounting_Software.Internal.Classes
 {
-    static class IAppHandler
+    public static class IAppHandler
     {
         public static List<IParentForm> Classes = new List<IParentForm>();
         public static Panel ParentPanel;
@@ -18,6 +20,7 @@ namespace Free_Accounting_Software.Internal.Classes
         public static ToolStripProgressBar StatusProgressBar;
         private static String InitialStatus;
         private static int CurrentTag = 0;
+        public static Color GridAlternateRowColor = Color.FromArgb(180, 255, 200);
 
         public static String GetSubCategory(String Name, String Result)
         {
@@ -264,6 +267,28 @@ namespace Free_Accounting_Software.Internal.Classes
             }
 
             return list;
+        }
+
+        public static SqlDbType ConvertTypeToSqlType(Type type)
+        {
+            SqlParameter param;
+            TypeConverter converter;
+
+            param = new SqlParameter();
+            converter = TypeDescriptor.GetConverter(param.DbType);
+
+            if (converter.CanConvertFrom(type))
+                param.DbType = (DbType)converter.ConvertFrom(type.Name);
+            else
+            {
+                try
+                {
+                    param.DbType = (DbType)converter.ConvertFrom(type.Name);
+                }
+                catch { }
+            }
+
+            return param.SqlDbType;
         }
     }
 }

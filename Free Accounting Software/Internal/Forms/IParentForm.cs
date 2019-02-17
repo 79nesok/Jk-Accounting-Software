@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Design;
-using System.Data.SqlClient;
 using JkComponents;
 using Free_Accounting_Software.Internal.Classes;
 
@@ -33,7 +32,8 @@ namespace Free_Accounting_Software.Internal.Forms
             public string Caption { get { return lblCaption.Text; } set { lblCaption.Text = value; } }
 
             private List<JkFormParameter> _Parameters = new List<JkFormParameter>();
-            [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)][Category("(Custom)")]
+            [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
+            [Category("(Custom)")]
             public List<JkFormParameter> Parameters { get { return _Parameters; } set { _Parameters = value; } }
 
             public enum FormStates { fsView, fsNew, fsEdit }
@@ -95,7 +95,6 @@ namespace Free_Accounting_Software.Internal.Forms
             public ITransactionHandler VTransactionHandler = new ITransactionHandler();
             public ILookupProvider VLookupProvider; 
             public DataTable VMasterDataTable = new DataTable();
-            public Color VGridAlternateRowColor = Color.FromArgb(180, 255, 200);
         #endregion
 
         #region Built-in Events
@@ -223,28 +222,6 @@ namespace Free_Accounting_Software.Internal.Forms
                     }
                     ProcessControls(c);
                 }
-            }
-
-            public SqlDbType ConvertTypeToSqlType(Type type)
-            {
-                SqlParameter param;
-                TypeConverter converter;
-
-                param = new SqlParameter();
-                converter = TypeDescriptor.GetConverter(param.DbType);
-
-                if (converter.CanConvertFrom(type))
-                    param.DbType = (DbType)converter.ConvertFrom(type.Name);
-                else
-                {
-                    try
-                    {
-                        param.DbType = (DbType)converter.ConvertFrom(type.Name); 
-                    }
-                    catch { }
-                }
-
-                return param.SqlDbType;
             }
 
             public bool IsListForm()

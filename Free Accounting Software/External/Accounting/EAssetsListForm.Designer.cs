@@ -36,7 +36,7 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 290);
+            this.splitContainer.Size = new System.Drawing.Size(789, 542);
             // 
             // EAssetsListForm
             // 
@@ -54,7 +54,7 @@
             this.OpenFormName = "EAccountForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 290);
+            this.Size = new System.Drawing.Size(789, 542);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

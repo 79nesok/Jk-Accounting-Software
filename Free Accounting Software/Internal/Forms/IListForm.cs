@@ -175,7 +175,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 InitializeComponent();
 
                 dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-                dataGridView.AlternatingRowsDefaultCellStyle.BackColor = VGridAlternateRowColor;
+                dataGridView.AlternatingRowsDefaultCellStyle.BackColor = IAppHandler.GridAlternateRowColor;
                 dataGridView.AllowUserToAddRows = false;
                 dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                 dataGridView.AllowUserToOrderColumns = true;
@@ -224,30 +224,28 @@ namespace Free_Accounting_Software.Internal.Forms
                 ITransactionHandler VTransactionHandler = new ITransactionHandler();
                 DataTable dt = new DataTable();
 
-                VTransactionHandler.LoadData(CommandText, ref dt, this.Parameters);
-
-                foreach (DataColumn dc in dt.Columns)
+                try
                 {
-                    JkColumn column = new JkColumn();
-                    column.Name = dc.ColumnName;
-                    column.Caption = dc.ColumnName;
-                    if (dc.DataType.ToString() == "System.String")
-                        column.DataType = JkColumn.ColumnDataTypes.dtString;
-                    if (dc.DataType.ToString() == "System.Int32")
-                        column.DataType = JkColumn.ColumnDataTypes.dtInteger;
-                    if (dc.DataType.ToString() == "System.Double")
-                        column.DataType = JkColumn.ColumnDataTypes.dtDouble;
-                    if (dc.DataType.ToString() == "System.Boolean")
-                        column.DataType = JkColumn.ColumnDataTypes.dtBoolean;
-                    if (dc.DataType.ToString() == "System.DateTime")
-                        column.DataType = JkColumn.ColumnDataTypes.dtDateTime;
-                    column.Width = 100;
-                    column.FooterType = JkColumn.ColumnFooterTypes.ftNone;
-                    if (dc.ColumnName.Contains("Id"))
-                        column.Visible = false;
+                    VTransactionHandler.LoadData(CommandText, ref dt, this.Parameters);
 
-                    if (Columns.Find(col => col.Name == column.Name) == null)
-                        _Columns.Add(column);
+                    foreach (DataColumn dc in dt.Columns)
+                    {
+                        JkColumn column = new JkColumn();
+                        column.Name = dc.ColumnName;
+                        column.Caption = dc.ColumnName;
+                        column.DataType = IAppHandler.ConvertTypeToSqlType(dc.DataType);
+                        column.Width = 100;
+                        column.FooterType = JkColumn.ColumnFooterTypes.ftNone;
+                        if (dc.ColumnName.Contains("Id"))
+                            column.Visible = false;
+
+                        if (Columns.Find(col => col.Name == column.Name) == null)
+                            _Columns.Add(column);
+                    }
+                }
+                finally
+                {
+                    dt.Dispose();
                 }
             }
 
@@ -264,7 +262,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     DataGridViewComboBoxColumn GridColCombo = new DataGridViewComboBoxColumn();
                     DataGridViewTextBoxColumn GridColDate = new DataGridViewTextBoxColumn();
 
-                    if (col.DataType == JkColumn.ColumnDataTypes.dtBoolean)
+                    if (col.DataType == SqlDbType.Bit)
                     {
                         GridColCheck.Name = "dataGridViewColumn" + col.Name.Trim();
                         GridColCheck.HeaderText = col.Caption;
@@ -276,7 +274,7 @@ namespace Free_Accounting_Software.Internal.Forms
                         if (_GridColumn.Find(gridCol => gridCol.Name == GridColCheck.Name) == null)
                             _GridColumn.Add(GridColCheck);
                     }
-                    else if (col.DataType == JkColumn.ColumnDataTypes.dtDateTime)
+                    else if (col.DataType == SqlDbType.DateTime)
                     {
                         GridColDate.Name = "dataGridViewColumn" + col.Name.Trim();
                         GridColDate.HeaderText = col.Caption;

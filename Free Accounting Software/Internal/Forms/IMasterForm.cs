@@ -160,7 +160,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     {
                         JkMasterColumn column = new JkMasterColumn();
                         column.Name = dc.ColumnName;
-                        column.DataType = ConvertTypeToSqlType(dc.DataType);
+                        column.DataType = IAppHandler.ConvertTypeToSqlType(dc.DataType);
                         column.Required = !dc.AllowDBNull;
                         column.DefaultValue = IAppHandler.SetColumnsDefaultValue(dc.ColumnName);
 

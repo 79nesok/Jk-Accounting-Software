@@ -124,7 +124,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 InitializeComponent();
 
                 dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-                dataGridView.AlternatingRowsDefaultCellStyle.BackColor = VGridAlternateRowColor;
+                dataGridView.AlternatingRowsDefaultCellStyle.BackColor = IAppHandler.GridAlternateRowColor;
             }
 
             private void IMasterDetailForm_BeforeRun()
@@ -351,7 +351,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     JkDetailColumn column = new JkDetailColumn();
 
                     column.Caption = dc.ColumnName;
-                    column.DataType = ConvertTypeToSqlType(dc.DataType);
+                    column.DataType = IAppHandler.ConvertTypeToSqlType(dc.DataType);
                     column.DefaultValue = IAppHandler.SetColumnsDefaultValue(dc.ColumnName);
                     column.Name = dc.ColumnName;
                     column.Required = !dc.AllowDBNull;

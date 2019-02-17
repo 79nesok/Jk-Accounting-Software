@@ -34,10 +34,6 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer
-            // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 320);
-            // 
             // EJournalVouchersListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -57,7 +53,7 @@
             this.OpenFormName = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 320);
+            this.Size = new System.Drawing.Size(789, 506);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
