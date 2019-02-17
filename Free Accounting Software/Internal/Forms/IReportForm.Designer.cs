@@ -92,6 +92,7 @@
             this.reportViewer.Size = new System.Drawing.Size(789, 376);
             this.reportViewer.TabIndex = 2;
             this.reportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            this.reportViewer.ReportRefresh += new System.ComponentModel.CancelEventHandler(this.reportViewer_ReportRefresh);
             // 
             // IReportForm
             // 

@@ -137,7 +137,7 @@ namespace Free_Accounting_Software.Internal.Forms
             private void btnPrint_Click(object sender, EventArgs e)
             {
                 String reportFormName = VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "PrintoutFormName").ToString();
-                IParentForm reportForm = IAppHandler.FindForm(reportFormName, true);
+                IParentForm reportForm = IAppHandler.FindForm(reportFormName, "Printout", true);
 
                 if (reportForm == null)
                     IMessageHandler.ShowError(ISystemMessages.PrintoutNotSet);
@@ -268,11 +268,10 @@ namespace Free_Accounting_Software.Internal.Forms
             public void CloseForm()
             {
                 VMasterDataTable.Clear();
-                IAppHandler.AddUsedForm(this);
-                this.Hide();
 
-                if (IAppHandler.OpenPreviousForm(this.Tag) != null)
-                    IAppHandler.OpenPreviousForm(this.Tag).Run();
+                if (IAppHandler.OpenPreviousForm(this) != null)
+                    IAppHandler.OpenPreviousForm(this).Run();
+                this.Dispose();
             }
 
             public void CreateToolStripItem(String PCaption, Action<Object, EventArgs> POnItemClick, Image img, String PToolTipText = "")

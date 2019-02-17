@@ -59,7 +59,7 @@ namespace Free_Accounting_Software
 
                         if (formname != null)
                         {
-                            form = IAppHandler.FindForm(formname);
+                            form = IAppHandler.FindForm(formname, treeView.SelectedNode.Text);
                             if (form != null)
                                 form.Run();
                             else

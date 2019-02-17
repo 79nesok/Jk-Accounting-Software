@@ -39,10 +39,24 @@ namespace Free_Accounting_Software.Internal.Classes
             Classes.Add(PClassname);
         }
 
-        public static IParentForm FindForm(String PClassname, bool IsReport = false)
+        public static IParentForm FindForm(String PClassname, String Caption = null, bool IsReport = false)
         {
             IParentForm form = null;
 
+            //check if form is already opened, to reuse it
+            if (Caption != null)
+            {
+                if (SubCategories.Select(String.Format("ListForm = '{0}'", PClassname)).Length > 0
+                    && SubCategories.Select(String.Format("ListForm = '{0}'", PClassname))[0]["Category"].ToString() == "Report")
+                    form = Classes.Find(c => c.Name == PClassname && c.Caption == "Report");
+                else
+                    form = Classes.Find(c => c.Name == PClassname && c.Caption == Caption);
+
+                if (form != null)
+                    Classes.Remove(form);
+            }
+
+            //open new instance
             if (IsReport)
             {
                 if (form == null && Type.GetType("Free_Accounting_Software.External.Report." + PClassname) != null)
@@ -55,6 +69,7 @@ namespace Free_Accounting_Software.Internal.Classes
                         form = Activator.CreateInstance(Type.GetType("Free_Accounting_Software.External." + category["Name"] + "." + PClassname)) as IParentForm;
                 }
 
+            //assign tag for navigation purposes of all opened forms
             if (form != null)
             {
                 form.Parent = ParentPanel;
@@ -65,10 +80,10 @@ namespace Free_Accounting_Software.Internal.Classes
             return form;
         }
 
-        public static IParentForm OpenPreviousForm(object Tag)
+        public static IParentForm OpenPreviousForm(IParentForm form)
         {
-            if (Classes.Find(c => c.Tag.ToString() == Tag.ToString()) != null)
-                Classes.Remove(Classes.Find(c => c.Tag.ToString() == Tag.ToString()));
+            if (Classes.Find(c => c.Tag.ToString() == form.Tag.ToString() && c.Name == form.Name) != null)
+                Classes.Remove(Classes.Find(c => c.Tag.ToString() == form.Tag.ToString() && c.Name == form.Name));
 
             if (Classes.Count > 0)
                 return Classes[Classes.Count - 1];

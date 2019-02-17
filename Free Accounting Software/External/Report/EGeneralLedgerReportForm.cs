@@ -42,7 +42,7 @@ namespace Free_Accounting_Software.External.Report
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "General Ledger.rdlc";
 
             reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
-            reportParam[1] = new ReportParameter("ToDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
+            reportParam[1] = new ReportParameter("ToDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
 
             reportViewer.LocalReport.SetParameters(reportParam);
 

@@ -220,7 +220,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Running Balance</Value>
+                                  <Value>Balance</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <FontWeight>Bold</FontWeight>
