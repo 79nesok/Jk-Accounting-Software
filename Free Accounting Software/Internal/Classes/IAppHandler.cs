@@ -20,7 +20,6 @@ namespace Free_Accounting_Software.Internal.Classes
         public static ToolStripProgressBar StatusProgressBar;
         private static String InitialStatus;
         private static int CurrentTag = 0;
-        public static Color GridAlternateRowColor = Color.FromArgb(180, 255, 200);
 
         public static String GetSubCategory(String Name, String Result)
         {
@@ -167,7 +166,7 @@ namespace Free_Accounting_Software.Internal.Classes
                 (PControl as DateTimePicker).Value = new DateTime(Convert.ToDateTime(PValue).Year, Convert.ToDateTime(PValue).Month, Convert.ToDateTime(PValue).Day);
             else if (PControl.GetType().Name == "PictureBox")
                 (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
-            else if (PControl.GetType().Name == "JkLookUpComboBox")
+            else if (PControl.GetType().Name == "JkLookUpComboBox" && PValue != DBNull.Value)
                 (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
             else if (PControl.GetType().Name == "JkTextBox")
                 (PControl as JkTextBox).Text = Convert.ToString(PValue);
@@ -182,7 +181,7 @@ namespace Free_Accounting_Software.Internal.Classes
             else if (PControl.GetType().Name == "PictureBox")
                 (PControl as PictureBox).Image = null;
             else if (PControl.GetType().Name == "JkLookUpComboBox")
-                    (PControl as JkLookUpComboBox).Text = String.Empty;
+                (PControl as JkLookUpComboBox).Text = String.Empty;
             else if (PControl.GetType().Name == "JkTextBox")
                 (PControl as JkTextBox).Text = String.Empty;
         }
@@ -289,6 +288,14 @@ namespace Free_Accounting_Software.Internal.Classes
             }
 
             return param.SqlDbType;
+        }
+
+        public static void ApplyStyleOnGrid(DataGridView gridView)
+        {
+            gridView.GridColor = Color.Peru;
+            gridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(180, 255, 200);
+            gridView.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            gridView.BorderStyle = BorderStyle.Fixed3D;
         }
     }
 }

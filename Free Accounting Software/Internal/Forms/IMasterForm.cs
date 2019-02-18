@@ -69,7 +69,6 @@ namespace Free_Accounting_Software.Internal.Forms
         #region Variable Declarations
             public List<String> KeyList;
             public bool ValidationFails;
-            public DataTable VDetailDataTable = new DataTable();
         #endregion
 
         #region Built-in Events
@@ -235,7 +234,6 @@ namespace Free_Accounting_Software.Internal.Forms
                         FormState = FormStates.fsNew;
                         Run();
                         VMasterDataTable.Clear();
-                        VDetailDataTable.Clear();
                     }
                     finally
                     {

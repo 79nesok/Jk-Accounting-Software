@@ -31,7 +31,6 @@
             this.splitContainerReport = new System.Windows.Forms.SplitContainer();
             this.toolStripReportParam = new System.Windows.Forms.ToolStrip();
             this.reportViewer = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).BeginInit();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -104,7 +103,6 @@
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IReportForm_BeforeRun);
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IReportForm_AfterRun);
             this.Resize += new System.EventHandler(this.IReportForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.VDetailDataTable)).EndInit();
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

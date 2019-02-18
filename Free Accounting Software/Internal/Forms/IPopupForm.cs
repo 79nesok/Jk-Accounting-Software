@@ -58,9 +58,9 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 InitializeComponent();
 
+                IAppHandler.ApplyStyleOnGrid(dataGridView);
                 dataGridView.AllowUserToAddRows = false;
                 dataGridView.AllowUserToDeleteRows = false;
-                dataGridView.AlternatingRowsDefaultCellStyle.BackColor = IAppHandler.GridAlternateRowColor;
             }
         #endregion
 

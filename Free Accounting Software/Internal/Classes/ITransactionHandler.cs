@@ -120,6 +120,46 @@ namespace Free_Accounting_Software.Internal.Classes
             }
         }
 
+        public DataTable LoadData(String PCommandText, List<JkFormParameter> PParamList, String CustomConnectionString = null)
+        {
+            DataTable PDataTable = new DataTable();
+            SqlDataAdapter DataAdapter = new SqlDataAdapter(PCommandText, CustomConnectionString ?? VConnectionString);
+            String TableName = ExtractTableName(PCommandText);
+
+            try
+            {
+                try
+                {
+                    if (PParamList != null)
+                    {
+                        for (int i = 0; i <= PParamList.Count - 1; i++)
+                        {
+                            if (String.IsNullOrWhiteSpace(PParamList[i].Value))
+                                DataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, 0);
+                            else
+                            {
+                                DataAdapter.SelectCommand.Parameters.AddWithValue("@" + PParamList[i].Name, IAppHandler.ConvertMaskValue(PParamList[i].Value));
+                            }
+                        }
+                    }
+                    DataAdapter.FillSchema(VDataset, SchemaType.Source, TableName);
+                    DataAdapter.Fill(VDataset, TableName);
+                    PDataTable = VDataset.Tables[TableName];
+                }
+                catch (Exception err)
+                {
+                    IMessageHandler.ShowError(ISystemMessages.LoadDataError + err.Message);
+                }
+            }
+            finally
+            {
+                DataAdapter.SelectCommand.Connection.Close();
+                DataAdapter.Dispose();
+            }
+
+            return PDataTable;
+        }
+
         public void SaveMaster(String PCommandText, ref DataTable PDataTable, List<JkFormParameter> PParams)
         {
             SqlCommand Command = new SqlCommand();
@@ -151,7 +191,7 @@ namespace Free_Accounting_Software.Internal.Classes
             }
         }
 
-        public void SaveDetail(String PCommandText, ref DataTable PDataTable, List<JkFormParameter> PMasterParams, List<JkFormParameter> PDetailParams)
+        public void SaveDetail(String PCommandText, DataTable PDataTable, List<JkFormParameter> PMasterParams, List<JkFormParameter> PDetailParams)
         {
             SqlCommand Command = new SqlCommand();
             int i = 0;

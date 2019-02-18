@@ -3,6 +3,7 @@ IF OBJECT_ID('tblAccounts') IS NULL
 		Id INT IDENTITY(1, 1) NOT NULL,
 		CompanyId INT NOT NULL,
 		AccountTypeId INT NOT NULL,
+		SystemAccountCodeId INT NULL,
 		Code VARCHAR(50) NOT NULL,
 		Name VARCHAR(100) NULL,
 		Remarks VARCHAR(1000) NULL,

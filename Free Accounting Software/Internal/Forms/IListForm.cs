@@ -174,8 +174,7 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 InitializeComponent();
 
-                dataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-                dataGridView.AlternatingRowsDefaultCellStyle.BackColor = IAppHandler.GridAlternateRowColor;
+                IAppHandler.ApplyStyleOnGrid(dataGridView);
                 dataGridView.AllowUserToAddRows = false;
                 dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                 dataGridView.AllowUserToOrderColumns = true;

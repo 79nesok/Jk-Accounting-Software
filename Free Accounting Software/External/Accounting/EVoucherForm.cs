@@ -29,20 +29,20 @@ namespace Free_Accounting_Software.External.Accounting
 
         private void EVoucherForm_ValidateSave()
         {
-            double Debit = 0, Credit = 0;
+            //double Debit = 0, Credit = 0;
 
-            foreach(DataRow row in VDetailDataTable.Rows)
-            {
-                Debit += Convert.ToDouble(row["Debit"]);
-                Credit += Convert.ToDouble(row["Credit"]);
-            }
+            //foreach(DataRow row in VDetailDataTable.Rows)
+            //{
+            //    Debit += Convert.ToDouble(row["Debit"]);
+            //    Credit += Convert.ToDouble(row["Credit"]);
+            //}
 
-            if (Debit != Credit)
-            {
-                IMessageHandler.ShowError(ISystemMessages.DebitCreditNotEqual);
-                ValidationFails = true;
-                return;
-            }
+            //if (Debit != Credit)
+            //{
+            //    IMessageHandler.ShowError(ISystemMessages.DebitCreditNotEqual);
+            //    ValidationFails = true;
+            //    return;
+            //}
         }
 
         private void Post(bool IsPost)
