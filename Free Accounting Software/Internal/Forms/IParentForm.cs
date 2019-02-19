@@ -49,6 +49,11 @@ namespace Free_Accounting_Software.Internal.Forms
             public event BeforeRunHandler BeforeRun;
             protected virtual void OnBeforeRun()
             {
+                //clear all datatables
+                VMasterDataTable.Clear();
+                foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
+                    DataSet.DataTable.Clear();
+
                 if (CommandText != null && CommandText != "")
                     VTransactionHandler.LoadData(CommandText, ref VMasterDataTable, this.Parameters);
 
@@ -245,6 +250,9 @@ namespace Free_Accounting_Software.Internal.Forms
             public void CloseForm()
             {
                 VMasterDataTable.Clear();
+
+                foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
+                    DataSet.DataTable.Clear();
 
                 if (IAppHandler.OpenPreviousForm(this) != null)
                     IAppHandler.OpenPreviousForm(this).Run();

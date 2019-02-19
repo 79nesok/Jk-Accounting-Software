@@ -27,7 +27,7 @@ namespace Free_Accounting_Software
                 //todo: should be based on login
                 ISecurityHandler.CompanyId = 1;
                 ISecurityHandler.SecurityUserId = 1;
-                ISecurityHandler.CompanyName = "Company 001";
+                ISecurityHandler.CompanyName = "Jk Computer Systems Inc.";
                 ISecurityHandler.SecurityUserName = "Systems Developer";
             }
 

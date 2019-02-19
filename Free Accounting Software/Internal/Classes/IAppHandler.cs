@@ -141,17 +141,26 @@ namespace Free_Accounting_Software.Internal.Classes
             Object result = null;
 
             if (PControl.GetType().Name == "TextBox")
-                result = (PControl as TextBox).Text;
+            {
+                if (!String.IsNullOrWhiteSpace((PControl as TextBox).Text))
+                    result = (PControl as TextBox).Text;
+            }
             else if (PControl.GetType().Name == "CheckBox")
                 result = (PControl as CheckBox).Checked;
             else if (PControl.GetType().Name == "DateTimePicker")
-                result = (PControl as DateTimePicker).Value.ToString();
+            {
+                if ((PControl as DateTimePicker).Value != null)
+                    result = (PControl as DateTimePicker).Value.ToString();
+            }
             else if (PControl.GetType().Name == "PictureBox")
                 result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
             else if (PControl.GetType().Name == "JkLookUpComboBox")
                 result = (PControl as JkLookUpComboBox).SelectedKey;
             else if (PControl.GetType().Name == "JkTextBox")
-                result = (PControl as JkTextBox).Text;
+            {
+                if (!String.IsNullOrWhiteSpace((PControl as JkTextBox).Text))
+                    result = (PControl as JkTextBox).Text;
+            }
 
             return result;
         }
@@ -169,7 +178,10 @@ namespace Free_Accounting_Software.Internal.Classes
             else if (PControl.GetType().Name == "JkLookUpComboBox" && PValue != DBNull.Value)
                 (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
             else if (PControl.GetType().Name == "JkTextBox")
-                (PControl as JkTextBox).Text = Convert.ToString(PValue);
+            {
+                if (PValue != null)
+                    (PControl as JkTextBox).Text = Convert.ToString(PValue);
+            }
         }
 
         public static void ClearControlsValue(Control PControl)
@@ -189,9 +201,6 @@ namespace Free_Accounting_Software.Internal.Classes
         public static Object ConvertMaskValue(Object PDefaultValue)
         {
             Object value;
-
-            if (String.IsNullOrWhiteSpace(Convert.ToString(PDefaultValue)))
-                return null;
 
             switch (PDefaultValue.ToString())
             { 
@@ -246,6 +255,12 @@ namespace Free_Accounting_Software.Internal.Classes
                     break;
                 case "Active":
                     value = "True";
+                    break;
+                case "Posted":
+                    value = "True";
+                    break;
+                case "Voided":
+                    value = "False";
                     break;
             }
 

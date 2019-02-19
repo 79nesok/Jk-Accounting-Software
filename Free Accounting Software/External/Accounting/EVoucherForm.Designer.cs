@@ -42,6 +42,8 @@
             this.jkSeriesProvider = new JkComponents.JkSeriesProvider();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
@@ -77,6 +79,7 @@
     "JournalDetails\r\nWHERE JournalId = @Id";
             this.dstDetail.GridAutoSize = true;
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
+            this.dstDetail.Size = new System.Drawing.Size(48, 20);
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
             // 
@@ -232,7 +235,18 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.Width = 124;
+            // 
+            // idDataGridViewTextBoxColumn1
+            // 
+            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+            // 
+            // idDataGridViewTextBoxColumn2
+            // 
+            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
             // 
             // EVoucherForm
             // 
@@ -291,5 +305,7 @@
         private JkComponents.JkSeriesProvider jkSeriesProvider;
         private JkComponents.JkLookUpComboBox cmbAccounts;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
     }
 }

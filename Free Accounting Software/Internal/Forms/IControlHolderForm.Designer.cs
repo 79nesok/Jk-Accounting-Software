@@ -208,7 +208,7 @@
             this.groupBoxLoginDetails.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxLoginDetails.Name = "groupBoxLoginDetails";
             this.groupBoxLoginDetails.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.groupBoxLoginDetails.Size = new System.Drawing.Size(218, 73);
+            this.groupBoxLoginDetails.Size = new System.Drawing.Size(218, 76);
             this.groupBoxLoginDetails.TabIndex = 15;
             this.groupBoxLoginDetails.TabStop = false;
             this.groupBoxLoginDetails.Text = "Login Details";
@@ -237,16 +237,15 @@
             this.tableLayoutPanelLoginDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelLoginDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelLoginDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelLoginDetails.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelLoginDetails.Size = new System.Drawing.Size(214, 51);
+            this.tableLayoutPanelLoginDetails.Size = new System.Drawing.Size(214, 54);
             this.tableLayoutPanelLoginDetails.TabIndex = 1;
             // 
             // lblDurationValue
             // 
             this.lblDurationValue.AutoSize = true;
             this.lblDurationValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDurationValue.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblDurationValue.Location = new System.Drawing.Point(67, 37);
+            this.lblDurationValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDurationValue.Location = new System.Drawing.Point(67, 40);
             this.lblDurationValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDurationValue.Name = "lblDurationValue";
             this.lblDurationValue.Size = new System.Drawing.Size(51, 13);
@@ -257,11 +256,11 @@
             // 
             this.lblTimeValue.AutoSize = true;
             this.lblTimeValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeValue.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblTimeValue.Location = new System.Drawing.Point(67, 25);
+            this.lblTimeValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTimeValue.Location = new System.Drawing.Point(67, 27);
             this.lblTimeValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTimeValue.Name = "lblTimeValue";
-            this.lblTimeValue.Size = new System.Drawing.Size(47, 11);
+            this.lblTimeValue.Size = new System.Drawing.Size(47, 12);
             this.lblTimeValue.TabIndex = 15;
             this.lblTimeValue.Text = "<TIME>";
             // 
@@ -269,8 +268,8 @@
             // 
             this.lblDuration.AutoSize = true;
             this.lblDuration.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDuration.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblDuration.Location = new System.Drawing.Point(3, 37);
+            this.lblDuration.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDuration.Location = new System.Drawing.Point(3, 40);
             this.lblDuration.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDuration.Name = "lblDuration";
             this.lblDuration.Size = new System.Drawing.Size(52, 13);
@@ -281,11 +280,11 @@
             // 
             this.lblCompany.AutoSize = true;
             this.lblCompany.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompany.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblCompany.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblCompany.Location = new System.Drawing.Point(3, 1);
             this.lblCompany.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(56, 11);
+            this.lblCompany.Size = new System.Drawing.Size(56, 12);
             this.lblCompany.TabIndex = 8;
             this.lblCompany.Text = "Company:";
             // 
@@ -293,11 +292,11 @@
             // 
             this.lblCompanyValue.AutoSize = true;
             this.lblCompanyValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompanyValue.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lblCompanyValue.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblCompanyValue.Location = new System.Drawing.Point(67, 1);
             this.lblCompanyValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCompanyValue.Name = "lblCompanyValue";
-            this.lblCompanyValue.Size = new System.Drawing.Size(72, 11);
+            this.lblCompanyValue.Size = new System.Drawing.Size(72, 12);
             this.lblCompanyValue.TabIndex = 12;
             this.lblCompanyValue.Text = "<COMPANY>";
             // 
@@ -305,11 +304,11 @@
             // 
             this.lblUserValue.AutoSize = true;
             this.lblUserValue.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserValue.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblUserValue.Location = new System.Drawing.Point(67, 13);
+            this.lblUserValue.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblUserValue.Location = new System.Drawing.Point(67, 14);
             this.lblUserValue.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUserValue.Name = "lblUserValue";
-            this.lblUserValue.Size = new System.Drawing.Size(49, 11);
+            this.lblUserValue.Size = new System.Drawing.Size(49, 12);
             this.lblUserValue.TabIndex = 13;
             this.lblUserValue.Text = "<USER>";
             // 
@@ -317,11 +316,11 @@
             // 
             this.lblTime.AutoSize = true;
             this.lblTime.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTime.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblTime.Location = new System.Drawing.Point(3, 25);
+            this.lblTime.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTime.Location = new System.Drawing.Point(3, 27);
             this.lblTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(33, 11);
+            this.lblTime.Size = new System.Drawing.Size(33, 12);
             this.lblTime.TabIndex = 10;
             this.lblTime.Text = "Time:";
             // 
@@ -329,11 +328,11 @@
             // 
             this.lblUser.AutoSize = true;
             this.lblUser.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUser.ForeColor = System.Drawing.Color.DarkBlue;
-            this.lblUser.Location = new System.Drawing.Point(3, 13);
+            this.lblUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblUser.Location = new System.Drawing.Point(3, 14);
             this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(33, 11);
+            this.lblUser.Size = new System.Drawing.Size(33, 12);
             this.lblUser.TabIndex = 9;
             this.lblUser.Text = "User:";
             // 
@@ -343,9 +342,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusProgressBar,
             this.statusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 73);
+            this.statusStrip.Location = new System.Drawing.Point(0, 76);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(218, 25);
+            this.statusStrip.Size = new System.Drawing.Size(218, 22);
             this.statusStrip.SizingGrip = false;
             this.statusStrip.TabIndex = 14;
             this.statusStrip.Text = "statusStrip1";
@@ -354,14 +353,14 @@
             // 
             this.statusProgressBar.BackColor = System.Drawing.Color.Silver;
             this.statusProgressBar.Name = "statusProgressBar";
-            this.statusProgressBar.Size = new System.Drawing.Size(60, 19);
+            this.statusProgressBar.Size = new System.Drawing.Size(60, 16);
             // 
             // statusLabel
             // 
             this.statusLabel.BackColor = System.Drawing.Color.Silver;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 7F);
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 6.5F);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(84, 20);
+            this.statusLabel.Size = new System.Drawing.Size(75, 17);
             this.statusLabel.Text = "Login Successful...";
             // 
             // IControlHolderForm

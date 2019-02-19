@@ -89,7 +89,7 @@
             this.dstDetail.GridView = this.dataGridView;
             this.dstDetail.Location = new System.Drawing.Point(731, 166);
             this.dstDetail.Name = "dstDetail";
-            this.dstDetail.Size = new System.Drawing.Size(48, 20);
+            this.dstDetail.Size = new System.Drawing.Size(82, 20);
             this.dstDetail.TabIndex = 0;
             this.dstDetail.Visible = false;
             this.dstDetail.ZLoadColumns = false;
@@ -117,9 +117,7 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(789, 262);
             this.dataGridView.TabIndex = 18;
-            this.dataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView_DataError);
             this.dataGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_DefaultValuesNeeded);
-            this.dataGridView.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridView_EditingControlShowing);
             this.dataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseClick);
             // 
             // IMasterDetailForm

@@ -21,69 +21,76 @@ namespace Free_Accounting_Software.Internal.Forms
             public IMasterDetailForm()
             {
                 InitializeComponent();
-                dataGridView.AutoGenerateColumns = false;
             }
 
             private void IMasterDetailForm_BeforeRun()
             {
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
                 {
-                    DataSet.Parameters.Find(dp => dp.Name == "Id").Value = Parameters.Find(p => p.Name == "Id").Value;
                     if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
                     {
-                        DataSet.DataTable.Clear();
-                        DataSet.DataTable = VTransactionHandler.LoadData(DataSet.CommandText, DataSet.Parameters);
-
-                        dataGridView.AutoGenerateColumns = false;
-                        dataGridView.DataSource = DataSet.DataTable;
-                        dataGridView.ComputeFooterValues();
-                    }
-
-                    //For further update on this code, I'm still not sure if this will fit on all scenarios
-                    foreach (DataColumn column in DataSet.DataTable.Columns)
-                    {
-                        if (!column.AllowDBNull && column.DataType.ToString() == "System.Int32" && !column.AutoIncrement)
+                        DataSet.Parameters.Find(dp => dp.Name == "Id").Value = Parameters.Find(p => p.Name == "Id").Value;
+                        if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
                         {
-                            if (FormState == FormStates.fsNew)
-                                column.DefaultValue = -1;
-                            else
-                                column.DefaultValue = Parameters.Find(p => p.Name == "Id").Value;
+                            DataSet.DataTable = VTransactionHandler.LoadData(DataSet.CommandText, DataSet.Parameters);
+                            DataSet.GridView.DataSource = DataSet.DataTable;
+
+                            //workaround to hide columns that are generated automatically by .Net
+                            foreach (DataGridViewColumn column in dataGridView.Columns)
+                            {
+                                column.Visible = DataSet.Columns.Find(c => c.Name == column.DataPropertyName).Visible;
+                            }
+                            DataSet.GridView.ComputeFooterValues();
+                        }
+
+                        //For further update on this code, I'm still not sure if this will fit on all scenarios
+                        foreach (DataColumn column in DataSet.DataTable.Columns)
+                        {
+                            if (!column.AllowDBNull && column.DataType.ToString() == "System.Int32" && !column.AutoIncrement)
+                            {
+                                if (FormState == FormStates.fsNew)
+                                    column.DefaultValue = -1;
+                                else
+                                    column.DefaultValue = Parameters.Find(p => p.Name == "Id").Value;
+                            }
                         }
                     }
                 }
                 LoadLookUpOnGrid();
             }
 
-            private void dataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
-            {
-                //retain this event, to overcome data error on comboboxcell
-            }
-
             protected override void UpdateControls()
             {
                 base.UpdateControls();
 
-                if (FormState == FormStates.fsView)
-                    dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
-                else
-                    dataGridView.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+                foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
+                {
+                    if (FormState == FormStates.fsView)
+                        DataSet.GridView.EditMode = DataGridViewEditMode.EditProgrammatically;
+                    else
+                        DataSet.GridView.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
 
-                dataGridView.AllowUserToAddRows = FormState != FormStates.fsView;
-                dataGridView.AllowUserToDeleteRows = FormState != FormStates.fsView;
+                    DataSet.GridView.AllowUserToAddRows = FormState != FormStates.fsView;
+                    DataSet.GridView.AllowUserToDeleteRows = FormState != FormStates.fsView;
+                }
             }
 
             protected override void SaveDetail()
             {
                 base.SaveDetail();
+
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
-                    VTransactionHandler.SaveDetail(DataSet.CommandText, DataSet.DataTable, Parameters, DataSet.Parameters);
+                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
+                        VTransactionHandler.SaveDetail(DataSet.CommandText, DataSet.DataTable, Parameters, DataSet.Parameters);
             }
 
             protected override void EditDetail()
             {
                 base.EditDetail();
+
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
-                    VTransactionHandler.EditMaster(DataSet.CommandText, DataSet.Parameters);
+                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
+                        VTransactionHandler.EditMaster(DataSet.CommandText, DataSet.Parameters);
             }
 
             private void dataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
@@ -94,15 +101,6 @@ namespace Free_Accounting_Software.Internal.Forms
                     {
                         e.Row.Cells["dataGridViewColumn" + column.Name.Trim()].Value = IAppHandler.ConvertMaskValue(column.DefaultValue);
                     }
-                }
-            }
-
-            private void dataGridView_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
-            {
-                if (FormState != FormStates.fsView && e.Control != null && e.Control is ComboBox)
-                {
-                    (e.Control as ComboBox).IntegralHeight = false;
-                    (e.Control as ComboBox).MaxDropDownItems = 10;
                 }
             }
 
@@ -189,34 +187,9 @@ namespace Free_Accounting_Software.Internal.Forms
         #endregion
 
         #region Custom Procedures and Functions
-            private void LoadLookUpOnGrid(int RowIndex, int ColumnIndex)
-            {
-                if (dataGridView.Rows[RowIndex].Cells[ColumnIndex].GetType().Name == "DataGridViewComboBoxCell")
-                {
-                    foreach (JkDetailColumn column in dstDetail.Columns)
-                    {
-                        if (!String.IsNullOrWhiteSpace(column.ControlName) && dataGridView.Columns[ColumnIndex].DataPropertyName == column.Name)
-                        {
-                            DataGridViewComboBoxCell cell = (dataGridView.Rows[RowIndex].Cells[ColumnIndex] as DataGridViewComboBoxCell);
-                            JkLookUpComboBox holder = (Controls.Find(column.ControlName, true).First() as JkLookUpComboBox);
-
-                            if (cell.DataSource == null)
-                            {
-                                if (holder.Items.Count == 0)
-                                    holder.LoadData();
-
-                                cell.DataSource = holder.Items;
-                                cell.ValueMember = "Key";
-                                cell.DisplayMember = "DisplayText";
-                            }
-                        }
-                    }
-                }
-            }
-
             private void LoadLookUpOnGrid()
             {
-                foreach(DataGridViewColumn column in dataGridView.Columns)
+                foreach (DataGridViewColumn column in dataGridView.Columns)
                 {
                     if (column.GetType().ToString().Contains("DataGridViewComboBoxColumn"))
                     {

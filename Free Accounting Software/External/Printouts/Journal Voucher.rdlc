@@ -405,7 +405,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>JournalDetails</DataSetName>
+        <DataSetName>JournalVoucherDetails</DataSetName>
         <Top>0.17639cm</Top>
         <Left>0.21166cm</Left>
         <Height>1.2cm</Height>
@@ -423,7 +423,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Debit.Value, "JournalDetails")</Value>
+                <Value>=Sum(Fields!Debit.Value, "JournalVoucherDetails")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -460,7 +460,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Credit.Value, "JournalDetails")</Value>
+                <Value>=Sum(Fields!Credit.Value, "JournalVoucherDetails")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -517,13 +517,13 @@
         </Style>
       </Line>
     </ReportItems>
-    <Height>1.34375in</Height>
+    <Height>0.89583in</Height>
     <Style />
   </Body>
   <Width>19cm</Width>
   <Page>
     <PageHeader>
-      <Height>4.30099cm</Height>
+      <Height>4.98891cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -665,7 +665,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReferenceNo.Value, "Journals")</Value>
+                  <Value>=First(Fields!ReferenceNo.Value, "JournalVoucher")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -699,7 +699,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!TransactionNo.Value, "Journals")</Value>
+                  <Value>=First(Fields!TransactionNo.Value, "JournalVoucher")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -733,7 +733,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Date.Value, "Journals")</Value>
+                  <Value>=First(Fields!Date.Value, "JournalVoucher")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <Format>MM/dd/yyyy</Format>
@@ -768,7 +768,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Remarks.Value, "Journals")</Value>
+                  <Value>=First(Fields!Remarks.Value, "JournalVoucher")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -915,6 +915,73 @@
             </Border>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox22">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Reference No. 2:</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox20</rd:DefaultName>
+          <Top>4.26614cm</Top>
+          <Left>0.21166cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.96898cm</Width>
+          <ZIndex>13</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="ReferenceNo2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!ReferenceNo2.Value, "JournalVoucher")</Value>
+                  <Style>
+                    <FontFamily>Segoe UI</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>ReferenceNo</rd:DefaultName>
+          <Top>4.26614cm</Top>
+          <Left>3.35703cm</Left>
+          <Height>0.6cm</Height>
+          <Width>3.05562cm</Width>
+          <ZIndex>14</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -989,90 +1056,6 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="Journals">
-      <Query>
-        <DataSourceName>EJournalVoucherPrintoutDS</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="CompanyId">
-          <DataField>CompanyId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="JournalTypeId">
-          <DataField>JournalTypeId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TransactionNo">
-          <DataField>TransactionNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="ReferenceNo">
-          <DataField>ReferenceNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Date">
-          <DataField>Date</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Remarks">
-          <DataField>Remarks</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>EJournalVoucherPrintoutDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EJournalVoucherPrintoutDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblJournals</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblJournalsTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="JournalDetails">
-      <Query>
-        <DataSourceName>EJournalVoucherPrintoutDS</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="JournalId">
-          <DataField>JournalId</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Account">
-          <DataField>Account</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Subsidiary">
-          <DataField>Subsidiary</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Debit">
-          <DataField>Debit</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Credit">
-          <DataField>Credit</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-        <Field Name="Remarks">
-          <DataField>Remarks</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>EJournalVoucherPrintoutDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EJournalVoucherPrintoutDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblJournalDetails</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblJournalDetailsTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
     <DataSet Name="Company">
       <Query>
         <DataSourceName>EJournalVoucherPrintoutDS</DataSourceName>
@@ -1107,6 +1090,90 @@
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>tblCompaniesTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="JournalVoucher">
+      <Query>
+        <DataSourceName>EJournalVoucherPrintoutDS</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="CompanyId">
+          <DataField>CompanyId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TransactionNo">
+          <DataField>TransactionNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReferenceNo">
+          <DataField>ReferenceNo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Date">
+          <DataField>Date</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ReferenceNo2">
+          <DataField>ReferenceNo2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>EJournalVoucherPrintoutDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EJournalVoucherPrintoutDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblJournalVouchers</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>tblJournalVouchersTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="JournalVoucherDetails">
+      <Query>
+        <DataSourceName>EJournalVoucherPrintoutDS</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Account">
+          <DataField>Account</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Subsidiary">
+          <DataField>Subsidiary</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Debit">
+          <DataField>Debit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Credit">
+          <DataField>Credit</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="Remarks">
+          <DataField>Remarks</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="JournalVoucherId">
+          <DataField>JournalVoucherId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>EJournalVoucherPrintoutDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EJournalVoucherPrintoutDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblJournalVoucherDetails</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>tblJournalVoucherDetailsTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

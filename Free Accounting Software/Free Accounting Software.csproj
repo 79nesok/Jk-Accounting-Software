@@ -125,6 +125,12 @@
     <Compile Include="External\Accounting\EIncomeListForm.Designer.cs">
       <DependentUpon>EIncomeListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Accounting\EJournalVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EJournalVoucherForm.Designer.cs">
+      <DependentUpon>EJournalVoucherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\EJournalVouchersListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -416,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EIncomeListForm.resx">
       <DependentUpon>EIncomeListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\EJournalVoucherForm.resx">
+      <DependentUpon>EJournalVoucherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EJournalVouchersListForm.resx">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>

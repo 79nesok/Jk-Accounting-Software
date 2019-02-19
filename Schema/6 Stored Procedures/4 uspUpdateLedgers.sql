@@ -1,8 +1,8 @@
-IF OBJECT_ID('uspUpdateGeneralLedger') IS NOT NULL
-	DROP PROCEDURE uspUpdateGeneralLedger
+IF OBJECT_ID('uspUpdateLedgers') IS NOT NULL
+	DROP PROCEDURE uspUpdateLedgers
 GO
 
-CREATE PROCEDURE uspUpdateGeneralLedger(@Id INT, @IsPost BIT)
+CREATE PROCEDURE uspUpdateLedgers(@Id INT, @IsPost BIT)
 AS
 SET NOCOUNT ON
 

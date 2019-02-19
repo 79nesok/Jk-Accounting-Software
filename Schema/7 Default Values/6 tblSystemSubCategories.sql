@@ -18,7 +18,7 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accou
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Equities', @ListForm = 'EEquitiesListForm', @MasterForm = 'EAccountForm', @Index = 3
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Income', @ListForm = 'EIncomeListForm', @MasterForm = 'EAccountForm', @Index = 4
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Chart of Accounts', @Name = 'Expenses', @ListForm = 'EExpensesListForm', @MasterForm = 'EAccountForm', @Index = 5
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Journal Vouchers', @ListForm = 'EJournalVouchersListForm', @MasterForm = NULL, @Index = 6
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Journal Vouchers', @ListForm = 'EJournalVouchersListForm', @MasterForm = 'EJournalVoucherForm', @Index = 6
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Purchase Vouchers', @ListForm = 'EPurchaseVouchersListForm', @MasterForm = NULL, @Index = 7
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Disbursement Vouchers', @ListForm = 'ECashDisbursementVouchersListForm', @MasterForm = NULL, @Index = 8
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Sales Vouchers', @ListForm = 'ESalesVouchersListForm', @MasterForm = NULL, @Index = 9

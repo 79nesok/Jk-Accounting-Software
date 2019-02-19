@@ -1,4 +1,18 @@
-﻿namespace Free_Accounting_Software.External.Datasources {
+﻿namespace Free_Accounting_Software.External.Datasources.EJournalVoucherPrintoutDSTableAdapters {
+    partial class tblCompaniesTableAdapter
+    {
+    }
+
+    partial class tblJournalVoucherDetailsTableAdapter
+    {
+    }
+
+    partial class tblJournalVouchersTableAdapter
+    {
+    }
+}
+
+namespace Free_Accounting_Software.External.Datasources {
     
     
     public partial class EJournalVoucherPrintoutDS {
@@ -6,26 +20,12 @@
         {
         }
     
-        partial class tblJournalDetailsDataTable
+        partial class tblJournalVoucherDetailsDataTable
         {
         }
     
-        partial class tblJournalsDataTable
+        partial class tblJournalVouchersDataTable
         {
         }
-    }
-}
-
-namespace Free_Accounting_Software.External.Datasources.EJournalVoucherPrintoutDSTableAdapters {
-    partial class tblCompaniesTableAdapter
-    {
-    }
-
-    partial class tblJournalDetailsTableAdapter
-    {
-    }
-    
-    
-    public partial class tblJournalsTableAdapter {
     }
 }

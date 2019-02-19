@@ -46,13 +46,12 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns4"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns5"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns6"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns7"))));
-            this.CommandText = resources.GetString("$this.CommandText");
+            this.CommandText = "SELECT jv.Id, jv.TransactionNo, jv.[Date], jv.ReferenceNo,\r\n\tjv.ReferenceNo2, jv." +
+    "Remarks, jv.Voided\r\nFROM tblJournalVouchers jv\r\nWHERE jv.CompanyId = @CompanyId";
             this.Name = "EJournalVouchersListForm";
-            this.NewFormName = "EVoucherForm";
-            this.OpenFormName = "EVoucherForm";
+            this.NewFormName = "EJournalVoucherForm";
+            this.OpenFormName = "EJournalVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Size = new System.Drawing.Size(789, 506);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
