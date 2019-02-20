@@ -49,6 +49,10 @@ namespace Free_Accounting_Software.Internal.Forms
             public event BeforeRunHandler BeforeRun;
             protected virtual void OnBeforeRun()
             {
+                //load all lookups
+                foreach (JkLookUpComboBox comboBox in IAppHandler.FindControlByType("JkLookUpComboBox", this))
+                    comboBox.LoadData();
+
                 //clear all datatables
                 VMasterDataTable.Clear();
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
@@ -205,25 +209,20 @@ namespace Free_Accounting_Software.Internal.Forms
                 ProcessControls(splitContainer.Panel2);
             }
 
-            public void ProcessControls(Control control)
+            private void ProcessControls(Control control)
             {
                 foreach (Control c in control.Controls)
                 {
-                    if (c.GetType().Name == "TextBox" ||
+                    if ((c.GetType().Name == "TextBox" && !(c as TextBox).ReadOnly) ||
                         c.GetType().Name == "CheckBox" ||
                         c.GetType().Name == "ComboBox" ||
                         c.GetType().Name == "DateTimePicker" ||
                         c.GetType().Name == "PictureBox" ||
                         c.GetType().Name == "LinkLabel" ||
                         c.GetType().Name == "JkLookUpComboBox" ||
-                        c.GetType().Name == "JkTextBox")
+                        (c.GetType().Name == "JkTextBox" && !(c as JkTextBox).ReadOnly))
                     {
                         c.Enabled = (FormState != FormStates.fsView);
-                    }
-
-                    if (c.GetType().Name == "JkLookUpComboBox")
-                    {
-                        (c as JkLookUpComboBox).LoadData();
                     }
                     ProcessControls(c);
                 }

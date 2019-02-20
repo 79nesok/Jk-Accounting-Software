@@ -38,6 +38,7 @@
             this.dstAccounts = new JkComponents.JkDataSet();
             this.dstSystemPrintouts = new JkComponents.JkDataSet();
             this.dstSystemAccountCodes = new JkComponents.JkDataSet();
+            this.dstVATTypes = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -151,11 +152,24 @@
             this.dstSystemAccountCodes.Text = "jkDataSet3";
             this.dstSystemAccountCodes.ZLoadColumns = false;
             // 
+            // dstVATTypes
+            // 
+            this.dstVATTypes.BackColor = System.Drawing.Color.Khaki;
+            this.dstVATTypes.CommandText = "SELECT Id, Code, Name, Rate, Active\r\nFROM tblVATTypes";
+            this.dstVATTypes.Connection = this.cnConnection;
+            this.dstVATTypes.Location = new System.Drawing.Point(306, 30);
+            this.dstVATTypes.Name = "dstVATTypes";
+            this.dstVATTypes.Size = new System.Drawing.Size(68, 20);
+            this.dstVATTypes.TabIndex = 9;
+            this.dstVATTypes.Text = "jkDataSet3";
+            this.dstVATTypes.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstVATTypes);
             this.Controls.Add(this.dstSystemAccountCodes);
             this.Controls.Add(this.dstSystemPrintouts);
             this.Controls.Add(this.dstAccounts);
@@ -182,5 +196,6 @@
         public JkComponents.JkDataSet dstSubsidiaries;
         public JkComponents.JkDataSet dstAccounts;
         public JkComponents.JkDataSet dstSystemAccountCodes;
+        public JkComponents.JkDataSet dstVATTypes;
     }
 }

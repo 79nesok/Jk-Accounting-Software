@@ -143,11 +143,23 @@
     <Compile Include="External\Accounting\ELiabilitiesListForm.Designer.cs">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Accounting\EPurchaseVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\EPurchaseVoucherForm.Designer.cs">
+      <DependentUpon>EPurchaseVoucherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\EPurchaseVouchersListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="External\Accounting\EPurchaseVouchersListForm.Designer.cs">
       <DependentUpon>EPurchaseVouchersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\ESalesVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ESalesVoucherForm.Designer.cs">
+      <DependentUpon>ESalesVoucherForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\ESalesVouchersListForm.cs">
       <SubType>UserControl</SubType>
@@ -432,8 +444,14 @@
     <EmbeddedResource Include="External\Accounting\ELiabilitiesListForm.resx">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\EPurchaseVoucherForm.resx">
+      <DependentUpon>EPurchaseVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EPurchaseVouchersListForm.resx">
       <DependentUpon>EPurchaseVouchersListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ESalesVoucherForm.resx">
+      <DependentUpon>ESalesVoucherForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ESalesVouchersListForm.resx">
       <DependentUpon>ESalesVouchersListForm.cs</DependentUpon>

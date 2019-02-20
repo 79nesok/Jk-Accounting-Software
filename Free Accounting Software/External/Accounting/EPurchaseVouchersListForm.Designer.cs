@@ -46,12 +46,15 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns5"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns6"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns7"))));
+            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns8"))));
+            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns9"))));
+            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns10"))));
             this.CommandText = resources.GetString("$this.CommandText");
+            this.GridAutoSize = false;
             this.Name = "EPurchaseVouchersListForm";
-            this.NewFormName = "EVoucherForm";
-            this.OpenFormName = "EVoucherForm";
+            this.NewFormName = "EPurchaseVoucherForm";
+            this.OpenFormName = "EPurchaseVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Size = new System.Drawing.Size(789, 506);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;

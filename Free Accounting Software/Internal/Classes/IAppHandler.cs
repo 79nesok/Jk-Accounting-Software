@@ -155,7 +155,10 @@ namespace Free_Accounting_Software.Internal.Classes
             else if (PControl.GetType().Name == "PictureBox")
                 result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
             else if (PControl.GetType().Name == "JkLookUpComboBox")
-                result = (PControl as JkLookUpComboBox).SelectedKey;
+            {
+                if ((PControl as JkLookUpComboBox).SelectedKey != 0)
+                    result = (PControl as JkLookUpComboBox).SelectedKey;
+            }
             else if (PControl.GetType().Name == "JkTextBox")
             {
                 if (!String.IsNullOrWhiteSpace((PControl as JkTextBox).Text))
@@ -168,19 +171,38 @@ namespace Free_Accounting_Software.Internal.Classes
         public static void SetControlsValue(Control PControl, Object PValue)
         {
             if (PControl.GetType().Name == "TextBox")
-                (PControl as TextBox).Text = Convert.ToString(PValue);
+            {
+                if (PValue != null)
+                {
+                    if (PValue.GetType().Name != "String" && PValue.GetType().Name != "DBNull")
+                        (PControl as TextBox).Text = double.Parse(PValue.ToString()).ToString("N2");
+                    else
+                        (PControl as TextBox).Text = Convert.ToString(PValue);
+
+                }
+            }
             else if (PControl.GetType().Name == "CheckBox")
                 (PControl as CheckBox).Checked = Convert.ToBoolean(PValue);
             else if (PControl.GetType().Name == "DateTimePicker")
                 (PControl as DateTimePicker).Value = new DateTime(Convert.ToDateTime(PValue).Year, Convert.ToDateTime(PValue).Month, Convert.ToDateTime(PValue).Day);
             else if (PControl.GetType().Name == "PictureBox")
                 (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
-            else if (PControl.GetType().Name == "JkLookUpComboBox" && PValue != DBNull.Value)
-                (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
+            else if (PControl.GetType().Name == "JkLookUpComboBox")
+            {
+                if (PValue == DBNull.Value)
+                    (PControl as JkLookUpComboBox).Text = String.Empty;
+                else
+                    (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
+            }
             else if (PControl.GetType().Name == "JkTextBox")
             {
                 if (PValue != null)
-                    (PControl as JkTextBox).Text = Convert.ToString(PValue);
+                {
+                    if (PValue.GetType().Name != "String" && PValue.GetType().Name != "DBNull")
+                        (PControl as JkTextBox).Text = double.Parse(PValue.ToString()).ToString("N2");
+                    else
+                        (PControl as JkTextBox).Text = Convert.ToString(PValue);
+                }
             }
         }
 

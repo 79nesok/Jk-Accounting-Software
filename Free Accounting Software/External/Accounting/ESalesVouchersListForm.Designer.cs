@@ -34,6 +34,10 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // splitContainer
+            // 
+            this.splitContainer.Size = new System.Drawing.Size(789, 481);
+            // 
             // ESalesVouchersListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -46,13 +50,16 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns5"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns6"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns7"))));
+            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns8"))));
+            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns9"))));
+            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns10"))));
             this.CommandText = resources.GetString("$this.CommandText");
+            this.GridAutoSize = false;
             this.Name = "ESalesVouchersListForm";
-            this.NewFormName = "EVoucherForm";
-            this.OpenFormName = "EVoucherForm";
+            this.NewFormName = "ESalesVoucherForm";
+            this.OpenFormName = "ESalesVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 506);
+            this.Size = new System.Drawing.Size(789, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

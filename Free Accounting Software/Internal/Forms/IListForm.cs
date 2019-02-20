@@ -196,7 +196,8 @@ namespace Free_Accounting_Software.Internal.Forms
 
             private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
             {
-                OnOpenForm(null, dataGridView);
+                if (e.ColumnIndex != -1 && e.RowIndex != -1)
+                    OnOpenForm(null, dataGridView);
             }
 
             private void dataGridView_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
@@ -214,6 +215,21 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 base.UpdateControls();
                 btnNew.Enabled = !String.IsNullOrWhiteSpace(NewFormName);
+            }
+
+            private void dataGridView_Scroll(object sender, ScrollEventArgs e)
+            {
+                HScrollBar hScrollBar = dataGridView.Controls.OfType<HScrollBar>().First();
+
+                if (hScrollBar.Visible && e.ScrollOrientation == ScrollOrientation.HorizontalScroll)
+                {
+                    GridFooter.HorizontalScroll.Maximum = hScrollBar.Maximum;
+                    GridFooter.HorizontalScroll.Minimum = hScrollBar.Minimum;
+                    GridFooter.HorizontalScroll.LargeChange = hScrollBar.LargeChange;
+                    GridFooter.HorizontalScroll.SmallChange = hScrollBar.SmallChange;
+                    GridFooter.HorizontalScroll.Value = e.NewValue;
+                    GridFooter.Update();
+                }
             }
         #endregion
 
@@ -284,7 +300,7 @@ namespace Free_Accounting_Software.Internal.Forms
 
                         dataGridView.Columns.AddRange(new DataGridViewColumn[] { GridColDate });
                         if (_GridColumn.Find(gridCol => gridCol.Name == GridColDate.Name) == null)
-                            _GridColumn.Add(GridColDate);     
+                            _GridColumn.Add(GridColDate);
                     }
                     else
                     {
@@ -293,6 +309,13 @@ namespace Free_Accounting_Software.Internal.Forms
                         GridColText.Width = col.Width;
                         GridColText.Visible = col.Visible;
                         GridColText.DataPropertyName = col.Name;
+
+                        if (col.DataType == SqlDbType.Money || col.DataType == SqlDbType.Float || col.DataType == SqlDbType.Decimal)
+                        {
+                            GridColText.DefaultCellStyle.Format = "N2";
+                            GridColText.ValueType = Type.GetType("System.Decimal");
+                            GridColText.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        }
 
                         dataGridView.Columns.AddRange(new DataGridViewColumn[] { GridColText });
                         if (_GridColumn.Find(gridCol => gridCol.Name == GridColText.Name) == null)
@@ -322,18 +345,35 @@ namespace Free_Accounting_Software.Internal.Forms
             public void CreateFooter()
             {
                 JkColumn ic;
-                int EstimatedWidth = 0, offset = 35;
+                int EstimatedWidth = 0, offset = 35, gridWidth = 0;
 
                 if(VisibleColumnCount != 0)
                     EstimatedWidth = Convert.ToInt32((dataGridView.Width) / VisibleColumnCount);
 
-                GridFooter.Padding = new Padding(offset, 3, 3, 3);
+                GridFooter.Padding = new Padding(3, 3, 3, 3);
+                GridFooter.AutoScroll = false;
 
                 if (Columns.Count > 0)
                 {
+                    Label lblOffset = new Label();
+
+                    lblOffset.Name = "lblFooterOffset";
+                    lblOffset.Width = offset;
+                    lblOffset.Margin = new Padding(0, 0, 0, 0);
+
+                    if (GridFooter.Controls.Find(lblOffset.Name, false).Length == 0)
+                        GridFooter.Controls.Add(lblOffset);
+
                     for (int i = 0; i <= Columns.Count - 1; i++)
                     {
                         ic = Columns[i];
+
+                        foreach (DataGridViewColumn column in dataGridView.Columns)
+                        {
+                            if (column.DataPropertyName == ic.Name)
+                                gridWidth = column.Width;
+                        }
+
                         if (ic.Visible)
                         {
                             Label lblFooter = new Label();
@@ -345,13 +385,17 @@ namespace Free_Accounting_Software.Internal.Forms
                             if (GridAutoSize)
                                 lblFooter.Width = EstimatedWidth;
                             else
-                                lblFooter.Width = ic.Width;
-
-                            if (i == 0)
-                                lblFooter.Width -= offset;
+                                lblFooter.Width = gridWidth;
 
                             if (ic.FooterType != JkColumn.ColumnFooterTypes.ftNone)
+                            {
                                 lblFooter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                                lblFooter.Margin = new Padding(0, 0, 2, 0);
+                            }
+                            else
+                            {
+                                lblFooter.Margin = new Padding(0, 0, 0, 0);
+                            }
 
                             GridFooter.Controls.Add(lblFooter);
                         }
@@ -385,18 +429,60 @@ namespace Free_Accounting_Software.Internal.Forms
 
                 foreach (JkColumn ic in Columns)
                 {
-                    if (ic.Visible && ic.FooterType != JkColumn.ColumnFooterTypes.ftNone) 
+                    if (ic.Visible && ic.FooterType != JkColumn.ColumnFooterTypes.ftNone)
                     {
-                        if (ic.FooterType == JkColumn.ColumnFooterTypes.ftCount)
+                        if (ic.FooterType == JkColumn.ColumnFooterTypes.ftAvg)
+                        {
+                            double total = 0;
+
+                            foreach (DataRow row in VMasterDataTable.Rows)
+                                total += Convert.ToDouble(row[ic.Name]);
+
+                            total = total / VMasterDataTable.Rows.Count;
+                            value = total.ToString("N2");
+                        }
+                        else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftCount)
                             value = VMasterDataTable.Rows.Count.ToString();
-                        //todo: other footer types
+                        else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftMax)
+                        {
+                            double max = 0;
+
+                            foreach (DataRow row in VMasterDataTable.Rows)
+                                if (Double.Parse(row[ic.Name].ToString()) > max)
+                                    max = Double.Parse(row[ic.Name].ToString());
+
+                            if (ic.DataType == SqlDbType.BigInt || ic.DataType == SqlDbType.Int)
+                                value = max.ToString();
+                            else
+                                value = max.ToString("N2");
+                        }
+                        else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftMin)
+                        {
+                            double min = 2147483647;
+
+                            foreach (DataRow row in VMasterDataTable.Rows)
+                                if (Double.Parse(row[ic.Name].ToString()) < min)
+                                    min = Double.Parse(row[ic.Name].ToString());
+
+                            if (ic.DataType == SqlDbType.BigInt || ic.DataType == SqlDbType.Int)
+                                value = min.ToString();
+                            else
+                                value = min.ToString("N2");
+                        }
+                        else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftSum)
+                        {
+                            double total = 0;
+
+                            foreach (DataRow row in VMasterDataTable.Rows)
+                                total += Convert.ToDouble(row[ic.Name]);
+
+                            value = total.ToString("N2");
+                        }
 
                         foreach (Control c in GridFooter.Controls)
                         {
                             if (c.Name == "lblFooter" + ic.Caption.Trim())
-                            {
                                 c.Text = AssignFooterValue(ic.FooterType, value);
-                            }
                         }
                     }
                 }

@@ -50,6 +50,7 @@
             this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
@@ -70,7 +71,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 458);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 433);
             this.splitContainerMasterDetail.SplitterDistance = 220;
             // 
             // dstDetail
@@ -90,9 +91,13 @@
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
             // 
+            // FormFooter
+            // 
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
+            // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 561);
+            this.splitContainer.Size = new System.Drawing.Size(789, 536);
             // 
             // flowLayoutPanel2
             // 
@@ -124,13 +129,14 @@
             // 
             // txtTransactionNo
             // 
-            this.txtTransactionNo.BackColor = System.Drawing.SystemColors.Control;
+            this.txtTransactionNo.BackColor = System.Drawing.Color.White;
+            this.txtTransactionNo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtTransactionNo.Location = new System.Drawing.Point(116, 5);
             this.txtTransactionNo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtTransactionNo.Name = "txtTransactionNo";
             this.txtTransactionNo.ReadOnly = true;
             this.txtTransactionNo.Required = false;
-            this.txtTransactionNo.Size = new System.Drawing.Size(205, 23);
+            this.txtTransactionNo.Size = new System.Drawing.Size(205, 16);
             this.txtTransactionNo.TabIndex = 1;
             // 
             // label8
@@ -301,6 +307,12 @@
             this.idDataGridViewTextBoxColumn6.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
             // 
+            // idDataGridViewTextBoxColumn7
+            // 
+            this.idDataGridViewTextBoxColumn7.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn7.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn7.Name = "idDataGridViewTextBoxColumn7";
+            // 
             // EJournalVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -324,7 +336,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns14"))));
             this.Name = "EJournalVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(789, 561);
+            this.Size = new System.Drawing.Size(789, 536);
             this.ZLoadMasterColumns = true;
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
@@ -365,5 +377,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn7;
     }
 }

@@ -148,7 +148,7 @@
 
         protected System.Windows.Forms.SplitContainer splitContainerMasterDetail;
         protected JkComponents.JkDetailDataSet dstDetail;
-        private JkComponents.JkDataGridView dataGridView;
+        protected JkComponents.JkDataGridView dataGridView;
 
     }
 }
