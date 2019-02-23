@@ -20,8 +20,10 @@ namespace Free_Accounting_Software.External.Report
             InitializeComponent();
         }
 
-        private void EJournalVoucherPrintoutForm_AfterRun()
+        protected override void RefreshReport()
         {
+            base.RefreshReport();
+
             EJournalVoucherPrintoutDS jvDataSource = new EJournalVoucherPrintoutDS();
             tblJournalVouchersTableAdapter JVAdapter = new tblJournalVouchersTableAdapter();
             tblJournalVoucherDetailsTableAdapter JVDetailsAdapter = new tblJournalVoucherDetailsTableAdapter();

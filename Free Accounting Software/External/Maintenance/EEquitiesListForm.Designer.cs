@@ -1,4 +1,4 @@
-﻿namespace Free_Accounting_Software.External.Accounting
+﻿namespace Free_Accounting_Software.External.Maintenance
 {
     partial class EEquitiesListForm
     {

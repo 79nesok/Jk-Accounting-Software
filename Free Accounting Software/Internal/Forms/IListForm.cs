@@ -229,6 +229,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     GridFooter.HorizontalScroll.SmallChange = hScrollBar.SmallChange;
                     GridFooter.HorizontalScroll.Value = e.NewValue;
                     GridFooter.Update();
+                    dataGridView.Update();
                 }
             }
         #endregion

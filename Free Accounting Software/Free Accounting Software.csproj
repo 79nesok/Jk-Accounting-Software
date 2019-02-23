@@ -83,16 +83,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="External\Accounting\EAccountForm.cs">
+    <Compile Include="External\Maintenance\EAccountForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EAccountForm.Designer.cs">
+    <Compile Include="External\Maintenance\EAccountForm.Designer.cs">
       <DependentUpon>EAccountForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\EAssetsListForm.cs">
+    <Compile Include="External\Maintenance\EAssetsListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EAssetsListForm.Designer.cs">
+    <Compile Include="External\Maintenance\EAssetsListForm.Designer.cs">
       <DependentUpon>EAssetsListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\ECashDisbursementVouchersListForm.cs">
@@ -101,28 +101,34 @@
     <Compile Include="External\Accounting\ECashDisbursementVouchersListForm.Designer.cs">
       <DependentUpon>ECashDisbursementVouchersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Accounting\ECashReceiptVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECashReceiptVoucherForm.Designer.cs">
+      <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\ECashReceiptVouchersListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="External\Accounting\ECashReceiptVouchersListForm.Designer.cs">
       <DependentUpon>ECashReceiptVouchersListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\EEquitiesListForm.cs">
+    <Compile Include="External\Maintenance\EEquitiesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EEquitiesListForm.Designer.cs">
+    <Compile Include="External\Maintenance\EEquitiesListForm.Designer.cs">
       <DependentUpon>EEquitiesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\EExpensesListForm.cs">
+    <Compile Include="External\Maintenance\EExpensesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EExpensesListForm.Designer.cs">
+    <Compile Include="External\Maintenance\EExpensesListForm.Designer.cs">
       <DependentUpon>EExpensesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\EIncomeListForm.cs">
+    <Compile Include="External\Maintenance\EIncomeListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EIncomeListForm.Designer.cs">
+    <Compile Include="External\Maintenance\EIncomeListForm.Designer.cs">
       <DependentUpon>EIncomeListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\EJournalVoucherForm.cs">
@@ -137,10 +143,10 @@
     <Compile Include="External\Accounting\EJournalVouchersListForm.Designer.cs">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\ELiabilitiesListForm.cs">
+    <Compile Include="External\Maintenance\ELiabilitiesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ELiabilitiesListForm.Designer.cs">
+    <Compile Include="External\Maintenance\ELiabilitiesListForm.Designer.cs">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\EPurchaseVoucherForm.cs">
@@ -224,6 +230,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\ESalesInvoiceReportDS.cs">
+      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\ESalesInvoiceReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\ESubsidiaryLedgerReportDS.cs">
       <DependentUpon>ESubsidiaryLedgerReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -253,6 +268,18 @@
     </Compile>
     <Compile Include="External\Maintenance\EOthersListForm.Designer.cs">
       <DependentUpon>EOthersListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Maintenance\EPaymentMethodForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Maintenance\EPaymentMethodForm.Designer.cs">
+      <DependentUpon>EPaymentMethodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Maintenance\EPaymentMethodsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Maintenance\EPaymentMethodsListForm.Designer.cs">
+      <DependentUpon>EPaymentMethodsListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Maintenance\ESubsidiaryForm.cs">
       <SubType>UserControl</SubType>
@@ -295,6 +322,12 @@
     </Compile>
     <Compile Include="External\Report\EJournalVoucherPrintoutForm.Designer.cs">
       <DependentUpon>EJournalVoucherPrintoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\ESalesInvoicePrintoutForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ESalesInvoicePrintoutForm.Designer.cs">
+      <DependentUpon>ESalesInvoicePrintoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Report\ESubsidiaryLedgerReportForm.cs">
       <SubType>UserControl</SubType>
@@ -414,25 +447,28 @@
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Testing\MainApplication.cs" />
-    <EmbeddedResource Include="External\Accounting\EAccountForm.resx">
+    <EmbeddedResource Include="External\Maintenance\EAccountForm.resx">
       <DependentUpon>EAccountForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\EAssetsListForm.resx">
+    <EmbeddedResource Include="External\Maintenance\EAssetsListForm.resx">
       <DependentUpon>EAssetsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECashDisbursementVouchersListForm.resx">
       <DependentUpon>ECashDisbursementVouchersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ECashReceiptVoucherForm.resx">
+      <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECashReceiptVouchersListForm.resx">
       <DependentUpon>ECashReceiptVouchersListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\EEquitiesListForm.resx">
+    <EmbeddedResource Include="External\Maintenance\EEquitiesListForm.resx">
       <DependentUpon>EEquitiesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\EExpensesListForm.resx">
+    <EmbeddedResource Include="External\Maintenance\EExpensesListForm.resx">
       <DependentUpon>EExpensesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\EIncomeListForm.resx">
+    <EmbeddedResource Include="External\Maintenance\EIncomeListForm.resx">
       <DependentUpon>EIncomeListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EJournalVoucherForm.resx">
@@ -441,7 +477,7 @@
     <EmbeddedResource Include="External\Accounting\EJournalVouchersListForm.resx">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\ELiabilitiesListForm.resx">
+    <EmbeddedResource Include="External\Maintenance\ELiabilitiesListForm.resx">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EPurchaseVoucherForm.resx">
@@ -468,6 +504,12 @@
     <EmbeddedResource Include="External\Maintenance\EOthersListForm.resx">
       <DependentUpon>EOthersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Maintenance\EPaymentMethodForm.resx">
+      <DependentUpon>EPaymentMethodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Maintenance\EPaymentMethodsListForm.resx">
+      <DependentUpon>EPaymentMethodsListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\ESubsidiaryForm.resx">
       <DependentUpon>ESubsidiaryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -480,6 +522,7 @@
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Voucher.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Trial Balance.rdlc" />
     <EmbeddedResource Include="External\Report\EBalanceSheetReportForm.resx">
@@ -496,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Printouts\General Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal.rdlc" />
+    <EmbeddedResource Include="External\Report\ESalesInvoicePrintoutForm.resx">
+      <DependentUpon>ESalesInvoicePrintoutForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\ESubsidiaryLedgerReportForm.resx">
       <DependentUpon>ESubsidiaryLedgerReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -613,6 +659,17 @@
     </None>
     <None Include="External\Datasources\EJournalVoucherPrintoutDS.xss">
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ESalesInvoiceReportDS.xsc">
+      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ESalesInvoiceReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ESalesInvoiceReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\ESalesInvoiceReportDS.xss">
+      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\ESubsidiaryLedgerReportDS.xsc">
       <DependentUpon>ESubsidiaryLedgerReportDS.xsd</DependentUpon>

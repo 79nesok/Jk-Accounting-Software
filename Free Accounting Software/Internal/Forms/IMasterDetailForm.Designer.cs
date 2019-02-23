@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IMasterDetailForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainerMasterDetail = new System.Windows.Forms.SplitContainer();
             this.dstDetail = new JkComponents.JkDetailDataSet();
@@ -48,7 +47,7 @@
             // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 527);
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
@@ -56,7 +55,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.splitContainerMasterDetail);
-            this.splitContainer.Size = new System.Drawing.Size(789, 561);
+            this.splitContainer.Size = new System.Drawing.Size(789, 536);
             // 
             // splitContainerMasterDetail
             // 
@@ -89,7 +88,7 @@
             this.dstDetail.GridView = this.dataGridView;
             this.dstDetail.Location = new System.Drawing.Point(731, 166);
             this.dstDetail.Name = "dstDetail";
-            this.dstDetail.Size = new System.Drawing.Size(82, 20);
+            this.dstDetail.Size = new System.Drawing.Size(48, 20);
             this.dstDetail.TabIndex = 0;
             this.dstDetail.Visible = false;
             this.dstDetail.ZLoadColumns = false;
@@ -117,7 +116,6 @@
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.Size = new System.Drawing.Size(789, 262);
             this.dataGridView.TabIndex = 18;
-            this.dataGridView.DefaultValuesNeeded += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridView_DefaultValuesNeeded);
             this.dataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseClick);
             // 
             // IMasterDetailForm
@@ -126,8 +124,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Master Detail Form";
             this.Name = "IMasterDetailForm";
-            this.Size = new System.Drawing.Size(789, 561);
+            this.Size = new System.Drawing.Size(789, 536);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterDetailForm_BeforeRun);
+            this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterDetailForm_BeforeSave);
+            this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterDetailForm_AfterRun);
             this.Resize += new System.EventHandler(this.IMasterDetailForm_Resize);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

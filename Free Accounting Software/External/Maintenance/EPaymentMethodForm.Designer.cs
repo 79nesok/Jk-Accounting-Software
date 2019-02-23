@@ -1,13 +1,13 @@
-﻿namespace Free_Accounting_Software.External.Accounting
+﻿namespace Free_Accounting_Software.External.Maintenance
 {
-    partial class EAccountForm
+    partial class EPaymentMethodForm
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,22 +20,22 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EAccountForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EPaymentMethodForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtCode = new JkComponents.JkTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new JkComponents.JkTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbSystemAccountCode = new JkComponents.JkLookUpComboBox();
+            this.cmbAccount = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -50,7 +50,7 @@
             // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 472);
+            this.FormFooter.Location = new System.Drawing.Point(0, 447);
             // 
             // splitContainer
             // 
@@ -58,7 +58,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(789, 506);
+            this.splitContainer.Size = new System.Drawing.Size(789, 481);
             // 
             // flowLayoutPanel2
             // 
@@ -67,7 +67,7 @@
             this.flowLayoutPanel2.Controls.Add(this.label7);
             this.flowLayoutPanel2.Controls.Add(this.txtName);
             this.flowLayoutPanel2.Controls.Add(this.label1);
-            this.flowLayoutPanel2.Controls.Add(this.cmbSystemAccountCode);
+            this.flowLayoutPanel2.Controls.Add(this.cmbAccount);
             this.flowLayoutPanel2.Controls.Add(this.label9);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
             this.flowLayoutPanel2.Controls.Add(this.label10);
@@ -75,8 +75,8 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 437);
-            this.flowLayoutPanel2.TabIndex = 13;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(322, 412);
+            this.flowLayoutPanel2.TabIndex = 14;
             // 
             // label6
             // 
@@ -84,13 +84,13 @@
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(145, 25);
+            this.label6.Size = new System.Drawing.Size(76, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "Code:";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(151, 5);
+            this.txtCode.Location = new System.Drawing.Point(82, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Required = false;
@@ -103,13 +103,13 @@
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(145, 25);
+            this.label7.Size = new System.Drawing.Size(76, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(151, 38);
+            this.txtName.Location = new System.Drawing.Point(82, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
             this.txtName.Required = false;
@@ -122,23 +122,24 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(145, 33);
+            this.label1.Size = new System.Drawing.Size(76, 33);
             this.label1.TabIndex = 9;
-            this.label1.Text = "System Account Code:";
+            this.label1.Text = "Account:";
             // 
-            // cmbSystemAccountCode
+            // cmbAccount
             // 
-            this.cmbSystemAccountCode.DataSet = "dstSystemAccountCodes";
-            this.cmbSystemAccountCode.DisplayText = "Name";
-            this.cmbSystemAccountCode.FormattingEnabled = true;
-            this.cmbSystemAccountCode.Key = "Id";
-            this.cmbSystemAccountCode.Location = new System.Drawing.Point(151, 71);
-            this.cmbSystemAccountCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.cmbSystemAccountCode.Name = "cmbSystemAccountCode";
-            this.cmbSystemAccountCode.Required = false;
-            this.cmbSystemAccountCode.SelectedKey = 0;
-            this.cmbSystemAccountCode.Size = new System.Drawing.Size(230, 23);
-            this.cmbSystemAccountCode.TabIndex = 10;
+            this.cmbAccount.DataSet = "dstAccounts";
+            this.cmbAccount.DisplayText = "Name";
+            this.cmbAccount.ForeColor = System.Drawing.Color.Black;
+            this.cmbAccount.FormattingEnabled = true;
+            this.cmbAccount.Key = "Id";
+            this.cmbAccount.Location = new System.Drawing.Point(82, 71);
+            this.cmbAccount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.cmbAccount.Name = "cmbAccount";
+            this.cmbAccount.Required = false;
+            this.cmbAccount.SelectedKey = 0;
+            this.cmbAccount.Size = new System.Drawing.Size(230, 23);
+            this.cmbAccount.TabIndex = 10;
             // 
             // label9
             // 
@@ -146,13 +147,13 @@
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(145, 25);
+            this.label9.Size = new System.Drawing.Size(76, 25);
             this.label9.TabIndex = 4;
             this.label9.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(151, 104);
+            this.txtRemarks.Location = new System.Drawing.Point(82, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -166,26 +167,26 @@
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(145, 25);
+            this.label10.Size = new System.Drawing.Size(76, 25);
             this.label10.TabIndex = 8;
             this.label10.Text = "Active:";
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(151, 204);
+            this.chkActive.Location = new System.Drawing.Point(82, 204);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);
             this.chkActive.TabIndex = 5;
             this.chkActive.UseVisualStyleBackColor = true;
             // 
-            // EAccountForm
+            // EPaymentMethodForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Account";
-            this.CommandText = "SELECT Id, CompanyId, AccountTypeId,\r\n\tSystemAccountCodeId, Code, Name,\r\n\tRemarks" +
-    ", Active, CreatedById,\r\n\tDateCreated, ModifiedById, DateModified\r\nFROM tblAccoun" +
-    "ts\r\nWHERE Id = @Id";
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Caption = "Payment Method";
+            this.CommandText = "SELECT Id, CompanyId, Code, Name,\r\n\tAccountId, Remarks, Active,\r\n\tCreatedById, Da" +
+    "teCreated,\r\n\tModifiedById, DateModified\r\nFROM tblPaymentMethods\r\nWHERE Id = @Id";
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns2"))));
@@ -196,13 +197,10 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns7"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns8"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns9"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns10"))));
-            this.Name = "EAccountForm";
+            this.Name = "EPaymentMethodForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 506);
+            this.Size = new System.Drawing.Size(789, 481);
             this.ZLoadMasterColumns = true;
-            this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EAccountForm_BeforeRun);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
@@ -222,11 +220,11 @@
         private JkComponents.JkTextBox txtCode;
         private System.Windows.Forms.Label label7;
         private JkComponents.JkTextBox txtName;
+        private System.Windows.Forms.Label label1;
+        private JkComponents.JkLookUpComboBox cmbAccount;
         private System.Windows.Forms.Label label9;
         private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox chkActive;
-        private System.Windows.Forms.Label label1;
-        private JkComponents.JkLookUpComboBox cmbSystemAccountCode;
     }
 }

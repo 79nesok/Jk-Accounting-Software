@@ -12,6 +12,7 @@ namespace Free_Accounting_Software.Internal.Classes
         public const String RestartQuestion = "Are you sure do you want to restart the application?";
         public const String DeleteGridRow = "Delete selected row(s)?";
         public const String RemoveGridValue = "Remove assigned value on this cell?";
+        public const String RemovePaidInvoice = "Invoice(s) are already paid, Are you sure do you want to remove the applied payment?";
 
         //Errors
         public const String LoadDataError = "Unable to load data: ";
@@ -50,5 +51,6 @@ namespace Free_Accounting_Software.Internal.Classes
             "E-mail: jake.oandasan@yahoo.com";
         public const String TestConnectionSuccess = "Test connection succeded.";
         public const String FillRequiredFieldMessage = "Please fill up all required fields.";
+        public const String NoPendingInvoice = "No pending invoice(s) for the selected subsidiary.";
     }
 }

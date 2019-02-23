@@ -1,6 +1,6 @@
 ﻿namespace Free_Accounting_Software.External.Accounting
 {
-    partial class ESalesVoucherForm
+    partial class ECashReceiptVoucherForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesVoucherForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashReceiptVoucherForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTransactionNo = new JkComponents.JkTextBox();
@@ -42,23 +44,10 @@
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtGrossAmount = new JkComponents.JkTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtVATAmount = new JkComponents.JkTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtDiscountAmount = new JkComponents.JkTextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.txtNetAmount = new JkComponents.JkTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtPaidAmount = new JkComponents.JkTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtBalance = new JkComponents.JkTextBox();
-            this.cmbVATTypes = new JkComponents.JkLookUpComboBox();
-            this.cmbAccounts = new JkComponents.JkLookUpComboBox();
-            this.cmbSubsidiaryDetail = new JkComponents.JkLookUpComboBox();
+            this.dstPaymentDetails = new JkComponents.JkDetailDataSet();
+            this.dataGridViewPaymentDetails = new JkComponents.JkDataGridView();
             this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
+            this.cmbPaymentMethods = new JkComponents.JkLookUpComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
@@ -68,7 +57,7 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerMasterDetail
@@ -76,11 +65,10 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbVATTypes);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiaryDetail);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dataGridViewPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
             this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 433);
             this.splitContainerMasterDetail.SplitterDistance = 255;
@@ -97,12 +85,9 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns7"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns8"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns9"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
-            this.dstDetail.CommandText = "SELECT Id, SalesVoucherId, AccountId, SubsidiaryId,\r\n\tAmount, VATTypeId, VATRate," +
-    " VATAmount,\r\n\tGrossAmount, DiscountAmount, Total, Remarks\r\nFROM tblSalesVoucherD" +
-    "etails\r\nWHERE SalesVoucherId = @Id";
-            this.dstDetail.Location = new System.Drawing.Point(734, 222);
+            this.dstDetail.CommandText = "SELECT Id, CashReceiptVoucherId, SourceId, AppliedAmount\r\nFROM tblCashReceiptVouc" +
+    "herInvoiceDetails\r\nWHERE CashReceiptVoucherId = @Id";
+            this.dstDetail.Location = new System.Drawing.Point(733, 218);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
@@ -128,8 +113,8 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 255);
-            this.flowLayoutPanel2.TabIndex = 17;
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(325, 255);
+            this.flowLayoutPanel2.TabIndex = 18;
             // 
             // label6
             // 
@@ -150,7 +135,7 @@
             this.txtTransactionNo.Name = "txtTransactionNo";
             this.txtTransactionNo.ReadOnly = true;
             this.txtTransactionNo.Required = false;
-            this.txtTransactionNo.Size = new System.Drawing.Size(205, 16);
+            this.txtTransactionNo.Size = new System.Drawing.Size(194, 16);
             this.txtTransactionNo.TabIndex = 1;
             // 
             // label8
@@ -170,7 +155,7 @@
             this.datePicker.Location = new System.Drawing.Point(116, 32);
             this.datePicker.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(205, 23);
+            this.datePicker.Size = new System.Drawing.Size(194, 23);
             this.datePicker.TabIndex = 8;
             // 
             // label7
@@ -189,7 +174,7 @@
             this.txtReferenceNo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtReferenceNo.Name = "txtReferenceNo";
             this.txtReferenceNo.Required = false;
-            this.txtReferenceNo.Size = new System.Drawing.Size(205, 23);
+            this.txtReferenceNo.Size = new System.Drawing.Size(194, 23);
             this.txtReferenceNo.TabIndex = 2;
             // 
             // label1
@@ -208,7 +193,7 @@
             this.txtReferenceNo2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtReferenceNo2.Name = "txtReferenceNo2";
             this.txtReferenceNo2.Required = false;
-            this.txtReferenceNo2.Size = new System.Drawing.Size(205, 23);
+            this.txtReferenceNo2.Size = new System.Drawing.Size(194, 23);
             this.txtReferenceNo2.TabIndex = 14;
             // 
             // label2
@@ -237,8 +222,9 @@
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
             this.cmbSubsidiary.SelectedKey = 0;
-            this.cmbSubsidiary.Size = new System.Drawing.Size(205, 23);
+            this.cmbSubsidiary.Size = new System.Drawing.Size(194, 23);
             this.cmbSubsidiary.TabIndex = 15;
+            this.cmbSubsidiary.SelectedIndexChanged += new System.EventHandler(this.cmbSubsidiary_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -257,236 +243,91 @@
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Required = false;
-            this.txtRemarks.Size = new System.Drawing.Size(205, 76);
+            this.txtRemarks.Size = new System.Drawing.Size(194, 76);
             this.txtRemarks.TabIndex = 12;
             // 
-            // flowLayoutPanel1
+            // dstPaymentDetails
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label3);
-            this.flowLayoutPanel1.Controls.Add(this.txtGrossAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
-            this.flowLayoutPanel1.Controls.Add(this.txtVATAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Controls.Add(this.txtDiscountAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label10);
-            this.flowLayoutPanel1.Controls.Add(this.txtNetAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label11);
-            this.flowLayoutPanel1.Controls.Add(this.txtPaidAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label12);
-            this.flowLayoutPanel1.Controls.Add(this.txtBalance);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(342, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 255);
-            this.flowLayoutPanel1.TabIndex = 18;
+            this.dstPaymentDetails.BackColor = System.Drawing.Color.Tan;
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns1"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns2"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns3"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns4"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns5"))));
+            this.dstPaymentDetails.CommandText = "SELECT Id, CashReceiptVoucherId, PaymentMethodId,\r\n\tReferenceNo, Amount, Remarks\r" +
+    "\nFROM tblCashReceiptVoucherDetails\r\nWHERE CashReceiptVoucherId = @Id";
+            this.dstPaymentDetails.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
+    "ity Info=True;User ID=sa;Password=masterkey";
+            this.dstPaymentDetails.GridAutoSize = false;
+            this.dstPaymentDetails.GridView = this.dataGridViewPaymentDetails;
+            this.dstPaymentDetails.Location = new System.Drawing.Point(686, 166);
+            this.dstPaymentDetails.Name = "dstPaymentDetails";
+            this.dstPaymentDetails.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstPaymentDetails.Parameters"))));
+            this.dstPaymentDetails.Size = new System.Drawing.Size(95, 20);
+            this.dstPaymentDetails.TabIndex = 27;
+            this.dstPaymentDetails.Visible = false;
+            this.dstPaymentDetails.ZLoadColumns = true;
+            this.dstPaymentDetails.ZLoadGrid = true;
             // 
-            // label3
+            // dataGridViewPaymentDetails
             // 
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label3.Size = new System.Drawing.Size(116, 27);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Gross Amount:";
-            // 
-            // txtGrossAmount
-            // 
-            this.txtGrossAmount.BackColor = System.Drawing.Color.White;
-            this.txtGrossAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtGrossAmount.Location = new System.Drawing.Point(122, 5);
-            this.txtGrossAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtGrossAmount.Name = "txtGrossAmount";
-            this.txtGrossAmount.ReadOnly = true;
-            this.txtGrossAmount.Required = false;
-            this.txtGrossAmount.Size = new System.Drawing.Size(90, 16);
-            this.txtGrossAmount.TabIndex = 2;
-            this.txtGrossAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label4
-            // 
-            this.label4.Location = new System.Drawing.Point(0, 27);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label4.Size = new System.Drawing.Size(116, 27);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "VAT Amount:";
-            // 
-            // txtVATAmount
-            // 
-            this.txtVATAmount.BackColor = System.Drawing.Color.White;
-            this.txtVATAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVATAmount.Location = new System.Drawing.Point(122, 32);
-            this.txtVATAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtVATAmount.Name = "txtVATAmount";
-            this.txtVATAmount.ReadOnly = true;
-            this.txtVATAmount.Required = false;
-            this.txtVATAmount.Size = new System.Drawing.Size(90, 16);
-            this.txtVATAmount.TabIndex = 4;
-            this.txtVATAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label5
-            // 
-            this.label5.Location = new System.Drawing.Point(0, 54);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label5.Size = new System.Drawing.Size(116, 27);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Discount Amount:";
-            // 
-            // txtDiscountAmount
-            // 
-            this.txtDiscountAmount.BackColor = System.Drawing.Color.White;
-            this.txtDiscountAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDiscountAmount.Location = new System.Drawing.Point(122, 59);
-            this.txtDiscountAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtDiscountAmount.Name = "txtDiscountAmount";
-            this.txtDiscountAmount.ReadOnly = true;
-            this.txtDiscountAmount.Required = false;
-            this.txtDiscountAmount.Size = new System.Drawing.Size(90, 16);
-            this.txtDiscountAmount.TabIndex = 6;
-            this.txtDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(0, 81);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(116, 27);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Net Amount:";
-            // 
-            // txtNetAmount
-            // 
-            this.txtNetAmount.BackColor = System.Drawing.Color.White;
-            this.txtNetAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNetAmount.Location = new System.Drawing.Point(122, 86);
-            this.txtNetAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtNetAmount.Name = "txtNetAmount";
-            this.txtNetAmount.ReadOnly = true;
-            this.txtNetAmount.Required = false;
-            this.txtNetAmount.Size = new System.Drawing.Size(90, 16);
-            this.txtNetAmount.TabIndex = 8;
-            this.txtNetAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(0, 108);
-            this.label11.Margin = new System.Windows.Forms.Padding(0);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label11.Size = new System.Drawing.Size(116, 27);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Paid Amount:";
-            // 
-            // txtPaidAmount
-            // 
-            this.txtPaidAmount.BackColor = System.Drawing.Color.White;
-            this.txtPaidAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPaidAmount.Location = new System.Drawing.Point(122, 113);
-            this.txtPaidAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtPaidAmount.Name = "txtPaidAmount";
-            this.txtPaidAmount.ReadOnly = true;
-            this.txtPaidAmount.Required = false;
-            this.txtPaidAmount.Size = new System.Drawing.Size(90, 16);
-            this.txtPaidAmount.TabIndex = 10;
-            this.txtPaidAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label12
-            // 
-            this.label12.Location = new System.Drawing.Point(0, 135);
-            this.label12.Margin = new System.Windows.Forms.Padding(0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label12.Size = new System.Drawing.Size(116, 27);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Balance:";
-            // 
-            // txtBalance
-            // 
-            this.txtBalance.BackColor = System.Drawing.Color.White;
-            this.txtBalance.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBalance.Location = new System.Drawing.Point(122, 140);
-            this.txtBalance.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.txtBalance.Name = "txtBalance";
-            this.txtBalance.ReadOnly = true;
-            this.txtBalance.Required = false;
-            this.txtBalance.Size = new System.Drawing.Size(90, 16);
-            this.txtBalance.TabIndex = 12;
-            this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // cmbVATTypes
-            // 
-            this.cmbVATTypes.DataSet = "dstVATTypes";
-            this.cmbVATTypes.DisplayText = "Name";
-            this.cmbVATTypes.ForeColor = System.Drawing.Color.Black;
-            this.cmbVATTypes.FormattingEnabled = true;
-            this.cmbVATTypes.Key = "Id";
-            this.cmbVATTypes.Location = new System.Drawing.Point(716, 108);
-            this.cmbVATTypes.Name = "cmbVATTypes";
-            this.cmbVATTypes.Required = false;
-            this.cmbVATTypes.SelectedKey = 0;
-            this.cmbVATTypes.Size = new System.Drawing.Size(66, 23);
-            this.cmbVATTypes.TabIndex = 25;
-            this.cmbVATTypes.Visible = false;
-            // 
-            // cmbAccounts
-            // 
-            this.cmbAccounts.DataSet = "dstAccounts";
-            this.cmbAccounts.DisplayText = "Name";
-            this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
-            this.cmbAccounts.FormattingEnabled = true;
-            this.cmbAccounts.Key = "Id";
-            this.cmbAccounts.Location = new System.Drawing.Point(716, 138);
-            this.cmbAccounts.Name = "cmbAccounts";
-            this.cmbAccounts.Required = false;
-            this.cmbAccounts.SelectedKey = 0;
-            this.cmbAccounts.Size = new System.Drawing.Size(66, 23);
-            this.cmbAccounts.TabIndex = 24;
-            this.cmbAccounts.Visible = false;
-            // 
-            // cmbSubsidiaryDetail
-            // 
-            this.cmbSubsidiaryDetail.DataSet = "dstSubsidiaries";
-            this.cmbSubsidiaryDetail.DisplayText = "Name";
-            this.cmbSubsidiaryDetail.DropDownHeight = 200;
-            this.cmbSubsidiaryDetail.DropDownWidth = 300;
-            this.cmbSubsidiaryDetail.ForeColor = System.Drawing.Color.Black;
-            this.cmbSubsidiaryDetail.FormattingEnabled = true;
-            this.cmbSubsidiaryDetail.IntegralHeight = false;
-            this.cmbSubsidiaryDetail.Key = "Id";
-            this.cmbSubsidiaryDetail.Location = new System.Drawing.Point(716, 169);
-            this.cmbSubsidiaryDetail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.cmbSubsidiaryDetail.Name = "cmbSubsidiaryDetail";
-            this.cmbSubsidiaryDetail.Required = false;
-            this.cmbSubsidiaryDetail.SelectedKey = 0;
-            this.cmbSubsidiaryDetail.Size = new System.Drawing.Size(66, 23);
-            this.cmbSubsidiaryDetail.TabIndex = 23;
-            this.cmbSubsidiaryDetail.Visible = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewPaymentDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewPaymentDetails.AutoGenerateColumns = false;
+            this.dataGridViewPaymentDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewPaymentDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPaymentDetails.DataSet = this.dstPaymentDetails;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPaymentDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPaymentDetails.GridColor = System.Drawing.Color.Peru;
+            this.dataGridViewPaymentDetails.Location = new System.Drawing.Point(325, 0);
+            this.dataGridViewPaymentDetails.Name = "dataGridViewPaymentDetails";
+            this.dataGridViewPaymentDetails.Size = new System.Drawing.Size(464, 255);
+            this.dataGridViewPaymentDetails.TabIndex = 28;
             // 
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "SV";
+            this.jkSeriesProvider1.Code = "CRV";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
-            this.jkSeriesProvider1.Location = new System.Drawing.Point(693, 196);
+            this.jkSeriesProvider1.Location = new System.Drawing.Point(692, 192);
             this.jkSeriesProvider1.Name = "jkSeriesProvider1";
             this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
-            this.jkSeriesProvider1.TabIndex = 22;
+            this.jkSeriesProvider1.TabIndex = 23;
             this.jkSeriesProvider1.Text = "jkSeriesProvider1";
             this.jkSeriesProvider1.TransactionColumn = "TransactionNo";
             this.jkSeriesProvider1.Value = null;
             this.jkSeriesProvider1.Visible = false;
             // 
-            // ESalesVoucherForm
+            // cmbPaymentMethods
+            // 
+            this.cmbPaymentMethods.DataSet = "dstPaymentMethods";
+            this.cmbPaymentMethods.DisplayText = "Name";
+            this.cmbPaymentMethods.ForeColor = System.Drawing.Color.Black;
+            this.cmbPaymentMethods.FormattingEnabled = true;
+            this.cmbPaymentMethods.Key = "Id";
+            this.cmbPaymentMethods.Location = new System.Drawing.Point(692, 137);
+            this.cmbPaymentMethods.Name = "cmbPaymentMethods";
+            this.cmbPaymentMethods.Required = false;
+            this.cmbPaymentMethods.SelectedKey = 0;
+            this.cmbPaymentMethods.Size = new System.Drawing.Size(83, 23);
+            this.cmbPaymentMethods.TabIndex = 29;
+            this.cmbPaymentMethods.Visible = false;
+            // 
+            // ECashReceiptVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Sales Voucher";
+            this.Caption = "Cash Receipt Voucher";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
@@ -504,16 +345,11 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns13"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns14"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns15"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns16"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns18"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns19"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns20"))));
-            this.Name = "ESalesVoucherForm";
+            this.Name = "ECashReceiptVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(789, 536);
             this.ZLoadMasterColumns = true;
-            this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ESalesVoucherForm_AfterRun);
+            this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashReceiptVoucherForm_BeforeRun);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);
@@ -525,8 +361,7 @@
             this.splitContainer.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -546,22 +381,9 @@
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
         private JkComponents.JkTextBox txtRemarks;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label3;
-        private JkComponents.JkTextBox txtGrossAmount;
-        private System.Windows.Forms.Label label4;
-        private JkComponents.JkTextBox txtVATAmount;
-        private System.Windows.Forms.Label label5;
-        private JkComponents.JkTextBox txtDiscountAmount;
-        private System.Windows.Forms.Label label10;
-        private JkComponents.JkTextBox txtNetAmount;
-        private System.Windows.Forms.Label label11;
-        private JkComponents.JkTextBox txtPaidAmount;
-        private System.Windows.Forms.Label label12;
-        private JkComponents.JkTextBox txtBalance;
-        private JkComponents.JkLookUpComboBox cmbVATTypes;
-        private JkComponents.JkLookUpComboBox cmbAccounts;
-        private JkComponents.JkLookUpComboBox cmbSubsidiaryDetail;
+        private JkComponents.JkDetailDataSet dstPaymentDetails;
         private JkComponents.JkSeriesProvider jkSeriesProvider1;
+        private JkComponents.JkDataGridView dataGridViewPaymentDetails;
+        private JkComponents.JkLookUpComboBox cmbPaymentMethods;
     }
 }

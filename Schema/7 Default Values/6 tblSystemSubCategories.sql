@@ -14,6 +14,8 @@ EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = 'Chart of Acco
 EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = 'Chart of Accounts', @Name = 'Income', @ListForm = 'EIncomeListForm', @MasterForm = 'EAccountForm', @Index = 9
 EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = 'Chart of Accounts', @Name = 'Expenses', @ListForm = 'EExpensesListForm', @MasterForm = 'EAccountForm', @Index = 10
 
+EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = NULL, @Name = 'Payment Methods', @ListForm = 'EPaymentMethodsListForm', @MasterForm = 'EPaymentMethodForm', @Index = 11
+
 --Administration
 EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Company', @ListForm = 'ECompanyForm', @MasterForm = NULL, @Index = 0
 EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Security', @ListForm = NULL, @MasterForm = NULL, @Index = 1
@@ -23,7 +25,7 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = '
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Purchase Vouchers', @ListForm = 'EPurchaseVouchersListForm', @MasterForm = 'EPurchaseVoucherForm', @Index = 7
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Disbursement Vouchers', @ListForm = 'ECashDisbursementVouchersListForm', @MasterForm = NULL, @Index = 8
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Sales Vouchers', @ListForm = 'ESalesVouchersListForm', @MasterForm = 'ESalesVoucherForm', @Index = 9
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Receipt Vouchers', @ListForm = 'ECashReceiptVouchersListForm', @MasterForm = NULL, @Index = 10
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Receipt Vouchers', @ListForm = 'ECashReceiptVouchersListForm', @MasterForm = 'ECashReceiptVoucherForm', @Index = 10
 
 --Report
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'General Ledger', @ListForm = 'EGeneralLedgerReportForm', @MasterForm = NULL, @Index = 0

@@ -117,125 +117,133 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="$this.Columns" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AAYEAAAAAklkCQQAAAAF+////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAI
-        AAAAZAAAAAX6////J0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwEAAAAHdmFs
-        dWVfXwAIAgAAAAAAAAAL
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAlDb21wYW55SWQF
+        +////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAABgYAAAAKQENvbXBh
+        bnlJZAoBCgs=
 </value>
   </data>
-  <data name="$this.Columns1" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns1" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAADVRyYW5zYWN0aW9uTm8GBQAAAA5UcmFuc2FjdGlvbiBObwX6////FVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAwAAABkAAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1u
-        K0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAQAAAAs=
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAARDb2RlBfv///8V
+        U3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAAoGBgAAAAd0eHRDb2RlAQoL
 </value>
   </data>
-  <data name="$this.Columns2" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns2" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAABERhdGUJBAAAAAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAIAwAA
-        AAQAAABkAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2
-        YWx1ZV9fAAgCAAAAAAAAAAs=
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAROYW1lBfv///8V
+        U3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAAoGBgAAAAd0eHROYW1lAAoL
 </value>
   </data>
-  <data name="$this.Columns3" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns3" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAAClN1YnNpZGlhcnkJBAAAAAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVf
-        XwAIAwAAAAwAAABkAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVz
-        AQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAs=
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAlBY2NvdW50SWQF
+        +////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgYGAAAACmNtYkFj
+        Y291bnQBCgs=
 </value>
   </data>
-  <data name="$this.Columns4" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns4" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAAC1JlZmVyZW5jZU5vBgUAAAAMUmVmZXJlbmNlIE5vBfr///8VU3lzdGVtLkRhdGEuU3FsRGJU
-        eXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAGQAAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4rQ29s
-        dW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIAAAAAAAAACw==
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAdSZW1hcmtzBfv/
+        //8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAAoGBgAAAAp0eHRSZW1h
+        cmtzAAoL
 </value>
   </data>
-  <data name="$this.Columns5" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns5" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAADFJlZmVyZW5jZU5vMgYFAAAADlJlZmVyZW5jZSBObyAyBfr///8VU3lzdGVtLkRhdGEuU3Fs
-        RGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAGQAAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4r
-        Q29sdW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIAAAAAAAAACw==
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAZBY3RpdmUF+///
+        /xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAACAAAABgYAAAAEVHJ1ZQYHAAAA
+        CWNoa0FjdGl2ZQEKCw==
 </value>
   </data>
-  <data name="$this.Columns6" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns6" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAAB1JlbWFya3MJBAAAAAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAI
-        AwAAAAwAAABkAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAA
-        AAd2YWx1ZV9fAAgCAAAAAAAAAAs=
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAtDcmVhdGVkQnlJ
+        ZAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAgAAAAGBgAAAA9AU2Vj
+        dXJpdHlVc2VySWQKAQoL
 </value>
   </data>
-  <data name="$this.Columns7" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns7" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
-        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
-        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AAYEAAAABlZvaWRlZAkEAAAABfv///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgD
-        AAAAAgAAAGQAAAAF+v///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4rQ29sdW1uRm9vdGVyVHlwZXMBAAAA
-        B3ZhbHVlX18ACAIAAAAAAAAACw==
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAtEYXRlQ3JlYXRl
+        ZAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAQAAAAGBgAAAAVARGF0
+        ZQoBCgs=
 </value>
   </data>
-  <data name="$this.CommandText" xml:space="preserve">
-    <value>SELECT crv.Id, crv.TransactionNo, crv.[Date],
-	s.Name AS Subsidiary, crv.ReferenceNo, crv.ReferenceNo2,
-	crv.Remarks, crv.Voided
-FROM tblCashReceiptVouchers crv
-	INNER JOIN tblSubsidiaries s ON s.Id = crv.SubsidiaryId
-WHERE crv.CompanyId = @CompanyId</value>
+  <data name="$this.MasterColumns8" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAxNb2RpZmllZEJ5
+        SWQF+////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAABgYAAAAPQFNl
+        Y3VyaXR5VXNlcklkCgEKCw==
+</value>
+  </data>
+  <data name="$this.MasterColumns9" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAAxEYXRlTW9kaWZp
+        ZWQF+////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAEAAAABgYAAAAFQERh
+        dGUKAQoL
+</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -246,21 +254,8 @@ WHERE crv.CompanyId = @CompanyId</value>
         ZT5rX19CYWNraW5nRmllbGQWPEluZGV4PmtfX0JhY2tpbmdGaWVsZBU8VHlwZT5rX19CYWNraW5nRmll
         bGQcPENvbnRyb2xOYW1lPmtfX0JhY2tpbmdGaWVsZBg8VmlzaWJsZT5rX19CYWNraW5nRmllbGQYPENh
         cHRpb24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQBAQAEAQABAAgVU3lzdGVt
-        LkRhdGEuU3FsRGJUeXBlAwAAAAEIAgAAAAYEAAAACUNvbXBhbnlJZAYFAAAACkBDb21wYW55SWQAAAAA
-        Bfr///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAAAAAAAAoACgAAAAAL
-</value>
-  </data>
-  <data name="$this.Parameters1" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
-        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
-        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAc
-        SmtDb21wb25lbnRzLkprRm9ybVBhcmFtZXRlcggAAAAVPE5hbWU+a19fQmFja2luZ0ZpZWxkFjxWYWx1
-        ZT5rX19CYWNraW5nRmllbGQWPEluZGV4PmtfX0JhY2tpbmdGaWVsZBU8VHlwZT5rX19CYWNraW5nRmll
-        bGQcPENvbnRyb2xOYW1lPmtfX0JhY2tpbmdGaWVsZBg8VmlzaWJsZT5rX19CYWNraW5nRmllbGQYPENh
-        cHRpb24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQBAQAEAQABAAgVU3lzdGVt
-        LkRhdGEuU3FsRGJUeXBlAwAAAAEIAgAAAAYEAAAADUpvdXJuYWxUeXBlSWQGBQAAAAE0AAAAAAX6////
-        FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAAAAAAKAAoAAAAACw==
+        LkRhdGEuU3FsRGJUeXBlAwAAAAEIAgAAAAYEAAAAAklkCgAAAAAF+////xVTeXN0ZW0uRGF0YS5TcWxE
+        YlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAAAAAACgAKAAAAAAs=
 </value>
   </data>
 </root>

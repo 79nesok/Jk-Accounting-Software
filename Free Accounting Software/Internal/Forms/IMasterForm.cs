@@ -79,14 +79,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 AssignEventOnButtons();
             }
 
-            private void IMasterForm_BeforeRun()
-            {
-                if (FormState == FormStates.fsNew)
-                    AssignControlsDefaultValue();
-                else
-                    AssignValuesToControls();
-            }
-
             protected override void UpdateControls()
             {
                 base.UpdateControls();
@@ -104,6 +96,11 @@ namespace Free_Accounting_Software.Internal.Forms
 
             private void IMasterForm_AfterRun()
             {
+                if (FormState == FormStates.fsNew)
+                    AssignControlsDefaultValue();
+                else
+                    AssignValuesToControls();
+
                 InitSeriesProviders();
                 SetRequiredControls();
                 SetFormFooter();
@@ -131,6 +128,7 @@ namespace Free_Accounting_Software.Internal.Forms
                         {
                             IMessageHandler.Inform(ISystemMessages.FillRequiredFieldMessage);
                             ValidationFails = true;
+                            return;
                         }
                     }
                 }
@@ -220,6 +218,13 @@ namespace Free_Accounting_Software.Internal.Forms
                                 (control as JkTextBox).Required = false;
                             else
                                 (control as JkTextBox).Required = column.Required;
+                        }
+                        else if (control.GetType().Name == "JkLookUpComboBox")
+                        {
+                            if (FormState == FormStates.fsView)
+                                (control as JkLookUpComboBox).Required = false;
+                            else
+                                (control as JkLookUpComboBox).Required = column.Required;
                         }
                     }
                 }

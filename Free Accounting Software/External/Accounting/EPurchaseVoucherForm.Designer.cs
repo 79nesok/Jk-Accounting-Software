@@ -56,38 +56,9 @@
             this.txtPaidAmount = new JkComponents.JkTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             this.cmbSubsidiaryDetail = new JkComponents.JkLookUpComboBox();
             this.cmbVATTypes = new JkComponents.JkLookUpComboBox();
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
@@ -131,13 +102,8 @@
             this.dstDetail.CommandText = resources.GetString("dstDetail.CommandText");
             this.dstDetail.Location = new System.Drawing.Point(731, 226);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
-            this.dstDetail.Size = new System.Drawing.Size(48, 20);
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
@@ -275,6 +241,7 @@
             this.cmbSubsidiary.DisplayText = "Name";
             this.cmbSubsidiary.DropDownHeight = 150;
             this.cmbSubsidiary.DropDownWidth = 220;
+            this.cmbSubsidiary.ForeColor = System.Drawing.Color.Black;
             this.cmbSubsidiary.FormattingEnabled = true;
             this.cmbSubsidiary.IntegralHeight = false;
             this.cmbSubsidiary.Key = "Id";
@@ -464,22 +431,11 @@
             this.txtBalance.TabIndex = 12;
             this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
             // cmbAccounts
             // 
             this.cmbAccounts.DataSet = "dstAccounts";
             this.cmbAccounts.DisplayText = "Name";
+            this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
             this.cmbAccounts.FormattingEnabled = true;
             this.cmbAccounts.Key = "Id";
             this.cmbAccounts.Location = new System.Drawing.Point(713, 142);
@@ -496,6 +452,7 @@
             this.cmbSubsidiaryDetail.DisplayText = "Name";
             this.cmbSubsidiaryDetail.DropDownHeight = 200;
             this.cmbSubsidiaryDetail.DropDownWidth = 300;
+            this.cmbSubsidiaryDetail.ForeColor = System.Drawing.Color.Black;
             this.cmbSubsidiaryDetail.FormattingEnabled = true;
             this.cmbSubsidiaryDetail.IntegralHeight = false;
             this.cmbSubsidiaryDetail.Key = "Id";
@@ -512,6 +469,7 @@
             // 
             this.cmbVATTypes.DataSet = "dstVATTypes";
             this.cmbVATTypes.DisplayText = "Name";
+            this.cmbVATTypes.ForeColor = System.Drawing.Color.Black;
             this.cmbVATTypes.FormattingEnabled = true;
             this.cmbVATTypes.Key = "Id";
             this.cmbVATTypes.Location = new System.Drawing.Point(713, 112);
@@ -521,168 +479,6 @@
             this.cmbVATTypes.Size = new System.Drawing.Size(66, 23);
             this.cmbVATTypes.TabIndex = 21;
             this.cmbVATTypes.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn2
-            // 
-            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
-            // 
-            // idDataGridViewTextBoxColumn3
-            // 
-            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
-            // 
-            // idDataGridViewTextBoxColumn4
-            // 
-            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
-            // 
-            // idDataGridViewTextBoxColumn5
-            // 
-            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
-            // 
-            // idDataGridViewTextBoxColumn6
-            // 
-            this.idDataGridViewTextBoxColumn6.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn6.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
-            // 
-            // idDataGridViewTextBoxColumn7
-            // 
-            this.idDataGridViewTextBoxColumn7.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn7.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn7.Name = "idDataGridViewTextBoxColumn7";
-            // 
-            // idDataGridViewTextBoxColumn8
-            // 
-            this.idDataGridViewTextBoxColumn8.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn8.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn8.Name = "idDataGridViewTextBoxColumn8";
-            // 
-            // idDataGridViewTextBoxColumn9
-            // 
-            this.idDataGridViewTextBoxColumn9.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn9.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn9.Name = "idDataGridViewTextBoxColumn9";
-            // 
-            // idDataGridViewTextBoxColumn10
-            // 
-            this.idDataGridViewTextBoxColumn10.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn10.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn10.Name = "idDataGridViewTextBoxColumn10";
-            // 
-            // idDataGridViewTextBoxColumn11
-            // 
-            this.idDataGridViewTextBoxColumn11.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn11.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn11.Name = "idDataGridViewTextBoxColumn11";
-            // 
-            // idDataGridViewTextBoxColumn12
-            // 
-            this.idDataGridViewTextBoxColumn12.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn12.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn12.Name = "idDataGridViewTextBoxColumn12";
-            // 
-            // idDataGridViewTextBoxColumn13
-            // 
-            this.idDataGridViewTextBoxColumn13.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn13.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn13.Name = "idDataGridViewTextBoxColumn13";
-            // 
-            // idDataGridViewTextBoxColumn14
-            // 
-            this.idDataGridViewTextBoxColumn14.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn14.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn14.Name = "idDataGridViewTextBoxColumn14";
-            // 
-            // idDataGridViewTextBoxColumn15
-            // 
-            this.idDataGridViewTextBoxColumn15.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn15.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn15.Name = "idDataGridViewTextBoxColumn15";
-            // 
-            // idDataGridViewTextBoxColumn16
-            // 
-            this.idDataGridViewTextBoxColumn16.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn16.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn16.Name = "idDataGridViewTextBoxColumn16";
-            // 
-            // idDataGridViewTextBoxColumn17
-            // 
-            this.idDataGridViewTextBoxColumn17.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn17.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn17.Name = "idDataGridViewTextBoxColumn17";
-            // 
-            // idDataGridViewTextBoxColumn18
-            // 
-            this.idDataGridViewTextBoxColumn18.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn18.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn18.Name = "idDataGridViewTextBoxColumn18";
-            // 
-            // idDataGridViewTextBoxColumn19
-            // 
-            this.idDataGridViewTextBoxColumn19.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn19.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn19.Name = "idDataGridViewTextBoxColumn19";
-            // 
-            // idDataGridViewTextBoxColumn20
-            // 
-            this.idDataGridViewTextBoxColumn20.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn20.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn20.Name = "idDataGridViewTextBoxColumn20";
-            // 
-            // idDataGridViewTextBoxColumn21
-            // 
-            this.idDataGridViewTextBoxColumn21.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn21.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn21.Name = "idDataGridViewTextBoxColumn21";
-            // 
-            // idDataGridViewTextBoxColumn22
-            // 
-            this.idDataGridViewTextBoxColumn22.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn22.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn22.Name = "idDataGridViewTextBoxColumn22";
-            // 
-            // idDataGridViewTextBoxColumn23
-            // 
-            this.idDataGridViewTextBoxColumn23.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn23.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn23.Name = "idDataGridViewTextBoxColumn23";
-            // 
-            // idDataGridViewTextBoxColumn24
-            // 
-            this.idDataGridViewTextBoxColumn24.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn24.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn24.Name = "idDataGridViewTextBoxColumn24";
-            // 
-            // idDataGridViewTextBoxColumn25
-            // 
-            this.idDataGridViewTextBoxColumn25.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn25.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn25.Name = "idDataGridViewTextBoxColumn25";
-            // 
-            // idDataGridViewTextBoxColumn26
-            // 
-            this.idDataGridViewTextBoxColumn26.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn26.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn26.Name = "idDataGridViewTextBoxColumn26";
-            // 
-            // idDataGridViewTextBoxColumn27
-            // 
-            this.idDataGridViewTextBoxColumn27.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn27.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn27.Name = "idDataGridViewTextBoxColumn27";
-            // 
-            // idDataGridViewTextBoxColumn28
-            // 
-            this.idDataGridViewTextBoxColumn28.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn28.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn28.Name = "idDataGridViewTextBoxColumn28";
             // 
             // EPurchaseVoucherForm
             // 
@@ -762,37 +558,8 @@
         private JkComponents.JkTextBox txtPaidAmount;
         private System.Windows.Forms.Label label12;
         private JkComponents.JkTextBox txtBalance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private JkComponents.JkLookUpComboBox cmbVATTypes;
         private JkComponents.JkLookUpComboBox cmbAccounts;
         private JkComponents.JkLookUpComboBox cmbSubsidiaryDetail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn28;
     }
 }

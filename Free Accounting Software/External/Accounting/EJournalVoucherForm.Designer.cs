@@ -44,13 +44,6 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
@@ -87,13 +80,8 @@
     "ROM tblJournalVoucherDetails\r\nWHERE JournalVoucherId = @Id";
             this.dstDetail.GridAutoSize = true;
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
-            this.dstDetail.Size = new System.Drawing.Size(48, 20);
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
@@ -141,7 +129,7 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(0, 33);
+            this.label8.Location = new System.Drawing.Point(0, 27);
             this.label8.Margin = new System.Windows.Forms.Padding(0);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -153,7 +141,7 @@
             // 
             this.datePicker.CustomFormat = "MM/dd/yyyy";
             this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datePicker.Location = new System.Drawing.Point(116, 38);
+            this.datePicker.Location = new System.Drawing.Point(116, 32);
             this.datePicker.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.datePicker.Name = "datePicker";
             this.datePicker.Size = new System.Drawing.Size(205, 23);
@@ -161,7 +149,7 @@
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(0, 66);
+            this.label7.Location = new System.Drawing.Point(0, 60);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -171,7 +159,7 @@
             // 
             // txtReferenceNo
             // 
-            this.txtReferenceNo.Location = new System.Drawing.Point(116, 71);
+            this.txtReferenceNo.Location = new System.Drawing.Point(116, 65);
             this.txtReferenceNo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtReferenceNo.Name = "txtReferenceNo";
             this.txtReferenceNo.Required = false;
@@ -180,7 +168,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(0, 99);
+            this.label1.Location = new System.Drawing.Point(0, 93);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -190,7 +178,7 @@
             // 
             // txtReferenceNo2
             // 
-            this.txtReferenceNo2.Location = new System.Drawing.Point(116, 104);
+            this.txtReferenceNo2.Location = new System.Drawing.Point(116, 98);
             this.txtReferenceNo2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtReferenceNo2.Name = "txtReferenceNo2";
             this.txtReferenceNo2.Required = false;
@@ -199,7 +187,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(0, 132);
+            this.label9.Location = new System.Drawing.Point(0, 126);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -209,7 +197,7 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(116, 137);
+            this.txtRemarks.Location = new System.Drawing.Point(116, 131);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -242,6 +230,7 @@
             // 
             this.cmbAccounts.DataSet = "dstAccounts";
             this.cmbAccounts.DisplayText = "Name";
+            this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
             this.cmbAccounts.FormattingEnabled = true;
             this.cmbAccounts.Key = "Id";
             this.cmbAccounts.Location = new System.Drawing.Point(713, 63);
@@ -258,6 +247,7 @@
             this.cmbSubsidiary.DisplayText = "Name";
             this.cmbSubsidiary.DropDownHeight = 200;
             this.cmbSubsidiary.DropDownWidth = 300;
+            this.cmbSubsidiary.ForeColor = System.Drawing.Color.Black;
             this.cmbSubsidiary.FormattingEnabled = true;
             this.cmbSubsidiary.IntegralHeight = false;
             this.cmbSubsidiary.Key = "Id";
@@ -269,49 +259,6 @@
             this.cmbSubsidiary.Size = new System.Drawing.Size(66, 23);
             this.cmbSubsidiary.TabIndex = 17;
             this.cmbSubsidiary.Visible = false;
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            // 
-            // idDataGridViewTextBoxColumn2
-            // 
-            this.idDataGridViewTextBoxColumn2.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn2.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn2.Name = "idDataGridViewTextBoxColumn2";
-            this.idDataGridViewTextBoxColumn2.Width = 124;
-            // 
-            // idDataGridViewTextBoxColumn3
-            // 
-            this.idDataGridViewTextBoxColumn3.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn3.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn3.Name = "idDataGridViewTextBoxColumn3";
-            // 
-            // idDataGridViewTextBoxColumn4
-            // 
-            this.idDataGridViewTextBoxColumn4.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn4.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn4.Name = "idDataGridViewTextBoxColumn4";
-            // 
-            // idDataGridViewTextBoxColumn5
-            // 
-            this.idDataGridViewTextBoxColumn5.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn5.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn5.Name = "idDataGridViewTextBoxColumn5";
-            // 
-            // idDataGridViewTextBoxColumn6
-            // 
-            this.idDataGridViewTextBoxColumn6.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn6.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn6.Name = "idDataGridViewTextBoxColumn6";
-            // 
-            // idDataGridViewTextBoxColumn7
-            // 
-            this.idDataGridViewTextBoxColumn7.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn7.HeaderText = "Id";
-            this.idDataGridViewTextBoxColumn7.Name = "idDataGridViewTextBoxColumn7";
             // 
             // EJournalVoucherForm
             // 
@@ -371,12 +318,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private JkComponents.JkLookUpComboBox cmbAccounts;
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn7;
     }
 }

@@ -109,8 +109,8 @@
             // 
             this.lblCaption.BackColor = System.Drawing.Color.Maroon;
             this.lblCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblCaption.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.White;
+            this.lblCaption.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaption.ForeColor = System.Drawing.Color.Gold;
             this.lblCaption.Location = new System.Drawing.Point(0, 0);
             this.lblCaption.Margin = new System.Windows.Forms.Padding(0);
             this.lblCaption.Name = "lblCaption";
@@ -166,10 +166,10 @@
             this.NavigatorSeparatorFourth,
             this.btnLastRecord});
             this.btnNavigator.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigator.Location = new System.Drawing.Point(682, 0);
+            this.btnNavigator.Location = new System.Drawing.Point(713, 0);
             this.btnNavigator.Name = "btnNavigator";
             this.btnNavigator.Padding = new System.Windows.Forms.Padding(0);
-            this.btnNavigator.Size = new System.Drawing.Size(170, 26);
+            this.btnNavigator.Size = new System.Drawing.Size(139, 26);
             this.btnNavigator.Stretch = true;
             this.btnNavigator.TabIndex = 18;
             this.btnNavigator.Text = "toolStrip1";

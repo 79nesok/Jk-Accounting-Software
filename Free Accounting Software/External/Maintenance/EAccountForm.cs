@@ -9,7 +9,7 @@ using Free_Accounting_Software.Internal.Forms;
 using System.Data.Entity.Design.PluralizationServices;
 using System.Globalization;
 
-namespace Free_Accounting_Software.External.Accounting
+namespace Free_Accounting_Software.External.Maintenance
 {
     public partial class EAccountForm : IMasterForm
     {

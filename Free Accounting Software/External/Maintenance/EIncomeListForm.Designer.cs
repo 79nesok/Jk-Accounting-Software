@@ -1,6 +1,6 @@
-﻿namespace Free_Accounting_Software.External.Accounting
+﻿namespace Free_Accounting_Software.External.Maintenance
 {
-    partial class EAssetsListForm
+    partial class EIncomeListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EAssetsListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EIncomeListForm));
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer
-            // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 542);
-            // 
-            // EAssetsListForm
+            // EIncomeListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Assets";
+            this.Caption = "Income";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns3"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns4"))));
-            this.CommandText = "SELECT Id, Code, Name, Remarks, Active\r\nFROM tblAccounts\r\nWHERE AccountTypeId = @" +
-    "CompanyId\r\n\tAND CompanyId = @AccountTypeId";
-            this.Name = "EAssetsListForm";
+            this.CommandText = "SELECT Id, Code, Name, Remarks, Active\r\nFROM tblAccounts\r\nWHERE CompanyId = @Comp" +
+    "anyId\r\n\tAND AccountTypeId = @AccountTypeId";
+            this.Name = "EIncomeListForm";
             this.NewFormName = "EAccountForm";
             this.OpenFormName = "EAccountForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 542);
+            this.Size = new System.Drawing.Size(789, 506);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

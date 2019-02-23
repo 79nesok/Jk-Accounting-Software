@@ -39,6 +39,7 @@
             this.dstSystemPrintouts = new JkComponents.JkDataSet();
             this.dstSystemAccountCodes = new JkComponents.JkDataSet();
             this.dstVATTypes = new JkComponents.JkDataSet();
+            this.dstPaymentMethods = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -164,11 +165,26 @@
             this.dstVATTypes.Text = "jkDataSet3";
             this.dstVATTypes.ZLoadColumns = false;
             // 
+            // dstPaymentMethods
+            // 
+            this.dstPaymentMethods.BackColor = System.Drawing.Color.Khaki;
+            this.dstPaymentMethods.CommandText = "SELECT Id, Code, Name, AccountId, Active\r\nFROM tblPaymentMethods\r\nWHERE CompanyId" +
+    " = @CompanyId";
+            this.dstPaymentMethods.Connection = this.cnConnection;
+            this.dstPaymentMethods.Location = new System.Drawing.Point(378, 30);
+            this.dstPaymentMethods.Name = "dstPaymentMethods";
+            this.dstPaymentMethods.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstPaymentMethods.Parameters"))));
+            this.dstPaymentMethods.Size = new System.Drawing.Size(103, 20);
+            this.dstPaymentMethods.TabIndex = 10;
+            this.dstPaymentMethods.Text = "jkDataSet3";
+            this.dstPaymentMethods.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstPaymentMethods);
             this.Controls.Add(this.dstVATTypes);
             this.Controls.Add(this.dstSystemAccountCodes);
             this.Controls.Add(this.dstSystemPrintouts);
@@ -197,5 +213,6 @@
         public JkComponents.JkDataSet dstAccounts;
         public JkComponents.JkDataSet dstSystemAccountCodes;
         public JkComponents.JkDataSet dstVATTypes;
+        public JkComponents.JkDataSet dstPaymentMethods;
     }
 }

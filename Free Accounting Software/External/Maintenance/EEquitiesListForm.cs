@@ -7,11 +7,11 @@ using System.Text;
 using System.Windows.Forms;
 using Free_Accounting_Software.Internal.Forms;
 
-namespace Free_Accounting_Software.External.Accounting
+namespace Free_Accounting_Software.External.Maintenance
 {
-    public partial class EIncomeListForm : IListForm
+    public partial class EEquitiesListForm : IListForm
     {
-        public EIncomeListForm()
+        public EEquitiesListForm()
         {
             InitializeComponent();
         }

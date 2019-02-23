@@ -33,14 +33,8 @@ namespace Free_Accounting_Software.Internal.Forms
                         if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
                         {
                             DataSet.DataTable = VTransactionHandler.LoadData(DataSet.CommandText, DataSet.Parameters);
+                            DataSet.AddTemporaryColumns();        
                             DataSet.GridView.DataSource = DataSet.DataTable;
-
-                            //workaround to hide columns that are generated automatically by .Net
-                            foreach (DataGridViewColumn column in dataGridView.Columns)
-                            {
-                                column.Visible = DataSet.Columns.Find(c => c.Name == column.DataPropertyName).Visible;
-                            }
-                            DataSet.GridView.ComputeFooterValues();
                         }
 
                         //For further update on this code, I'm still not sure if this will fit on all scenarios
@@ -55,8 +49,24 @@ namespace Free_Accounting_Software.Internal.Forms
                             }
                         }
                     }
+
+                    //load data from lookup to grid
+                    foreach (DataGridViewColumn column in DataSet.GridView.Columns)
+                    {
+                        if (column.GetType().ToString().Contains("DataGridViewComboBoxColumn"))
+                        {
+                            DataGridViewComboBoxColumn comboBox = column as DataGridViewComboBoxColumn;
+                            JkLookUpComboBox lookUp = (Controls.Find(DataSet.Columns.Find(dc => dc.Name == column.DataPropertyName).ControlName, true).First() as JkLookUpComboBox);
+
+                            if (lookUp.Items.Count == 0)
+                                lookUp.LoadData();
+
+                            comboBox.DataSource = lookUp.Items;
+                            comboBox.DisplayMember = "DisplayText";
+                            comboBox.ValueMember = "Key";
+                        }
+                    }
                 }
-                LoadLookUpOnGrid();
             }
 
             protected override void UpdateControls()
@@ -68,7 +78,7 @@ namespace Free_Accounting_Software.Internal.Forms
                     if (FormState == FormStates.fsView)
                         DataSet.GridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                     else
-                        DataSet.GridView.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+                        DataSet.GridView.EditMode = DataGridViewEditMode.EditOnEnter;
 
                     DataSet.GridView.AllowUserToAddRows = FormState != FormStates.fsView;
                     DataSet.GridView.AllowUserToDeleteRows = FormState != FormStates.fsView;
@@ -91,17 +101,6 @@ namespace Free_Accounting_Software.Internal.Forms
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
                     if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
                         VTransactionHandler.EditMaster(DataSet.CommandText, DataSet.Parameters);
-            }
-
-            private void dataGridView_DefaultValuesNeeded(object sender, DataGridViewRowEventArgs e)
-            {
-                foreach (JkDetailColumn column in dstDetail.Columns)
-                {
-                    if (!String.IsNullOrWhiteSpace(column.DefaultValue))
-                    {
-                        e.Row.Cells["dataGridViewColumn" + column.Name.Trim()].Value = IAppHandler.ConvertMaskValue(column.DefaultValue);
-                    }
-                }
             }
 
             private void dataGridView_MouseClick(object sender, MouseEventArgs e)
@@ -164,11 +163,13 @@ namespace Free_Accounting_Software.Internal.Forms
 
                     //set if enabled
                     ClearMenu.Enabled = dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value != null
-                        && dataGridView.AllowUserToDeleteRows;
+                        && dataGridView.AllowUserToDeleteRows
+                        && !dataGridView.Rows[RowIndex].Cells[ColumnIndex].ReadOnly;
                     CopyMenu.Enabled = !String.IsNullOrEmpty(dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value.ToString());
                     DeleteMenu.Enabled = dataGridView.AllowUserToDeleteRows;
                     PasteMenu.Enabled = Clipboard.ContainsText()
-                        && dataGridView.AllowUserToAddRows;
+                        && dataGridView.AllowUserToAddRows
+                        && !dataGridView.Rows[RowIndex].Cells[ColumnIndex].ReadOnly;
 
                     //add on ContextMenu
                     menu.MenuItems.Add(ClearMenu);
@@ -184,25 +185,26 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 splitContainerMasterDetail.Size = new Size(splitContainer.Width, splitContainer.Panel2.Height - FormFooter.Height);
             }
-        #endregion
 
-        #region Custom Procedures and Functions
-            private void LoadLookUpOnGrid()
+            private void IMasterDetailForm_AfterRun()
             {
-                foreach (DataGridViewColumn column in dataGridView.Columns)
+                foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
                 {
-                    if (column.GetType().ToString().Contains("DataGridViewComboBoxColumn"))
+                    //workaround to hide columns that are generated automatically by .Net
+                    foreach (DataGridViewColumn column in DataSet.GridView.Columns)
                     {
-                        DataGridViewComboBoxColumn comboBox = column as DataGridViewComboBoxColumn;
-                        JkLookUpComboBox lookUp = (Controls.Find(dstDetail.Columns.Find(dc => dc.Name == column.DataPropertyName).ControlName, true).First() as JkLookUpComboBox);
-
-                        if (lookUp.Items.Count == 0)
-                            lookUp.LoadData();
-
-                        comboBox.DataSource = lookUp.Items;
-                        comboBox.DisplayMember = "DisplayText";
-                        comboBox.ValueMember = "Key";
+                        column.Visible = DataSet.Columns.Find(c => c.Name == column.DataPropertyName).Visible;
                     }
+                }
+            }
+
+            private void IMasterDetailForm_BeforeSave()
+            {
+                //remove temporary columns so that it will not cause
+                //malfuction on DataAdapter.Update function
+                foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
+                {
+                    DataSet.RemoveTemporaryColumns();
                 }
             }
         #endregion
