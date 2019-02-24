@@ -48,9 +48,21 @@
             this.dataGridViewPaymentDetails = new JkComponents.JkDataGridView();
             this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
             this.cmbPaymentMethods = new JkComponents.JkLookUpComboBox();
+            this.tabControlPaymentDetails = new System.Windows.Forms.TabControl();
+            this.tabPagePaymentDetails = new System.Windows.Forms.TabPage();
+            this.splitContainerPaymentDetails = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanelPaymentDetails = new System.Windows.Forms.FlowLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtAmountPaid = new JkComponents.JkTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAmountApplied = new JkComponents.JkTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBalance = new JkComponents.JkTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
+            this.splitContainerMasterDetail.Panel2.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
+            this.tabControlDetails.SuspendLayout();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -58,6 +70,13 @@
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).BeginInit();
+            this.tabControlPaymentDetails.SuspendLayout();
+            this.tabPagePaymentDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerPaymentDetails)).BeginInit();
+            this.splitContainerPaymentDetails.Panel1.SuspendLayout();
+            this.splitContainerPaymentDetails.Panel2.SuspendLayout();
+            this.splitContainerPaymentDetails.SuspendLayout();
+            this.flowLayoutPanelPaymentDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMasterDetail
@@ -65,12 +84,12 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dataGridViewPaymentDetails);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstPaymentDetails);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.tabControlPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(808, 433);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -85,6 +104,8 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns7"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns8"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns9"))));
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
             this.dstDetail.CommandText = "SELECT Id, CashReceiptVoucherId, SourceId, AppliedAmount\r\nFROM tblCashReceiptVouc" +
     "herInvoiceDetails\r\nWHERE CashReceiptVoucherId = @Id";
             this.dstDetail.Location = new System.Drawing.Point(733, 218);
@@ -92,9 +113,17 @@
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
             // 
+            // tabControlDetails
+            // 
+            this.tabControlDetails.Size = new System.Drawing.Size(808, 174);
+            // 
+            // tabPageDetails
+            // 
+            this.tabPageDetails.Size = new System.Drawing.Size(800, 146);
+            // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 536);
+            this.splitContainer.Size = new System.Drawing.Size(808, 536);
             // 
             // flowLayoutPanel2
             // 
@@ -288,10 +317,10 @@
             this.dataGridViewPaymentDetails.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPaymentDetails.GridColor = System.Drawing.Color.Peru;
-            this.dataGridViewPaymentDetails.Location = new System.Drawing.Point(325, 0);
+            this.dataGridViewPaymentDetails.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewPaymentDetails.Name = "dataGridViewPaymentDetails";
-            this.dataGridViewPaymentDetails.Size = new System.Drawing.Size(464, 255);
-            this.dataGridViewPaymentDetails.TabIndex = 28;
+            this.dataGridViewPaymentDetails.Size = new System.Drawing.Size(402, 160);
+            this.dataGridViewPaymentDetails.TabIndex = 34;
             // 
             // jkSeriesProvider1
             // 
@@ -323,6 +352,134 @@
             this.cmbPaymentMethods.TabIndex = 29;
             this.cmbPaymentMethods.Visible = false;
             // 
+            // tabControlPaymentDetails
+            // 
+            this.tabControlPaymentDetails.Controls.Add(this.tabPagePaymentDetails);
+            this.tabControlPaymentDetails.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabControlPaymentDetails.Location = new System.Drawing.Point(325, 0);
+            this.tabControlPaymentDetails.Name = "tabControlPaymentDetails";
+            this.tabControlPaymentDetails.SelectedIndex = 0;
+            this.tabControlPaymentDetails.Size = new System.Drawing.Size(420, 255);
+            this.tabControlPaymentDetails.TabIndex = 30;
+            // 
+            // tabPagePaymentDetails
+            // 
+            this.tabPagePaymentDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPagePaymentDetails.Controls.Add(this.splitContainerPaymentDetails);
+            this.tabPagePaymentDetails.Location = new System.Drawing.Point(4, 24);
+            this.tabPagePaymentDetails.Name = "tabPagePaymentDetails";
+            this.tabPagePaymentDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPagePaymentDetails.Size = new System.Drawing.Size(412, 227);
+            this.tabPagePaymentDetails.TabIndex = 0;
+            this.tabPagePaymentDetails.Text = "Payment Details";
+            this.tabPagePaymentDetails.UseVisualStyleBackColor = true;
+            // 
+            // splitContainerPaymentDetails
+            // 
+            this.splitContainerPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerPaymentDetails.IsSplitterFixed = true;
+            this.splitContainerPaymentDetails.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerPaymentDetails.Margin = new System.Windows.Forms.Padding(0);
+            this.splitContainerPaymentDetails.Name = "splitContainerPaymentDetails";
+            this.splitContainerPaymentDetails.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerPaymentDetails.Panel1
+            // 
+            this.splitContainerPaymentDetails.Panel1.Controls.Add(this.dataGridViewPaymentDetails);
+            // 
+            // splitContainerPaymentDetails.Panel2
+            // 
+            this.splitContainerPaymentDetails.Panel2.Controls.Add(this.flowLayoutPanelPaymentDetails);
+            this.splitContainerPaymentDetails.Size = new System.Drawing.Size(402, 217);
+            this.splitContainerPaymentDetails.SplitterDistance = 160;
+            this.splitContainerPaymentDetails.SplitterWidth = 1;
+            this.splitContainerPaymentDetails.TabIndex = 0;
+            // 
+            // flowLayoutPanelPaymentDetails
+            // 
+            this.flowLayoutPanelPaymentDetails.Controls.Add(this.label5);
+            this.flowLayoutPanelPaymentDetails.Controls.Add(this.txtAmountPaid);
+            this.flowLayoutPanelPaymentDetails.Controls.Add(this.label3);
+            this.flowLayoutPanelPaymentDetails.Controls.Add(this.txtAmountApplied);
+            this.flowLayoutPanelPaymentDetails.Controls.Add(this.label4);
+            this.flowLayoutPanelPaymentDetails.Controls.Add(this.txtBalance);
+            this.flowLayoutPanelPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelPaymentDetails.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanelPaymentDetails.Name = "flowLayoutPanelPaymentDetails";
+            this.flowLayoutPanelPaymentDetails.Size = new System.Drawing.Size(402, 56);
+            this.flowLayoutPanelPaymentDetails.TabIndex = 0;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(0, 0);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Size = new System.Drawing.Size(110, 17);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Amount Paid:";
+            // 
+            // txtAmountPaid
+            // 
+            this.txtAmountPaid.BackColor = System.Drawing.Color.White;
+            this.txtAmountPaid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flowLayoutPanelPaymentDetails.SetFlowBreak(this.txtAmountPaid, true);
+            this.txtAmountPaid.Location = new System.Drawing.Point(116, 0);
+            this.txtAmountPaid.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.txtAmountPaid.Name = "txtAmountPaid";
+            this.txtAmountPaid.ReadOnly = true;
+            this.txtAmountPaid.Required = false;
+            this.txtAmountPaid.Size = new System.Drawing.Size(114, 16);
+            this.txtAmountPaid.TabIndex = 7;
+            this.txtAmountPaid.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            this.label3.Location = new System.Drawing.Point(0, 17);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Size = new System.Drawing.Size(110, 17);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Amount Applied:";
+            // 
+            // txtAmountApplied
+            // 
+            this.txtAmountApplied.BackColor = System.Drawing.Color.White;
+            this.txtAmountApplied.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flowLayoutPanelPaymentDetails.SetFlowBreak(this.txtAmountApplied, true);
+            this.txtAmountApplied.Location = new System.Drawing.Point(116, 17);
+            this.txtAmountApplied.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.txtAmountApplied.Name = "txtAmountApplied";
+            this.txtAmountApplied.ReadOnly = true;
+            this.txtAmountApplied.Required = false;
+            this.txtAmountApplied.Size = new System.Drawing.Size(114, 16);
+            this.txtAmountApplied.TabIndex = 3;
+            this.txtAmountApplied.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label4
+            // 
+            this.label4.Location = new System.Drawing.Point(0, 34);
+            this.label4.Margin = new System.Windows.Forms.Padding(0);
+            this.label4.Name = "label4";
+            this.label4.Padding = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Size = new System.Drawing.Size(110, 17);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Balance:";
+            // 
+            // txtBalance
+            // 
+            this.txtBalance.BackColor = System.Drawing.Color.White;
+            this.txtBalance.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtBalance.Location = new System.Drawing.Point(116, 34);
+            this.txtBalance.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.txtBalance.Name = "txtBalance";
+            this.txtBalance.ReadOnly = true;
+            this.txtBalance.Required = false;
+            this.txtBalance.Size = new System.Drawing.Size(114, 16);
+            this.txtBalance.TabIndex = 5;
+            this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // ECashReceiptVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -345,14 +502,20 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns13"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns14"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns15"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns16"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
             this.Name = "ECashReceiptVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(789, 536);
+            this.Size = new System.Drawing.Size(808, 536);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashReceiptVoucherForm_BeforeRun);
+            this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashReceiptVoucherForm_ValidateSave);
+            this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECashReceiptVoucherForm_AfterRun);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
+            this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);
+            this.tabControlDetails.ResumeLayout(false);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
@@ -362,6 +525,14 @@
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).EndInit();
+            this.tabControlPaymentDetails.ResumeLayout(false);
+            this.tabPagePaymentDetails.ResumeLayout(false);
+            this.splitContainerPaymentDetails.Panel1.ResumeLayout(false);
+            this.splitContainerPaymentDetails.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerPaymentDetails)).EndInit();
+            this.splitContainerPaymentDetails.ResumeLayout(false);
+            this.flowLayoutPanelPaymentDetails.ResumeLayout(false);
+            this.flowLayoutPanelPaymentDetails.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -383,7 +554,17 @@
         private JkComponents.JkTextBox txtRemarks;
         private JkComponents.JkDetailDataSet dstPaymentDetails;
         private JkComponents.JkSeriesProvider jkSeriesProvider1;
-        private JkComponents.JkDataGridView dataGridViewPaymentDetails;
         private JkComponents.JkLookUpComboBox cmbPaymentMethods;
+        private System.Windows.Forms.TabControl tabControlPaymentDetails;
+        private System.Windows.Forms.TabPage tabPagePaymentDetails;
+        private System.Windows.Forms.SplitContainer splitContainerPaymentDetails;
+        private JkComponents.JkDataGridView dataGridViewPaymentDetails;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPaymentDetails;
+        private System.Windows.Forms.Label label3;
+        private JkComponents.JkTextBox txtAmountApplied;
+        private System.Windows.Forms.Label label4;
+        private JkComponents.JkTextBox txtBalance;
+        private System.Windows.Forms.Label label5;
+        private JkComponents.JkTextBox txtAmountPaid;
     }
 }

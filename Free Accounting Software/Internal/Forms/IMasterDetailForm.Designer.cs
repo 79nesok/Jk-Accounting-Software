@@ -33,6 +33,8 @@
             this.splitContainerMasterDetail = new System.Windows.Forms.SplitContainer();
             this.dstDetail = new JkComponents.JkDetailDataSet();
             this.dataGridView = new JkComponents.JkDataGridView();
+            this.tabControlDetails = new System.Windows.Forms.TabControl();
+            this.tabPageDetails = new System.Windows.Forms.TabPage();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -43,11 +45,18 @@
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.tabControlDetails.SuspendLayout();
+            this.tabPageDetails.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(700, 0);
             // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 502);
+            this.FormFooter.Size = new System.Drawing.Size(808, 34);
             // 
             // splitContainer
             // 
@@ -55,7 +64,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.splitContainerMasterDetail);
-            this.splitContainer.Size = new System.Drawing.Size(789, 536);
+            this.splitContainer.Size = new System.Drawing.Size(808, 536);
             // 
             // splitContainerMasterDetail
             // 
@@ -72,8 +81,8 @@
             // 
             // splitContainerMasterDetail.Panel2
             // 
-            this.splitContainerMasterDetail.Panel2.Controls.Add(this.dataGridView);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 458);
+            this.splitContainerMasterDetail.Panel2.Controls.Add(this.tabControlDetails);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(808, 458);
             this.splitContainerMasterDetail.SplitterDistance = 195;
             this.splitContainerMasterDetail.SplitterWidth = 1;
             this.splitContainerMasterDetail.TabIndex = 0;
@@ -112,11 +121,32 @@
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.GridColor = System.Drawing.Color.Peru;
-            this.dataGridView.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView.Location = new System.Drawing.Point(3, 3);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(789, 262);
-            this.dataGridView.TabIndex = 18;
-            this.dataGridView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseClick);
+            this.dataGridView.Size = new System.Drawing.Size(790, 224);
+            this.dataGridView.TabIndex = 19;
+            // 
+            // tabControlDetails
+            // 
+            this.tabControlDetails.Controls.Add(this.tabPageDetails);
+            this.tabControlDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlDetails.Location = new System.Drawing.Point(0, 0);
+            this.tabControlDetails.Name = "tabControlDetails";
+            this.tabControlDetails.SelectedIndex = 0;
+            this.tabControlDetails.Size = new System.Drawing.Size(808, 262);
+            this.tabControlDetails.TabIndex = 0;
+            // 
+            // tabPageDetails
+            // 
+            this.tabPageDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageDetails.Controls.Add(this.dataGridView);
+            this.tabPageDetails.Location = new System.Drawing.Point(4, 24);
+            this.tabPageDetails.Name = "tabPageDetails";
+            this.tabPageDetails.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageDetails.Size = new System.Drawing.Size(800, 234);
+            this.tabPageDetails.TabIndex = 0;
+            this.tabPageDetails.Text = "Details";
+            this.tabPageDetails.UseVisualStyleBackColor = true;
             // 
             // IMasterDetailForm
             // 
@@ -124,7 +154,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Master Detail Form";
             this.Name = "IMasterDetailForm";
-            this.Size = new System.Drawing.Size(789, 536);
+            this.Size = new System.Drawing.Size(808, 536);
             this.BeforeRun += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterDetailForm_BeforeRun);
             this.BeforeSave += new Free_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterDetailForm_BeforeSave);
             this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterDetailForm_AfterRun);
@@ -140,6 +170,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.tabControlDetails.ResumeLayout(false);
+            this.tabPageDetails.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -148,6 +180,8 @@
 
         protected System.Windows.Forms.SplitContainer splitContainerMasterDetail;
         protected JkComponents.JkDetailDataSet dstDetail;
+        protected System.Windows.Forms.TabControl tabControlDetails;
+        protected System.Windows.Forms.TabPage tabPageDetails;
         protected JkComponents.JkDataGridView dataGridView;
 
     }

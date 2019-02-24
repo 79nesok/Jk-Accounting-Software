@@ -46,7 +46,9 @@
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
+            this.splitContainerMasterDetail.Panel2.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
+            this.tabControlDetails.SuspendLayout();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -64,7 +66,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(808, 433);
             this.splitContainerMasterDetail.SplitterDistance = 220;
             // 
             // dstDetail
@@ -83,9 +85,21 @@
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
             // 
+            // tabControlDetails
+            // 
+            this.tabControlDetails.Size = new System.Drawing.Size(808, 209);
+            // 
+            // tabPageDetails
+            // 
+            this.tabPageDetails.Size = new System.Drawing.Size(800, 181);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
+            // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 536);
+            this.splitContainer.Size = new System.Drawing.Size(808, 536);
             // 
             // flowLayoutPanel2
             // 
@@ -283,12 +297,14 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns14"))));
             this.Name = "EJournalVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(789, 536);
+            this.Size = new System.Drawing.Size(808, 536);
             this.ZLoadMasterColumns = true;
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
+            this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);
+            this.tabControlDetails.ResumeLayout(false);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

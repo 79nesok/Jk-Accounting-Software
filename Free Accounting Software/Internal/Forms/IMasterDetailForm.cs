@@ -103,84 +103,6 @@ namespace Free_Accounting_Software.Internal.Forms
                         VTransactionHandler.EditMaster(DataSet.CommandText, DataSet.Parameters);
             }
 
-            private void dataGridView_MouseClick(object sender, MouseEventArgs e)
-            {
-                if (e.Button == MouseButtons.Right
-                    && dataGridView.HitTest(e.X, e.Y).Type == DataGridViewHitTestType.Cell
-                    && dataGridView.HitTest(e.X, e.Y).RowIndex != dataGridView.NewRowIndex)
-                {
-                    int RowIndex = dataGridView.HitTest(e.X, e.Y).RowIndex,
-                        ColumnIndex = dataGridView.HitTest(e.X, e.Y).ColumnIndex;
-                    ContextMenu menu = new ContextMenu();
-
-                    MenuItem ClearMenu = new MenuItem();
-                    MenuItem CopyMenu = new MenuItem();
-                    MenuItem DeleteMenu = new MenuItem();
-                    MenuItem PasteMenu = new MenuItem();
-
-                    //set text
-                    ClearMenu.Text = "Clear Cell";
-                    CopyMenu.Text = "Copy";
-                    DeleteMenu.Text = "Delete Row";
-                    PasteMenu.Text = "Paste";
-
-                    //set event
-                    ClearMenu.Click += delegate(object s, EventArgs ea)
-                    {
-                        if (dstDetail.DataTable.Columns[dataGridView.Columns[ColumnIndex].DataPropertyName].AllowDBNull)
-                            dstDetail.DataTable.Rows[RowIndex][dataGridView.Columns[ColumnIndex].DataPropertyName] = DBNull.Value;
-                        else
-                            dstDetail.DataTable.Rows[RowIndex][dataGridView.Columns[ColumnIndex].DataPropertyName] = 0;
-                        splitContainerMasterDetail.Panel1.Focus();
-                        dataGridView.Focus();
-                    };
-                    CopyMenu.Click += delegate(object s, EventArgs ea)
-                    {
-                        Clipboard.SetText(dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value.ToString(), TextDataFormat.Text);
-                    };
-                    DeleteMenu.Click += delegate(object s, EventArgs ea)
-                    {
-                        if (dataGridView.SelectedRows.Count > 0)
-                        {
-                            foreach (DataGridViewRow row in dataGridView.SelectedRows)
-                            {
-                                if (!row.IsNewRow)
-                                    dataGridView.Rows.RemoveAt(row.Index);
-                            }
-                        }
-                        else
-                            dataGridView.Rows.RemoveAt(RowIndex);
-
-                        splitContainerMasterDetail.Panel1.Focus();
-                        dataGridView.Focus();
-                    };
-                    PasteMenu.Click += delegate(object s, EventArgs ea)
-                    {
-                        dstDetail.DataTable.Rows[RowIndex][dataGridView.Columns[ColumnIndex].DataPropertyName] = Clipboard.GetText();
-                        splitContainerMasterDetail.Panel1.Focus();
-                        dataGridView.Focus();
-                    };
-
-                    //set if enabled
-                    ClearMenu.Enabled = dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value != null
-                        && dataGridView.AllowUserToDeleteRows
-                        && !dataGridView.Rows[RowIndex].Cells[ColumnIndex].ReadOnly;
-                    CopyMenu.Enabled = !String.IsNullOrEmpty(dataGridView.Rows[RowIndex].Cells[ColumnIndex].Value.ToString());
-                    DeleteMenu.Enabled = dataGridView.AllowUserToDeleteRows;
-                    PasteMenu.Enabled = Clipboard.ContainsText()
-                        && dataGridView.AllowUserToAddRows
-                        && !dataGridView.Rows[RowIndex].Cells[ColumnIndex].ReadOnly;
-
-                    //add on ContextMenu
-                    menu.MenuItems.Add(ClearMenu);
-                    menu.MenuItems.Add(CopyMenu);
-                    menu.MenuItems.Add(DeleteMenu);
-                    menu.MenuItems.Add(PasteMenu);
-
-                    menu.Show(dataGridView, new Point(e.X, e.Y));
-                }
-            }
-
             private void IMasterDetailForm_Resize(object sender, EventArgs e)
             {
                 splitContainerMasterDetail.Size = new Size(splitContainer.Width, splitContainer.Panel2.Height - FormFooter.Height);
@@ -193,9 +115,11 @@ namespace Free_Accounting_Software.Internal.Forms
                     //workaround to hide columns that are generated automatically by .Net
                     foreach (DataGridViewColumn column in DataSet.GridView.Columns)
                     {
-                        column.Visible = DataSet.Columns.Find(c => c.Name == column.DataPropertyName).Visible;
+                        if (!String.IsNullOrWhiteSpace(column.DataPropertyName))
+                            column.Visible = DataSet.Columns.Find(c => c.Name == column.DataPropertyName).Visible;
                     }
                 }
+                splitContainerMasterDetail.Panel1.Focus();
             }
 
             private void IMasterDetailForm_BeforeSave()

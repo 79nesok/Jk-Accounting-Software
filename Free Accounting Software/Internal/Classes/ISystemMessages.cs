@@ -13,6 +13,7 @@ namespace Free_Accounting_Software.Internal.Classes
         public const String DeleteGridRow = "Delete selected row(s)?";
         public const String RemoveGridValue = "Remove assigned value on this cell?";
         public const String RemovePaidInvoice = "Invoice(s) are already paid, Are you sure do you want to remove the applied payment?";
+        public const String RemoveAppliedAmount = "Do you want to remove Applied Amount";
 
         //Errors
         public const String LoadDataError = "Unable to load data: ";
@@ -37,6 +38,8 @@ namespace Free_Accounting_Software.Internal.Classes
             else
                 return "Unable to unpost transaction: " + error;
         }
+        public const String AmountToApplyExceedsBalance = "Amount cannot be apply because it exceeds on Balance.";
+        public const String AmountPaidInsufficient = "Amount Applied exceeds on Amount Paid.";
 
         //Messages
         public const String NoFormMessage = "No form available";

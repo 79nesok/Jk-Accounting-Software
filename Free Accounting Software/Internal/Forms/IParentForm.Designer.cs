@@ -145,6 +145,7 @@
             // panelButton
             // 
             this.panelButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panelButton.BackColor = System.Drawing.SystemColors.Control;
             this.panelButton.Controls.Add(this.btnNavigator);
             this.panelButton.Controls.Add(this.btnHolder);
             this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -156,6 +157,7 @@
             // 
             // btnNavigator
             // 
+            this.btnNavigator.BackColor = System.Drawing.SystemColors.Control;
             this.btnNavigator.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnNavigator.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -230,6 +232,7 @@
             // 
             // btnHolder
             // 
+            this.btnHolder.BackColor = System.Drawing.SystemColors.Control;
             this.btnHolder.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnHolder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHolder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {

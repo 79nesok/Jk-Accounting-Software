@@ -334,5 +334,16 @@ namespace Free_Accounting_Software.Internal.Classes
             gridView.DefaultCellStyle.BackColor = Color.WhiteSmoke;
             gridView.BorderStyle = BorderStyle.Fixed3D;
         }
+
+        public static DataGridViewColumn GetColumnByDataPropertyName(DataGridView grid, String DataPropertyName)
+        {
+            foreach (DataGridViewColumn column in grid.Columns)
+            {
+                if (column.DataPropertyName == DataPropertyName)
+                    return column;
+            }
+
+            return null;
+        }
     }
 }
