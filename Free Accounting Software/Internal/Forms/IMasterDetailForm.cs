@@ -27,7 +27,7 @@ namespace Free_Accounting_Software.Internal.Forms
             {
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
                 {
-                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
+                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText) && DataSet.LinkToMaster)
                     {
                         DataSet.Parameters.Find(dp => dp.Name == "Id").Value = Parameters.Find(p => p.Name == "Id").Value;
                         if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
@@ -90,7 +90,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 base.SaveDetail();
 
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
-                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
+                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText) && DataSet.LinkToMaster)
                         VTransactionHandler.SaveDetail(DataSet.CommandText, DataSet.DataTable, Parameters, DataSet.Parameters);
             }
 
@@ -99,7 +99,7 @@ namespace Free_Accounting_Software.Internal.Forms
                 base.EditDetail();
 
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
-                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText))
+                    if (!String.IsNullOrWhiteSpace(DataSet.CommandText) && DataSet.LinkToMaster)
                         VTransactionHandler.EditMaster(DataSet.CommandText, DataSet.Parameters);
             }
 

@@ -220,6 +220,28 @@ namespace Free_Accounting_Software.External.Accounting
         {
             ShowAmountToApply();
             DisplaySummary();
+
+            //load journal entry
+            if (FormState == FormStates.fsView)
+            {
+                if (!dstJournalEntry.ZLoadGrid)
+                    dstJournalEntry.ZLoadGrid = true;
+
+                dstJournalEntry.Parameters[0].Value = this.MasterColumns.Find(mc => mc.Name == "JournalId").Value.ToString();
+                dstJournalEntry.DataTable = VTransactionHandler.LoadData(dstJournalEntry.CommandText, dstJournalEntry.Parameters);
+                dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
+                dataGridViewJournalEntry.AutoGenerateColumns = false;
+
+                tabPageJournalEntry.Text = String.Format("Journal Entry ({0})", dstJournalEntry.DataTable.Rows[0]["TransactionNo"].ToString());
+
+                if (!tabControlDetails.TabPages.Contains(tabPageJournalEntry))
+                    tabControlDetails.TabPages.Insert(1, tabPageJournalEntry);
+            }
+            else
+            {
+                tabPageJournalEntry.Text = "Journal Entry";
+                tabControlDetails.TabPages.Remove(tabPageJournalEntry);
+            }
         }
 
         private void DisplaySummary()
@@ -278,6 +300,35 @@ namespace Free_Accounting_Software.External.Accounting
                 IMessageHandler.ShowError(ISystemMessages.AmountPaidInsufficient);
                 ValidationFails = true;
             }
+        }
+
+        private void Post(bool IsPost)
+        {
+            SqlCommand Command = new SqlCommand();
+
+            //do not add try and catch statement, so that if error occurs
+            //the exception will be raised on btnSave.Click event,
+            //which will trigger transaction rollback
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "uspUpdateJournals";
+            Command.Parameters.AddWithValue("@JournalTypeId", 4);
+            Command.Parameters.AddWithValue("@Id", Parameters[0].Value);
+            Command.Parameters.AddWithValue("@IsPost", IsPost);
+            Command.Connection = VTransactionHandler.VConnection;
+            Command.Transaction = VTransactionHandler.VTransaction;
+            Command.ExecuteNonQuery();
+        }
+
+        protected override void Post()
+        {
+            base.Post();
+            Post(true);
+        }
+
+        protected override void UnPost()
+        {
+            base.UnPost();
+            Post(false);
         }
     }
 }

@@ -11,5 +11,8 @@ EXEC uspAddSystemSeries 'PJ'
 EXEC uspAddSystemSeries 'SJ'
 EXEC uspAddSystemSeries 'CRJ'
 EXEC uspAddSystemSeries 'CDJ'
+
+--Others
+EXEC uspAddSystemSeries 'COP'
 GO
 

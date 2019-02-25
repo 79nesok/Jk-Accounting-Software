@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashReceiptVoucherForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTransactionNo = new JkComponents.JkTextBox();
@@ -58,6 +60,9 @@
             this.txtAmountApplied = new JkComponents.JkTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
+            this.tabPageJournalEntry = new System.Windows.Forms.TabPage();
+            this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
+            this.dstJournalEntry = new JkComponents.JkDetailDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
@@ -77,6 +82,8 @@
             this.splitContainerPaymentDetails.Panel2.SuspendLayout();
             this.splitContainerPaymentDetails.SuspendLayout();
             this.flowLayoutPanelPaymentDetails.SuspendLayout();
+            this.tabPageJournalEntry.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerMasterDetail
@@ -115,7 +122,10 @@
             // 
             // tabControlDetails
             // 
+            this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
             this.tabControlDetails.Size = new System.Drawing.Size(808, 174);
+            this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
+            this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
@@ -290,6 +300,7 @@
     "ity Info=True;User ID=sa;Password=masterkey";
             this.dstPaymentDetails.GridAutoSize = false;
             this.dstPaymentDetails.GridView = this.dataGridViewPaymentDetails;
+            this.dstPaymentDetails.LinkToMaster = true;
             this.dstPaymentDetails.Location = new System.Drawing.Point(686, 166);
             this.dstPaymentDetails.Name = "dstPaymentDetails";
             this.dstPaymentDetails.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstPaymentDetails.Parameters"))));
@@ -385,6 +396,7 @@
             // 
             // splitContainerPaymentDetails.Panel1
             // 
+            this.splitContainerPaymentDetails.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerPaymentDetails.Panel1.Controls.Add(this.dataGridViewPaymentDetails);
             // 
             // splitContainerPaymentDetails.Panel2
@@ -480,6 +492,65 @@
             this.txtBalance.TabIndex = 5;
             this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // tabPageJournalEntry
+            // 
+            this.tabPageJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageJournalEntry.Controls.Add(this.dataGridViewJournalEntry);
+            this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
+            this.tabPageJournalEntry.Name = "tabPageJournalEntry";
+            this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(800, 146);
+            this.tabPageJournalEntry.TabIndex = 1;
+            this.tabPageJournalEntry.Text = "Journal Entry";
+            this.tabPageJournalEntry.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewJournalEntry
+            // 
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewJournalEntry.AutoGenerateColumns = false;
+            this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
+            this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(790, 136);
+            this.dataGridViewJournalEntry.TabIndex = 0;
+            // 
+            // dstJournalEntry
+            // 
+            this.dstJournalEntry.BackColor = System.Drawing.Color.Tan;
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns1"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns2"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns3"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns4"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns5"))));
+            this.dstJournalEntry.CommandText = resources.GetString("dstJournalEntry.CommandText");
+            this.dstJournalEntry.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
+    "ity Info=True;User ID=sa;Password=masterkey";
+            this.dstJournalEntry.GridAutoSize = true;
+            this.dstJournalEntry.GridView = this.dataGridViewJournalEntry;
+            this.dstJournalEntry.LinkToMaster = false;
+            this.dstJournalEntry.Location = new System.Drawing.Point(261, 111);
+            this.dstJournalEntry.Name = "dstJournalEntry";
+            this.dstJournalEntry.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstJournalEntry.Parameters"))));
+            this.dstJournalEntry.Size = new System.Drawing.Size(81, 20);
+            this.dstJournalEntry.TabIndex = 24;
+            this.dstJournalEntry.Visible = false;
+            this.dstJournalEntry.ZLoadColumns = true;
+            this.dstJournalEntry.ZLoadGrid = false;
+            // 
             // ECashReceiptVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -533,6 +604,8 @@
             this.splitContainerPaymentDetails.ResumeLayout(false);
             this.flowLayoutPanelPaymentDetails.ResumeLayout(false);
             this.flowLayoutPanelPaymentDetails.PerformLayout();
+            this.tabPageJournalEntry.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -566,5 +639,8 @@
         private JkComponents.JkTextBox txtBalance;
         private System.Windows.Forms.Label label5;
         private JkComponents.JkTextBox txtAmountPaid;
+        private System.Windows.Forms.TabPage tabPageJournalEntry;
+        private JkComponents.JkDataGridView dataGridViewJournalEntry;
+        private JkComponents.JkDetailDataSet dstJournalEntry;
     }
 }

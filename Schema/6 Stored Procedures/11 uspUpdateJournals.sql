@@ -16,6 +16,7 @@ DECLARE @InputVATAccountId INT
 DECLARE @PayableAccountId INT
 DECLARE @OutputVATAccountId INT
 DECLARE @ReceivableAccountId INT
+DECLARE @CustomerOverPaymentAccountId INT
 
 SELECT @Code = Code
 FROM tblJournalTypes
@@ -35,6 +36,11 @@ ELSE IF @JournalTypeId = 3
 	SELECT @JournalId = JournalId,
 		@CompanyId = CompanyId
 	FROM tblSalesVouchers
+	WHERE Id = @Id
+ELSE IF @JournalTypeId = 4
+	SELECT @JournalId = JournalId,
+		@CompanyId = CompanyId
+	FROM tblCashReceiptVouchers
 	WHERE Id = @Id
 
 SELECT @InputVATAccountId = a.Id
@@ -60,6 +66,12 @@ FROM tblAccounts a
 	INNER JOIN tblSystemAccountCodes ac ON ac.Id = a.SystemAccountCodeId
 WHERE a.CompanyId = @CompanyId
 	AND ac.Name = 'ACCOUNTS RECEIVABLE'
+
+SELECT @CustomerOverPaymentAccountId = a.Id
+FROM tblAccounts a
+	INNER JOIN tblSystemAccountCodes ac ON ac.Id = a.SystemAccountCodeId
+WHERE a.CompanyId = @CompanyId
+	AND ac.Name = 'CUSTOMER OVERPAYMENT'
 
 IF @IsPost = 1
 BEGIN
@@ -248,9 +260,123 @@ BEGIN
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, @InputVATAccountId, SubsidiaryId, 0, SUM(VATAmount), Remarks
-		FROM tblPurchaseVoucherDetails
-		WHERE PurchaseVoucherId = @Id
+		FROM tblSalesVoucherDetails
+		WHERE SalesVoucherId = @Id
 		GROUP BY SubsidiaryId, Remarks
+	END
+	ELSE IF @JournalTypeId = 4
+	BEGIN
+		--Post payment to invoice
+		EXEC uspUpdateInvoiceAmounts @Id, @IsPost
+
+		IF @JournalId IS NULL
+		BEGIN
+			INSERT INTO tblJournals(CompanyId, JournalTypeId, TransactionNo, [Date],
+				ReferenceNo, ReferenceNo2, Remarks, SourceId, SourceTransactionNo,
+				CreatedById, DateCreated, ModifiedById, DateModified)
+			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
+				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
+				CreatedById, DateCreated, ModifiedById, DateModified
+			FROM tblCashReceiptVouchers
+			WHERE Id = @Id
+				AND @JournalTypeId = 4
+	
+			SET @JournalId = SCOPE_IDENTITY()
+
+			UPDATE tblCashReceiptVouchers
+			SET JournalId = @JournalId
+			WHERE Id = @Id
+
+			SET @IsNew = 1
+		END
+		ELSE
+		BEGIN
+			UPDATE j
+			SET j.[Date] = cv.[Date],
+				j.ReferenceNo = cv.ReferenceNo,
+				j.ReferenceNo2 = cv.ReferenceNo2,
+				j.ModifiedById = cv.ModifiedById,
+				j.DateModified = cv.DateModified
+			FROM tblJournals j
+				INNER JOIN tblCashReceiptVouchers cv ON cv.JournalId = j.Id
+			WHERE j.Id = @JournalId
+				AND @JournalTypeId = 4
+		END
+
+		DECLARE @PaymentMethodName VARCHAR(100)
+
+		SELECT @PaymentMethodName = pm.Name
+		FROM tblCashReceiptVoucherDetails cpd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = cpd.PaymentMethodId
+		WHERE cpd.CashReceiptVoucherId = @Id
+			AND pm.AccountId IS NULL
+
+		IF NULLIF(@PaymentMethodName, '') IS NOT NULL
+		BEGIN
+			RAISERROR('Please set-up account for this Payment Method: %s', 11, 1, @PaymentMethodName)
+			RETURN
+		END
+
+		--Payment
+		INSERT INTO tblJournalDetails(JournalId, AccountId, Debit, Credit)
+		SELECT @JournalId, pm.AccountId, SUM(cvd.Amount), 0
+		FROM tblCashReceiptVoucherDetails cvd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = cvd.PaymentMethodId
+		WHERE cvd.CashReceiptVoucherId = @Id
+		GROUP BY pm.AccountId
+
+		--Receivable
+		IF @ReceivableAccountId IS NULL
+		BEGIN
+			RAISERROR('No Receivable Account has been set-up.', 11, 1)
+			RETURN
+		END
+
+		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+		SELECT @JournalId, @ReceivableAccountId, cv.SubsidiaryId, 0, SUM(cid.AppliedAmount)
+		FROM tblCashReceiptVoucherInvoiceDetails cid
+			INNER JOIN tblCashReceiptVouchers cv ON cv.Id = cid.CashReceiptVoucherId
+		WHERE cid.CashReceiptVoucherId = @Id
+		GROUP BY cv.SubsidiaryId
+
+		--Overpayment
+		IF @CustomerOverPaymentAccountId IS NULL
+			AND EXISTS(
+				SELECT cv.Id
+				FROM tblCashReceiptVouchers cv
+					INNER JOIN (
+						SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
+						FROM tblCashReceiptVoucherDetails cd
+						GROUP BY cd.CashReceiptVoucherId
+					) cd ON cd.CashReceiptVoucherId = cv.Id
+					INNER JOIN (
+						SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
+						FROM tblCashReceiptVoucherInvoiceDetails cid
+						GROUP BY cid.CashReceiptVoucherId
+					) cid ON cid.CashReceiptVoucherId = cv.Id
+				WHERE cv.Id = @Id
+					AND cd.Amount <> cid.AppliedAmount
+			)
+		BEGIN
+			RAISERROR('No Customer Overpayment Account has been set-up.', 11, 1)
+			RETURN
+		END
+
+		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+		SELECT @JournalId, @CustomerOverPaymentAccountId, cv.SubsidiaryId, 0, cd.Amount - cid.AppliedAmount
+		FROM tblCashReceiptVouchers cv
+			INNER JOIN (
+				SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
+				FROM tblCashReceiptVoucherDetails cd
+				GROUP BY cd.CashReceiptVoucherId
+			) cd ON cd.CashReceiptVoucherId = cv.Id
+			INNER JOIN (
+				SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
+				FROM tblCashReceiptVoucherInvoiceDetails cid
+				GROUP BY cid.CashReceiptVoucherId
+			) cid ON cid.CashReceiptVoucherId = cv.Id
+		WHERE cv.Id = @Id
+			AND cd.Amount > cid.AppliedAmount
 	END
 	
 	EXEC uspUpdateLedgers @JournalId, 1
@@ -276,6 +402,12 @@ BEGIN
 	DELETE
 	FROM tblJournalDetails
 	WHERE JournalId = @JournalId
+
+	--if Cash Receipt Voucher, unpost payment to invoice
+	IF @JournalTypeId = 4
+	BEGIN
+		EXEC uspUpdateInvoiceAmounts @Id, @IsPost
+	END
 END
 GO
 

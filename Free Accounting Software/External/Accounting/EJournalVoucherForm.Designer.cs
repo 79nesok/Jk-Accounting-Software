@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EJournalVoucherForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -44,6 +46,9 @@
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
+            this.tabPageJournalEntry = new System.Windows.Forms.TabPage();
+            this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
+            this.dstJournalEntry = new JkComponents.JkDetailDataSet();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
@@ -55,6 +60,8 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.tabPageJournalEntry.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerMasterDetail
@@ -62,6 +69,7 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
@@ -87,15 +95,14 @@
             // 
             // tabControlDetails
             // 
+            this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
             this.tabControlDetails.Size = new System.Drawing.Size(808, 209);
+            this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
+            this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
             this.tabPageDetails.Size = new System.Drawing.Size(800, 181);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
@@ -274,6 +281,64 @@
             this.cmbSubsidiary.TabIndex = 17;
             this.cmbSubsidiary.Visible = false;
             // 
+            // tabPageJournalEntry
+            // 
+            this.tabPageJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.tabPageJournalEntry.Controls.Add(this.dataGridViewJournalEntry);
+            this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
+            this.tabPageJournalEntry.Name = "tabPageJournalEntry";
+            this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 181);
+            this.tabPageJournalEntry.TabIndex = 1;
+            this.tabPageJournalEntry.Text = "Journal Entry";
+            this.tabPageJournalEntry.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewJournalEntry
+            // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
+            this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 171);
+            this.dataGridViewJournalEntry.TabIndex = 0;
+            // 
+            // dstJournalEntry
+            // 
+            this.dstJournalEntry.BackColor = System.Drawing.Color.Tan;
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns1"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns2"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns3"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns4"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns5"))));
+            this.dstJournalEntry.CommandText = resources.GetString("dstJournalEntry.CommandText");
+            this.dstJournalEntry.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
+    "ity Info=True;User ID=sa;Password=masterkey";
+            this.dstJournalEntry.GridAutoSize = true;
+            this.dstJournalEntry.GridView = this.dataGridViewJournalEntry;
+            this.dstJournalEntry.LinkToMaster = false;
+            this.dstJournalEntry.Location = new System.Drawing.Point(626, 142);
+            this.dstJournalEntry.Name = "dstJournalEntry";
+            this.dstJournalEntry.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstJournalEntry.Parameters"))));
+            this.dstJournalEntry.Size = new System.Drawing.Size(81, 20);
+            this.dstJournalEntry.TabIndex = 23;
+            this.dstJournalEntry.Visible = false;
+            this.dstJournalEntry.ZLoadColumns = true;
+            this.dstJournalEntry.ZLoadGrid = false;
+            // 
             // EJournalVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -300,6 +365,7 @@
             this.Size = new System.Drawing.Size(808, 536);
             this.ZLoadMasterColumns = true;
             this.ValidateSave += new Free_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
+            this.AfterRun += new Free_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EJournalVoucherForm_AfterRun);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
@@ -313,6 +379,8 @@
             this.splitContainer.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.tabPageJournalEntry.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -334,5 +402,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private JkComponents.JkLookUpComboBox cmbAccounts;
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
+        private System.Windows.Forms.TabPage tabPageJournalEntry;
+        private JkComponents.JkDataGridView dataGridViewJournalEntry;
+        private JkComponents.JkDetailDataSet dstJournalEntry;
     }
 }

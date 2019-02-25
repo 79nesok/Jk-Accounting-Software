@@ -26,6 +26,7 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = '
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Disbursement Vouchers', @ListForm = 'ECashDisbursementVouchersListForm', @MasterForm = NULL, @Index = 8
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Sales Vouchers', @ListForm = 'ESalesVouchersListForm', @MasterForm = 'ESalesVoucherForm', @Index = 9
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Cash Receipt Vouchers', @ListForm = 'ECashReceiptVouchersListForm', @MasterForm = 'ECashReceiptVoucherForm', @Index = 10
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Customer Overpayment', @ListForm = 'ECustomerOverpaymentsListForm', @MasterForm = 'ECustomerOverpaymentForm', @Index = 11
 
 --Report
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'General Ledger', @ListForm = 'EGeneralLedgerReportForm', @MasterForm = NULL, @Index = 0
@@ -33,7 +34,7 @@ EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Subs
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Trial Balance', @ListForm = 'ETrialBalanceReportForm', @MasterForm = NULL, @Index = 2
 
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Aging', @ListForm = NULL, @MasterForm = NULL, @Index = 3
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Aging', @Name = 'Receivables', @ListForm = NULL, @MasterForm = NULL, @Index = 4
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Aging', @Name = 'Receivables', @ListForm = 'EAgingOfReceivablesReportForm', @MasterForm = NULL, @Index = 4
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Aging', @Name = 'Payables', @ListForm = NULL, @MasterForm = NULL, @Index = 5
 
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Financial Statement', @ListForm = NULL, @MasterForm = NULL, @Index = 6

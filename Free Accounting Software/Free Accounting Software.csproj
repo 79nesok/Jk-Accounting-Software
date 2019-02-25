@@ -83,6 +83,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="External\Accounting\ECustomerOverpaymentForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECustomerOverpaymentForm.Designer.cs">
+      <DependentUpon>ECustomerOverpaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\ECustomerOverpaymentsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECustomerOverpaymentsListForm.Designer.cs">
+      <DependentUpon>ECustomerOverpaymentsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\EAgingOfReceivablesReportDS.cs">
+      <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EAgingOfReceivablesReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Maintenance\EAccountForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -299,6 +320,12 @@
     <Compile Include="External\Maintenance\ESuppliersListForm.Designer.cs">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\EAgingOfReceivablesReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EAgingOfReceivablesReportForm.Designer.cs">
+      <DependentUpon>EAgingOfReceivablesReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\EBalanceSheetReportForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -447,6 +474,12 @@
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Testing\MainApplication.cs" />
+    <EmbeddedResource Include="External\Accounting\ECustomerOverpaymentForm.resx">
+      <DependentUpon>ECustomerOverpaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ECustomerOverpaymentsListForm.resx">
+      <DependentUpon>ECustomerOverpaymentsListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\EAccountForm.resx">
       <DependentUpon>EAccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -519,12 +552,16 @@
     <EmbeddedResource Include="External\Maintenance\ESuppliersListForm.resx">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Voucher.rdlc" />
     <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Trial Balance.rdlc" />
+    <EmbeddedResource Include="External\Report\EAgingOfReceivablesReportForm.resx">
+      <DependentUpon>EAgingOfReceivablesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EBalanceSheetReportForm.resx">
       <DependentUpon>EBalanceSheetReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -605,6 +642,17 @@
     <EmbeddedResource Include="Internal\Forms\ITextPropertyEditor.resx">
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="External\Datasources\EAgingOfReceivablesReportDS.xsc">
+      <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EAgingOfReceivablesReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EAgingOfReceivablesReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EAgingOfReceivablesReportDS.xss">
+      <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
+    </None>
     <None Include="External\Datasources\EBalanceSheetReportDS.xsc">
       <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
     </None>

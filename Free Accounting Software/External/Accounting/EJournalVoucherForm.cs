@@ -58,5 +58,30 @@ namespace Free_Accounting_Software.External.Accounting
             base.UnPost();
             Post(false);
         }
+
+        private void EJournalVoucherForm_AfterRun()
+        {
+            //load journal entry
+            if (FormState == FormStates.fsView)
+            {
+                if (!dstJournalEntry.ZLoadGrid)
+                    dstJournalEntry.ZLoadGrid = true;
+
+                dstJournalEntry.Parameters[0].Value = this.MasterColumns.Find(mc => mc.Name == "JournalId").Value.ToString();
+                dstJournalEntry.DataTable = VTransactionHandler.LoadData(dstJournalEntry.CommandText, dstJournalEntry.Parameters);
+                dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
+                dataGridViewJournalEntry.AutoGenerateColumns = false;
+
+                tabPageJournalEntry.Text = String.Format("Journal Entry ({0})", dstJournalEntry.DataTable.Rows[0]["TransactionNo"].ToString());
+
+                if (!tabControlDetails.TabPages.Contains(tabPageJournalEntry))
+                    tabControlDetails.TabPages.Insert(1, tabPageJournalEntry);
+            }
+            else
+            {
+                tabPageJournalEntry.Text = "Journal Entry";
+                tabControlDetails.TabPages.Remove(tabPageJournalEntry);
+            }
+        }
     }
 }
