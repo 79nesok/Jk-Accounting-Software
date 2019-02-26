@@ -2429,11 +2429,11 @@ WHERE sv.Id = @Id";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT sd.Id, sd.SalesVoucherId, a.Name AS Item, sd.Amount,
+            this._commandCollection[0].CommandText = @"SELECT sd.Id, sd.SalesVoucherId, i.Name AS Item, sd.Amount,
 	vt.Name AS VATType, sd.GrossAmount, sd.VATAmount,
 	sd.DiscountAmount, sd.Total, sd.Remarks
 FROM tblSalesVoucherDetails sd
-	INNER JOIN tblAccounts a ON a.Id = sd.AccountId
+	LEFT OUTER JOIN tblItems i ON i.Id = sd.ItemId
 	INNER JOIN tblVATTypes vt ON vt.Id = sd.VATTypeId
 WHERE sd.SalesVoucherId = @Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;

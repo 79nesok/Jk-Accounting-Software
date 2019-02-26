@@ -164,6 +164,18 @@
     <Compile Include="External\Accounting\EJournalVouchersListForm.Designer.cs">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Maintenance\EItemForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Maintenance\EItemForm.Designer.cs">
+      <DependentUpon>EItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Maintenance\EItemsListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Maintenance\EItemsListForm.Designer.cs">
+      <DependentUpon>EItemsListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Maintenance\ELiabilitiesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -509,6 +521,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EJournalVouchersListForm.resx">
       <DependentUpon>EJournalVouchersListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Maintenance\EItemForm.resx">
+      <DependentUpon>EItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Maintenance\EItemsListForm.resx">
+      <DependentUpon>EItemsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\ELiabilitiesListForm.resx">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>

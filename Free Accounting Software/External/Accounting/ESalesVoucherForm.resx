@@ -286,13 +286,30 @@ WHERE j.Id = @Id</value>
         b24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQbPEZvb3RlclR5cGU+a19fQmFj
         a2luZ0ZpZWxkGTxSZWFkT25seT5rX19CYWNraW5nRmllbGQaPFRlbXBvcmFyeT5rX19CYWNraW5nRmll
         bGQAAQQBAQABAAQAAAEVU3lzdGVtLkRhdGEuU3FsRGJUeXBlAwAAAAEILUprQ29tcG9uZW50cy5Ka0Rl
-        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAABBgQAAAAJQWNjb3VudElkBfv///8V
-        U3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAACAAAAAoGBgAAAAtjbWJBY2NvdW50
-        cwAGBwAAAAdBY2NvdW50lgAAAAX4////LUprQ29tcG9uZW50cy5Ka0RldGFpbENvbHVtbitDb2x1bW5G
-        b290ZXJUeXBlcwEAAAAHdmFsdWVfXwAIAgAAAAEAAAAAAAs=
+        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAABBgQAAAAGSXRlbUlkBfv///8VU3lz
+        dGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAACAAAAAoGBgAAAAhjbWJJdGVtcwAGBwAA
+        AARJdGVtlgAAAAX4////LUprQ29tcG9uZW50cy5Ka0RldGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBl
+        cwEAAAAHdmFsdWVfXwAIAgAAAAEAAAAAAAs=
 </value>
   </data>
   <data name="dstDetail.Columns3" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uCwAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmll
+        bGQZPERhdGFUeXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8
+        Q29udHJvbE5hbWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQYPENhcHRp
+        b24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQbPEZvb3RlclR5cGU+a19fQmFj
+        a2luZ0ZpZWxkGTxSZWFkT25seT5rX19CYWNraW5nRmllbGQaPFRlbXBvcmFyeT5rX19CYWNraW5nRmll
+        bGQAAQQBAQABAAQAAAEVU3lzdGVtLkRhdGEuU3FsRGJUeXBlAwAAAAEILUprQ29tcG9uZW50cy5Ka0Rl
+        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAABBgQAAAAJQWNjb3VudElkBfv///8V
+        U3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAACAAAAAoGBgAAAAtjbWJBY2NvdW50
+        cwAGBwAAAAdBY2NvdW50lgAAAAX4////LUprQ29tcG9uZW50cy5Ka0RldGFpbENvbHVtbitDb2x1bW5G
+        b290ZXJUeXBlcwEAAAAHdmFsdWVfXwAIAgAAAAAAAAAAAAs=
+</value>
+  </data>
+  <data name="dstDetail.Columns4" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -309,7 +326,7 @@ WHERE j.Id = @Id</value>
         Q29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAAACw==
 </value>
   </data>
-  <data name="dstDetail.Columns4" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns5" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -326,7 +343,7 @@ WHERE j.Id = @Id</value>
         XwAIAgAAAAIAAAAAAAs=
 </value>
   </data>
-  <data name="dstDetail.Columns5" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns6" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -343,7 +360,7 @@ WHERE j.Id = @Id</value>
         Q29sdW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIAAAAAAAAAAAAL
 </value>
   </data>
-  <data name="dstDetail.Columns6" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns7" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -360,7 +377,7 @@ WHERE j.Id = @Id</value>
         AQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAAACw==
 </value>
   </data>
-  <data name="dstDetail.Columns7" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns8" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -377,7 +394,7 @@ WHERE j.Id = @Id</value>
         cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAgAAAAEACw==
 </value>
   </data>
-  <data name="dstDetail.Columns8" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns9" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -394,7 +411,7 @@ WHERE j.Id = @Id</value>
         ZXJUeXBlcwEAAAAHdmFsdWVfXwAIAgAAAAIAAAABAAs=
 </value>
   </data>
-  <data name="dstDetail.Columns9" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns10" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -411,7 +428,7 @@ WHERE j.Id = @Id</value>
         bW5Gb290ZXJUeXBlcwEAAAAHdmFsdWVfXwAIAgAAAAIAAAABAAs=
 </value>
   </data>
-  <data name="dstDetail.Columns10" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns11" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -428,7 +445,7 @@ WHERE j.Id = @Id</value>
         AAgCAAAAAgAAAAEACw==
 </value>
   </data>
-  <data name="dstDetail.Columns11" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="dstDetail.Columns12" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -444,6 +461,14 @@ WHERE j.Id = @Id</value>
         a0NvbXBvbmVudHMuSmtEZXRhaWxDb2x1bW4rQ29sdW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIA
         AAAAAAAAAAAL
 </value>
+  </data>
+  <data name="dstDetail.CommandText" xml:space="preserve">
+    <value>SELECT Id, SalesVoucherId, ItemId, AccountId,
+	SubsidiaryId, Amount, VATTypeId, VATRate,
+	VATAmount, GrossAmount, DiscountAmount,
+	Total, Remarks
+FROM tblSalesVoucherDetails
+WHERE SalesVoucherId = @Id</value>
   </data>
   <data name="dstDetail.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

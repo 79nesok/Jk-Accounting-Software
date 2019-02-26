@@ -44,14 +44,14 @@ WHERE sv.Id = @Id</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblSalesVoucherDetailTableAdapter" GeneratorDataComponentClassName="tblSalesVoucherDetailTableAdapter" Name="tblSalesVoucherDetail" UserDataComponentName="tblSalesVoucherDetailTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="FreeAccountingSoftwareConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="FreeAccountingSoftwareConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT sd.Id, sd.SalesVoucherId, a.Name AS Item, sd.Amount,
+                    <CommandText>SELECT sd.Id, sd.SalesVoucherId, i.Name AS Item, sd.Amount,
 	vt.Name AS VATType, sd.GrossAmount, sd.VATAmount,
 	sd.DiscountAmount, sd.Total, sd.Remarks
 FROM tblSalesVoucherDetails sd
-	INNER JOIN tblAccounts a ON a.Id = sd.AccountId
+	LEFT OUTER JOIN tblItems i ON i.Id = sd.ItemId
 	INNER JOIN tblVATTypes vt ON vt.Id = sd.VATTypeId
 WHERE sd.SalesVoucherId = @Id</CommandText>
                     <Parameters>
@@ -139,7 +139,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</Command
   <xs:element name="ESalesInvoiceReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ESalesInvoiceReportDS" msprop:Generator_UserDSName="ESalesInvoiceReportDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblSalesVoucher" msprop:Generator_TableClassName="tblSalesVoucherDataTable" msprop:Generator_TableVarName="tabletblSalesVoucher" msprop:Generator_RowChangedName="tblSalesVoucherRowChanged" msprop:Generator_TablePropName="tblSalesVoucher" msprop:Generator_RowDeletingName="tblSalesVoucherRowDeleting" msprop:Generator_RowChangingName="tblSalesVoucherRowChanging" msprop:Generator_RowEvHandlerName="tblSalesVoucherRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSalesVoucherRowDeleted" msprop:Generator_RowClassName="tblSalesVoucherRow" msprop:Generator_UserTableName="tblSalesVoucher" msprop:Generator_RowEvArgName="tblSalesVoucherRowChangeEvent">
+        <xs:element name="tblSalesVoucher" msprop:Generator_TableClassName="tblSalesVoucherDataTable" msprop:Generator_TableVarName="tabletblSalesVoucher" msprop:Generator_TablePropName="tblSalesVoucher" msprop:Generator_RowDeletingName="tblSalesVoucherRowDeleting" msprop:Generator_RowChangingName="tblSalesVoucherRowChanging" msprop:Generator_RowEvHandlerName="tblSalesVoucherRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSalesVoucherRowDeleted" msprop:Generator_UserTableName="tblSalesVoucher" msprop:Generator_RowChangedName="tblSalesVoucherRowChanged" msprop:Generator_RowEvArgName="tblSalesVoucherRowChangeEvent" msprop:Generator_RowClassName="tblSalesVoucherRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -187,7 +187,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</Command
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblSalesVoucherDetail" msprop:Generator_TableClassName="tblSalesVoucherDetailDataTable" msprop:Generator_TableVarName="tabletblSalesVoucherDetail" msprop:Generator_RowChangedName="tblSalesVoucherDetailRowChanged" msprop:Generator_TablePropName="tblSalesVoucherDetail" msprop:Generator_RowDeletingName="tblSalesVoucherDetailRowDeleting" msprop:Generator_RowChangingName="tblSalesVoucherDetailRowChanging" msprop:Generator_RowEvHandlerName="tblSalesVoucherDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSalesVoucherDetailRowDeleted" msprop:Generator_RowClassName="tblSalesVoucherDetailRow" msprop:Generator_UserTableName="tblSalesVoucherDetail" msprop:Generator_RowEvArgName="tblSalesVoucherDetailRowChangeEvent">
+        <xs:element name="tblSalesVoucherDetail" msprop:Generator_TableClassName="tblSalesVoucherDetailDataTable" msprop:Generator_TableVarName="tabletblSalesVoucherDetail" msprop:Generator_TablePropName="tblSalesVoucherDetail" msprop:Generator_RowDeletingName="tblSalesVoucherDetailRowDeleting" msprop:Generator_RowChangingName="tblSalesVoucherDetailRowChanging" msprop:Generator_RowEvHandlerName="tblSalesVoucherDetailRowChangeEventHandler" msprop:Generator_RowDeletedName="tblSalesVoucherDetailRowDeleted" msprop:Generator_UserTableName="tblSalesVoucherDetail" msprop:Generator_RowChangedName="tblSalesVoucherDetailRowChanged" msprop:Generator_RowEvArgName="tblSalesVoucherDetailRowChangeEvent" msprop:Generator_RowClassName="tblSalesVoucherDetailRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -221,7 +221,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</Command
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblCompanies" msprop:Generator_TableClassName="tblCompaniesDataTable" msprop:Generator_TableVarName="tabletblCompanies" msprop:Generator_RowChangedName="tblCompaniesRowChanged" msprop:Generator_TablePropName="tblCompanies" msprop:Generator_RowDeletingName="tblCompaniesRowDeleting" msprop:Generator_RowChangingName="tblCompaniesRowChanging" msprop:Generator_RowEvHandlerName="tblCompaniesRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCompaniesRowDeleted" msprop:Generator_RowClassName="tblCompaniesRow" msprop:Generator_UserTableName="tblCompanies" msprop:Generator_RowEvArgName="tblCompaniesRowChangeEvent">
+        <xs:element name="tblCompanies" msprop:Generator_TableClassName="tblCompaniesDataTable" msprop:Generator_TableVarName="tabletblCompanies" msprop:Generator_TablePropName="tblCompanies" msprop:Generator_RowDeletingName="tblCompaniesRowDeleting" msprop:Generator_RowChangingName="tblCompaniesRowChanging" msprop:Generator_RowEvHandlerName="tblCompaniesRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCompaniesRowDeleted" msprop:Generator_UserTableName="tblCompanies" msprop:Generator_RowChangedName="tblCompaniesRowChanged" msprop:Generator_RowEvArgName="tblCompaniesRowChangeEvent" msprop:Generator_RowClassName="tblCompaniesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

@@ -2,6 +2,7 @@ IF OBJECT_ID('tblPurchaseVoucherDetails') IS NULL
 	CREATE TABLE tblPurchaseVoucherDetails(
 		Id INT IDENTITY(1, 1) NOT NULL,
 		PurchaseVoucherId INT NOT NULL,
+		ItemId INT NULL,
 		AccountId INT NOT NULL,
 		SubsidiaryId INT NULL,
 		Amount MONEY NOT NULL CONSTRAINT DF_tblPurchaseVoucherDetails_Amount DEFAULT 0,

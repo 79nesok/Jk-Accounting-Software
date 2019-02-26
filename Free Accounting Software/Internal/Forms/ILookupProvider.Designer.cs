@@ -40,6 +40,7 @@
             this.dstSystemAccountCodes = new JkComponents.JkDataSet();
             this.dstVATTypes = new JkComponents.JkDataSet();
             this.dstPaymentMethods = new JkComponents.JkDataSet();
+            this.dstItems = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -144,7 +145,7 @@
             // dstSystemAccountCodes
             // 
             this.dstSystemAccountCodes.BackColor = System.Drawing.Color.Khaki;
-            this.dstSystemAccountCodes.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblSystemAccountCodes";
+            this.dstSystemAccountCodes.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblSystemAccountCodes\r\nORDER BY Name";
             this.dstSystemAccountCodes.Connection = this.cnConnection;
             this.dstSystemAccountCodes.Location = new System.Drawing.Point(177, 30);
             this.dstSystemAccountCodes.Name = "dstSystemAccountCodes";
@@ -169,9 +170,9 @@
             // 
             this.dstPaymentMethods.BackColor = System.Drawing.Color.Khaki;
             this.dstPaymentMethods.CommandText = "SELECT Id, Code, Name, AccountId, Active\r\nFROM tblPaymentMethods\r\nWHERE CompanyId" +
-    " = @CompanyId";
+    " = @CompanyId\r\nORDER BY Name";
             this.dstPaymentMethods.Connection = this.cnConnection;
-            this.dstPaymentMethods.Location = new System.Drawing.Point(378, 30);
+            this.dstPaymentMethods.Location = new System.Drawing.Point(380, 30);
             this.dstPaymentMethods.Name = "dstPaymentMethods";
             this.dstPaymentMethods.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstPaymentMethods.Parameters"))));
             this.dstPaymentMethods.Size = new System.Drawing.Size(103, 20);
@@ -179,11 +180,26 @@
             this.dstPaymentMethods.Text = "jkDataSet3";
             this.dstPaymentMethods.ZLoadColumns = false;
             // 
+            // dstItems
+            // 
+            this.dstItems.BackColor = System.Drawing.Color.Khaki;
+            this.dstItems.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblItems\r\nWHERE CompanyId = @CompanyId\r\nORDER" +
+    " BY Name";
+            this.dstItems.Connection = this.cnConnection;
+            this.dstItems.Location = new System.Drawing.Point(489, 30);
+            this.dstItems.Name = "dstItems";
+            this.dstItems.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstItems.Parameters"))));
+            this.dstItems.Size = new System.Drawing.Size(48, 20);
+            this.dstItems.TabIndex = 11;
+            this.dstItems.Text = "jkDataSet3";
+            this.dstItems.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstItems);
             this.Controls.Add(this.dstPaymentMethods);
             this.Controls.Add(this.dstVATTypes);
             this.Controls.Add(this.dstSystemAccountCodes);
@@ -214,5 +230,6 @@
         public JkComponents.JkDataSet dstSystemAccountCodes;
         public JkComponents.JkDataSet dstVATTypes;
         public JkComponents.JkDataSet dstPaymentMethods;
+        public JkComponents.JkDataSet dstItems;
     }
 }

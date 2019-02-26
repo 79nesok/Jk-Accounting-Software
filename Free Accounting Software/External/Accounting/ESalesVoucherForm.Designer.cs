@@ -64,6 +64,7 @@
             this.tabPageJournalEntry = new System.Windows.Forms.TabPage();
             this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
             this.dstJournalEntry = new JkComponents.JkDetailDataSet();
+            this.cmbItems = new JkComponents.JkLookUpComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbItems);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbVATTypes);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
@@ -109,9 +111,8 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns9"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
-            this.dstDetail.CommandText = "SELECT Id, SalesVoucherId, AccountId, SubsidiaryId,\r\n\tAmount, VATTypeId, VATRate," +
-    " VATAmount,\r\n\tGrossAmount, DiscountAmount, Total, Remarks\r\nFROM tblSalesVoucherD" +
-    "etails\r\nWHERE SalesVoucherId = @Id";
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns12"))));
+            this.dstDetail.CommandText = resources.GetString("dstDetail.CommandText");
             this.dstDetail.Location = new System.Drawing.Point(734, 222);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
             this.dstDetail.ZLoadColumns = true;
@@ -562,6 +563,21 @@
             this.dstJournalEntry.ZLoadColumns = true;
             this.dstJournalEntry.ZLoadGrid = false;
             // 
+            // cmbItems
+            // 
+            this.cmbItems.DataSet = "dstItems";
+            this.cmbItems.DisplayText = "Name";
+            this.cmbItems.ForeColor = System.Drawing.Color.Black;
+            this.cmbItems.FormattingEnabled = true;
+            this.cmbItems.Key = "Id";
+            this.cmbItems.Location = new System.Drawing.Point(716, 81);
+            this.cmbItems.Name = "cmbItems";
+            this.cmbItems.Required = false;
+            this.cmbItems.SelectedKey = 0;
+            this.cmbItems.Size = new System.Drawing.Size(66, 23);
+            this.cmbItems.TabIndex = 24;
+            this.cmbItems.Visible = false;
+            // 
             // ESalesVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -650,5 +666,6 @@
         private System.Windows.Forms.TabPage tabPageJournalEntry;
         private JkComponents.JkDataGridView dataGridViewJournalEntry;
         private JkComponents.JkDetailDataSet dstJournalEntry;
+        private JkComponents.JkLookUpComboBox cmbItems;
     }
 }
