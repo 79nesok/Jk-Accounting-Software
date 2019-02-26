@@ -62,9 +62,9 @@ SELECT a.Name AS Account,
 	CASE WHEN
 		x.[Date] = @MinDate THEN '(Beginning Balance)'
 	ELSE
-		CAST(MONTH(x.[Date]) AS VARCHAR) + '/' + CAST(DAY(x.[Date]) AS VARCHAR) + '/' + CAST(YEAR(x.[Date]) AS VARCHAR)
+		RIGHT('0' + CAST( MONTH(x.[Date]) AS VARCHAR), 2) + '/' + RIGHT('0' + CAST(DAY(x.[Date]) AS VARCHAR), 2) + '/' + CAST(YEAR(x.[Date]) AS VARCHAR)
 	END AS [Date],
-	x.Debit, x.Credit, x.RunningBalance
+	x.Debit, x.Credit, x.RunningBalance, x.AccountId
 FROM (
 	SELECT t.Id, t.AccountId, t.[Date], t.Debit, t.Credit, t.RunningBalance
 	FROM @tmp t

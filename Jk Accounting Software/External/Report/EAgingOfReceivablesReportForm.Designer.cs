@@ -39,15 +39,6 @@
             // 
             this.reportViewer.Size = new System.Drawing.Size(808, 349);
             // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(700, 0);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(808, 34);
-            // 
             // splitContainer
             // 
             this.splitContainer.Size = new System.Drawing.Size(808, 481);

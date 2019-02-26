@@ -29,6 +29,7 @@
               <Mapping SourceColumn="Credit" DataSetColumn="Credit" />
               <Mapping SourceColumn="RunningBalance" DataSetColumn="RunningBalance" />
               <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="AccountId" DataSetColumn="AccountId" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -96,7 +97,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</Command
   <xs:element name="EGeneralLedgerReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EGeneralLedgerReportDS" msprop:Generator_UserDSName="EGeneralLedgerReportDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblGeneralLedger" msprop:Generator_TableClassName="tblGeneralLedgerDataTable" msprop:Generator_TableVarName="tabletblGeneralLedger" msprop:Generator_RowChangedName="tblGeneralLedgerRowChanged" msprop:Generator_TablePropName="tblGeneralLedger" msprop:Generator_RowDeletingName="tblGeneralLedgerRowDeleting" msprop:Generator_RowChangingName="tblGeneralLedgerRowChanging" msprop:Generator_RowEvHandlerName="tblGeneralLedgerRowChangeEventHandler" msprop:Generator_RowDeletedName="tblGeneralLedgerRowDeleted" msprop:Generator_RowClassName="tblGeneralLedgerRow" msprop:Generator_UserTableName="tblGeneralLedger" msprop:Generator_RowEvArgName="tblGeneralLedgerRowChangeEvent">
+        <xs:element name="tblGeneralLedger" msprop:Generator_TableClassName="tblGeneralLedgerDataTable" msprop:Generator_TableVarName="tabletblGeneralLedger" msprop:Generator_TablePropName="tblGeneralLedger" msprop:Generator_RowDeletingName="tblGeneralLedgerRowDeleting" msprop:Generator_RowChangingName="tblGeneralLedgerRowChanging" msprop:Generator_RowEvHandlerName="tblGeneralLedgerRowChangeEventHandler" msprop:Generator_RowDeletedName="tblGeneralLedgerRowDeleted" msprop:Generator_UserTableName="tblGeneralLedger" msprop:Generator_RowChangedName="tblGeneralLedgerRowChanged" msprop:Generator_RowEvArgName="tblGeneralLedgerRowChangeEvent" msprop:Generator_RowClassName="tblGeneralLedgerRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Account" msprop:Generator_ColumnVarNameInTable="columnAccount" msprop:Generator_ColumnPropNameInRow="Account" msprop:Generator_ColumnPropNameInTable="AccountColumn" msprop:Generator_UserColumnName="Account" minOccurs="0">
@@ -116,10 +117,11 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</Command
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="AccountId" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAccountId" msprop:Generator_ColumnPropNameInRow="AccountId" msprop:Generator_ColumnPropNameInTable="AccountIdColumn" msprop:Generator_UserColumnName="AccountId" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblCompanies" msprop:Generator_TableClassName="tblCompaniesDataTable" msprop:Generator_TableVarName="tabletblCompanies" msprop:Generator_RowChangedName="tblCompaniesRowChanged" msprop:Generator_TablePropName="tblCompanies" msprop:Generator_RowDeletingName="tblCompaniesRowDeleting" msprop:Generator_RowChangingName="tblCompaniesRowChanging" msprop:Generator_RowEvHandlerName="tblCompaniesRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCompaniesRowDeleted" msprop:Generator_RowClassName="tblCompaniesRow" msprop:Generator_UserTableName="tblCompanies" msprop:Generator_RowEvArgName="tblCompaniesRowChangeEvent">
+        <xs:element name="tblCompanies" msprop:Generator_TableClassName="tblCompaniesDataTable" msprop:Generator_TableVarName="tabletblCompanies" msprop:Generator_TablePropName="tblCompanies" msprop:Generator_RowDeletingName="tblCompaniesRowDeleting" msprop:Generator_RowChangingName="tblCompaniesRowChanging" msprop:Generator_RowEvHandlerName="tblCompaniesRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCompaniesRowDeleted" msprop:Generator_UserTableName="tblCompanies" msprop:Generator_RowChangedName="tblCompaniesRowChanged" msprop:Generator_RowEvArgName="tblCompaniesRowChangeEvent" msprop:Generator_RowClassName="tblCompaniesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

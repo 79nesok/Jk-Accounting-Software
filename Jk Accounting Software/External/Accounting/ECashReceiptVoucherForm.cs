@@ -258,7 +258,8 @@ namespace Jk_Accounting_Software.External.Accounting
             //get total amount of payment
             foreach (DataRow row in dstPaymentDetails.DataTable.Rows)
             {
-                value += double.Parse(row["Amount"].ToString());
+                if (row.RowState != DataRowState.Deleted)
+                    value += double.Parse(row["Amount"].ToString());
             }
 
             return value;
@@ -271,7 +272,8 @@ namespace Jk_Accounting_Software.External.Accounting
             //deduct total applied
             foreach (DataRow row in dstDetail.DataTable.Rows)
             {
-                value += double.Parse(row["AppliedAmount"].ToString());
+                if (row.RowState != DataRowState.Deleted)
+                    value += double.Parse(row["AppliedAmount"].ToString());
             }
 
             return value;

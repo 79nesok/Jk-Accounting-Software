@@ -10,11 +10,18 @@
       </ConnectionProperties>
       <rd:DataSourceID>3d6f05fe-9dbc-4edd-bcde-ef4d342a1d37</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="EGeneralLedgerReportDS">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>b3b05880-9aa4-48b5-88a4-fe722eda3faf</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="GeneralLedger">
       <Query>
-        <DataSourceName>GeneralLedgerDS</DataSourceName>
+        <DataSourceName>EGeneralLedgerReportDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -38,10 +45,14 @@
           <DataField>Date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="AccountId">
+          <DataField>AccountId</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>GeneralLedgerDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EGeneralLedgerReportDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>EGeneralLedgerReportDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EGeneralLedgerReportDS.xsd</rd:SchemaPath>
         <rd:TableName>tblGeneralLedger</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -50,7 +61,7 @@
     </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>GeneralLedgerDS</DataSourceName>
+        <DataSourceName>EGeneralLedgerReportDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -76,8 +87,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>GeneralLedgerDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EGeneralLedgerReportDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>EGeneralLedgerReportDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EGeneralLedgerReportDS.xsd</rd:SchemaPath>
         <rd:TableName>tblCompanies</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -264,6 +275,8 @@
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
                                     <Format>MM/dd/yyyy</Format>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>=IIf(Fields!Date.Value = "(Beginning Balance)", "Black", "Blue")</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -271,6 +284,29 @@
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Date</rd:DefaultName>
+                          <ActionInfo>
+                            <Actions>
+                              <Action>
+                                <Drillthrough>
+                                  <ReportName>=IIf(Fields!Date.Value = "(Beginning Balance)", nothing, "Journal")</ReportName>
+                                  <Parameters>
+                                    <Parameter Name="AccountId">
+                                      <Value>=Fields!AccountId.Value</Value>
+                                    </Parameter>
+                                    <Parameter Name="FromDate">
+                                      <Value>=Fields!Date.Value</Value>
+                                    </Parameter>
+                                    <Parameter Name="ToDate">
+                                      <Value>=Fields!Date.Value</Value>
+                                    </Parameter>
+                                    <Parameter Name="ReportType">
+                                      <Value>="Per Date"</Value>
+                                    </Parameter>
+                                  </Parameters>
+                                </Drillthrough>
+                              </Action>
+                            </Actions>
+                          </ActionInfo>
                           <Style>
                             <Border>
                               <Color>LightGrey</Color>
@@ -282,6 +318,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -496,7 +533,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -612,7 +648,7 @@
                                 <Value>=Fields!Account.Value</Value>
                                 <Style>
                                   <FontFamily>Segoe UI</FontFamily>
-                                  <TextDecoration>Underline</TextDecoration>
+                                  <TextDecoration>None</TextDecoration>
                                   <Color>Blue</Color>
                                 </Style>
                               </TextRun>
@@ -626,6 +662,14 @@
                             <Action>
                               <Drillthrough>
                                 <ReportName>Journal</ReportName>
+                                <Parameters>
+                                  <Parameter Name="AccountId">
+                                    <Value>=Fields!AccountId.Value</Value>
+                                  </Parameter>
+                                  <Parameter Name="ReportType">
+                                    <Value>="Per Account"</Value>
+                                  </Parameter>
+                                </Parameters>
                               </Drillthrough>
                             </Action>
                           </Actions>

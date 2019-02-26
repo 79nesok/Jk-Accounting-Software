@@ -10,7 +10,6 @@ using Jk_Accounting_Software.Internal.Classes;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EGeneralLedgerReportDSTableAdapters;
 using Microsoft.Reporting.WinForms;
-
 using Jk_Accounting_Software.External.Datasources.EJournalReportDSTableAdapters;
 
 namespace Jk_Accounting_Software.External.Report
@@ -53,15 +52,41 @@ namespace Jk_Accounting_Software.External.Report
 
         private void reportViewer_Drillthrough(object sender, DrillthroughEventArgs e)
         {
+            toolStripReportParam.Visible = false;
+
+            int CompanyId = int.Parse(Parameters.Find(p => p.Name == "CompanyId").Value);
+            int AccountId = 0;
+            DateTime FromDate = DateTime.Parse(Parameters.Find(p => p.Name == "FromDate").Value);
+            DateTime ToDate = DateTime.Parse(Parameters.Find(p => p.Name == "ToDate").Value);
+
+            ReportParameter[] reportParam = new ReportParameter[2];
+
             EJournalReportDS jDataSource = new EJournalReportDS();
             tblJournalsTableAdapter JournalAdapter = new tblJournalsTableAdapter();
             tblCompaniesJournalTableAdapter CompanyAdapter = new tblCompaniesJournalTableAdapter();
 
-            JournalAdapter.Fill(jDataSource.tblJournals, ISecurityHandler.CompanyId, DateTime.Now);
-            CompanyAdapter.Fill(jDataSource.tblCompaniesJournal);
+            if ((e.Report as LocalReport).GetParameters()["ReportType"].Values[0] == "Per Date")
+            {
+                FromDate = IDateHandler.Parse((e.Report as LocalReport).GetParameters()["FromDate"].Values[0]);
+                ToDate = IDateHandler.Parse((e.Report as LocalReport).GetParameters()["ToDate"].Values[0]);
+            }
 
-            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Journal", jDataSource.Tables[0]));
+            AccountId = int.Parse((e.Report as LocalReport).GetParameters()["AccountId"].Values[0]);
+            JournalAdapter.Fill(jDataSource.tblJournals, CompanyId, FromDate, ToDate, AccountId);
+            CompanyAdapter.Fill(jDataSource.tblCompaniesJournal, CompanyId);
+
+            reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
+            reportParam[1] = new ReportParameter("ToDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
+
+            (e.Report as LocalReport).SetParameters(reportParam);
+
+            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Journals", jDataSource.Tables[0]));
             (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", jDataSource.Tables[1]));
+        }
+
+        private void reportViewer_Back(object sender, BackEventArgs e)
+        {
+            toolStripReportParam.Visible = true;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Jk_Accounting_Software.Internal.Classes
 {
     public static class IDateHandler
     {
-        private static DateTime Parse(String date)
+        public static DateTime Parse(String date)
         {
             return DateTime.ParseExact(date, "MM/dd/yyyy", null);
         }

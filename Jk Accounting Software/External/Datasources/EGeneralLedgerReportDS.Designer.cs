@@ -324,6 +324,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             private global::System.Data.DataColumn columnDate;
             
+            private global::System.Data.DataColumn columnAccountId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public tblGeneralLedgerDataTable() {
@@ -399,6 +401,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AccountIdColumn {
+                get {
+                    return this.columnAccountId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -434,14 +444,15 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblGeneralLedgerRow AddtblGeneralLedgerRow(string Account, decimal Debit, decimal Credit, decimal RunningBalance, string Date) {
+            public tblGeneralLedgerRow AddtblGeneralLedgerRow(string Account, decimal Debit, decimal Credit, decimal RunningBalance, string Date, int AccountId) {
                 tblGeneralLedgerRow rowtblGeneralLedgerRow = ((tblGeneralLedgerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Account,
                         Debit,
                         Credit,
                         RunningBalance,
-                        Date};
+                        Date,
+                        AccountId};
                 rowtblGeneralLedgerRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowtblGeneralLedgerRow);
                 return rowtblGeneralLedgerRow;
@@ -469,6 +480,7 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.columnCredit = base.Columns["Credit"];
                 this.columnRunningBalance = base.Columns["RunningBalance"];
                 this.columnDate = base.Columns["Date"];
+                this.columnAccountId = base.Columns["AccountId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,9 +496,12 @@ namespace Jk_Accounting_Software.External.Datasources {
                 base.Columns.Add(this.columnRunningBalance);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
+                this.columnAccountId = new global::System.Data.DataColumn("AccountId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountId);
                 this.columnAccount.MaxLength = 100;
                 this.columnDate.ReadOnly = true;
                 this.columnDate.MaxLength = 92;
+                this.columnAccountId.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1031,6 +1046,22 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int AccountId {
+                get {
+                    try {
+                        return ((int)(this[this.tabletblGeneralLedger.AccountIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountId\' in table \'tblGeneralLedger\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabletblGeneralLedger.AccountIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAccountNull() {
                 return this.IsNull(this.tabletblGeneralLedger.AccountColumn);
             }
@@ -1087,6 +1118,18 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDateNull() {
                 this[this.tabletblGeneralLedger.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAccountIdNull() {
+                return this.IsNull(this.tabletblGeneralLedger.AccountIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAccountIdNull() {
+                this[this.tabletblGeneralLedger.AccountIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1409,6 +1452,7 @@ namespace Jk_Accounting_Software.External.Datasources.EGeneralLedgerReportDSTabl
             tableMapping.ColumnMappings.Add("Credit", "Credit");
             tableMapping.ColumnMappings.Add("RunningBalance", "RunningBalance");
             tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("AccountId", "AccountId");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

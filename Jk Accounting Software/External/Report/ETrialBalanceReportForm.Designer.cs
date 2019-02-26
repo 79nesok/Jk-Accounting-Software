@@ -37,15 +37,11 @@
             // 
             // reportViewer
             // 
-            this.reportViewer.Size = new System.Drawing.Size(789, 247);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 345);
+            this.reportViewer.Size = new System.Drawing.Size(808, 349);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 379);
+            this.splitContainer.Size = new System.Drawing.Size(808, 481);
             // 
             // ETrialBalanceReportForm
             // 
@@ -55,7 +51,7 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters2"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters3"))));
-            this.Size = new System.Drawing.Size(789, 379);
+            this.Size = new System.Drawing.Size(808, 481);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

@@ -246,6 +246,12 @@ namespace Jk_Accounting_Software.Internal.Classes
                         VDataTable.Dispose();
                     }
                     break;
+                case "@CurrentMonthFrom":
+                    value = IDateHandler.CurrentMonth(true).ToString("MM'/'dd'/'yyyy");
+                    break;
+                case "@CurrentMonthTo":
+                    value = IDateHandler.CurrentMonth(false).ToString("MM'/'dd'/'yyyy");
+                    break;
                 default:
                     value = PDefaultValue;
                     break;

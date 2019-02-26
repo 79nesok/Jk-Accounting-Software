@@ -37,16 +37,13 @@
             // 
             // reportViewer
             // 
-            this.reportViewer.Size = new System.Drawing.Size(789, 247);
+            this.reportViewer.Size = new System.Drawing.Size(808, 349);
+            this.reportViewer.Back += new Microsoft.Reporting.WinForms.BackEventHandler(this.reportViewer_Back);
             this.reportViewer.Drillthrough += new Microsoft.Reporting.WinForms.DrillthroughEventHandler(this.reportViewer_Drillthrough);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 345);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 379);
+            this.splitContainer.Size = new System.Drawing.Size(808, 481);
             // 
             // EGeneralLedgerReportForm
             // 
@@ -55,7 +52,7 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters2"))));
-            this.Size = new System.Drawing.Size(789, 379);
+            this.Size = new System.Drawing.Size(808, 481);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

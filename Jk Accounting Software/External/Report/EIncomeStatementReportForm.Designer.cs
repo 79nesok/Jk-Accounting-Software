@@ -37,11 +37,11 @@
             // 
             // reportViewer
             // 
-            this.reportViewer.Size = new System.Drawing.Size(789, 374);
+            this.reportViewer.Size = new System.Drawing.Size(808, 349);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 506);
+            this.splitContainer.Size = new System.Drawing.Size(808, 481);
             // 
             // EIncomeStatementReportForm
             // 
@@ -50,7 +50,7 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters2"))));
-            this.Size = new System.Drawing.Size(789, 506);
+            this.Size = new System.Drawing.Size(808, 481);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

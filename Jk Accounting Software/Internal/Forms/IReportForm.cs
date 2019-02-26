@@ -79,6 +79,14 @@ namespace Jk_Accounting_Software.Internal.Forms
                         DateTimePicker dateTimePickerFrom = new DateTimePicker();
                         DateTimePicker dateTimePickerTo = new DateTimePicker();
                         Button btnDateRangeSelection = new Button();
+                        String FromDateDefault = Parameters.Find(p => p.Name == "FromDate").Value;
+                        String ToDateDefault= Parameters.Find(p => p.Name == "ToDate").Value;
+
+                        if (!String.IsNullOrWhiteSpace(FromDateDefault))
+                            dateTimePickerFrom.Value = IDateHandler.Parse(IAppHandler.ConvertMaskValue(FromDateDefault).ToString());
+
+                        if (!String.IsNullOrWhiteSpace(ToDateDefault))
+                            dateTimePickerTo.Value = IDateHandler.Parse(IAppHandler.ConvertMaskValue(ToDateDefault).ToString());
 
                         labelFrom.Name = "ControlLabelFromDate";
                         labelFrom.Text = "From:";
@@ -334,6 +342,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 JkFormParameter param = null;
 
                 reportViewer.Focus();
+                toolStripReportParam.Visible = true;
                 foreach (ToolStripItem item in toolStripReportParam.Items)
                 {
                     if (item is ToolStripControlHost)
