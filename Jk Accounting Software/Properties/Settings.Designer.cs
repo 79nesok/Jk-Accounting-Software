@@ -49,8 +49,7 @@ namespace Jk_Accounting_Software.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("E:\\Projects\\C#\\Free-Accounting-Software\\Jk Accounting Software\\External\\Printouts" +
-            "\\")]
+        [global::System.Configuration.DefaultSettingValueAttribute("E:\\Projects\\C#\\Jk-Accounting-Software\\Jk Accounting Software\\External\\Printouts\\")]
         public string ReportPath {
             get {
                 return ((string)(this["ReportPath"]));
