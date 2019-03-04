@@ -1,13 +1,13 @@
-﻿namespace Jk_Accounting_Software.External.Accounting
+﻿namespace Jk_Accounting_Software.External.Maintenance
 {
-    partial class ECashDisbursementVouchersListForm
+    partial class EAlphanumericTaxCodesListForm
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,43 +20,40 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashDisbursementVouchersListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EAlphanumericTaxCodesListForm));
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ECashDisbursementVouchersListForm
+            // splitContainer
+            // 
+            this.splitContainer.Size = new System.Drawing.Size(808, 506);
+            // 
+            // EAlphanumericTaxCodesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Cash Disbursement Vouchers";
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Caption = "Alphanumeric Tax Codes";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns3"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns4"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns5"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns6"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns7"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns8"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns9"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns10"))));
-            this.CommandText = resources.GetString("$this.CommandText");
+            this.CommandText = "SELECT Id, Code, NatureOfIncomePayment, NewRate AS Rate,\r\n\tRemarks, Active\r\nFROM " +
+    "tblAlphaNumericTaxCodes";
             this.GridAutoSize = false;
-            this.Name = "ECashDisbursementVouchersListForm";
-            this.NewFormName = "ECashDisbursementVoucherForm";
-            this.OpenFormName = "ECashDisbursementVoucherForm";
-            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(808, 481);
+            this.Name = "EAlphanumericTaxCodesListForm";
+            this.Size = new System.Drawing.Size(808, 506);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

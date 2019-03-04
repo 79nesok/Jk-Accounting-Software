@@ -4,6 +4,7 @@ IF OBJECT_ID('tblItems') IS NULL
 		CompanyId INT NOT NULL,
 		Code VARCHAR(50) NOT NULL,
 		Name VARCHAR(100) NULL,
+		TypeId INT NOT NULL,
 		Remarks VARCHAR(1000) NULL,
 		Active BIT NOT NULL CONSTRAINT DF_tblItems_Active DEFAULT 1,
 		CreatedById INT NOT NULL,

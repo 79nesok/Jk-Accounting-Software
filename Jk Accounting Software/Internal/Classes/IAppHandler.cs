@@ -140,29 +140,34 @@ namespace Jk_Accounting_Software.Internal.Classes
         {
             Object result = null;
 
-            if (PControl.GetType().Name == "TextBox")
+            if (PControl is TextBox)
             {
                 if (!String.IsNullOrWhiteSpace((PControl as TextBox).Text))
                     result = (PControl as TextBox).Text;
             }
-            else if (PControl.GetType().Name == "CheckBox")
+            else if (PControl is CheckBox)
                 result = (PControl as CheckBox).Checked;
-            else if (PControl.GetType().Name == "DateTimePicker")
+            else if (PControl is DateTimePicker)
             {
                 if ((PControl as DateTimePicker).Value != null)
                     result = (PControl as DateTimePicker).Value.ToString();
             }
-            else if (PControl.GetType().Name == "PictureBox")
+            else if (PControl is PictureBox)
                 result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
-            else if (PControl.GetType().Name == "JkLookUpComboBox")
+            else if (PControl is JkLookUpComboBox)
             {
                 if ((PControl as JkLookUpComboBox).SelectedKey != 0)
                     result = (PControl as JkLookUpComboBox).SelectedKey;
             }
-            else if (PControl.GetType().Name == "JkTextBox")
+            else if (PControl is JkTextBox)
             {
                 if (!String.IsNullOrWhiteSpace((PControl as JkTextBox).Text))
                     result = (PControl as JkTextBox).Text;
+            }
+            else if (PControl is MaskedTextBox)
+            {
+                if (!String.IsNullOrWhiteSpace((PControl as MaskedTextBox).Text))
+                    result = (PControl as MaskedTextBox).Text;
             }
 
             return result;
@@ -170,7 +175,7 @@ namespace Jk_Accounting_Software.Internal.Classes
 
         public static void SetControlsValue(Control PControl, Object PValue)
         {
-            if (PControl.GetType().Name == "TextBox")
+            if (PControl is TextBox)
             {
                 if (PValue != null)
                 {
@@ -181,20 +186,20 @@ namespace Jk_Accounting_Software.Internal.Classes
 
                 }
             }
-            else if (PControl.GetType().Name == "CheckBox")
+            else if (PControl is CheckBox)
                 (PControl as CheckBox).Checked = Convert.ToBoolean(PValue);
-            else if (PControl.GetType().Name == "DateTimePicker")
+            else if (PControl is DateTimePicker)
                 (PControl as DateTimePicker).Value = new DateTime(Convert.ToDateTime(PValue).Year, Convert.ToDateTime(PValue).Month, Convert.ToDateTime(PValue).Day);
-            else if (PControl.GetType().Name == "PictureBox")
+            else if (PControl is PictureBox)
                 (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
-            else if (PControl.GetType().Name == "JkLookUpComboBox")
+            else if (PControl is JkLookUpComboBox)
             {
                 if (PValue == DBNull.Value)
                     (PControl as JkLookUpComboBox).Text = String.Empty;
                 else
                     (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
             }
-            else if (PControl.GetType().Name == "JkTextBox")
+            else if (PControl is JkTextBox)
             {
                 if (PValue != null)
                 {
@@ -204,20 +209,29 @@ namespace Jk_Accounting_Software.Internal.Classes
                         (PControl as JkTextBox).Text = Convert.ToString(PValue);
                 }
             }
+            else if (PControl is MaskedTextBox)
+            {
+                if (PValue != null)
+                {
+                    (PControl as MaskedTextBox).Text = Convert.ToString(PValue);
+                }
+            }
         }
 
         public static void ClearControlsValue(Control PControl)
         {
-            if (PControl.GetType().Name == "TextBox")
+            if (PControl is TextBox)
                 (PControl as TextBox).Text = String.Empty;
-            else if (PControl.GetType().Name == "CheckBox")
+            else if (PControl is CheckBox)
                 (PControl as CheckBox).Checked = false;
-            else if (PControl.GetType().Name == "PictureBox")
+            else if (PControl is PictureBox)
                 (PControl as PictureBox).Image = null;
-            else if (PControl.GetType().Name == "JkLookUpComboBox")
+            else if (PControl is JkLookUpComboBox)
                 (PControl as JkLookUpComboBox).Text = String.Empty;
-            else if (PControl.GetType().Name == "JkTextBox")
+            else if (PControl is JkTextBox)
                 (PControl as JkTextBox).Text = String.Empty;
+            else if (PControl is MaskedTextBox)
+                (PControl as MaskedTextBox).Text = String.Empty;
         }
 
         public static Object ConvertMaskValue(Object PDefaultValue)
@@ -331,14 +345,6 @@ namespace Jk_Accounting_Software.Internal.Classes
             }
 
             return param.SqlDbType;
-        }
-
-        public static void ApplyStyleOnGrid(DataGridView gridView)
-        {
-            gridView.GridColor = Color.Peru;
-            gridView.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(180, 255, 200);
-            gridView.DefaultCellStyle.BackColor = Color.WhiteSmoke;
-            gridView.BorderStyle = BorderStyle.Fixed3D;
         }
 
         public static DataGridViewColumn GetColumnByDataPropertyName(DataGridView grid, String DataPropertyName)

@@ -14,6 +14,7 @@ namespace Jk_Accounting_Software.Internal.Classes
         public const String RemoveGridValue = "Remove assigned value on this cell?";
         public const String RemovePaidInvoice = "Invoice(s) are already paid, Are you sure do you want to remove the applied payment?";
         public const String RemoveAppliedAmount = "Do you want to remove Applied Amount";
+        public const String RemovePaidBills = "Bills are already paid, Are you sure do you want to remove the applied payment?";
 
         //Errors
         public const String LoadDataError = "Unable to load data: ";
@@ -55,5 +56,6 @@ namespace Jk_Accounting_Software.Internal.Classes
         public const String TestConnectionSuccess = "Test connection succeded.";
         public const String FillRequiredFieldMessage = "Please fill up all required fields.";
         public const String NoPendingInvoice = "No pending invoice(s) for the selected subsidiary.";
+        public const String NoPendingBills = "No pending bills for the selected subsidiary.";
     }
 }

@@ -34,6 +34,8 @@
             this.txtCode = new JkComponents.JkTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtName = new JkComponents.JkTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbType = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -69,6 +71,8 @@
             this.flowLayoutPanel2.Controls.Add(this.txtCode);
             this.flowLayoutPanel2.Controls.Add(this.label7);
             this.flowLayoutPanel2.Controls.Add(this.txtName);
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.cmbType);
             this.flowLayoutPanel2.Controls.Add(this.label9);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
             this.flowLayoutPanel2.Controls.Add(this.label10);
@@ -117,9 +121,34 @@
             this.txtName.Size = new System.Drawing.Size(230, 23);
             this.txtName.TabIndex = 2;
             // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.label1.Size = new System.Drawing.Size(145, 25);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Type:";
+            // 
+            // cmbType
+            // 
+            this.cmbType.DataSet = "dstItemTypes";
+            this.cmbType.DisplayText = "Name";
+            this.cmbType.ForeColor = System.Drawing.Color.Black;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Key = "Id";
+            this.cmbType.Location = new System.Drawing.Point(151, 71);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Required = false;
+            this.cmbType.SelectedKey = 0;
+            this.cmbType.Size = new System.Drawing.Size(230, 23);
+            this.cmbType.TabIndex = 10;
+            // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(0, 66);
+            this.label9.Location = new System.Drawing.Point(0, 99);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -129,7 +158,7 @@
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(151, 71);
+            this.txtRemarks.Location = new System.Drawing.Point(151, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -139,7 +168,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(0, 166);
+            this.label10.Location = new System.Drawing.Point(0, 199);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -149,7 +178,7 @@
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(151, 171);
+            this.chkActive.Location = new System.Drawing.Point(151, 204);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);
@@ -161,8 +190,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Item";
-            this.CommandText = "SELECT Id, CompanyId, Code, Name, Remarks,\r\n\tActive, CreatedById, DateCreated,\r\n\t" +
-    "ModifiedById, DateModified\r\nFROM tblItems\r\nWHERE Id = @Id";
+            this.CommandText = "SELECT Id, CompanyId, Code, Name, TypeId, Remarks,\r\n\tActive, CreatedById, DateCre" +
+    "ated,\r\n\tModifiedById, DateModified\r\nFROM tblItems\r\nWHERE Id = @Id";
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns2"))));
@@ -172,6 +201,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns6"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns7"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns8"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns9"))));
             this.Name = "EItemForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(808, 481);
@@ -199,5 +229,7 @@
         private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox chkActive;
+        private System.Windows.Forms.Label label1;
+        private JkComponents.JkLookUpComboBox cmbType;
     }
 }

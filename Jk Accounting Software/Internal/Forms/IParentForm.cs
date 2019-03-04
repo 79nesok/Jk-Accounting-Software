@@ -211,20 +211,21 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void ProcessControls(Control control)
             {
-                foreach (Control c in control.Controls)
+                foreach (Control childControls in control.Controls)
                 {
-                    if ((c.GetType().Name == "TextBox" && !(c as TextBox).ReadOnly) ||
-                        c.GetType().Name == "CheckBox" ||
-                        c.GetType().Name == "ComboBox" ||
-                        c.GetType().Name == "DateTimePicker" ||
-                        c.GetType().Name == "PictureBox" ||
-                        c.GetType().Name == "LinkLabel" ||
-                        c.GetType().Name == "JkLookUpComboBox" ||
-                        (c.GetType().Name == "JkTextBox" && !(c as JkTextBox).ReadOnly))
+                    if ((childControls is TextBox && !(childControls as TextBox).ReadOnly) ||
+                        childControls is CheckBox ||
+                        childControls is ComboBox ||
+                        childControls is DateTimePicker ||
+                        childControls is PictureBox ||
+                        childControls is LinkLabel ||
+                        childControls is JkLookUpComboBox ||
+                        (childControls is JkTextBox && !(childControls as JkTextBox).ReadOnly) ||
+                        childControls is MaskedTextBox)
                     {
-                        c.Enabled = (FormState != FormStates.fsView);
+                        childControls.Enabled = (FormState != FormStates.fsView);
                     }
-                    ProcessControls(c);
+                    ProcessControls(childControls);
                 }
             }
 

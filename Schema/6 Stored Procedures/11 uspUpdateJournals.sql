@@ -17,6 +17,7 @@ DECLARE @PayableAccountId INT
 DECLARE @OutputVATAccountId INT
 DECLARE @ReceivableAccountId INT
 DECLARE @CustomerOverPaymentAccountId INT
+DECLARE @PaymentMethodName VARCHAR(100)
 
 SELECT @Code = Code
 FROM tblJournalTypes
@@ -41,6 +42,11 @@ ELSE IF @JournalTypeId = 4
 	SELECT @JournalId = JournalId,
 		@CompanyId = CompanyId
 	FROM tblCashReceiptVouchers
+	WHERE Id = @Id
+ELSE IF @JournalTypeId = 5
+	SELECT @JournalId = JournalId,
+		@CompanyId = CompanyId
+	FROM tblCashDisbursementVouchers
 	WHERE Id = @Id
 
 SELECT @InputVATAccountId = a.Id
@@ -303,8 +309,6 @@ BEGIN
 				AND @JournalTypeId = 4
 		END
 
-		DECLARE @PaymentMethodName VARCHAR(100)
-
 		SELECT @PaymentMethodName = pm.Name
 		FROM tblCashReceiptVoucherDetails cpd
 			INNER JOIN tblPaymentMethods pm ON pm.Id = cpd.PaymentMethodId
@@ -378,6 +382,79 @@ BEGIN
 		WHERE cv.Id = @Id
 			AND cd.Amount > cid.AppliedAmount
 	END
+	ELSE IF @JournalTypeId = 5
+	BEGIN
+		--Post payment to bills
+		EXEC uspUpdateBillsAmounts @Id, @IsPost
+
+		IF @JournalId IS NULL
+		BEGIN
+			INSERT INTO tblJournals(CompanyId, JournalTypeId, TransactionNo, [Date],
+				ReferenceNo, ReferenceNo2, Remarks, SourceId, SourceTransactionNo,
+				CreatedById, DateCreated, ModifiedById, DateModified)
+			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
+				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
+				CreatedById, DateCreated, ModifiedById, DateModified
+			FROM tblCashDisbursementVouchers
+			WHERE Id = @Id
+				AND @JournalTypeId = 5
+	
+			SET @JournalId = SCOPE_IDENTITY()
+
+			UPDATE tblCashDisbursementVouchers
+			SET JournalId = @JournalId
+			WHERE Id = @Id
+
+			SET @IsNew = 1
+		END
+		ELSE
+		BEGIN
+			UPDATE j
+			SET j.[Date] = cdv.[Date],
+				j.ReferenceNo = cdv.ReferenceNo,
+				j.ReferenceNo2 = cdv.ReferenceNo2,
+				j.ModifiedById = cdv.ModifiedById,
+				j.DateModified = cdv.DateModified
+			FROM tblJournals j
+				INNER JOIN tblCashDisbursementVouchers cdv ON cdv.JournalId = j.Id
+			WHERE j.Id = @JournalId
+				AND @JournalTypeId = 5
+		END
+
+		SELECT @PaymentMethodName = pm.Name
+		FROM tblCashDisbursementVoucherDetails cdd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = cdd.PaymentMethodId
+		WHERE cdd.CashDisbursementVoucherId = @Id
+			AND pm.AccountId IS NULL
+
+		--Payable
+		IF @PayableAccountId IS NULL
+		BEGIN
+			RAISERROR('No Payable Account has been set-up.', 11, 1)
+			RETURN
+		END
+
+		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+		SELECT @JournalId, @PayableAccountId, cdv.SubsidiaryId, SUM(cbd.AppliedAmount), 0
+		FROM tblCashDisbursementVoucherBillsDetails cbd
+			INNER JOIN tblCashDisbursementVouchers cdv ON cdv.Id = cbd.CashDisbursementVoucherId
+		WHERE cbd.CashDisbursementVoucherId = @Id
+		GROUP BY cdv.SubsidiaryId
+
+		IF NULLIF(@PaymentMethodName, '') IS NOT NULL
+		BEGIN
+			RAISERROR('Please set-up account for this Payment Method: %s', 11, 1, @PaymentMethodName)
+			RETURN
+		END
+
+		--Payment
+		INSERT INTO tblJournalDetails(JournalId, AccountId, Debit, Credit)
+		SELECT @JournalId, pm.AccountId, 0, SUM(cvd.Amount)
+		FROM tblCashDisbursementVoucherDetails cvd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = cvd.PaymentMethodId
+		WHERE cvd.CashDisbursementVoucherId = @Id
+		GROUP BY pm.AccountId
+	END
 	
 	EXEC uspUpdateLedgers @JournalId, 1
 
@@ -407,6 +484,12 @@ BEGIN
 	IF @JournalTypeId = 4
 	BEGIN
 		EXEC uspUpdateInvoiceAmounts @Id, @IsPost
+	END
+
+	--if Cash Disbursement Voucher, unpost payment to bills
+	ELSE IF @JournalTypeId = 5
+	BEGIN
+		EXEC uspUpdateBillsAmounts @Id, @IsPost
 	END
 END
 GO

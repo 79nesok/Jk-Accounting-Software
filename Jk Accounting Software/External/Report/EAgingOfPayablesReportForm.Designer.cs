@@ -1,6 +1,6 @@
-﻿namespace Jk_Accounting_Software.External.Maintenance
+﻿namespace Jk_Accounting_Software.External.Report
 {
-    partial class EItemsListForm
+    partial class EAgingOfPayablesReportForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,33 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EItemsListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EAgingOfPayablesReportForm));
+            this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // EItemsListForm
+            // reportViewer
+            // 
+            this.reportViewer.Size = new System.Drawing.Size(808, 349);
+            // 
+            // splitContainer
+            // 
+            this.splitContainer.Size = new System.Drawing.Size(808, 481);
+            // 
+            // EAgingOfPayablesReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Items";
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns3"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns4"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns5"))));
-            this.CommandText = "SELECT i.Id, i.Code, i.Name, it.Name AS Type, i.Remarks, i.Active\r\nFROM tblItems " +
-    "i\r\n\tINNER JOIN tblItemTypes it ON it.Id = i.TypeId\r\nWHERE i.CompanyId = @Company" +
-    "Id";
-            this.Name = "EItemsListForm";
-            this.NewFormName = "EItemForm";
-            this.OpenFormName = "EItemForm";
+            this.Name = "EAgingOfPayablesReportForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(808, 481);
-            this.ZLoadColumns = true;
-            this.ZLoadGrid = true;
+            this.FormFooter.ResumeLayout(false);
+            this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);

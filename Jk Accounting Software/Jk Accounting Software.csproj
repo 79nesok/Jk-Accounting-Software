@@ -83,6 +83,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="External\Accounting\ECashDisbursementVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECashDisbursementVoucherForm.Designer.cs">
+      <DependentUpon>ECashDisbursementVoucherForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\ECustomerOverpaymentForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -94,6 +100,15 @@
     </Compile>
     <Compile Include="External\Accounting\ECustomerOverpaymentsListForm.Designer.cs">
       <DependentUpon>ECustomerOverpaymentsListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\EAgingOfPayablesReportDS.cs">
+      <DependentUpon>EAgingOfPayablesReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EAgingOfPayablesReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EAgingOfPayablesReportDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="External\Datasources\EAgingOfReceivablesReportDS.cs">
       <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
@@ -109,6 +124,12 @@
     </Compile>
     <Compile Include="External\Maintenance\EAccountForm.Designer.cs">
       <DependentUpon>EAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Maintenance\EAlphanumericTaxCodesListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Maintenance\EAlphanumericTaxCodesListForm.Designer.cs">
+      <DependentUpon>EAlphanumericTaxCodesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Maintenance\EAssetsListForm.cs">
       <SubType>UserControl</SubType>
@@ -332,6 +353,12 @@
     <Compile Include="External\Maintenance\ESuppliersListForm.Designer.cs">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\EAgingOfPayablesReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EAgingOfPayablesReportForm.Designer.cs">
+      <DependentUpon>EAgingOfPayablesReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\EAgingOfReceivablesReportForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -486,6 +513,9 @@
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Testing\MainApplication.cs" />
+    <EmbeddedResource Include="External\Accounting\ECashDisbursementVoucherForm.resx">
+      <DependentUpon>ECashDisbursementVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECustomerOverpaymentForm.resx">
       <DependentUpon>ECustomerOverpaymentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -494,6 +524,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\EAccountForm.resx">
       <DependentUpon>EAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Maintenance\EAlphanumericTaxCodesListForm.resx">
+      <DependentUpon>EAlphanumericTaxCodesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\EAssetsListForm.resx">
       <DependentUpon>EAssetsListForm.cs</DependentUpon>
@@ -570,6 +603,7 @@
     <EmbeddedResource Include="External\Maintenance\ESuppliersListForm.resx">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Printouts\Aging of Payables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
@@ -577,6 +611,9 @@
     <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Trial Balance.rdlc" />
+    <EmbeddedResource Include="External\Report\EAgingOfPayablesReportForm.resx">
+      <DependentUpon>EAgingOfPayablesReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EAgingOfReceivablesReportForm.resx">
       <DependentUpon>EAgingOfReceivablesReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -661,6 +698,17 @@
     <EmbeddedResource Include="Internal\Forms\ITextPropertyEditor.resx">
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="External\Datasources\EAgingOfPayablesReportDS.xsc">
+      <DependentUpon>EAgingOfPayablesReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EAgingOfPayablesReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EAgingOfPayablesReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EAgingOfPayablesReportDS.xss">
+      <DependentUpon>EAgingOfPayablesReportDS.xsd</DependentUpon>
+    </None>
     <None Include="External\Datasources\EAgingOfReceivablesReportDS.xsc">
       <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
     </None>

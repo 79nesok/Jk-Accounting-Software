@@ -41,6 +41,8 @@
             this.dstVATTypes = new JkComponents.JkDataSet();
             this.dstPaymentMethods = new JkComponents.JkDataSet();
             this.dstItems = new JkComponents.JkDataSet();
+            this.dstItemTypes = new JkComponents.JkDataSet();
+            this.dstATC = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSecurityUsers
@@ -194,11 +196,38 @@
             this.dstItems.Text = "jkDataSet3";
             this.dstItems.ZLoadColumns = false;
             // 
+            // dstItemTypes
+            // 
+            this.dstItemTypes.BackColor = System.Drawing.Color.Khaki;
+            this.dstItemTypes.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblItemTypes";
+            this.dstItemTypes.Connection = this.cnConnection;
+            this.dstItemTypes.Location = new System.Drawing.Point(4, 56);
+            this.dstItemTypes.Name = "dstItemTypes";
+            this.dstItemTypes.Size = new System.Drawing.Size(72, 20);
+            this.dstItemTypes.TabIndex = 12;
+            this.dstItemTypes.Text = "jkDataSet3";
+            this.dstItemTypes.ZLoadColumns = false;
+            // 
+            // dstATC
+            // 
+            this.dstATC.BackColor = System.Drawing.Color.Khaki;
+            this.dstATC.CommandText = "SELECT Id, Code, NewRate AS Rate, Active,\r\n\tCode + \' - \' + CAST(NewRate AS VARCHA" +
+    "R) + \'%\' AS CodeRate\r\nFROM tblAlphaNumericTaxCodes";
+            this.dstATC.Connection = this.cnConnection;
+            this.dstATC.Location = new System.Drawing.Point(82, 56);
+            this.dstATC.Name = "dstATC";
+            this.dstATC.Size = new System.Drawing.Size(40, 20);
+            this.dstATC.TabIndex = 13;
+            this.dstATC.Text = "jkDataSet3";
+            this.dstATC.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstATC);
+            this.Controls.Add(this.dstItemTypes);
             this.Controls.Add(this.dstItems);
             this.Controls.Add(this.dstPaymentMethods);
             this.Controls.Add(this.dstVATTypes);
@@ -231,5 +260,7 @@
         public JkComponents.JkDataSet dstVATTypes;
         public JkComponents.JkDataSet dstPaymentMethods;
         public JkComponents.JkDataSet dstItems;
+        public JkComponents.JkDataSet dstItemTypes;
+        public JkComponents.JkDataSet dstATC;
     }
 }

@@ -58,7 +58,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 InitializeComponent();
 
-                IAppHandler.ApplyStyleOnGrid(dataGridView);
+                JkDataGridView.ApplyStyleOnGrid(dataGridView);
                 dataGridView.AllowUserToAddRows = false;
                 dataGridView.AllowUserToDeleteRows = false;
             }

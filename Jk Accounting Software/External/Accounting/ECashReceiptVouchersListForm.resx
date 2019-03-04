@@ -141,7 +141,7 @@
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
         AQYEAAAADVRyYW5zYWN0aW9uTm8GBQAAAA5UcmFuc2FjdGlvbiBObwX6////FVN5c3RlbS5EYXRhLlNx
-        bERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAwAAABkAAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1u
+        bERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAwAAAB4AAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1u
         K0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAQAAAAs=
 </value>
   </data>
@@ -169,7 +169,7 @@
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
         AQYEAAAAClN1YnNpZGlhcnkJBAAAAAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVf
-        XwAIAwAAAAwAAABkAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVz
+        XwAIAwAAAAwAAACMAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVz
         AQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAs=
 </value>
   </data>
@@ -183,7 +183,7 @@
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
         AQYEAAAAC1JlZmVyZW5jZU5vBgUAAAAMUmVmZXJlbmNlIE5vBfr///8VU3lzdGVtLkRhdGEuU3FsRGJU
-        eXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAGQAAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4rQ29s
+        eXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAG4AAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4rQ29s
         dW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIAAAAAAAAACw==
 </value>
   </data>
@@ -197,11 +197,53 @@
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
         AQYEAAAADFJlZmVyZW5jZU5vMgYFAAAADlJlZmVyZW5jZSBObyAyBfr///8VU3lzdGVtLkRhdGEuU3Fs
-        RGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAGQAAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4r
+        RGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAG4AAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4r
         Q29sdW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIAAAAAAAAACw==
 </value>
   </data>
   <data name="$this.Columns6" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
+        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
+        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
+        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
+        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
+        AQYEAAAACkFtb3VudFBhaWQGBQAAAAtBbW91bnQgUGFpZAX6////FVN5c3RlbS5EYXRhLlNxbERiVHlw
+        ZQEAAAAHdmFsdWVfXwAIAwAAAAUAAABkAAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVt
+        bkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAgAAAAs=
+</value>
+  </data>
+  <data name="$this.Columns7" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
+        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
+        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
+        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
+        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
+        AQYEAAAADUFtb3VudEFwcGxpZWQGBQAAAA5BbW91bnQgQXBwbGllZAX6////FVN5c3RlbS5EYXRhLlNx
+        bERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAUAAAB4AAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1u
+        K0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAgAAAAs=
+</value>
+  </data>
+  <data name="$this.Columns8" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
+        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
+        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
+        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
+        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
+        AQYEAAAAB0JhbGFuY2UJBAAAAAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAI
+        AwAAAAUAAABkAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAA
+        AAd2YWx1ZV9fAAgCAAAAAgAAAAs=
+</value>
+  </data>
+  <data name="$this.Columns9" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -215,7 +257,7 @@
         AAd2YWx1ZV9fAAgCAAAAAAAAAAs=
 </value>
   </data>
-  <data name="$this.Columns7" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.Columns10" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -232,6 +274,7 @@
   <data name="$this.CommandText" xml:space="preserve">
     <value>SELECT crv.Id, crv.TransactionNo, crv.[Date],
 	s.Name AS Subsidiary, crv.ReferenceNo, crv.ReferenceNo2,
+	crv.AmountPaid, crv.AmountApplied, crv.Balance,
 	crv.Remarks, crv.Voided
 FROM tblCashReceiptVouchers crv
 	INNER JOIN tblSubsidiaries s ON s.Id = crv.SubsidiaryId

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
-using Jk_Accounting_Software.External.Datasources.EAgingOfReceivablesReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.EAgingOfPayablesReportDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
 {
-    public partial class EAgingOfReceivablesReportForm : IReportForm
+    public partial class EAgingOfPayablesReportForm : IReportForm
     {
-        public EAgingOfReceivablesReportForm()
+        public EAgingOfPayablesReportForm()
         {
             InitializeComponent();
         }
@@ -28,21 +28,21 @@ namespace Jk_Accounting_Software.External.Report
             int CompanyId = int.Parse(Parameters.Find(p => p.Name == "CompanyId").Value);
             ReportParameter[] reportParam = new ReportParameter[1];
 
-            EAgingOfReceivablesReportDS agingDataSource = new EAgingOfReceivablesReportDS();
-            AgingOfReceivablesTableAdapter agingAdapter = new AgingOfReceivablesTableAdapter();
+            EAgingOfPayablesReportDS agingDataSource = new EAgingOfPayablesReportDS();
+            AgingOfPayablesTableAdapter agingAdapter = new AgingOfPayablesTableAdapter();
             tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
-            agingAdapter.Fill(agingDataSource.AgingOfReceivables, CompanyId);
+            agingAdapter.Fill(agingDataSource.AgingOfPayables, CompanyId);
             companyAdapter.Fill(agingDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
-            reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Aging of Receivables.rdlc";
+            reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Aging of Payables.rdlc";
 
             reportParam[0] = new ReportParameter("Date", DateTime.Now.ToString("MM'/'dd'/'yyyy"), false);
 
             reportViewer.LocalReport.SetParameters(reportParam);
 
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("AgingOfReceivables", agingDataSource.Tables["AgingOfReceivables"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("AgingOfPayables", agingDataSource.Tables["AgingOfPayables"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", agingDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }

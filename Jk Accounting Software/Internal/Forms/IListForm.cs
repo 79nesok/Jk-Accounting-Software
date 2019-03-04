@@ -174,14 +174,15 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 InitializeComponent();
 
-                IAppHandler.ApplyStyleOnGrid(dataGridView);
+                JkDataGridView.ApplyStyleOnGrid(dataGridView);
                 dataGridView.AllowUserToAddRows = false;
                 dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                 dataGridView.AllowUserToOrderColumns = true;
 
                 btnNew.Click += (obj, e) =>
                 {
-                    OnOpenForm(null, btnNew);
+                    if (!String.IsNullOrWhiteSpace(this.NewFormName))
+                        OnOpenForm(null, btnNew);
                 };
             }
 
@@ -196,7 +197,7 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
             {
-                if (e.ColumnIndex != -1 && e.RowIndex != -1)
+                if (e.ColumnIndex != -1 && e.RowIndex != -1 && !String.IsNullOrWhiteSpace(this.OpenFormName))
                     OnOpenForm(null, dataGridView);
             }
 
