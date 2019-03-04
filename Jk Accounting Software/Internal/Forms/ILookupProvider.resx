@@ -119,7 +119,8 @@
   </resheader>
   <data name="dstSubsidiaries.CommandText" xml:space="preserve">
     <value>SELECT s.Id, s.Code, s.Name, s.Active,
-	'Name: ' + s.Name + ' Type: ' + st.Name AS NameWithType
+	'Name: ' + s.Name + ' Type: ' + st.Name AS NameWithType,
+	s.ATCId
 FROM tblSubsidiaries s
 	INNER JOIN tblSubsidiaryTypes st ON st.Id = s.SubsidiaryTypeId
 WHERE s.CompanyId = @CompanyId

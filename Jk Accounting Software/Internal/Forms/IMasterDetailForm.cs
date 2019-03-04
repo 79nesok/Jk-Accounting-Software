@@ -78,7 +78,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                     if (FormState == FormStates.fsView)
                         DataSet.GridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                     else
-                        DataSet.GridView.EditMode = DataGridViewEditMode.EditOnEnter;
+                        DataSet.GridView.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
 
                     DataSet.GridView.AllowUserToAddRows = FormState != FormStates.fsView;
                     DataSet.GridView.AllowUserToDeleteRows = FormState != FormStates.fsView;

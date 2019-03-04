@@ -185,8 +185,8 @@
             // dstItems
             // 
             this.dstItems.BackColor = System.Drawing.Color.Khaki;
-            this.dstItems.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblItems\r\nWHERE CompanyId = @CompanyId\r\nORDER" +
-    " BY Name";
+            this.dstItems.CommandText = "SELECT Id, Code, Name, TypeId, Active\r\nFROM tblItems\r\nWHERE CompanyId = @CompanyI" +
+    "d\r\nORDER BY Name";
             this.dstItems.Connection = this.cnConnection;
             this.dstItems.Location = new System.Drawing.Point(489, 30);
             this.dstItems.Name = "dstItems";

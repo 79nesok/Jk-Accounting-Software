@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using JkComponents;
 using System.Data.SqlClient;
+using Jk_Accounting_Software.Internal.Classes;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
@@ -21,7 +22,19 @@ namespace Jk_Accounting_Software.External.Accounting
         {
             InitializeComponent();
             dataGridView.CellValueChanged += dataGridView_CellValueChanged;
+            dataGridView.RowsRemoved += dataGridView_RowsRemoved;
+            dataGridView.RowsAdded += dataGridView_RowsAdded;
             dataGridViewJournalEntry.AutoGenerateColumns = false;
+        }
+
+        private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            chkWTAX.Enabled = EnableComputeAndDeductWTAX();
+        }
+
+        private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            chkWTAX.Enabled = EnableComputeAndDeductWTAX();
         }
 
         private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -36,6 +49,7 @@ namespace Jk_Accounting_Software.External.Accounting
 
             ComputeDetailAmount();
             ComputeMasterAmount();
+            chkWTAX.Enabled = EnableComputeAndDeductWTAX();
         }
 
         private double ComputeVATAmount(int VATTypeId, double Amount)
@@ -171,6 +185,66 @@ namespace Jk_Accounting_Software.External.Accounting
         {
             base.UnPost();
             Post(false);
+        }
+
+        protected override void UpdateControls()
+        {
+            base.UpdateControls();
+
+            chkWTAX.Enabled = (FormState != FormStates.fsView) && EnableComputeAndDeductWTAX();
+        }
+
+        private bool EnableComputeAndDeductWTAX()
+        {
+            bool value = false;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Index != dataGridView.NewRowIndex
+                    && row.Cells[dataGridView.GetCellIndex("ItemId")].Value != DBNull.Value)
+                {
+                    //check if details has service type of item
+                    if (VLookupProvider.DataSetLookup(VLookupProvider.dstItems, "Id", row.Cells[dataGridView.GetCellIndex("ItemId")].Value, "TypeId").ToString() == "2")
+                        value = true;
+                }
+            }
+
+            return value;
+        }
+
+        private void chkWTAX_CheckedChanged(object sender, EventArgs e)
+        {
+            if (FormState == FormStates.fsView)
+                return;
+
+            double GrossAmount = 0, Rate = 0;
+            int ATCId = 0;
+
+            if (chkWTAX.Checked)
+            {
+                foreach (DataGridViewRow row in dataGridView.Rows)
+                {
+                    if (row.Index != dataGridView.NewRowIndex
+                        && row.Cells[dataGridView.GetCellIndex("ItemId")].Value != DBNull.Value
+                        && VLookupProvider.DataSetLookup(VLookupProvider.dstItems, "Id", row.Cells[dataGridView.GetCellIndex("ItemId")].Value, "TypeId").ToString() == "2")
+                    {
+                        GrossAmount += double.Parse(row.Cells[dataGridView.GetCellIndex("GrossAmount")].Value.ToString());
+                    }
+                }
+
+                ATCId = int.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaries, "Id", cmbSubsidiary.SelectedKey, "ATCId").ToString());
+                if (ATCId == 0)
+                {
+                    IMessageHandler.ShowError(ISystemMessages.NoATCAssigned);
+                    return;
+                }
+                Rate = double.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstATC, "Id", ATCId, "Rate").ToString());
+                GrossAmount = GrossAmount * (Rate / 100);
+                txtGrossAmount.Text = (double.Parse(txtGrossAmount.Text) - GrossAmount).ToString("N2");
+            }
+
+            txtGrossAmount.Text = (double.Parse(txtGrossAmount.Text) + double.Parse(txtWTAX.Text)).ToString("N2");
+            txtWTAX.Text = GrossAmount.ToString("N2");
         }
     }
 }

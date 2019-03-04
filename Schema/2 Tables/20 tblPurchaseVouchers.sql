@@ -8,6 +8,8 @@ IF OBJECT_ID('tblPurchaseVouchers') IS NULL
 		ReferenceNo2 VARCHAR(50) NULL,
 		SubsidiaryId INT NOT NULL,
 		GrossAmount MONEY NOT NULL CONSTRAINT DF_tblPurchaseVouchers_GrossAmount DEFAULT 0,
+		ComputeAndDeductWithholdingTax BIT NOT NULL CONSTRAINT DF_tblPurchaseVouchers_ComputeAndDeductWithholdingTax DEFAULT 0,
+		WithholdingTax MONEY NOT NULL CONSTRAINT DF_tblPurchaseVouchers_WithholdingTax DEFAULT 0,
 		VATAmount MONEY NOT NULL CONSTRAINT DF_tblPurchaseVouchers_VATAmount DEFAULT 0,
 		DiscountAmount MONEY NOT NULL CONSTRAINT DF_tblPurchaseVouchers_DiscountAmount DEFAULT 0,
 		NetAmount MONEY NOT NULL CONSTRAINT DF_tblPurchaseVouchers_NetAmount DEFAULT 0,

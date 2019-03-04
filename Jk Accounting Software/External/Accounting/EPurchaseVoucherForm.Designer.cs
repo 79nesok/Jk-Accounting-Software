@@ -48,6 +48,8 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtGrossAmount = new JkComponents.JkTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtWTAX = new JkComponents.JkTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtVATAmount = new JkComponents.JkTextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,6 +60,8 @@
             this.txtPaidAmount = new JkComponents.JkTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.chkWTAX = new System.Windows.Forms.CheckBox();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             this.cmbSubsidiaryDetail = new JkComponents.JkLookUpComboBox();
             this.cmbVATTypes = new JkComponents.JkLookUpComboBox();
@@ -65,6 +69,7 @@
             this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
             this.dstJournalEntry = new JkComponents.JkDetailDataSet();
             this.cmbItems = new JkComponents.JkLookUpComboBox();
+            this.flowLayoutPanelWTAX = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
@@ -79,6 +84,7 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tabPageJournalEntry.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).BeginInit();
+            this.flowLayoutPanelWTAX.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMasterDetail
@@ -86,15 +92,16 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanelWTAX);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbItems);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbVATTypes);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiaryDetail);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(808, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -113,7 +120,7 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns12"))));
             this.dstDetail.CommandText = resources.GetString("dstDetail.CommandText");
-            this.dstDetail.Location = new System.Drawing.Point(731, 226);
+            this.dstDetail.Location = new System.Drawing.Point(780, 228);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
@@ -121,17 +128,25 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(808, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(837, 174);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(800, 146);
+            this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(808, 536);
+            this.splitContainer.Size = new System.Drawing.Size(837, 536);
             // 
             // jkSeriesProvider1
             // 
@@ -139,7 +154,7 @@
             this.jkSeriesProvider1.Code = "PV";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
-            this.jkSeriesProvider1.Location = new System.Drawing.Point(690, 200);
+            this.jkSeriesProvider1.Location = new System.Drawing.Point(739, 202);
             this.jkSeriesProvider1.Name = "jkSeriesProvider1";
             this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
             this.jkSeriesProvider1.TabIndex = 1;
@@ -301,6 +316,8 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.label3);
             this.flowLayoutPanel1.Controls.Add(this.txtGrossAmount);
+            this.flowLayoutPanel1.Controls.Add(this.label13);
+            this.flowLayoutPanel1.Controls.Add(this.txtWTAX);
             this.flowLayoutPanel1.Controls.Add(this.label4);
             this.flowLayoutPanel1.Controls.Add(this.txtVATAmount);
             this.flowLayoutPanel1.Controls.Add(this.label5);
@@ -340,9 +357,32 @@
             this.txtGrossAmount.TabIndex = 2;
             this.txtGrossAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label13
+            // 
+            this.label13.Location = new System.Drawing.Point(0, 27);
+            this.label13.Margin = new System.Windows.Forms.Padding(0);
+            this.label13.Name = "label13";
+            this.label13.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.label13.Size = new System.Drawing.Size(116, 27);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Withholding Tax:";
+            // 
+            // txtWTAX
+            // 
+            this.txtWTAX.BackColor = System.Drawing.Color.White;
+            this.txtWTAX.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtWTAX.Location = new System.Drawing.Point(122, 32);
+            this.txtWTAX.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtWTAX.Name = "txtWTAX";
+            this.txtWTAX.ReadOnly = true;
+            this.txtWTAX.Required = false;
+            this.txtWTAX.Size = new System.Drawing.Size(90, 16);
+            this.txtWTAX.TabIndex = 4;
+            this.txtWTAX.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(0, 27);
+            this.label4.Location = new System.Drawing.Point(0, 54);
             this.label4.Margin = new System.Windows.Forms.Padding(0);
             this.label4.Name = "label4";
             this.label4.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -354,7 +394,7 @@
             // 
             this.txtVATAmount.BackColor = System.Drawing.Color.White;
             this.txtVATAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVATAmount.Location = new System.Drawing.Point(122, 32);
+            this.txtVATAmount.Location = new System.Drawing.Point(122, 59);
             this.txtVATAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtVATAmount.Name = "txtVATAmount";
             this.txtVATAmount.ReadOnly = true;
@@ -365,7 +405,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(0, 54);
+            this.label5.Location = new System.Drawing.Point(0, 81);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -377,7 +417,7 @@
             // 
             this.txtDiscountAmount.BackColor = System.Drawing.Color.White;
             this.txtDiscountAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDiscountAmount.Location = new System.Drawing.Point(122, 59);
+            this.txtDiscountAmount.Location = new System.Drawing.Point(122, 86);
             this.txtDiscountAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtDiscountAmount.Name = "txtDiscountAmount";
             this.txtDiscountAmount.ReadOnly = true;
@@ -388,7 +428,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(0, 81);
+            this.label10.Location = new System.Drawing.Point(0, 108);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -400,7 +440,7 @@
             // 
             this.txtNetAmount.BackColor = System.Drawing.Color.White;
             this.txtNetAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNetAmount.Location = new System.Drawing.Point(122, 86);
+            this.txtNetAmount.Location = new System.Drawing.Point(122, 113);
             this.txtNetAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtNetAmount.Name = "txtNetAmount";
             this.txtNetAmount.ReadOnly = true;
@@ -411,7 +451,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(0, 108);
+            this.label11.Location = new System.Drawing.Point(0, 135);
             this.label11.Margin = new System.Windows.Forms.Padding(0);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -423,7 +463,7 @@
             // 
             this.txtPaidAmount.BackColor = System.Drawing.Color.White;
             this.txtPaidAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPaidAmount.Location = new System.Drawing.Point(122, 113);
+            this.txtPaidAmount.Location = new System.Drawing.Point(122, 140);
             this.txtPaidAmount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtPaidAmount.Name = "txtPaidAmount";
             this.txtPaidAmount.ReadOnly = true;
@@ -434,7 +474,7 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(0, 135);
+            this.label12.Location = new System.Drawing.Point(0, 162);
             this.label12.Margin = new System.Windows.Forms.Padding(0);
             this.label12.Name = "label12";
             this.label12.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -446,7 +486,7 @@
             // 
             this.txtBalance.BackColor = System.Drawing.Color.White;
             this.txtBalance.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBalance.Location = new System.Drawing.Point(122, 140);
+            this.txtBalance.Location = new System.Drawing.Point(122, 167);
             this.txtBalance.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtBalance.Name = "txtBalance";
             this.txtBalance.ReadOnly = true;
@@ -455,6 +495,27 @@
             this.txtBalance.TabIndex = 12;
             this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Margin = new System.Windows.Forms.Padding(0);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.label14.Size = new System.Drawing.Size(116, 60);
+            this.label14.TabIndex = 5;
+            this.label14.Text = "Compute and Deduct Withholding  Tax:";
+            // 
+            // chkWTAX
+            // 
+            this.chkWTAX.AutoSize = true;
+            this.chkWTAX.Location = new System.Drawing.Point(122, 5);
+            this.chkWTAX.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.chkWTAX.Name = "chkWTAX";
+            this.chkWTAX.Size = new System.Drawing.Size(15, 14);
+            this.chkWTAX.TabIndex = 6;
+            this.chkWTAX.UseVisualStyleBackColor = true;
+            this.chkWTAX.CheckedChanged += new System.EventHandler(this.chkWTAX_CheckedChanged);
+            // 
             // cmbAccounts
             // 
             this.cmbAccounts.DataSet = "dstAccounts";
@@ -462,7 +523,7 @@
             this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
             this.cmbAccounts.FormattingEnabled = true;
             this.cmbAccounts.Key = "Id";
-            this.cmbAccounts.Location = new System.Drawing.Point(713, 142);
+            this.cmbAccounts.Location = new System.Drawing.Point(762, 144);
             this.cmbAccounts.Name = "cmbAccounts";
             this.cmbAccounts.Required = false;
             this.cmbAccounts.SelectedKey = 0;
@@ -480,7 +541,7 @@
             this.cmbSubsidiaryDetail.FormattingEnabled = true;
             this.cmbSubsidiaryDetail.IntegralHeight = false;
             this.cmbSubsidiaryDetail.Key = "Id";
-            this.cmbSubsidiaryDetail.Location = new System.Drawing.Point(713, 173);
+            this.cmbSubsidiaryDetail.Location = new System.Drawing.Point(762, 175);
             this.cmbSubsidiaryDetail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiaryDetail.Name = "cmbSubsidiaryDetail";
             this.cmbSubsidiaryDetail.Required = false;
@@ -496,7 +557,7 @@
             this.cmbVATTypes.ForeColor = System.Drawing.Color.Black;
             this.cmbVATTypes.FormattingEnabled = true;
             this.cmbVATTypes.Key = "Id";
-            this.cmbVATTypes.Location = new System.Drawing.Point(713, 112);
+            this.cmbVATTypes.Location = new System.Drawing.Point(762, 114);
             this.cmbVATTypes.Name = "cmbVATTypes";
             this.cmbVATTypes.Required = false;
             this.cmbVATTypes.SelectedKey = 0;
@@ -554,7 +615,7 @@
             this.dstJournalEntry.GridAutoSize = true;
             this.dstJournalEntry.GridView = this.dataGridViewJournalEntry;
             this.dstJournalEntry.LinkToMaster = false;
-            this.dstJournalEntry.Location = new System.Drawing.Point(618, 173);
+            this.dstJournalEntry.Location = new System.Drawing.Point(747, 54);
             this.dstJournalEntry.Name = "dstJournalEntry";
             this.dstJournalEntry.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstJournalEntry.Parameters"))));
             this.dstJournalEntry.Size = new System.Drawing.Size(81, 20);
@@ -570,13 +631,23 @@
             this.cmbItems.ForeColor = System.Drawing.Color.Black;
             this.cmbItems.FormattingEnabled = true;
             this.cmbItems.Key = "Id";
-            this.cmbItems.Location = new System.Drawing.Point(713, 83);
+            this.cmbItems.Location = new System.Drawing.Point(762, 85);
             this.cmbItems.Name = "cmbItems";
             this.cmbItems.Required = false;
             this.cmbItems.SelectedKey = 0;
             this.cmbItems.Size = new System.Drawing.Size(66, 23);
             this.cmbItems.TabIndex = 23;
             this.cmbItems.Visible = false;
+            // 
+            // flowLayoutPanelWTAX
+            // 
+            this.flowLayoutPanelWTAX.Controls.Add(this.label14);
+            this.flowLayoutPanelWTAX.Controls.Add(this.chkWTAX);
+            this.flowLayoutPanelWTAX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanelWTAX.Location = new System.Drawing.Point(572, 0);
+            this.flowLayoutPanelWTAX.Name = "flowLayoutPanelWTAX";
+            this.flowLayoutPanelWTAX.Size = new System.Drawing.Size(169, 255);
+            this.flowLayoutPanelWTAX.TabIndex = 24;
             // 
             // EPurchaseVoucherForm
             // 
@@ -605,9 +676,11 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns18"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns19"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns20"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns21"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns22"))));
             this.Name = "EPurchaseVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(808, 536);
+            this.Size = new System.Drawing.Size(837, 536);
             this.ZLoadMasterColumns = true;
             this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EPurchaseVoucherForm_AfterRun);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
@@ -627,6 +700,8 @@
             this.flowLayoutPanel1.PerformLayout();
             this.tabPageJournalEntry.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).EndInit();
+            this.flowLayoutPanelWTAX.ResumeLayout(false);
+            this.flowLayoutPanelWTAX.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -667,5 +742,10 @@
         private System.Windows.Forms.TabPage tabPageJournalEntry;
         private JkComponents.JkDetailDataSet dstJournalEntry;
         private JkComponents.JkLookUpComboBox cmbItems;
+        private JkComponents.JkTextBox txtWTAX;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.CheckBox chkWTAX;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelWTAX;
     }
 }
