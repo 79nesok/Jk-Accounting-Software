@@ -21,9 +21,71 @@ namespace Jk_Accounting_Software.External.Accounting
             InitializeComponent();
             dataGridView.CellFormatting += dataGridView_CellFormatting;
             dataGridView.CellClick += dataGridView_CellClick;
-            dataGridView.CellEndEdit += dataGridView_CellEndEdit;
+            dataGridView.CellMouseEnter += dataGridView_CellMouseEnter;
 
             dataGridViewPaymentDetails.CellEndEdit += dataGridViewPaymentDetails_CellEndEdit;
+        }
+
+        private void dataGridView_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView.GetCellIndex("AmountToApply")
+                && dataGridView.EditMode != DataGridViewEditMode.EditProgrammatically
+                && double.Parse(dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("AppliedAmount")].Value.ToString()) == 0)
+            {
+                MenuItem Apply = new MenuItem();
+
+                Apply.Text = "Apply";
+
+                Apply.Click += delegate(object s, EventArgs ea)
+                {
+                    int BalanceIndex = dataGridView.GetCellIndex("Balance");
+                    int AmountAppliedIndex = dataGridView.GetCellIndex("AppliedAmount");
+                    int AmountToApplyIndex = dataGridView.GetCellIndex("AmountToApply");
+
+                    double AmountToApply = double.Parse(dataGridView.CurrentRow.Cells[AmountToApplyIndex].Value.ToString());
+                    double Balance = double.Parse(dataGridView.CurrentRow.Cells[BalanceIndex].Value.ToString());
+
+                    if (AmountToApply > Balance)
+                        IMessageHandler.ShowError(ISystemMessages.AmountToApplyExceedsBalance);
+                    else
+                    {
+                        dataGridView.CurrentRow.Cells[AmountAppliedIndex].Value = AmountToApply;
+                        dataGridView.CurrentRow.Cells[AmountToApplyIndex].Value = 0;
+                        DisplaySummary();
+                    }
+                };
+
+                dataGridView.AddMenuItem(Apply);
+            }
+            else
+                dataGridView.RemoveMenuItem("Apply");
+
+            if (e.ColumnIndex == dataGridView.GetCellIndex("AppliedAmount")
+                && dataGridView.EditMode != DataGridViewEditMode.EditProgrammatically
+                && double.Parse(dataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString()) > 0)
+            {
+                MenuItem Unapply = new MenuItem();
+
+                Unapply.Text = "Unapply";
+
+                Unapply.Click += delegate(object s, EventArgs ea)
+                {
+                    int BalanceIndex = dataGridView.GetCellIndex("Balance");
+                    int AppliedAmountIndex = dataGridView.GetCellIndex("AppliedAmount");
+                    int AmountToApplyIndex = dataGridView.GetCellIndex("AmountToApply");
+
+                    double appliedAmount = double.Parse(dataGridView.CurrentRow.Cells[AppliedAmountIndex].Value.ToString());
+
+                    dataGridView.CurrentRow.Cells[BalanceIndex].Value = dstDetail.DataTable.Rows[e.RowIndex]["OldBalance"];
+                    dataGridView.CurrentRow.Cells[AppliedAmountIndex].Value = 0;
+                    dataGridView.CurrentRow.Cells[AmountToApplyIndex].Value = ComputeAmountToApply();
+                    DisplaySummary();
+                };
+
+                dataGridView.AddMenuItem(Unapply);
+            }
+            else
+                dataGridView.RemoveMenuItem("Unapply");
         }
 
         private void cmbSubsidiary_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,24 +195,6 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int AmountToApplyIndex = dataGridView.GetCellIndex("AmountToApply");
-            int BalanceIndex = dataGridView.GetCellIndex("Balance");
-            int AppliedAmountIndex = dataGridView.GetCellIndex("AppliedAmount");
-
-            if (dataGridView.CurrentRow.Index != dataGridView.NewRowIndex
-                && FormState != FormStates.fsView
-                && e.ColumnIndex == AmountToApplyIndex
-                && dataGridView.Rows[dataGridView.CurrentRow.Index].Cells[AmountToApplyIndex].ReadOnly)
-            {
-                if (IMessageHandler.Confirm(ISystemMessages.RemoveAppliedAmount) == DialogResult.Yes)
-                {
-                    double appliedAmount = double.Parse(dataGridView.CurrentRow.Cells[AppliedAmountIndex].Value.ToString());
-
-                    dataGridView.CurrentRow.Cells[BalanceIndex].Value = dstDetail.DataTable.Rows[e.RowIndex]["OldBalance"];
-                    dataGridView.CurrentRow.Cells[AppliedAmountIndex].Value = 0;
-                }
-            }
-
             if (dataGridView.Columns[e.ColumnIndex].DataPropertyName == "AmountToApply"
                 && e.RowIndex != dataGridView.NewRowIndex)
             {
@@ -167,28 +211,6 @@ namespace Jk_Accounting_Software.External.Accounting
 
                 //set readonly if Amount Applied has value
                 dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = double.Parse(dataGridView.Rows[e.RowIndex].Cells[AppliedAmountIndex].Value.ToString()) > 0;
-            }
-        }
-
-        private void dataGridView_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dataGridView.Columns[e.ColumnIndex].DataPropertyName == "AmountToApply"
-                && e.RowIndex != dataGridView.NewRowIndex
-                && dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                int BalanceIndex = dataGridView.GetCellIndex("Balance");
-                int AmountAppliedIndex = dataGridView.GetCellIndex("AppliedAmount");
-                double AmountToApply = double.Parse(dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                double Balance = double.Parse(dataGridView.Rows[e.RowIndex].Cells[BalanceIndex].Value.ToString());
-
-                if (AmountToApply > Balance)
-                    IMessageHandler.ShowError(ISystemMessages.AmountToApplyExceedsBalance);
-                else
-                {
-                    dataGridView.Rows[e.RowIndex].Cells[AmountAppliedIndex].Value = AmountToApply;
-                    dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
-                    DisplaySummary();
-                }
             }
         }
 
@@ -250,12 +272,13 @@ namespace Jk_Accounting_Software.External.Accounting
         private Double ComputeAmountPaid()
         {
             double value = 0;
+            int AmountIndex = dataGridViewPaymentDetails.GetCellIndex("Amount");
 
             //get total amount of payment
-            foreach (DataRow row in dstPaymentDetails.DataTable.Rows)
+            foreach (DataGridViewRow row in dataGridViewPaymentDetails.Rows)
             {
-                if (row.RowState != DataRowState.Deleted)
-                    value += double.Parse(row["Amount"].ToString());
+                if (row.Index != dataGridViewPaymentDetails.NewRowIndex)
+                    value += double.Parse(row.Cells[AmountIndex].Value.ToString());
             }
 
             return value;
@@ -264,12 +287,13 @@ namespace Jk_Accounting_Software.External.Accounting
         private Double ComputeAmountApplied()
         {
             double value = 0;
+            int AppliedAmountIndex = dataGridView.GetCellIndex("AppliedAmount");
 
             //deduct total applied
-            foreach (DataRow row in dstDetail.DataTable.Rows)
+            foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                if (row.RowState != DataRowState.Deleted)
-                    value += double.Parse(row["AppliedAmount"].ToString());
+                if (row.Index != dataGridView.NewRowIndex)
+                    value += double.Parse(row.Cells[AppliedAmountIndex].Value.ToString());
             }
 
             return value;
