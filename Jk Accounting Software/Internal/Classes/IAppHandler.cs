@@ -346,16 +346,5 @@ namespace Jk_Accounting_Software.Internal.Classes
 
             return param.SqlDbType;
         }
-
-        public static DataGridViewColumn GetColumnByDataPropertyName(DataGridView grid, String DataPropertyName)
-        {
-            foreach (DataGridViewColumn column in grid.Columns)
-            {
-                if (column.DataPropertyName == DataPropertyName)
-                    return column;
-            }
-
-            return null;
-        }
     }
 }

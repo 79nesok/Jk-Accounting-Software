@@ -104,7 +104,7 @@
         <Top>0.8435cm</Top>
         <Left>1.21391cm</Left>
         <Height>0.6cm</Height>
-        <Width>8.25438cm</Width>
+        <Width>8.25437cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -213,7 +213,7 @@
         <Top>3.07129cm</Top>
         <Left>1.21391cm</Left>
         <Height>0.6cm</Height>
-        <Width>8.25438cm</Width>
+        <Width>8.25437cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -323,7 +323,7 @@
         <Top>5.13504cm</Top>
         <Left>1.21391cm</Left>
         <Height>0.6cm</Height>
-        <Width>8.25438cm</Width>
+        <Width>8.25437cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1037,8 +1037,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>29.7cm</PageHeight>
-    <PageWidth>21cm</PageWidth>
+    <PageHeight>27.94cm</PageHeight>
+    <PageWidth>21.59cm</PageWidth>
     <LeftMargin>1cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
     <TopMargin>0.5cm</TopMargin>

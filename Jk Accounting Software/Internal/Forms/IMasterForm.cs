@@ -110,7 +110,6 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 //re-update series number before saving
                 InitSeriesProviders();
-                SetColumnsValue();
             }
 
             private void IMasterForm_ValidateSave()
@@ -277,6 +276,9 @@ namespace Jk_Accounting_Software.Internal.Forms
                         {
                             IAppHandler.StartBusy("Executing Save");
                             OnBeforeSave();
+                            //this should be called after before save, so that before save can be used on
+                            //performing operations before assigning it to MasterColumns
+                            SetColumnsValue();
                             try
                             {
                                 try

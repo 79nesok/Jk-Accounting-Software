@@ -96,7 +96,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.tabControlPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(808, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(1105, 333);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -123,17 +123,26 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(808, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(1105, 74);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(800, 146);
+            this.tabPageDetails.Size = new System.Drawing.Size(1097, 46);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(997, 0);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Location = new System.Drawing.Point(0, 402);
+            this.FormFooter.Size = new System.Drawing.Size(1105, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(808, 536);
+            this.splitContainer.Size = new System.Drawing.Size(1105, 436);
             // 
             // flowLayoutPanel2
             // 
@@ -576,7 +585,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
             this.Name = "ECashReceiptVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(808, 536);
+            this.Size = new System.Drawing.Size(1105, 436);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashReceiptVoucherForm_BeforeRun);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashReceiptVoucherForm_ValidateSave);

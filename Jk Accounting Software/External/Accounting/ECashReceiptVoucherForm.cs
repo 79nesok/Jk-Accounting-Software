@@ -19,7 +19,6 @@ namespace Jk_Accounting_Software.External.Accounting
         public ECashReceiptVoucherForm()
         {
             InitializeComponent();
-            dataGridView.CellBeginEdit += dataGridView_CellBeginEdit;
             dataGridView.CellFormatting += dataGridView_CellFormatting;
             dataGridView.CellClick += dataGridView_CellClick;
             dataGridView.CellEndEdit += dataGridView_CellEndEdit;
@@ -134,9 +133,9 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int AmountToApplyIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "AmountToApply").Index;
-            int BalanceIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "Balance").Index;
-            int AppliedAmountIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "AppliedAmount").Index;
+            int AmountToApplyIndex = dataGridView.GetCellIndex("AmountToApply");
+            int BalanceIndex = dataGridView.GetCellIndex("Balance");
+            int AppliedAmountIndex = dataGridView.GetCellIndex("AppliedAmount");
 
             if (dataGridView.CurrentRow.Index != dataGridView.NewRowIndex
                 && FormState != FormStates.fsView
@@ -151,6 +150,12 @@ namespace Jk_Accounting_Software.External.Accounting
                     dataGridView.CurrentRow.Cells[AppliedAmountIndex].Value = 0;
                 }
             }
+
+            if (dataGridView.Columns[e.ColumnIndex].DataPropertyName == "AmountToApply"
+                && e.RowIndex != dataGridView.NewRowIndex)
+            {
+                dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ComputeAmountToApply();
+            }
         }
 
         private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -158,19 +163,10 @@ namespace Jk_Accounting_Software.External.Accounting
             if (dataGridView.Columns[e.ColumnIndex].DataPropertyName == "AmountToApply"
                 && e.RowIndex != dataGridView.NewRowIndex)
             {
-                int AppliedAmountIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "AppliedAmount").Index;
+                int AppliedAmountIndex = dataGridView.GetCellIndex("AppliedAmount");
 
                 //set readonly if Amount Applied has value
                 dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].ReadOnly = double.Parse(dataGridView.Rows[e.RowIndex].Cells[AppliedAmountIndex].Value.ToString()) > 0;
-            }
-        }
-
-        private void dataGridView_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
-        {
-            if (dataGridView.Columns[e.ColumnIndex].DataPropertyName == "AmountToApply"
-                && e.RowIndex != dataGridView.NewRowIndex)
-            {
-                dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = ComputeAmountToApply();
             }
         }
 
@@ -180,8 +176,8 @@ namespace Jk_Accounting_Software.External.Accounting
                 && e.RowIndex != dataGridView.NewRowIndex
                 && dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                int BalanceIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "Balance").Index;
-                int AmountAppliedIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "AppliedAmount").Index;
+                int BalanceIndex = dataGridView.GetCellIndex("Balance");
+                int AmountAppliedIndex = dataGridView.GetCellIndex("AppliedAmount");
                 double AmountToApply = double.Parse(dataGridView.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
                 double Balance = double.Parse(dataGridView.Rows[e.RowIndex].Cells[BalanceIndex].Value.ToString());
 
@@ -286,7 +282,7 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private Double ComputeAmountToApply()
         {
-            int BalanceIndex = IAppHandler.GetColumnByDataPropertyName(dataGridView, "Balance").Index;
+            int BalanceIndex = dataGridView.GetCellIndex("Balance");
             double balance = double.Parse(dataGridView.CurrentRow.Cells[BalanceIndex].Value.ToString());
 
             if (balance > ComputeRemainingBalance())

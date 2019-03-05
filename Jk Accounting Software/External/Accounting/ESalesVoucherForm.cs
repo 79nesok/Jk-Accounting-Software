@@ -40,8 +40,11 @@ namespace Jk_Accounting_Software.External.Accounting
 
                 dstJournalEntry.Parameters[0].Value = this.MasterColumns.Find(mc => mc.Name == "JournalId").Value.ToString();
                 dstJournalEntry.DataTable = VTransactionHandler.LoadData(dstJournalEntry.CommandText, dstJournalEntry.Parameters);
-                dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
-                dataGridViewJournalEntry.AutoGenerateColumns = false;
+                if (dataGridViewJournalEntry.DataSource == null)
+                {
+                    dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
+                    dataGridViewJournalEntry.AutoGenerateColumns = false;
+                }
 
                 tabPageJournalEntry.Text = String.Format("Journal Entry ({0})", dstJournalEntry.DataTable.Rows[0]["TransactionNo"].ToString());
 
@@ -180,6 +183,17 @@ namespace Jk_Accounting_Software.External.Accounting
         {
             base.UnPost();
             Post(false);
+        }
+
+        //to ensure no incorrect amounts will come up
+        private void ESalesVoucherForm_BeforeSave()
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                row.Selected = true;
+                ComputeDetailAmount();
+            }
+            ComputeMasterAmount();
         }
     }
 }

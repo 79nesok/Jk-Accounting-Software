@@ -29,12 +29,14 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void dataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            chkWTAX.Enabled = EnableComputeAndDeductWTAX();
+            if (FormState != FormStates.fsView)
+                chkWTAX.Enabled = EnableComputeAndDeductWTAX();
         }
 
         private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            chkWTAX.Enabled = EnableComputeAndDeductWTAX();
+            if (FormState != FormStates.fsView)
+                chkWTAX.Enabled = EnableComputeAndDeductWTAX();
         }
 
         private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -49,7 +51,9 @@ namespace Jk_Accounting_Software.External.Accounting
 
             ComputeDetailAmount();
             ComputeMasterAmount();
-            chkWTAX.Enabled = EnableComputeAndDeductWTAX();
+
+            if (FormState != FormStates.fsView)
+                chkWTAX.Enabled = EnableComputeAndDeductWTAX();
         }
 
         private double ComputeVATAmount(int VATTypeId, double Amount)
@@ -143,8 +147,11 @@ namespace Jk_Accounting_Software.External.Accounting
 
                 dstJournalEntry.Parameters[0].Value = this.MasterColumns.Find(mc => mc.Name == "JournalId").Value.ToString();
                 dstJournalEntry.DataTable = VTransactionHandler.LoadData(dstJournalEntry.CommandText, dstJournalEntry.Parameters);
-                dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
-                dataGridViewJournalEntry.AutoGenerateColumns = false;
+                if (dataGridViewJournalEntry.DataSource == null)
+                {
+                    dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
+                    dataGridViewJournalEntry.AutoGenerateColumns = false;
+                }
 
                 tabPageJournalEntry.Text = String.Format("Journal Entry ({0})", dstJournalEntry.DataTable.Rows[0]["TransactionNo"].ToString());
                 
@@ -156,6 +163,8 @@ namespace Jk_Accounting_Software.External.Accounting
                 tabPageJournalEntry.Text = "Journal Entry";
                 tabControlDetails.TabPages.Remove(tabPageJournalEntry);
             }
+
+            btnPrint.Visible = (FormState == FormStates.fsView) && double.Parse(MasterColumns.Find(mc => mc.Name == "WithholdingTax").Value.ToString()) > 0;
         }
 
         private void Post(bool IsPost)
@@ -212,39 +221,65 @@ namespace Jk_Accounting_Software.External.Accounting
             return value;
         }
 
+        private double ComputeWTAX()
+        {
+            double GrossAmount = 0, Rate = 0;
+            int ATCId = 0;
+
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                if (row.Index != dataGridView.NewRowIndex
+                    && row.Cells[dataGridView.GetCellIndex("ItemId")].Value != DBNull.Value
+                    && VLookupProvider.DataSetLookup(VLookupProvider.dstItems, "Id", row.Cells[dataGridView.GetCellIndex("ItemId")].Value, "TypeId").ToString() == "2")
+                {
+                    GrossAmount += double.Parse(row.Cells[dataGridView.GetCellIndex("GrossAmount")].Value.ToString());
+                }
+            }
+
+            ATCId = int.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaries, "Id", cmbSubsidiary.SelectedKey, "ATCId").ToString());
+            if (ATCId == 0)
+            {
+                IMessageHandler.ShowError(ISystemMessages.NoATCAssigned);
+                return 0;
+            }
+            Rate = double.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstATC, "Id", ATCId, "Rate").ToString());
+            return GrossAmount * (Rate / 100);
+        }
+
         private void chkWTAX_CheckedChanged(object sender, EventArgs e)
         {
             if (FormState == FormStates.fsView)
                 return;
 
-            double GrossAmount = 0, Rate = 0;
-            int ATCId = 0;
+            double WTAX = 0;
 
             if (chkWTAX.Checked)
             {
-                foreach (DataGridViewRow row in dataGridView.Rows)
-                {
-                    if (row.Index != dataGridView.NewRowIndex
-                        && row.Cells[dataGridView.GetCellIndex("ItemId")].Value != DBNull.Value
-                        && VLookupProvider.DataSetLookup(VLookupProvider.dstItems, "Id", row.Cells[dataGridView.GetCellIndex("ItemId")].Value, "TypeId").ToString() == "2")
-                    {
-                        GrossAmount += double.Parse(row.Cells[dataGridView.GetCellIndex("GrossAmount")].Value.ToString());
-                    }
-                }
-
-                ATCId = int.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaries, "Id", cmbSubsidiary.SelectedKey, "ATCId").ToString());
-                if (ATCId == 0)
-                {
-                    IMessageHandler.ShowError(ISystemMessages.NoATCAssigned);
-                    return;
-                }
-                Rate = double.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstATC, "Id", ATCId, "Rate").ToString());
-                GrossAmount = GrossAmount * (Rate / 100);
-                txtGrossAmount.Text = (double.Parse(txtGrossAmount.Text) - GrossAmount).ToString("N2");
+                WTAX = ComputeWTAX();
+                txtGrossAmount.Text = (double.Parse(txtGrossAmount.Text) - WTAX).ToString("N2");
+                txtPaidAmount.Text = (double.Parse(txtPaidAmount.Text) + WTAX).ToString("N2");
+            }
+            else
+            {
+                ComputeMasterAmount();
+                txtPaidAmount.Text = (double.Parse(txtPaidAmount.Text) - double.Parse(txtWTAX.Text)).ToString("N2");
             }
 
-            txtGrossAmount.Text = (double.Parse(txtGrossAmount.Text) + double.Parse(txtWTAX.Text)).ToString("N2");
-            txtWTAX.Text = GrossAmount.ToString("N2");
+            txtWTAX.Text = WTAX.ToString("N2");
+        }
+
+        //to ensure that no wrong computation will come up before saving
+        private void EPurchaseVoucherForm_BeforeSave()
+        {
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                row.Selected = true;
+                ComputeDetailAmount();
+            }
+            ComputeMasterAmount();
+
+            if (chkWTAX.Checked)
+                chkWTAX.Checked = EnableComputeAndDeductWTAX();
         }
     }
 }

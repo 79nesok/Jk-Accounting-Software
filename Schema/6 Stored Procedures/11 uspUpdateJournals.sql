@@ -18,6 +18,7 @@ DECLARE @OutputVATAccountId INT
 DECLARE @ReceivableAccountId INT
 DECLARE @CustomerOverPaymentAccountId INT
 DECLARE @PaymentMethodName VARCHAR(100)
+DECLARE @WithholdingTaxAccountId INT
 
 SELECT @Code = Code
 FROM tblJournalTypes
@@ -78,6 +79,12 @@ FROM tblAccounts a
 	INNER JOIN tblSystemAccountCodes ac ON ac.Id = a.SystemAccountCodeId
 WHERE a.CompanyId = @CompanyId
 	AND ac.Name = 'CUSTOMER OVERPAYMENT'
+
+SELECT @WithholdingTaxAccountId = a.Id
+FROM tblAccounts a
+	INNER JOIN tblSystemAccountCodes ac ON ac.Id = a.SystemAccountCodeId
+WHERE a.CompanyId = @CompanyId
+	AND ac.Name = 'WITHHOLDING TAX PAYABLE'
 
 IF @IsPost = 1
 BEGIN
@@ -192,7 +199,20 @@ BEGIN
 		END
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
-		SELECT @JournalId, @PayableAccountId, SubsidiaryId, 0, NetAmount, Remarks
+		SELECT @JournalId, @PayableAccountId, SubsidiaryId, 0, NetAmount - WithholdingTax, Remarks
+		FROM tblPurchaseVouchers
+		WHERE Id = @Id
+
+		--Withholding Tax
+		IF @WithholdingTaxAccountId IS NULL
+			AND EXISTS(SELECT * FROM tblPurchaseVouchers WHERE Id = @Id AND WithholdingTax > 0)
+		BEGIN
+			RAISERROR('No Withholding Tax Payable Account has been set-up.', 11, 1)
+			RETURN
+		END
+
+		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
+		SELECT @JournalId, @WithholdingTaxAccountId, SubsidiaryId, 0, WithholdingTax, Remarks
 		FROM tblPurchaseVouchers
 		WHERE Id = @Id
 	END
