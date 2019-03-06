@@ -27,7 +27,7 @@ namespace Jk_Accounting_Software.External.Report
 
             int Id = int.Parse(Parameters.Find(p => p.Name == "Id").Value);
 
-            EBIRForm2307ReportDS birDataSource = new EBIRForm2307ReportDS();
+            EBIRForm2307PrintoutDS birDataSource = new EBIRForm2307PrintoutDS();
             BIRForm2307TableAdapter birAdapter = new BIRForm2307TableAdapter();
             BIRForm2307DetailsTableAdapter birDetailAdapter = new BIRForm2307DetailsTableAdapter();
 

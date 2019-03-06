@@ -27,6 +27,8 @@ TRUNCATE TABLE tblCashReceiptVouchers
 TRUNCATE TABLE tblCashReceiptVoucherDetails
 TRUNCATE TABLE tblCashReceiptVoucherInvoiceDetails
 TRUNCATE TABLE tblCashReceiptVoucherPaymentDistribution
+--COP
+TRUNCATE TABLE tblCustomerOverpayments
 
 --Series
 UPDATE tblSystemSeries

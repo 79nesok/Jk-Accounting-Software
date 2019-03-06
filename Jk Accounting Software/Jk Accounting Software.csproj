@@ -119,14 +119,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="External\Datasources\EBIRForm2307ReportDS.cs">
-      <DependentUpon>EBIRForm2307ReportDS.xsd</DependentUpon>
+    <Compile Include="External\Datasources\EBIRForm2307PrintoutDS.cs">
+      <DependentUpon>EBIRForm2307PrintoutDS.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="External\Datasources\EBIRForm2307ReportDS.Designer.cs">
+    <Compile Include="External\Datasources\EBIRForm2307PrintoutDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EBIRForm2307ReportDS.xsd</DependentUpon>
+      <DependentUpon>EBIRForm2307PrintoutDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\ECollectionSummaryReportDS.cs">
+      <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\ECollectionSummaryReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\EJournalsReportDS.cs">
+      <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EJournalsReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="External\Maintenance\EAccountForm.cs">
       <SubType>UserControl</SubType>
@@ -386,6 +404,30 @@
     <Compile Include="External\Report\EBIRForm2307PrintoutForm.Designer.cs">
       <DependentUpon>EBIRForm2307PrintoutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\ECashDisbursementJournalReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ECashDisbursementJournalReportForm.Designer.cs">
+      <DependentUpon>ECashDisbursementJournalReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\ECashReceiptJournalReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ECashReceiptJournalReportForm.Designer.cs">
+      <DependentUpon>ECashReceiptJournalReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\ECollectionSummaryReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ECollectionSummaryReportForm.Designer.cs">
+      <DependentUpon>ECollectionSummaryReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\EGeneralJournalReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EGeneralJournalReportForm.Designer.cs">
+      <DependentUpon>EGeneralJournalReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\EGeneralLedgerReportForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -404,11 +446,23 @@
     <Compile Include="External\Report\EJournalVoucherPrintoutForm.Designer.cs">
       <DependentUpon>EJournalVoucherPrintoutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\EPurchaseJournalReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EPurchaseJournalReportForm.Designer.cs">
+      <DependentUpon>EPurchaseJournalReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\ESalesInvoicePrintoutForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="External\Report\ESalesInvoicePrintoutForm.Designer.cs">
       <DependentUpon>ESalesInvoicePrintoutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\ESalesJournalReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ESalesJournalReportForm.Designer.cs">
+      <DependentUpon>ESalesJournalReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Report\ESubsidiaryLedgerReportForm.cs">
       <SubType>UserControl</SubType>
@@ -423,6 +477,7 @@
       <DependentUpon>ETrialBalanceReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Internal\Classes\IDateHandler.cs" />
+    <Compile Include="Internal\Classes\IDynamicReportHandler.cs" />
     <Compile Include="Internal\Classes\IImageHandler.cs" />
     <Compile Include="Internal\Classes\ISecurityHandler.cs" />
     <Compile Include="Internal\Classes\ISystemMessages.cs" />
@@ -622,8 +677,10 @@
     <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\BIR Form 2307.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Collection Summary.rdlc" />
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Voucher.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Journals.rdlc" />
     <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Trial Balance.rdlc" />
@@ -639,6 +696,18 @@
     <EmbeddedResource Include="External\Report\EBIRForm2307PrintoutForm.resx">
       <DependentUpon>EBIRForm2307PrintoutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\ECashDisbursementJournalReportForm.resx">
+      <DependentUpon>ECashDisbursementJournalReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\ECashReceiptJournalReportForm.resx">
+      <DependentUpon>ECashReceiptJournalReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\ECollectionSummaryReportForm.resx">
+      <DependentUpon>ECollectionSummaryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\EGeneralJournalReportForm.resx">
+      <DependentUpon>EGeneralJournalReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EGeneralLedgerReportForm.resx">
       <DependentUpon>EGeneralLedgerReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -650,8 +719,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Printouts\General Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal.rdlc" />
+    <EmbeddedResource Include="External\Report\EPurchaseJournalReportForm.resx">
+      <DependentUpon>EPurchaseJournalReportForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="External\Report\ESalesInvoicePrintoutForm.resx">
       <DependentUpon>ESalesInvoicePrintoutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\ESalesJournalReportForm.resx">
+      <DependentUpon>ESalesJournalReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\ESubsidiaryLedgerReportForm.resx">
       <DependentUpon>ESubsidiaryLedgerReportForm.cs</DependentUpon>
@@ -750,16 +825,27 @@
     <None Include="External\Datasources\EBalanceSheetReportDS.xss">
       <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
     </None>
-    <None Include="External\Datasources\EBIRForm2307ReportDS.xsc">
-      <DependentUpon>EBIRForm2307ReportDS.xsd</DependentUpon>
+    <None Include="External\Datasources\EBIRForm2307PrintoutDS.xsc">
+      <DependentUpon>EBIRForm2307PrintoutDS.xsd</DependentUpon>
     </None>
-    <None Include="External\Datasources\EBIRForm2307ReportDS.xsd">
+    <None Include="External\Datasources\EBIRForm2307PrintoutDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EBIRForm2307ReportDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>EBIRForm2307PrintoutDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="External\Datasources\EBIRForm2307ReportDS.xss">
-      <DependentUpon>EBIRForm2307ReportDS.xsd</DependentUpon>
+    <None Include="External\Datasources\EBIRForm2307PrintoutDS.xss">
+      <DependentUpon>EBIRForm2307PrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ECollectionSummaryReportDS.xsc">
+      <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ECollectionSummaryReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ECollectionSummaryReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\ECollectionSummaryReportDS.xss">
+      <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\EGeneralLedgerReportDS.xsc">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
@@ -793,6 +879,17 @@
     </None>
     <None Include="External\Datasources\EJournalReportDS.xss">
       <DependentUpon>EJournalReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EJournalsReportDS.xsc">
+      <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EJournalsReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EJournalsReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EJournalsReportDS.xss">
+      <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\EJournalVoucherPrintoutDS.xsc">
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>

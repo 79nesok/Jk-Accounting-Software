@@ -5,6 +5,7 @@ IF OBJECT_ID('tblPaymentMethods') IS NULL
 		Code VARCHAR(50) NOT NULL,
 		Name VARCHAR(100) NULL,
 		AccountId INT NOT NULL,
+		ForClearing BIT NOT NULL CONSTRAINT DF_tblPaymentMethods_ForClearing DEFAULT 0,
 		Remarks VARCHAR(1000) NULL,
 		Active BIT NOT NULL CONSTRAINT DEF_tblPaymentMethods_Active DEFAULT 1,
 		CreatedById INT NOT NULL,

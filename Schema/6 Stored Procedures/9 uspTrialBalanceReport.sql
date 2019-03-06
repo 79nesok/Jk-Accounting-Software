@@ -26,7 +26,7 @@ FROM (
 		AND a.AccountTypeId IN (2, 3, 4)
 	GROUP BY a.Name
 )tmp
-WHERE ((Debit + Credit) > 0 AND @ShowZeroBalance = 0)
+WHERE ((Debit + Credit) <> 0 AND @ShowZeroBalance = 0)
 	OR @ShowZeroBalance = 1
 GO
 

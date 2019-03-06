@@ -1,7 +1,7 @@
 ﻿namespace Jk_Accounting_Software.External.Datasources {
     
     
-    public partial class EBIRForm2307ReportDS {
+    public partial class EBIRForm2307PrintoutDS {
         partial class BIRForm2307DetailsDataTable
         {
         }

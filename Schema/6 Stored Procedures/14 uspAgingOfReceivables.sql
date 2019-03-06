@@ -13,6 +13,7 @@ FROM (
 	FROM tblSalesVouchers sv
 		INNER JOIN tblSubsidiaries s ON s.Id = sv.SubsidiaryId
 	WHERE sv.CompanyId = @CompanyId
+		AND sv.Balance > 0
 ) tmp
 ORDER BY tmp.Age DESC, tmp.Customer
 GO

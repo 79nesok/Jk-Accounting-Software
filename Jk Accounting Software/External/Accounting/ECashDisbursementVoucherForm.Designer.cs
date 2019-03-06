@@ -476,7 +476,7 @@
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "CDV";
+            this.jkSeriesProvider1.Code = "SP";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
             this.jkSeriesProvider1.Location = new System.Drawing.Point(705, 181);
@@ -512,7 +512,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 171);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 146);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -536,7 +536,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 161);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 136);
             this.dataGridViewJournalEntry.TabIndex = 1;
             // 
             // dstJournalEntry
@@ -567,7 +567,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Cash Disbursement";
+            this.Caption = "Supplier Payment";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));

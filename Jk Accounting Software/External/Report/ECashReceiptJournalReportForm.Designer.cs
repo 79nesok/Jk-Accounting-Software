@@ -1,6 +1,6 @@
-﻿namespace Jk_Accounting_Software.External.Maintenance
+﻿namespace Jk_Accounting_Software.External.Report
 {
-    partial class EPaymentMethodsListForm
+    partial class ECashReceiptJournalReportForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,36 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EPaymentMethodsListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashReceiptJournalReportForm));
+            this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // reportViewer
+            // 
+            this.reportViewer.Size = new System.Drawing.Size(837, 349);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
+            // 
             // splitContainer
             // 
             this.splitContainer.Size = new System.Drawing.Size(837, 481);
             // 
-            // EPaymentMethodsListForm
+            // ECashReceiptJournalReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Payment Methods";
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns3"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns4"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns5"))));
-            this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns6"))));
-            this.CommandText = resources.GetString("$this.CommandText");
-            this.Name = "EPaymentMethodsListForm";
-            this.NewFormName = "EPaymentMethodForm";
-            this.OpenFormName = "EPaymentMethodForm";
+            this.Name = "ECashReceiptJournalReportForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters2"))));
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters3"))));
             this.Size = new System.Drawing.Size(837, 481);
-            this.ZLoadColumns = true;
-            this.ZLoadGrid = true;
+            this.FormFooter.ResumeLayout(false);
+            this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);

@@ -196,10 +196,31 @@
         cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
+        AQYEAAAAC0ZvckNsZWFyaW5nBgUAAAAMRm9yIENsZWFyaW5nBfr///8VU3lzdGVtLkRhdGEuU3FsRGJU
+        eXBlAQAAAAd2YWx1ZV9fAAgDAAAAAgAAAGQAAAAF+f///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4rQ29s
+        dW1uRm9vdGVyVHlwZXMBAAAAB3ZhbHVlX18ACAIAAAAAAAAACw==
+</value>
+  </data>
+  <data name="$this.Columns6" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAV
+        SmtDb21wb25lbnRzLkprQ29sdW1uBgAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmllbGQYPENh
+        cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
+        Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
+        bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
         AQYEAAAABkFjdGl2ZQkEAAAABfv///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgD
         AAAAAgAAAGQAAAAF+v///ydKa0NvbXBvbmVudHMuSmtDb2x1bW4rQ29sdW1uRm9vdGVyVHlwZXMBAAAA
         B3ZhbHVlX18ACAIAAAAAAAAACw==
 </value>
+  </data>
+  <data name="$this.CommandText" xml:space="preserve">
+    <value>SELECT pm.Id, pm.Code, pm.Name, a.Name AS Account,
+	pm.Remarks, pm.ForClearing, pm.Active
+FROM tblPaymentMethods pm
+	LEFT OUTER JOIN tblAccounts a ON a.Id = pm.AccountId
+WHERE pm.CompanyId = @CompanyId</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

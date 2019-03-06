@@ -13,6 +13,7 @@ FROM (
 	FROM tblPurchaseVouchers pv
 		INNER JOIN tblSubsidiaries s ON s.Id = pv.SubsidiaryId
 	WHERE pv.CompanyId = @CompanyId
+		AND pv.Balance > 0
 ) tmp
 ORDER BY tmp.Age DESC, tmp.Supplier
 GO

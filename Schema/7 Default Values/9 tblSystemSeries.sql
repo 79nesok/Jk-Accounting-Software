@@ -1,18 +1,18 @@
 --Vouchers
-EXEC uspAddSystemSeries 'JV'
-EXEC uspAddSystemSeries 'PV'
-EXEC uspAddSystemSeries 'SV'
-EXEC uspAddSystemSeries 'CRV'
-EXEC uspAddSystemSeries 'CDV'
+EXEC uspAddSystemSeries 'JV' --Journal Voucher
+EXEC uspAddSystemSeries 'PV' --Purchase Voucher
+EXEC uspAddSystemSeries 'SV' --Sales Voucher
+EXEC uspAddSystemSeries 'CP' --Customer Payment
+EXEC uspAddSystemSeries 'SP' --Supplier Payment
 
 --Journals
-EXEC uspAddSystemSeries 'GJ'
-EXEC uspAddSystemSeries 'PJ'
-EXEC uspAddSystemSeries 'SJ'
-EXEC uspAddSystemSeries 'CRJ'
-EXEC uspAddSystemSeries 'CDJ'
+EXEC uspAddSystemSeries 'GJ' --General Journal
+EXEC uspAddSystemSeries 'PJ' --Purchase Journal
+EXEC uspAddSystemSeries 'SJ' --Sales Journal
+EXEC uspAddSystemSeries 'CRJ' --Cash Receipt Journal
+EXEC uspAddSystemSeries 'CDJ' --Cash Disbursement Journal
 
 --Others
-EXEC uspAddSystemSeries 'COP'
+EXEC uspAddSystemSeries 'COP' --Customer Overpayment
 GO
 

@@ -22,7 +22,7 @@ namespace Jk_Accounting_Software.External.Datasources {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("EBIRForm2307ReportDS")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class EBIRForm2307ReportDS : global::System.Data.DataSet {
+    public partial class EBIRForm2307PrintoutDS : global::System.Data.DataSet {
         
         private BIRForm2307DataTable tableBIRForm2307;
         
@@ -32,7 +32,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public EBIRForm2307ReportDS() {
+        public EBIRForm2307PrintoutDS() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -43,7 +43,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected EBIRForm2307ReportDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected EBIRForm2307PrintoutDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -142,7 +142,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            EBIRForm2307ReportDS cln = ((EBIRForm2307ReportDS)(base.Clone()));
+            EBIRForm2307PrintoutDS cln = ((EBIRForm2307PrintoutDS)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -257,7 +257,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            EBIRForm2307ReportDS ds = new EBIRForm2307ReportDS();
+            EBIRForm2307PrintoutDS ds = new EBIRForm2307PrintoutDS();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -827,7 +827,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EBIRForm2307ReportDS ds = new EBIRForm2307ReportDS();
+                EBIRForm2307PrintoutDS ds = new EBIRForm2307PrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1165,7 +1165,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EBIRForm2307ReportDS ds = new EBIRForm2307ReportDS();
+                EBIRForm2307PrintoutDS ds = new EBIRForm2307PrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -2199,7 +2199,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EBIRForm2307ReportDS.BIRForm2307DataTable dataTable, global::System.Nullable<int> Id) {
+        public virtual int Fill(EBIRForm2307PrintoutDS.BIRForm2307DataTable dataTable, global::System.Nullable<int> Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
@@ -2218,7 +2218,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EBIRForm2307ReportDS.BIRForm2307DataTable GetData(global::System.Nullable<int> Id) {
+        public virtual EBIRForm2307PrintoutDS.BIRForm2307DataTable GetData(global::System.Nullable<int> Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
@@ -2226,7 +2226,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            EBIRForm2307ReportDS.BIRForm2307DataTable dataTable = new EBIRForm2307ReportDS.BIRForm2307DataTable();
+            EBIRForm2307PrintoutDS.BIRForm2307DataTable dataTable = new EBIRForm2307PrintoutDS.BIRForm2307DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2386,7 +2386,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EBIRForm2307ReportDS.BIRForm2307DetailsDataTable dataTable, global::System.Nullable<int> Id) {
+        public virtual int Fill(EBIRForm2307PrintoutDS.BIRForm2307DetailsDataTable dataTable, global::System.Nullable<int> Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
@@ -2405,7 +2405,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EBIRForm2307ReportDS.BIRForm2307DetailsDataTable GetData(global::System.Nullable<int> Id) {
+        public virtual EBIRForm2307PrintoutDS.BIRForm2307DetailsDataTable GetData(global::System.Nullable<int> Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Id.HasValue == true)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
@@ -2413,7 +2413,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            EBIRForm2307ReportDS.BIRForm2307DetailsDataTable dataTable = new EBIRForm2307ReportDS.BIRForm2307DetailsDataTable();
+            EBIRForm2307PrintoutDS.BIRForm2307DetailsDataTable dataTable = new EBIRForm2307PrintoutDS.BIRForm2307DetailsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2487,7 +2487,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(EBIRForm2307ReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(EBIRForm2307PrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -2497,7 +2497,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(EBIRForm2307ReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(EBIRForm2307PrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -2507,7 +2507,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(EBIRForm2307ReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(EBIRForm2307PrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -2541,7 +2541,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBIRForm2307ReportDSTableA
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(EBIRForm2307ReportDS dataSet) {
+        public virtual int UpdateAll(EBIRForm2307PrintoutDS dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

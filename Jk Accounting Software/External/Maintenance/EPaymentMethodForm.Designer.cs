@@ -38,6 +38,8 @@
             this.cmbAccount = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkForClearing = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.chkActive = new System.Windows.Forms.CheckBox();
             this.FormFooter.SuspendLayout();
@@ -48,9 +50,14 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
@@ -58,7 +65,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(789, 481);
+            this.splitContainer.Size = new System.Drawing.Size(837, 481);
             // 
             // flowLayoutPanel2
             // 
@@ -70,12 +77,14 @@
             this.flowLayoutPanel2.Controls.Add(this.cmbAccount);
             this.flowLayoutPanel2.Controls.Add(this.label9);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
+            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.chkForClearing);
             this.flowLayoutPanel2.Controls.Add(this.label10);
             this.flowLayoutPanel2.Controls.Add(this.chkActive);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(322, 412);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 412);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
             // label6
@@ -84,13 +93,13 @@
             this.label6.Margin = new System.Windows.Forms.Padding(0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(76, 25);
+            this.label6.Size = new System.Drawing.Size(95, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "Code:";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(82, 5);
+            this.txtCode.Location = new System.Drawing.Point(101, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Required = false;
@@ -103,13 +112,13 @@
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(76, 25);
+            this.label7.Size = new System.Drawing.Size(95, 25);
             this.label7.TabIndex = 2;
             this.label7.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(82, 38);
+            this.txtName.Location = new System.Drawing.Point(101, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
             this.txtName.Required = false;
@@ -122,18 +131,20 @@
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(76, 33);
+            this.label1.Size = new System.Drawing.Size(95, 33);
             this.label1.TabIndex = 9;
             this.label1.Text = "Account:";
             // 
             // cmbAccount
             // 
+            this.cmbAccount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbAccount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbAccount.DataSet = "dstAccounts";
             this.cmbAccount.DisplayText = "Name";
             this.cmbAccount.ForeColor = System.Drawing.Color.Black;
             this.cmbAccount.FormattingEnabled = true;
             this.cmbAccount.Key = "Id";
-            this.cmbAccount.Location = new System.Drawing.Point(82, 71);
+            this.cmbAccount.Location = new System.Drawing.Point(101, 71);
             this.cmbAccount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbAccount.Name = "cmbAccount";
             this.cmbAccount.Required = false;
@@ -147,13 +158,13 @@
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(76, 25);
+            this.label9.Size = new System.Drawing.Size(95, 25);
             this.label9.TabIndex = 4;
             this.label9.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(82, 104);
+            this.txtRemarks.Location = new System.Drawing.Point(101, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -161,19 +172,39 @@
             this.txtRemarks.Size = new System.Drawing.Size(230, 90);
             this.txtRemarks.TabIndex = 4;
             // 
+            // label2
+            // 
+            this.label2.Location = new System.Drawing.Point(0, 199);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
+            this.label2.Name = "label2";
+            this.label2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.label2.Size = new System.Drawing.Size(95, 25);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "For Clearing:";
+            // 
+            // chkForClearing
+            // 
+            this.flowLayoutPanel2.SetFlowBreak(this.chkForClearing, true);
+            this.chkForClearing.Location = new System.Drawing.Point(101, 204);
+            this.chkForClearing.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.chkForClearing.Name = "chkForClearing";
+            this.chkForClearing.Size = new System.Drawing.Size(15, 25);
+            this.chkForClearing.TabIndex = 12;
+            this.chkForClearing.UseVisualStyleBackColor = true;
+            // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(0, 199);
+            this.label10.Location = new System.Drawing.Point(0, 234);
             this.label10.Margin = new System.Windows.Forms.Padding(0);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(76, 25);
+            this.label10.Size = new System.Drawing.Size(95, 25);
             this.label10.TabIndex = 8;
             this.label10.Text = "Active:";
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(82, 204);
+            this.chkActive.Location = new System.Drawing.Point(101, 239);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);
@@ -185,8 +216,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Payment Method";
-            this.CommandText = "SELECT Id, CompanyId, Code, Name,\r\n\tAccountId, Remarks, Active,\r\n\tCreatedById, Da" +
-    "teCreated,\r\n\tModifiedById, DateModified\r\nFROM tblPaymentMethods\r\nWHERE Id = @Id";
+            this.CommandText = "SELECT Id, CompanyId, Code, Name,\r\n\tAccountId, Remarks, ForClearing, Active,\r\n\tCr" +
+    "eatedById, DateCreated,\r\n\tModifiedById, DateModified\r\nFROM tblPaymentMethods\r\nWH" +
+    "ERE Id = @Id";
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns2"))));
@@ -197,9 +229,10 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns7"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns8"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns9"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns10"))));
             this.Name = "EPaymentMethodForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(789, 481);
+            this.Size = new System.Drawing.Size(837, 481);
             this.ZLoadMasterColumns = true;
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
@@ -226,5 +259,7 @@
         private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.CheckBox chkActive;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkForClearing;
     }
 }

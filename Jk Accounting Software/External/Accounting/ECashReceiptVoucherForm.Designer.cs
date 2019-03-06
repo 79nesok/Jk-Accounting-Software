@@ -96,7 +96,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.tabControlPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(1105, 333);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -123,26 +123,25 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(1105, 74);
+            this.tabControlDetails.Size = new System.Drawing.Size(837, 174);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(1097, 46);
+            this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(997, 0);
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
             // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 402);
-            this.FormFooter.Size = new System.Drawing.Size(1105, 34);
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(1105, 436);
+            this.splitContainer.Size = new System.Drawing.Size(837, 536);
             // 
             // flowLayoutPanel2
             // 
@@ -256,6 +255,8 @@
             // 
             // cmbSubsidiary
             // 
+            this.cmbSubsidiary.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSubsidiary.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubsidiary.BackColor = System.Drawing.SystemColors.Window;
             this.cmbSubsidiary.DataSet = "dstSubsidiaries";
             this.cmbSubsidiary.DisplayText = "Name";
@@ -345,7 +346,7 @@
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "CRV";
+            this.jkSeriesProvider1.Code = "CP";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
             this.jkSeriesProvider1.Location = new System.Drawing.Point(692, 192);
@@ -359,6 +360,8 @@
             // 
             // cmbPaymentMethods
             // 
+            this.cmbPaymentMethods.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbPaymentMethods.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbPaymentMethods.DataSet = "dstPaymentMethods";
             this.cmbPaymentMethods.DisplayText = "Name";
             this.cmbPaymentMethods.ForeColor = System.Drawing.Color.Black;
@@ -563,7 +566,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Cash Receipt Voucher";
+            this.Caption = "Customer Payment";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
@@ -585,7 +588,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
             this.Name = "ECashReceiptVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(1105, 436);
+            this.Size = new System.Drawing.Size(837, 536);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashReceiptVoucherForm_BeforeRun);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashReceiptVoucherForm_ValidateSave);

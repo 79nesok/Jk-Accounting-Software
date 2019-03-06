@@ -34,10 +34,14 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // splitContainer
+            // 
+            this.splitContainer.Size = new System.Drawing.Size(837, 481);
+            // 
             // ECashDisbursementVouchersListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Cash Disbursement Vouchers";
+            this.Caption = "Supplier Payments";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
@@ -56,7 +60,7 @@
             this.OpenFormName = "ECashDisbursementVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(808, 481);
+            this.Size = new System.Drawing.Size(837, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

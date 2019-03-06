@@ -382,7 +382,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                             lblFooter.Name = "lblFooter" + ic.Caption.Trim();
                             lblFooter.TextAlign = ContentAlignment.MiddleCenter;
                             lblFooter.Text = AssignFooterValue(ic.FooterType, "0");
-                            lblFooter.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
+                            lblFooter.Font = new Font(this.Font.Name, this.Font.Size - 1, FontStyle.Bold);
 
                             if (GridAutoSize)
                                 lblFooter.Width = EstimatedWidth;

@@ -110,7 +110,7 @@ BEGIN
 		WHERE CompanyId = @CompanyId
 			AND Code = 'COP'
 
-		SET @Remarks = 'System generated transaction for overpayment applied on Cash Receipt Voucher number: ' + (SELECT TransactionNo FROM tblCashReceiptVouchers WHERE Id = @Id)
+		SET @Remarks = 'System generated transaction for overpayment applied on Customer Payment number: ' + (SELECT TransactionNo FROM tblCashReceiptVouchers WHERE Id = @Id)
 
 		INSERT INTO tblCustomerOverpayments(CompanyId, TransactionNo, [Date], ReferenceNo, ReferenceNo2,
 			SubsidiaryId, Remarks, Amount, AmountApplied, SourceId, CreatedById,

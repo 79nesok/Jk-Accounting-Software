@@ -215,6 +215,7 @@ BEGIN
 		SELECT @JournalId, @WithholdingTaxAccountId, SubsidiaryId, 0, WithholdingTax, Remarks
 		FROM tblPurchaseVouchers
 		WHERE Id = @Id
+			AND WithholdingTax > 0
 	END
 	ELSE IF @JournalTypeId = 3
 	BEGIN
