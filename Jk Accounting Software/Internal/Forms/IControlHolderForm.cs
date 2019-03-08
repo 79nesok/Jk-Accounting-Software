@@ -38,41 +38,6 @@ namespace Jk_Accounting_Software
                 SetLoginDetails();
             }
 
-            private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
-            {
-                string formname = null;
-                TreeView treeView = (sender as TreeView);
-                IParentForm form;
-
-                if (treeView.SelectedNode.Nodes.Count == 0)
-                {
-                    try
-                    {
-                        IAppHandler.StartBusy("Opening list form");
-                        if (IAppHandler.FindActiveForm() != null)
-                        {
-                            IAppHandler.AddUsedForm(IAppHandler.FindActiveForm());
-                            IAppHandler.FindActiveForm().Hide();
-                        }
-
-                        formname = IAppHandler.GetSubCategory(treeView.SelectedNode.Text, "ListForm");
-
-                        if (formname != null)
-                        {
-                            form = IAppHandler.FindForm(formname, treeView.SelectedNode.Text);
-                            if (form != null)
-                                form.Run();
-                            else
-                                IMessageHandler.Inform(ISystemMessages.NoFormMessage);
-                        }
-                    }
-                    finally
-                    {
-                        IAppHandler.EndBusy("Opening list form");
-                    }
-                }
-            }
-
             private void timerDuration_Tick(object sender, EventArgs e)
             {
                 sec += 1;
@@ -148,6 +113,36 @@ namespace Jk_Accounting_Software
             {
                 if (e.KeyData == Keys.F5)
                     MenuItemRefresh_Click(null, null);
+
+                if (e.KeyData == (Keys.Control | Keys.N))
+                    IAppHandler.FindActiveForm().btnNew.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.E))
+                    IAppHandler.FindActiveForm().btnEdit.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.S))
+                    IAppHandler.FindActiveForm().btnSave.PerformClick();
+
+                if (e.KeyData == Keys.Escape)
+                    IAppHandler.FindActiveForm().btnCancel.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.P))
+                    IAppHandler.FindActiveForm().btnPrint.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.F4))
+                    IAppHandler.FindActiveForm().btnClose.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.Home))
+                    IAppHandler.FindActiveForm().btnFirstRecord.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.Left))
+                    IAppHandler.FindActiveForm().btnFirstRecord.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.Right))
+                    IAppHandler.FindActiveForm().btnNextRecord.PerformClick();
+
+                if (e.KeyData == (Keys.Control | Keys.End))
+                    IAppHandler.FindActiveForm().btnLastRecord.PerformClick();
             }
         #endregion
 
@@ -198,9 +193,8 @@ namespace Jk_Accounting_Software
                 treeView.ItemHeight = 18;
                 treeView.Cursor = Cursors.Hand;
                 treeView.BackColor = Color.Silver;
-                treeView.AfterSelect += (obj, e) => {
-                    treeView_AfterSelect(obj, e);
-                };
+                treeView.NodeMouseClick += treeView_NodeMouseClick;
+
                 try
                 {
                     treeView.BeginUpdate();                  
@@ -232,6 +226,40 @@ namespace Jk_Accounting_Software
                 box.Controls.Add(treeView);
 
                 return box;
+            }
+
+            private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+            {
+                string formname = null;
+                IParentForm form;
+
+                if (e.Node.Nodes.Count == 0)
+                {
+                    try
+                    {
+                        IAppHandler.StartBusy("Opening list form");
+                        if (IAppHandler.FindActiveForm() != null)
+                        {
+                            IAppHandler.AddUsedForm(IAppHandler.FindActiveForm());
+                            IAppHandler.FindActiveForm().Hide();
+                        }
+
+                        formname = IAppHandler.GetSubCategory(e.Node.Text, "ListForm");
+
+                        if (formname != null)
+                        {
+                            form = IAppHandler.FindForm(formname, e.Node.Text);
+                            if (form != null)
+                                form.Run();
+                            else
+                                IMessageHandler.Inform(ISystemMessages.NoFormMessage);
+                        }
+                    }
+                    finally
+                    {
+                        IAppHandler.EndBusy("Opening list form");
+                    }
+                }
             }
 
             public void CreateCategories()

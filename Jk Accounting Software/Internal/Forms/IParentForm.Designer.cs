@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IParentForm));
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,6 +49,7 @@
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
             this.btnPrint = new System.Windows.Forms.ToolStripButton();
+            this.btnCloseToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -137,6 +139,7 @@
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "x";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCloseToolTip.SetToolTip(this.btnClose, "Close (Ctrl+F4)");
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             this.btnClose.MouseLeave += new System.EventHandler(this.btnClose_MouseLeave);
@@ -184,7 +187,7 @@
             this.btnFirstRecord.Name = "btnFirstRecord";
             this.btnFirstRecord.Size = new System.Drawing.Size(23, 26);
             this.btnFirstRecord.Tag = "1";
-            this.btnFirstRecord.ToolTipText = "Shows the first record";
+            this.btnFirstRecord.ToolTipText = "Shows the first record (Ctrl+Home)";
             // 
             // NavigatorSeparatorFirst
             // 
@@ -201,7 +204,7 @@
             this.btnPreviousRecord.Size = new System.Drawing.Size(31, 26);
             this.btnPreviousRecord.Tag = "2";
             this.btnPreviousRecord.Text = " ";
-            this.btnPreviousRecord.ToolTipText = "Shows the previous record";
+            this.btnPreviousRecord.ToolTipText = "Shows the previous record (Ctrl+Left)";
             // 
             // btnNextRecord
             // 
@@ -212,7 +215,7 @@
             this.btnNextRecord.Size = new System.Drawing.Size(31, 26);
             this.btnNextRecord.Tag = "3";
             this.btnNextRecord.Text = " ";
-            this.btnNextRecord.ToolTipText = "Shows the next record";
+            this.btnNextRecord.ToolTipText = "Shows the next record (Ctrl+Right)";
             // 
             // NavigatorSeparatorFourth
             // 
@@ -228,7 +231,7 @@
             this.btnLastRecord.Size = new System.Drawing.Size(31, 26);
             this.btnLastRecord.Tag = "4";
             this.btnLastRecord.Text = " ";
-            this.btnLastRecord.ToolTipText = "Shows the last record";
+            this.btnLastRecord.ToolTipText = "Shows the last record (Ctrl+End)";
             // 
             // btnHolder
             // 
@@ -255,8 +258,8 @@
             this.btnNew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(51, 23);
-            this.btnNew.Text = "&New";
-            this.btnNew.ToolTipText = "Create new transaction (Alt+N)";
+            this.btnNew.Text = "New";
+            this.btnNew.ToolTipText = "Create new transaction (Ctrl+N)";
             // 
             // btnEdit
             // 
@@ -264,8 +267,8 @@
             this.btnEdit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(47, 23);
-            this.btnEdit.Text = "&Edit";
-            this.btnEdit.ToolTipText = "Modify the transaction (Alt+E)";
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.ToolTipText = "Modify the transaction (Ctrl+E)";
             // 
             // btnSave
             // 
@@ -273,8 +276,8 @@
             this.btnSave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(51, 23);
-            this.btnSave.Text = "&Save";
-            this.btnSave.ToolTipText = "Save the transaction (Alt+S)";
+            this.btnSave.Text = "Save";
+            this.btnSave.ToolTipText = "Save the transaction (Ctrl+S)";
             // 
             // btnCancel
             // 
@@ -282,8 +285,8 @@
             this.btnCancel.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(63, 23);
-            this.btnCancel.Text = "&Cancel";
-            this.btnCancel.ToolTipText = "Cancel the current transaction (Alt+C)";
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.ToolTipText = "Cancel the current transaction (Esc)";
             // 
             // btnPrint
             // 
@@ -291,8 +294,8 @@
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(52, 23);
-            this.btnPrint.Text = "&Print";
-            this.btnPrint.ToolTipText = "Opens the printing window";
+            this.btnPrint.Text = "Print";
+            this.btnPrint.ToolTipText = "Opens the printing window (Ctrl+P)";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // IParentForm
@@ -328,21 +331,22 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label lblCaption;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panelButton;
         protected System.Windows.Forms.ToolStrip btnNavigator;
-        protected System.Windows.Forms.ToolStripButton btnFirstRecord;
         private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFirst;
-        protected System.Windows.Forms.ToolStripButton btnPreviousRecord;
-        protected System.Windows.Forms.ToolStripButton btnNextRecord;
         private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFourth;
-        protected System.Windows.Forms.ToolStripButton btnLastRecord;
         protected System.Windows.Forms.ToolStrip btnHolder;
-        protected System.Windows.Forms.ToolStripButton btnNew;
-        protected System.Windows.Forms.ToolStripButton btnEdit;
-        protected System.Windows.Forms.ToolStripButton btnSave;
-        protected System.Windows.Forms.ToolStripButton btnCancel;
-        protected System.Windows.Forms.ToolStripButton btnPrint;
+        public System.Windows.Forms.ToolStripButton btnNew;
+        public System.Windows.Forms.ToolStripButton btnEdit;
+        public System.Windows.Forms.ToolStripButton btnSave;
+        public System.Windows.Forms.ToolStripButton btnCancel;
+        public System.Windows.Forms.ToolStripButton btnPrint;
+        public System.Windows.Forms.ToolStripButton btnFirstRecord;
+        public System.Windows.Forms.ToolStripButton btnPreviousRecord;
+        public System.Windows.Forms.ToolStripButton btnNextRecord;
+        public System.Windows.Forms.ToolStripButton btnLastRecord;
+        private System.Windows.Forms.ToolTip btnCloseToolTip;
+        public System.Windows.Forms.Button btnClose;
     }
 }
 

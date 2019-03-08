@@ -199,23 +199,9 @@ BEGIN
 		END
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
-		SELECT @JournalId, @PayableAccountId, SubsidiaryId, 0, NetAmount - WithholdingTax, Remarks
+		SELECT @JournalId, @PayableAccountId, SubsidiaryId, 0, NetAmount, Remarks
 		FROM tblPurchaseVouchers
 		WHERE Id = @Id
-
-		--Withholding Tax
-		IF @WithholdingTaxAccountId IS NULL
-			AND EXISTS(SELECT * FROM tblPurchaseVouchers WHERE Id = @Id AND WithholdingTax > 0)
-		BEGIN
-			RAISERROR('No Withholding Tax Payable Account has been set-up.', 11, 1)
-			RETURN
-		END
-
-		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
-		SELECT @JournalId, @WithholdingTaxAccountId, SubsidiaryId, 0, WithholdingTax, Remarks
-		FROM tblPurchaseVouchers
-		WHERE Id = @Id
-			AND WithholdingTax > 0
 	END
 	ELSE IF @JournalTypeId = 3
 	BEGIN

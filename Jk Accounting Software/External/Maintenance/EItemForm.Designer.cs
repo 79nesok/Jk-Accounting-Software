@@ -50,12 +50,12 @@
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(700, 0);
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
             // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(808, 34);
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
@@ -63,7 +63,15 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(808, 481);
+            this.splitContainer.Size = new System.Drawing.Size(837, 481);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(804, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -100,7 +108,7 @@
             this.txtCode.Name = "txtCode";
             this.txtCode.Required = false;
             this.txtCode.Size = new System.Drawing.Size(230, 23);
-            this.txtCode.TabIndex = 1;
+            this.txtCode.TabIndex = 0;
             // 
             // label7
             // 
@@ -119,7 +127,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Required = false;
             this.txtName.Size = new System.Drawing.Size(230, 23);
-            this.txtName.TabIndex = 2;
+            this.txtName.TabIndex = 0;
             // 
             // label1
             // 
@@ -133,6 +141,8 @@
             // 
             // cmbType
             // 
+            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbType.DataSet = "dstItemTypes";
             this.cmbType.DisplayText = "Name";
             this.cmbType.ForeColor = System.Drawing.Color.Black;
@@ -144,7 +154,7 @@
             this.cmbType.Required = false;
             this.cmbType.SelectedKey = 0;
             this.cmbType.Size = new System.Drawing.Size(230, 23);
-            this.cmbType.TabIndex = 10;
+            this.cmbType.TabIndex = 0;
             // 
             // label9
             // 
@@ -164,7 +174,7 @@
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Required = false;
             this.txtRemarks.Size = new System.Drawing.Size(230, 90);
-            this.txtRemarks.TabIndex = 4;
+            this.txtRemarks.TabIndex = 0;
             // 
             // label10
             // 
@@ -182,7 +192,7 @@
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);
-            this.chkActive.TabIndex = 5;
+            this.chkActive.TabIndex = 0;
             this.chkActive.UseVisualStyleBackColor = true;
             // 
             // EItemForm
@@ -204,7 +214,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns9"))));
             this.Name = "EItemForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(808, 481);
+            this.Size = new System.Drawing.Size(837, 481);
             this.ZLoadMasterColumns = true;
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

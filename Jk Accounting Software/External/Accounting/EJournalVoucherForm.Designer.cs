@@ -74,7 +74,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(808, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
             this.splitContainerMasterDetail.SplitterDistance = 220;
             // 
             // dstDetail
@@ -96,17 +96,33 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(808, 209);
+            this.tabControlDetails.Size = new System.Drawing.Size(837, 209);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(800, 181);
+            this.tabPageDetails.Size = new System.Drawing.Size(829, 181);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(808, 536);
+            this.splitContainer.Size = new System.Drawing.Size(837, 536);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(804, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -147,6 +163,7 @@
             this.txtTransactionNo.Required = false;
             this.txtTransactionNo.Size = new System.Drawing.Size(205, 16);
             this.txtTransactionNo.TabIndex = 1;
+            this.txtTransactionNo.TabStop = false;
             // 
             // label8
             // 
@@ -249,6 +266,8 @@
             // 
             // cmbAccounts
             // 
+            this.cmbAccounts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbAccounts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbAccounts.DataSet = "dstAccounts";
             this.cmbAccounts.DisplayText = "Name";
             this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
@@ -264,6 +283,8 @@
             // 
             // cmbSubsidiary
             // 
+            this.cmbSubsidiary.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSubsidiary.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubsidiary.DataSet = "dstSubsidiaries";
             this.cmbSubsidiary.DisplayText = "Name";
             this.cmbSubsidiary.DropDownHeight = 200;
@@ -362,7 +383,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns14"))));
             this.Name = "EJournalVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(808, 536);
+            this.Size = new System.Drawing.Size(837, 536);
             this.ZLoadMasterColumns = true;
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
             this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EJournalVoucherForm_AfterRun);

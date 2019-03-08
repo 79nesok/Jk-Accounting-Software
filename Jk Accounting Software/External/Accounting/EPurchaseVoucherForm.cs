@@ -133,6 +133,7 @@ namespace Jk_Accounting_Software.External.Accounting
         private void EPurchaseVoucherForm_AfterRun()
         {
             txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("N2");
+            txtWTAX.Text = double.Parse(txtWTAX.Text).ToString("N2");
             txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("N2");
             txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("N2");
             txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("N2");
@@ -257,13 +258,9 @@ namespace Jk_Accounting_Software.External.Accounting
             {
                 WTAX = ComputeWTAX();
                 txtGrossAmount.Text = (double.Parse(txtGrossAmount.Text) - WTAX).ToString("N2");
-                txtPaidAmount.Text = (double.Parse(txtPaidAmount.Text) + WTAX).ToString("N2");
             }
             else
-            {
                 ComputeMasterAmount();
-                txtPaidAmount.Text = (double.Parse(txtPaidAmount.Text) - double.Parse(txtWTAX.Text)).ToString("N2");
-            }
 
             txtWTAX.Text = WTAX.ToString("N2");
         }

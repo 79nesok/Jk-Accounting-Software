@@ -104,6 +104,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 InitSeriesProviders();
                 SetRequiredControls();
                 SetFormFooter();
+                FocusFirstControl(this.splitContainer.Panel2);
             }
 
             private void IMasterForm_BeforeSave()
@@ -144,7 +145,7 @@ namespace Jk_Accounting_Software.Internal.Forms
         #endregion
 
         #region Custom Procedures
-            public void CreateMasterColumns()
+            private void CreateMasterColumns()
             {
                 ITransactionHandler VTransactionHandler = new ITransactionHandler();
                 DataTable table = new DataTable();
@@ -167,7 +168,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             }
 
             //Gets the value from MasterColumn then assign it to controls such as textbox
-            public void AssignValuesToControls()
+            private void AssignValuesToControls()
             {
                 if (VMasterDataTable.Rows.Count > 0)
                     foreach (JkMasterColumn column in MasterColumns)
@@ -181,7 +182,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             }
 
             //Gets the default value set from MasterColumn then assign it to controls upon creating new transaction
-            public void AssignControlsDefaultValue()
+            private void AssignControlsDefaultValue()
             {
                 Control control;
 
@@ -201,7 +202,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             }
 
             //Sets the watermark for required columns
-            public void SetRequiredControls()
+            private void SetRequiredControls()
             {
                 Control control;
 
@@ -229,10 +230,13 @@ namespace Jk_Accounting_Software.Internal.Forms
                 }
             }
 
-            public void AssignEventOnButtons()
+            private void AssignEventOnButtons()
             {
                 btnNew.Click += (obj, e) =>
                 {
+                    if (!btnNew.Visible || !btnNew.Enabled)
+                        return;
+
                     try
                     {
                         IAppHandler.StartBusy("Executing New");
@@ -251,6 +255,9 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 btnEdit.Click += (obj, e) =>
                 {
+                    if (!btnEdit.Visible || !btnEdit.Enabled)
+                        return;
+
                     try
                     {
                         IAppHandler.StartBusy("Executing Edit");
@@ -265,6 +272,9 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 btnSave.Click += (obj, e) =>
                 {
+                    if (!btnSave.Visible || !btnSave.Enabled)
+                        return;
+
                     if (IMessageHandler.Confirm(ISystemMessages.SavingQuestion) == DialogResult.Yes)
                     {
                     
@@ -342,6 +352,9 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 btnCancel.Click += (obj, e) =>
                 {
+                    if (!btnCancel.Visible || !btnCancel.Enabled)
+                        return;
+
                     if (IMessageHandler.Confirm(ISystemMessages.ClosingOrCancellingQuestion) == DialogResult.Yes)
                     {
                         try
@@ -372,21 +385,33 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 btnFirstRecord.Click += (obj, e) =>
                 {
+                    if (!btnFirstRecord.Visible || !btnFirstRecord.Enabled)
+                        return;
+
                     ReQuery(obj, e);
                 };
 
                 btnPreviousRecord.Click += (obj, e) =>
                 {
+                    if (!btnPreviousRecord.Visible || !btnPreviousRecord.Enabled)
+                        return;
+
                     ReQuery(obj, e);
                 };
 
                 btnNextRecord.Click += (obj, e) =>
                 {
+                    if (!btnNextRecord.Visible || !btnNextRecord.Enabled)
+                        return;
+
                     ReQuery(obj, e);
                 };
 
                 btnLastRecord.Click += (obj, e) =>
                 {
+                    if (!btnLastRecord.Visible || !btnLastRecord.Enabled)
+                        return;
+
                     ReQuery(obj, e);
                 };
             }
@@ -421,7 +446,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 }
             }
 
-            public void SetFormFooter()
+            private void SetFormFooter()
             {
                 lblMode.Text = "Mode: " + FormState.ToString().Substring(2);
 
@@ -449,7 +474,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             }
 
             //This will update the value on MasterColumns and DataTables before performing Save or Edit
-            public void SetColumnsValue()
+            private void SetColumnsValue()
             {
                 DataRow row = null;
 
@@ -512,22 +537,49 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             protected virtual void SaveDetail()
             {
-                //to be override in MasterDetailForm and to put Saving of detail 
+                //to be overriden in MasterDetailForm and to put Saving of detail 
             }
 
             protected virtual void EditDetail()
             { 
-                //to be override in MasterDetailForm and to put Edit of detail
+                //to be overriden in MasterDetailForm and to put Edit of detail
             }
 
             protected virtual void UnPost()
             { 
-                //to be override in Forms and to put unposting event
+                //to be overriden in Forms and to put unposting event
             }
 
             protected virtual void Post()
             { 
-                //to be override in Forms and to put posting event
+                //to be overriden in Forms and to put posting event
+            }
+
+            //this procedure will set the focus on the first editable control
+            private void FocusFirstControl(Control control)
+            {
+                if (FormState == FormStates.fsView)
+                    return;
+
+                foreach (Control childControl in control.Controls)
+                {
+                    if (((childControl is TextBox && !(childControl as TextBox).ReadOnly)
+                        || childControl is CheckBox
+                        || childControl is ComboBox
+                        || childControl is DateTimePicker
+                        || childControl is PictureBox
+                        || childControl is LinkLabel
+                        || childControl is JkLookUpComboBox
+                        || (childControl is JkTextBox && !(childControl as JkTextBox).ReadOnly)
+                        || childControl is MaskedTextBox)
+
+                        && childControl.Visible)
+                    {
+                        childControl.Focus();
+                        break;
+                    }
+                    FocusFirstControl(childControl);
+                }
             }
         #endregion
     }

@@ -124,6 +124,9 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void btnClose_Click(object sender, EventArgs e)
             {
+                if (!btnClose.Visible || !btnClose.Enabled)
+                    return;
+
                 splitContainer.Panel2.Focus();
                 if (FormState == FormStates.fsNew || FormState == FormStates.fsEdit)
                     if (IMessageHandler.Confirm(ISystemMessages.ClosingOrCancellingQuestion) == DialogResult.No)
@@ -144,6 +147,9 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void btnPrint_Click(object sender, EventArgs e)
             {
+                if (!btnPrint.Visible || !btnPrint.Enabled)
+                    return;
+
                 String reportFormName = VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "PrintoutFormName").ToString();
                 IParentForm reportForm = IAppHandler.FindForm(reportFormName, "Printout", true);
 
@@ -168,10 +174,11 @@ namespace Jk_Accounting_Software.Internal.Forms
                 try
                 {
                     IAppHandler.StartBusy("Preparing controls");
-                    OnBeforeRun();
 
-                    if(!this.Visible)
+                    if (!this.Visible)
                         this.Show();
+
+                    OnBeforeRun();
                 }
                 finally
                 {
@@ -211,21 +218,26 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void ProcessControls(Control control)
             {
-                foreach (Control childControls in control.Controls)
+                foreach (Control childControl in control.Controls)
                 {
-                    if ((childControls is TextBox && !(childControls as TextBox).ReadOnly) ||
-                        childControls is CheckBox ||
-                        childControls is ComboBox ||
-                        childControls is DateTimePicker ||
-                        childControls is PictureBox ||
-                        childControls is LinkLabel ||
-                        childControls is JkLookUpComboBox ||
-                        (childControls is JkTextBox && !(childControls as JkTextBox).ReadOnly) ||
-                        childControls is MaskedTextBox)
+                    if (((childControl is TextBox && !(childControl as TextBox).ReadOnly)
+                        || childControl is CheckBox
+                        || childControl is ComboBox                        
+                        || childControl is DateTimePicker
+                        || childControl is PictureBox
+                        || childControl is LinkLabel
+                        || childControl is JkLookUpComboBox
+                        || (childControl is JkTextBox && !(childControl as JkTextBox).ReadOnly)
+                        || childControl is MaskedTextBox)
+                        
+                        && childControl.Visible)
                     {
-                        childControls.Enabled = (FormState != FormStates.fsView);
+                        childControl.Enabled = (FormState != FormStates.fsView);
+
+                        //set the tabindex to zero, to correct the controls tab arrangement
+                        childControl.TabIndex = 0;
                     }
-                    ProcessControls(childControls);
+                    ProcessControls(childControl);
                 }
             }
 

@@ -58,12 +58,12 @@
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(700, 0);
+            this.lblMode.Location = new System.Drawing.Point(729, 0);
             // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(808, 34);
+            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
@@ -71,7 +71,15 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(808, 481);
+            this.splitContainer.Size = new System.Drawing.Size(837, 481);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(804, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -120,6 +128,7 @@
             this.txtTransactionNo.Required = false;
             this.txtTransactionNo.Size = new System.Drawing.Size(205, 16);
             this.txtTransactionNo.TabIndex = 1;
+            this.txtTransactionNo.TabStop = false;
             // 
             // label8
             // 
@@ -191,6 +200,8 @@
             // 
             // cmbSubsidiary
             // 
+            this.cmbSubsidiary.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSubsidiary.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubsidiary.BackColor = System.Drawing.SystemColors.Window;
             this.cmbSubsidiary.DataSet = "dstSubsidiaries";
             this.cmbSubsidiary.DisplayText = "Name";
@@ -312,7 +323,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns18"))));
             this.Name = "ECustomerOverpaymentForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(808, 481);
+            this.Size = new System.Drawing.Size(837, 481);
             this.ZLoadMasterColumns = true;
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
