@@ -222,15 +222,7 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void ShowAmountToApply()
         {
-            DataGridViewColumn column = null;
-
-            foreach (DataGridViewColumn c in dataGridView.Columns)
-            {
-                if (c.DataPropertyName == "AmountToApply")
-                    column = c;
-            }
-
-            column.Visible = (FormState != FormStates.fsView);
+            dataGridView.Columns[dataGridView.GetCellIndex("AmountToApply")].Visible = (FormState != FormStates.fsView);
         }
 
         private void ECashDisbursementVoucherForm_AfterRun()
@@ -276,7 +268,9 @@ namespace Jk_Accounting_Software.External.Accounting
             //get total amount of payment
             foreach (DataGridViewRow row in dataGridViewPaymentDetails.Rows)
             {
-                if (row.Index != dataGridViewPaymentDetails.NewRowIndex)
+                if (row.Index != dataGridViewPaymentDetails.NewRowIndex
+                    && row.Cells[AmountIndex].Value != null
+                    && row.Cells[AmountIndex].Value != DBNull.Value)
                     value += double.Parse(row.Cells[AmountIndex].Value.ToString());
             }
 
@@ -291,7 +285,9 @@ namespace Jk_Accounting_Software.External.Accounting
             //deduct total applied
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
-                if (row.Index != dataGridView.NewRowIndex)
+                if (row.Index != dataGridView.NewRowIndex
+                    && row.Cells[AppliedAmountIndex].Value != null
+                    && row.Cells[AppliedAmountIndex].Value != DBNull.Value)
                     value += double.Parse(row.Cells[AppliedAmountIndex].Value.ToString());
             }
 

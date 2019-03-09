@@ -119,6 +119,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EBillPrintoutDS.cs">
+      <DependentUpon>EBillPrintoutDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EBillPrintoutDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EBillPrintoutDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\EBIRForm2307PrintoutDS.cs">
       <DependentUpon>EBIRForm2307PrintoutDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -230,17 +239,17 @@
     <Compile Include="External\Maintenance\ELiabilitiesListForm.Designer.cs">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\EPurchaseVoucherForm.cs">
+    <Compile Include="External\Accounting\EBillsForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EPurchaseVoucherForm.Designer.cs">
-      <DependentUpon>EPurchaseVoucherForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\EBillsForm.Designer.cs">
+      <DependentUpon>EBillsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\EPurchaseVouchersListForm.cs">
+    <Compile Include="External\Accounting\EBillsListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\EPurchaseVouchersListForm.Designer.cs">
-      <DependentUpon>EPurchaseVouchersListForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\EBillsListForm.Designer.cs">
+      <DependentUpon>EBillsListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\ESalesVoucherForm.cs">
       <SubType>UserControl</SubType>
@@ -397,6 +406,12 @@
     </Compile>
     <Compile Include="External\Report\EBalanceSheetReportForm.Designer.cs">
       <DependentUpon>EBalanceSheetReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Report\EBillPrintoutForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EBillPrintoutForm.Designer.cs">
+      <DependentUpon>EBillPrintoutForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Report\EBIRForm2307PrintoutForm.cs">
       <SubType>UserControl</SubType>
@@ -634,11 +649,11 @@
     <EmbeddedResource Include="External\Maintenance\ELiabilitiesListForm.resx">
       <DependentUpon>ELiabilitiesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\EPurchaseVoucherForm.resx">
-      <DependentUpon>EPurchaseVoucherForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\EBillsForm.resx">
+      <DependentUpon>EBillsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\EPurchaseVouchersListForm.resx">
-      <DependentUpon>EPurchaseVouchersListForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\EBillsListForm.resx">
+      <DependentUpon>EBillsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ESalesVoucherForm.resx">
       <DependentUpon>ESalesVoucherForm.cs</DependentUpon>
@@ -676,6 +691,7 @@
     <EmbeddedResource Include="External\Printouts\Aging of Payables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Bill.rdlc" />
     <EmbeddedResource Include="External\Printouts\BIR Form 2307.rdlc" />
     <EmbeddedResource Include="External\Printouts\Collection Summary.rdlc" />
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
@@ -692,6 +708,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EBalanceSheetReportForm.resx">
       <DependentUpon>EBalanceSheetReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\EBillPrintoutForm.resx">
+      <DependentUpon>EBillPrintoutForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EBIRForm2307PrintoutForm.resx">
       <DependentUpon>EBIRForm2307PrintoutForm.cs</DependentUpon>
@@ -824,6 +843,17 @@
     </None>
     <None Include="External\Datasources\EBalanceSheetReportDS.xss">
       <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EBillPrintoutDS.xsc">
+      <DependentUpon>EBillPrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EBillPrintoutDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EBillPrintoutDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EBillPrintoutDS.xss">
+      <DependentUpon>EBillPrintoutDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\EBIRForm2307PrintoutDS.xsc">
       <DependentUpon>EBIRForm2307PrintoutDS.xsd</DependentUpon>

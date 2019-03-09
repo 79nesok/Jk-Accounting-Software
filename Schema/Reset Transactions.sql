@@ -11,9 +11,9 @@ TRUNCATE TABLE tblJournalDetails
 --JV
 TRUNCATE TABLE tblJournalVouchers
 TRUNCATE TABLE tblJournalVoucherDetails
---PV
-TRUNCATE TABLE tblPurchaseVouchers
-TRUNCATE TABLE tblPurchaseVoucherDetails
+--B
+TRUNCATE TABLE tblBills
+TRUNCATE TABLE tblBillDetails
 --CDV
 TRUNCATE TABLE tblCashDisbursementVouchers
 TRUNCATE TABLE tblCashDisbursementVoucherDetails

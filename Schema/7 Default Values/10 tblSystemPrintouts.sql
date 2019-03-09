@@ -4,7 +4,8 @@ INSERT INTO @tmp(FormCaption, Report, PrintoutFormName)
 VALUES
 	('Journal Voucher', 'Journal Voucher', 'EJournalVoucherPrintoutForm'),
 	('Sales Voucher', 'Sales Invoice', 'ESalesInvoicePrintoutForm'),
-	('Purchase Voucher', 'BIR Form 2307', 'EBIRForm2307PrintoutForm')
+	('Bill', 'Bill', 'EBillPrintoutForm'),
+	('Supplier Payments', 'BIR Form 2307', 'EBIRForm2307PrintoutForm')
 
 INSERT INTO tblSystemPrintouts(FormCaption, Report, PrintoutFormName)
 SELECT t.FormCaption, t.Report, t.PrintoutFormName

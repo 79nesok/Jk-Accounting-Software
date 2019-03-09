@@ -14,7 +14,7 @@ WHERE Code IN ('GJ', 'PJ', 'CDJ', 'SJ', 'CRJ')
 UPDATE tblJournalVouchers
 SET JournalId = NULL
 
-UPDATE tblPurchaseVouchers
+UPDATE tblBills
 SET JournalId = NULL
 
 UPDATE tblSalesVouchers
@@ -39,7 +39,7 @@ FROM tblJournalVouchers
 
 --Purchase Voucher
 SELECT Id, 2
-FROM tblPurchaseVouchers
+FROM tblBills
 
 	UNION ALL
 
@@ -91,17 +91,17 @@ FROM tblSalesVouchers sv
 	) tmp ON tmp.InvoiceId = sv.Id
 WHERE sv.Voided = 0
 
-UPDATE pv
-SET pv.PaidAmount = pv.WithholdingTax + ISNULL(tmp.Amount, 0)
-FROM tblPurchaseVouchers pv
+UPDATE b
+SET b.PaidAmount = b.WithholdingTax + ISNULL(tmp.Amount, 0)
+FROM tblBills b
 	LEFT OUTER JOIN (
 		SELECT cpd.BillId, SUM(cpd.Amount) AS Amount
 		FROM tblCashDisbursementVouchers cdv
 			INNER JOIN tblCashDisbursementVoucherPaymentDistribution cpd ON cpd.CashDisbursementVoucherId = cdv.Id
 		WHERE cdv.Voided = 0
 		GROUP BY cpd.BillId
-	) tmp ON tmp.BillId = pv.Id
-WHERE pv.Voided = 0
+	) tmp ON tmp.BillId = b.Id
+WHERE b.Voided = 0
 
 --Temporary for the bug in posting to GL
 EXEC uspRepostLedgers

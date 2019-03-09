@@ -1,6 +1,6 @@
 --Vouchers
 EXEC uspAddSystemSeries 'JV' --Journal Voucher
-EXEC uspAddSystemSeries 'PV' --Purchase Voucher
+EXEC uspAddSystemSeries 'B' --Bills
 EXEC uspAddSystemSeries 'SV' --Sales Voucher
 EXEC uspAddSystemSeries 'CP' --Customer Payment
 EXEC uspAddSystemSeries 'SP' --Supplier Payment

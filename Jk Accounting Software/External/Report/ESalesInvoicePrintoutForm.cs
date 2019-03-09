@@ -26,14 +26,17 @@ namespace Jk_Accounting_Software.External.Report
         {
             base.RefreshReport();
 
+            int Id = int.Parse(Parameters.Find(p => p.Name == "Id").Value);
+            int CompanyId = int.Parse(Parameters.Find(p => p.Name == "CompanyId").Value);
+
             ESalesInvoiceReportDS siDataSource = new ESalesInvoiceReportDS();
             tblSalesVoucherTableAdapter SVAdapter = new tblSalesVoucherTableAdapter();
             tblSalesVoucherDetailTableAdapter SVDetailsAdapter = new tblSalesVoucherDetailTableAdapter();
             tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
 
-            SVAdapter.Fill(siDataSource.tblSalesVoucher, int.Parse(Parameters[0].Value));
-            SVDetailsAdapter.Fill(siDataSource.tblSalesVoucherDetail, int.Parse(Parameters[0].Value));
-            CompanyAdapter.Fill(siDataSource.tblCompanies, ISecurityHandler.CompanyId);
+            SVAdapter.Fill(siDataSource.tblSalesVoucher, Id);
+            SVDetailsAdapter.Fill(siDataSource.tblSalesVoucherDetail, Id);
+            CompanyAdapter.Fill(siDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Sales Invoice.rdlc";

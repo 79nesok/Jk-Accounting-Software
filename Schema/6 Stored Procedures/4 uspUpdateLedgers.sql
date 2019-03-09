@@ -33,8 +33,8 @@ IF @IsPost = 1
 BEGIN
 	--General Ledger
 	UPDATE gl
-	SET gl.Debit = gl.Debit + t.Debit,
-		gl.Credit = gl.Credit + t.Credit,
+	SET	gl.Debit = gl.Debit + CASE WHEN gl.[Date] = @Date THEN t.Debit ELSE 0 END,
+		gl.Credit = gl.Credit + CASE WHEN gl.[Date] = @Date THEN t.Credit ELSE 0 END,
 		gl.Balance = gl.Balance + (t.Debit - t.Credit)
 	FROM tblGeneralLedger gl
 		INNER JOIN @tmp t ON gl.AccountId = t.AccountId
@@ -66,8 +66,8 @@ BEGIN
 
 	--Subsidiary Ledger
 	UPDATE sl
-	SET sl.Debit = sl.Debit + t.Debit,
-		sl.Credit = sl.Credit + t.Credit,
+	SET	sl.Debit = sl.Debit + CASE WHEN sl.[Date] = @Date THEN t.Debit ELSE 0 END,
+		sl.Credit = sl.Credit + CASE WHEN sl.[Date] = @Date THEN t.Credit ELSE 0 END,
 		sl.Balance = sl.Balance + (t.Debit - t.Credit)
 	FROM tblSubsidiaryLedger sl
 		INNER JOIN @tmp2 t ON sl.SubsidiaryId = t.SubsidiaryId
@@ -105,8 +105,8 @@ ELSE IF @IsPost = 0
 BEGIN
 	--General Ledger
 	UPDATE gl
-	SET gl.Debit = gl.Debit - t.Debit,
-		gl.Credit = gl.Credit - t.Credit,
+	SET	gl.Debit = gl.Debit - CASE WHEN gl.[Date] = @Date THEN t.Debit ELSE 0 END,
+		gl.Credit = gl.Credit - CASE WHEN gl.[Date] = @Date THEN t.Credit ELSE 0 END,
 		gl.Balance = gl.Balance - (t.Debit - t.Credit)
 	FROM tblGeneralLedger gl
 		INNER JOIN @tmp t ON gl.AccountId = t.AccountId
@@ -118,19 +118,34 @@ BEGIN
 		INNER JOIN @tmp t ON t.AccountId = gl.AccountId
 	WHERE gl.CompanyId = @CompanyId
 		AND gl.[Date] = @Date
+		AND gl.Balance = 0
+
+	DELETE gl
+	FROM tblGeneralLedger gl
+		INNER JOIN @tmp t ON t.AccountId = gl.AccountId
+	WHERE gl.CompanyId = @CompanyId
+		AND gl.[Date] = @Date
 		AND gl.Debit = 0
 		AND gl.Credit = 0
 
 	--Subsidiary Ledger
 	UPDATE sl
-	SET sl.Debit = sl.Debit - t.Debit,
-		sl.Credit = sl.Credit - t.Credit,
+	SET	sl.Debit = sl.Debit - CASE WHEN sl.[Date] = @Date THEN t.Debit ELSE 0 END,
+		sl.Credit = sl.Credit - CASE WHEN sl.[Date] = @Date THEN t.Credit ELSE 0 END,
 		sl.Balance = sl.Balance - (t.Debit - t.Credit)
 	FROM tblSubsidiaryLedger sl
 		INNER JOIN @tmp2 t ON sl.SubsidiaryId = t.SubsidiaryId
 			AND sl.AccountId = t.AccountId
 	WHERE sl.CompanyId = @CompanyId
 		AND sl.[Date] >= @Date
+
+	DELETE sl
+	FROM tblSubsidiaryLedger sl
+		INNER JOIN @tmp2 t ON t.SubsidiaryId = sl.SubsidiaryId
+			AND t.AccountId = sl.AccountId
+	WHERE sl.CompanyId = @CompanyId
+		AND sl.[Date] = @Date
+		AND sl.Balance = 0
 
 	DELETE sl
 	FROM tblSubsidiaryLedger sl

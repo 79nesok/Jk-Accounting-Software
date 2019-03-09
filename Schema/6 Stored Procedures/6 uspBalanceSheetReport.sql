@@ -26,18 +26,21 @@ BEGIN
 
 	UNION ALL
 
-	SELECT 'Net Income/Loss' Account, SUM(gl.Balance) * -1 AS Balance
-	FROM tblGeneralLedger gl
-		INNER JOIN tblAccounts a ON a.Id = gl.AccountId
-			AND a.AccountTypeId IN (4, 5)
-	WHERE gl.CompanyId = @CompanyId
-		AND gl.[Date] = (
-			SELECT MAX(gl2.[Date])
-			FROM tblGeneralLedger gl2
-			WHERE gl2.CompanyId = @CompanyId
-				AND gl2.AccountId = gl.AccountId
-				AND gl2.[Date] <= @Date
-		)
+	SELECT CASE WHEN x.Balance >= 0 THEN 'Net Income' ELSE 'Net Loss' END, x.Balance
+	FROM (
+		SELECT ISNULL(SUM(gl.Balance), 0) * -1 AS Balance
+		FROM tblGeneralLedger gl
+			INNER JOIN tblAccounts a ON a.Id = gl.AccountId
+				AND a.AccountTypeId IN (4, 5)
+		WHERE gl.CompanyId = @CompanyId
+			AND gl.[Date] = (
+				SELECT MAX(gl2.[Date])
+				FROM tblGeneralLedger gl2
+				WHERE gl2.CompanyId = @CompanyId
+					AND gl2.AccountId = gl.AccountId
+					AND gl2.[Date] <= @Date
+			)
+	) x
 END
 ELSE
 BEGIN

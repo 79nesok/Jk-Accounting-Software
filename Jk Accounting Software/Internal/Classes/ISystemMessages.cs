@@ -58,5 +58,9 @@ namespace Jk_Accounting_Software.Internal.Classes
         public const String FillRequiredFieldMessage = "Please fill up all required fields.";
         public const String NoPendingInvoice = "No pending invoice(s) for the selected subsidiary.";
         public const String NoPendingBills = "No pending bills for the selected subsidiary.";
+        public static String FillRequiredFieldOnGridMessage(String column)
+        {
+            return String.Format("Please fill up '{0}', it is a required field.", column);
+        }
     }
 }

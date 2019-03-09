@@ -8,54 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
+using JkComponents;
 using System.Data.SqlClient;
+using Jk_Accounting_Software.Internal.Classes;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
-    public partial class ESalesVoucherForm : IMasterDetailForm
+    public partial class EBillsForm : IMasterDetailForm
     {
         bool Modifying = false;
 
-        public ESalesVoucherForm()
+        public EBillsForm()
         {
             InitializeComponent();
             dataGridView.CellValueChanged += dataGridView_CellValueChanged;
             dataGridViewJournalEntry.AutoGenerateColumns = false;
-        }
-
-        private void ESalesVoucherForm_AfterRun()
-        {
-            txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("N2");
-            txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("N2");
-            txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("N2");
-            txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("N2");
-            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("N2");
-            txtBalance.Text = (double.Parse(txtNetAmount.Text) - double.Parse(txtPaidAmount.Text)).ToString("N2");
-
-            //load journal entry
-            if (FormState == FormStates.fsView)
-            {
-                if (!dstJournalEntry.ZLoadGrid)
-                    dstJournalEntry.ZLoadGrid = true;
-
-                dstJournalEntry.Parameters[0].Value = this.MasterColumns.Find(mc => mc.Name == "JournalId").Value.ToString();
-                dstJournalEntry.DataTable = VTransactionHandler.LoadData(dstJournalEntry.CommandText, dstJournalEntry.Parameters);
-                if (dataGridViewJournalEntry.DataSource == null)
-                {
-                    dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
-                    dataGridViewJournalEntry.AutoGenerateColumns = false;
-                }
-
-                tabPageJournalEntry.Text = String.Format("Journal Entry ({0})", dstJournalEntry.DataTable.Rows[0]["TransactionNo"].ToString());
-
-                if (!tabControlDetails.TabPages.Contains(tabPageJournalEntry))
-                    tabControlDetails.TabPages.Insert(1, tabPageJournalEntry);
-            }
-            else
-            {
-                tabPageJournalEntry.Text = "Journal Entry";
-                tabControlDetails.TabPages.Remove(tabPageJournalEntry);
-            }
         }
 
         private void dataGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -90,7 +57,8 @@ namespace Jk_Accounting_Software.External.Accounting
         {
             int VATTypeId = int.Parse(dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("VATTypeId")].Value.ToString());
             double Amount = double.Parse(dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("Amount")].Value.ToString());
-            double VATAmount = 0;
+            double VATAmount = 0, GrossAmount = 0, WTAX = 0, ATCRate = 0;
+            object ATCId;
 
             if (Amount == 0 || Modifying)
                 return;
@@ -98,14 +66,30 @@ namespace Jk_Accounting_Software.External.Accounting
             try
             {
                 Modifying = true;
+
+                //VAT
                 dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("VATAmount")].Value = ComputeVATAmount(VATTypeId, Amount).ToString();
                 VATAmount = double.Parse(dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("VATAmount")].Value.ToString());
 
+                //GrossAmount
                 if (VATTypeId == 1) //Inclusive
-                    dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("GrossAmount")].Value = (Amount - VATAmount).ToString();
+                    GrossAmount = Amount - VATAmount;
                 else
-                    dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("GrossAmount")].Value = (Amount).ToString();
+                    GrossAmount = Amount;
 
+                dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("GrossAmount")].Value = GrossAmount;
+
+                //WithholdingTax
+                ATCId = dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("ATCId")].Value;
+                if (ATCId != null && ATCId != DBNull.Value)
+                {
+                    ATCRate = double.Parse(VLookupProvider.DataSetLookup(VLookupProvider.dstATC, "Id", ATCId, "Rate").ToString());
+                    WTAX = Math.Round(GrossAmount * (ATCRate / 100), 2);
+                }
+
+                dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("WithholdingTax")].Value = WTAX; 
+
+                //Total
                 if (VATTypeId == 1) //Inclusive
                     dataGridView.CurrentRow.Cells[dataGridView.GetCellIndex("Total")].Value = Amount.ToString();
                 else
@@ -120,6 +104,7 @@ namespace Jk_Accounting_Software.External.Accounting
         private void ComputeMasterAmount()
         {
             double GrossAmount = 0;
+            double WithholdingTax = 0;
             double VATAmount = 0;
             double DiscountAmount = 0;
             double NetAmount = 0;
@@ -128,6 +113,9 @@ namespace Jk_Accounting_Software.External.Accounting
             {
                 if (dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("GrossAmount")].Value != null)
                     GrossAmount += double.Parse(dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("GrossAmount")].Value.ToString());
+
+                if (dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("WithholdingTax")].Value != null)
+                    WithholdingTax += double.Parse(dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("WithholdingTax")].Value.ToString());
 
                 if (dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("VATAmount")].Value != null)
                     VATAmount += double.Parse(dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("VATAmount")].Value.ToString());
@@ -140,20 +128,46 @@ namespace Jk_Accounting_Software.External.Accounting
             }
 
             txtGrossAmount.Text = GrossAmount.ToString("N2");
+            txtWTAX.Text = WithholdingTax.ToString("N2");
             txtVATAmount.Text = VATAmount.ToString("N2");
             txtDiscountAmount.Text = DiscountAmount.ToString("N2");
             txtNetAmount.Text = NetAmount.ToString("N2");
-            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("N2");
         }
 
         private void EPurchaseVoucherForm_AfterRun()
         {
             txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("N2");
+            txtWTAX.Text = double.Parse(txtWTAX.Text).ToString("N2");
             txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("N2");
             txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("N2");
             txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("N2");
             txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("N2");
             txtBalance.Text = (double.Parse(txtNetAmount.Text) - double.Parse(txtPaidAmount.Text)).ToString("N2");
+
+            //load journal entry
+            if (FormState == FormStates.fsView)
+            {
+                if (!dstJournalEntry.ZLoadGrid)
+                    dstJournalEntry.ZLoadGrid = true;
+
+                dstJournalEntry.Parameters[0].Value = this.MasterColumns.Find(mc => mc.Name == "JournalId").Value.ToString();
+                dstJournalEntry.DataTable = VTransactionHandler.LoadData(dstJournalEntry.CommandText, dstJournalEntry.Parameters);
+                if (dataGridViewJournalEntry.DataSource == null)
+                {
+                    dataGridViewJournalEntry.DataSource = dstJournalEntry.DataTable;
+                    dataGridViewJournalEntry.AutoGenerateColumns = false;
+                }
+
+                tabPageJournalEntry.Text = String.Format("Journal Entry ({0})", dstJournalEntry.DataTable.Rows[0]["TransactionNo"].ToString());
+                
+                if (!tabControlDetails.TabPages.Contains(tabPageJournalEntry))
+                    tabControlDetails.TabPages.Insert(1, tabPageJournalEntry);
+            }
+            else
+            {
+                tabPageJournalEntry.Text = "Journal Entry";
+                tabControlDetails.TabPages.Remove(tabPageJournalEntry);
+            }
         }
 
         private void Post(bool IsPost)
@@ -165,7 +179,7 @@ namespace Jk_Accounting_Software.External.Accounting
             //which will trigger transaction rollback
             Command.CommandType = CommandType.StoredProcedure;
             Command.CommandText = "uspUpdateJournals";
-            Command.Parameters.AddWithValue("@JournalTypeId", 3);
+            Command.Parameters.AddWithValue("@JournalTypeId", 2);
             Command.Parameters.AddWithValue("@Id", Parameters[0].Value);
             Command.Parameters.AddWithValue("@IsPost", IsPost);
             Command.Connection = VTransactionHandler.VConnection;
@@ -185,8 +199,8 @@ namespace Jk_Accounting_Software.External.Accounting
             Post(false);
         }
 
-        //to ensure no incorrect amounts will come up
-        private void ESalesVoucherForm_BeforeSave()
+        //to ensure that no wrong computation will come up before saving
+        private void EPurchaseVoucherForm_BeforeSave()
         {
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
@@ -194,6 +208,30 @@ namespace Jk_Accounting_Software.External.Accounting
                 ComputeDetailAmount();
             }
             ComputeMasterAmount();
+        }
+
+        private void cmbSubsidiary_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (FormState == FormStates.fsView)
+                return;
+
+            object ATCId;
+
+            if (cmbSubsidiary.SelectedKey != 0)
+            {
+                ATCId = VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaries, "Id", cmbSubsidiary.SelectedKey, "ATCId");
+
+                if (ATCId != null || ATCId != DBNull.Value)
+                {
+                    dstDetail.Columns.Find(c => c.Name == "ATCId").DefaultValue = ATCId.ToString();
+
+                    foreach (DataGridViewRow row in dataGridView.Rows)
+                    {
+                        if (row.Index != dataGridView.NewRowIndex)
+                            row.Cells[dataGridView.GetCellIndex("ATCId")].Value = ATCId;
+                    }
+                }
+            }
         }
     }
 }

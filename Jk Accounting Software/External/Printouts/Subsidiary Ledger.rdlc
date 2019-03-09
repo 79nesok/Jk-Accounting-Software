@@ -659,7 +659,7 @@
     <Height>0.86047in</Height>
     <Style />
   </Body>
-  <Width>19cm</Width>
+  <Width>19.59cm</Width>
   <Page>
     <PageHeader>
       <Height>2.98979cm</Height>
@@ -686,7 +686,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>0.19391cm</Top>
-          <Left>4.39208cm</Left>
+          <Left>4.68709cm</Left>
           <Height>0.40597cm</Height>
           <Width>10.21583cm</Width>
           <Style>
@@ -716,7 +716,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>1.41616cm</Top>
-          <Left>6.83948cm</Left>
+          <Left>7.13448cm</Left>
           <Height>0.66709cm</Height>
           <Width>5.32104cm</Width>
           <ZIndex>1</ZIndex>
@@ -729,7 +729,7 @@
         <Line Name="Line1">
           <Top>1.32268cm</Top>
           <Height>0cm</Height>
-          <Width>19cm</Width>
+          <Width>19.59cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -744,8 +744,8 @@
           <Value>=First(Fields!Logo.Value, "Company")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>0.14982cm</Top>
-          <Left>17.77775cm</Left>
+          <Top>0.025cm</Top>
+          <Left>18cm</Left>
           <Height>1cm</Height>
           <Width>1cm</Width>
           <ZIndex>3</ZIndex>
@@ -775,7 +775,7 @@
             </Paragraph>
           </Paragraphs>
           <Top>0.59988cm</Top>
-          <Left>4.39208cm</Left>
+          <Left>4.68709cm</Left>
           <Height>0.50896cm</Height>
           <Width>10.21583cm</Width>
           <ZIndex>4</ZIndex>
@@ -806,7 +806,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>2.15381cm</Top>
-          <Left>4.70078cm</Left>
+          <Left>4.99578cm</Left>
           <Height>0.61207cm</Height>
           <Width>9.59845cm</Width>
           <ZIndex>5</ZIndex>
@@ -854,7 +854,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>0.17625cm</Top>
-          <Left>7.01969cm</Left>
+          <Left>7.31469cm</Left>
           <Height>0.6cm</Height>
           <Width>4.96062cm</Width>
           <Style>

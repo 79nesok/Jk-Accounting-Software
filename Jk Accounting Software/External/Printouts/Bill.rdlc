@@ -6,30 +6,33 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.47356cm</Width>
+              <Width>3.96028cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.23542cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.72225cm</Width>
+              <Width>2.30103cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.94438cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.99729cm</Width>
+              <Width>1.74486cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.20896cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.49223cm</Width>
+              <Width>2.20562cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.99688cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -123,6 +126,41 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox30</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox48">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Withholding Tax</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox48</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -385,6 +423,41 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="WithholdingTax">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!WithholdingTax.Value</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <Format>N2</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>WithholdingTax</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="VATAmount">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -535,6 +608,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -547,11 +621,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>SalesVoucherDetail</DataSetName>
-        <Top>0.15064cm</Top>
-        <Left>0.21166cm</Left>
-        <Height>1.2cm</Height>
-        <Width>19.07409cm</Width>
+        <DataSetName>BillDetails</DataSetName>
+        <Top>0.16857cm</Top>
+        <Left>0.21695cm</Left>
+        <Height>1.59688cm</Height>
+        <Width>19.10055cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -565,7 +639,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Gross Amount:</Value>
+                <Value>Withholding Tax:</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -576,10 +650,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
-        <Top>2.95577cm</Top>
-        <Left>13.06469cm</Left>
+        <Top>3.19595cm</Top>
+        <Left>12.79901cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.96898cm</Width>
+        <Width>3.28648cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -609,10 +683,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox19</rd:DefaultName>
-        <Top>3.66866cm</Top>
-        <Left>13.06469cm</Left>
+        <Top>3.90884cm</Top>
+        <Left>12.79901cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.96898cm</Width>
+        <Width>3.28648cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -642,10 +716,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>4.38155cm</Top>
-        <Left>13.06469cm</Left>
+        <Top>4.62173cm</Top>
+        <Left>12.79901cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.96898cm</Width>
+        <Width>3.28648cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -664,7 +738,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DiscountAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!DiscountAmount.Value, "Bills")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>N2</Format>
@@ -677,8 +751,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ReferenceNo</rd:DefaultName>
-        <Top>4.38155cm</Top>
-        <Left>16.21006cm</Left>
+        <Top>4.62173cm</Top>
+        <Left>16.26188cm</Left>
         <Height>0.6cm</Height>
         <Width>3.05562cm</Width>
         <ZIndex>4</ZIndex>
@@ -699,7 +773,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!GrossAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!WithholdingTax.Value, "Bills")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>N2</Format>
@@ -712,8 +786,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>TransactionNo</rd:DefaultName>
-        <Top>2.95577cm</Top>
-        <Left>16.21006cm</Left>
+        <Top>3.19595cm</Top>
+        <Left>16.26188cm</Left>
         <Height>0.6cm</Height>
         <Width>3.05562cm</Width>
         <ZIndex>5</ZIndex>
@@ -734,7 +808,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!VATAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!VATAmount.Value, "Bills")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>N2</Format>
@@ -747,8 +821,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Date</rd:DefaultName>
-        <Top>3.66866cm</Top>
-        <Left>16.23013cm</Left>
+        <Top>3.90884cm</Top>
+        <Left>16.28195cm</Left>
         <Height>0.6cm</Height>
         <Width>3.05562cm</Width>
         <ZIndex>6</ZIndex>
@@ -780,10 +854,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox20</rd:DefaultName>
-        <Top>5.11371cm</Top>
-        <Left>13.06469cm</Left>
+        <Top>5.35389cm</Top>
+        <Left>12.79901cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.96898cm</Width>
+        <Width>3.28648cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -802,7 +876,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!NetAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!NetAmount.Value, "Bills")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>N2</Format>
@@ -815,8 +889,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>ReferenceNo</rd:DefaultName>
-        <Top>5.11371cm</Top>
-        <Left>16.21006cm</Left>
+        <Top>5.35389cm</Top>
+        <Left>16.26188cm</Left>
         <Height>0.6cm</Height>
         <Width>3.05562cm</Width>
         <ZIndex>8</ZIndex>
@@ -830,14 +904,82 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox29">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Gross Amount:</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox18</rd:DefaultName>
+        <Top>2.45131cm</Top>
+        <Left>12.79901cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.28648cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="TransactionNo3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!GrossAmount.Value, "Bills")</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <Format>N2</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>TransactionNo</rd:DefaultName>
+        <Top>2.45131cm</Top>
+        <Left>16.26188cm</Left>
+        <Height>0.6cm</Height>
+        <Width>3.05562cm</Width>
+        <ZIndex>10</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>2.32292in</Height>
+    <Height>2.40625in</Height>
     <Style />
   </Body>
   <Width>19.59cm</Width>
   <Page>
     <PageHeader>
-      <Height>6.03744cm</Height>
+      <Height>5.89809cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -859,7 +1001,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox18</rd:DefaultName>
-          <Top>2.22746cm</Top>
+          <Top>2.19571cm</Top>
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
@@ -891,7 +1033,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
-          <Top>2.9721cm</Top>
+          <Top>2.94035cm</Top>
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
@@ -924,7 +1066,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox20</rd:DefaultName>
-          <Top>3.68499cm</Top>
+          <Top>3.65324cm</Top>
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
@@ -957,8 +1099,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox21</rd:DefaultName>
-          <Top>2.22746cm</Top>
-          <Left>11.30887cm</Left>
+          <Top>2.19571cm</Top>
+          <Left>11.34062cm</Left>
           <Height>0.6cm</Height>
           <Width>1.70744cm</Width>
           <ZIndex>3</ZIndex>
@@ -979,7 +1121,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReferenceNo.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!ReferenceNo.Value, "Bills")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -991,7 +1133,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ReferenceNo</rd:DefaultName>
-          <Top>3.68499cm</Top>
+          <Top>3.65324cm</Top>
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
@@ -1013,7 +1155,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!TransactionNo.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!TransactionNo.Value, "Bills")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1025,7 +1167,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>TransactionNo</rd:DefaultName>
-          <Top>2.22746cm</Top>
+          <Top>2.19571cm</Top>
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
@@ -1047,7 +1189,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Date.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!Date.Value, "Bills")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <Format>MM/dd/yyyy</Format>
@@ -1060,7 +1202,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Date</rd:DefaultName>
-          <Top>2.9721cm</Top>
+          <Top>2.94035cm</Top>
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
@@ -1082,7 +1224,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Remarks.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!Remarks.Value, "Bills")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1094,8 +1236,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Remarks1</rd:DefaultName>
-          <Top>2.22746cm</Top>
-          <Left>13.31971cm</Left>
+          <Top>2.19571cm</Top>
+          <Left>13.35146cm</Left>
           <Height>1.96228cm</Height>
           <Width>5.96604cm</Width>
           <ZIndex>7</ZIndex>
@@ -1128,7 +1270,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.08507cm</Top>
+          <Top>0.05332cm</Top>
           <Left>4.68709cm</Left>
           <Height>0.40597cm</Height>
           <Width>10.21583cm</Width>
@@ -1146,7 +1288,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>SALES INVOICE</Value>
+                  <Value>BILL</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>14pt</FontSize>
@@ -1159,7 +1301,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>1.30732cm</Top>
+          <Top>1.27557cm</Top>
           <Left>7.30646cm</Left>
           <Height>0.66709cm</Height>
           <Width>4.97708cm</Width>
@@ -1171,7 +1313,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>1.21384cm</Top>
+          <Top>1.18209cm</Top>
           <Height>0cm</Height>
           <Width>19.59cm</Width>
           <ZIndex>10</ZIndex>
@@ -1188,8 +1330,8 @@
           <Value>=First(Fields!Logo.Value, "Company")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>0.03175cm</Top>
-          <Left>18.28575cm</Left>
+          <Top>0.025cm</Top>
+          <Left>18cm</Left>
           <Height>1cm</Height>
           <Width>1cm</Width>
           <ZIndex>11</ZIndex>
@@ -1218,7 +1360,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.49104cm</Top>
+          <Top>0.45929cm</Top>
           <Left>4.68709cm</Left>
           <Height>0.50896cm</Height>
           <Width>10.21583cm</Width>
@@ -1247,7 +1389,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox20</rd:DefaultName>
-          <Top>4.41715cm</Top>
+          <Top>4.3854cm</Top>
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
@@ -1269,7 +1411,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReferenceNo2.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!ReferenceNo2.Value, "Bills")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1281,7 +1423,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ReferenceNo</rd:DefaultName>
-          <Top>4.41715cm</Top>
+          <Top>4.3854cm</Top>
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>3.05562cm</Width>
@@ -1303,7 +1445,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Customer:</Value>
+                  <Value>Supplier:</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
@@ -1314,7 +1456,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox20</rd:DefaultName>
-          <Top>5.17109cm</Top>
+          <Top>5.13934cm</Top>
           <Left>0.21166cm</Left>
           <Height>0.6cm</Height>
           <Width>2.96898cm</Width>
@@ -1336,7 +1478,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Customer.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!Supplier.Value, "Bills")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1348,7 +1490,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>ReferenceNo</rd:DefaultName>
-          <Top>5.17109cm</Top>
+          <Top>5.13934cm</Top>
           <Left>3.35703cm</Left>
           <Height>0.6cm</Height>
           <Width>8.62328cm</Width>
@@ -1371,7 +1513,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.82021cm</Height>
+      <Height>1.13771cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1396,7 +1538,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>0.08114cm</Top>
+          <Top>0.17639cm</Top>
           <Left>7.31469cm</Left>
           <Height>0.6cm</Height>
           <Width>4.96062cm</Width>
@@ -1428,18 +1570,18 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ESalesInvoiceReportDS">
+    <DataSource Name="EBillPrintoutDS">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>4c653d31-e220-4d26-a3a0-f8dcefa8e01d</rd:DataSourceID>
+      <rd:DataSourceID>d9c17355-8b93-459e-a018-9ee126a70f01</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="SalesVoucher">
+    <DataSet Name="Bills">
       <Query>
-        <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
+        <DataSourceName>EBillPrintoutDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1467,8 +1609,8 @@
           <DataField>ReferenceNo2</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Customer">
-          <DataField>Customer</DataField>
+        <Field Name="Supplier">
+          <DataField>Supplier</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Remarks">
@@ -1477,6 +1619,10 @@
         </Field>
         <Field Name="GrossAmount">
           <DataField>GrossAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="WithholdingTax">
+          <DataField>WithholdingTax</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="VATAmount">
@@ -1493,17 +1639,17 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblSalesVoucher</rd:TableName>
+        <rd:DataSetName>EBillPrintoutDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EBillPrintoutDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblBills</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblSalesVoucherTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>tblBillsTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="SalesVoucherDetail">
+    <DataSet Name="BillDetails">
       <Query>
-        <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
+        <DataSourceName>EBillPrintoutDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1511,8 +1657,8 @@
           <DataField>Id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="SalesVoucherId">
-          <DataField>SalesVoucherId</DataField>
+        <Field Name="BillId">
+          <DataField>BillId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Item">
@@ -1529,6 +1675,10 @@
         </Field>
         <Field Name="GrossAmount">
           <DataField>GrossAmount</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="WithholdingTax">
+          <DataField>WithholdingTax</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
         <Field Name="VATAmount">
@@ -1549,17 +1699,17 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblSalesVoucherDetail</rd:TableName>
+        <rd:DataSetName>EBillPrintoutDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EBillPrintoutDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblBillDetails</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblSalesVoucherDetailTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>tblBillDetailsTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
+        <DataSourceName>EBillPrintoutDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1585,8 +1735,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>EBillPrintoutDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EBillPrintoutDS.xsd</rd:SchemaPath>
         <rd:TableName>tblCompanies</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1595,5 +1745,5 @@
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>5ad75077-207a-4c5c-b786-e41f409c15e0</rd:ReportID>
+  <rd:ReportID>84ee74a9-978e-49ca-97ef-5ad3d3fd64c5</rd:ReportID>
 </Report>

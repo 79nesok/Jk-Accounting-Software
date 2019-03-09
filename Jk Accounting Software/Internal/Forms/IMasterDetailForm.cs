@@ -131,6 +131,30 @@ namespace Jk_Accounting_Software.Internal.Forms
                     DataSet.RemoveTemporaryColumns();
                 }
             }
+
+            //check if all required columns are filled up
+            private void IMasterDetailForm_ValidateSave()
+            {
+                foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
+                {
+                    foreach (JkDetailColumn column in DataSet.Columns)
+                    {
+                        if (column.Required)
+                        {
+                            foreach (DataRow row in DataSet.DataTable.Rows)
+                            {
+                                if (((row[column.Name] == null || row[column.Name] == DBNull.Value) && String.IsNullOrWhiteSpace(column.ControlName))
+                                    || (!String.IsNullOrWhiteSpace(column.ControlName) && int.Parse(row[column.Name].ToString()) == 0))
+                                {
+                                    IMessageHandler.Inform(ISystemMessages.FillRequiredFieldOnGridMessage(column.Caption));
+                                    ValidationFails = true;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         #endregion
     }
 }

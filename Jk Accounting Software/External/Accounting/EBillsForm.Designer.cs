@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class EPurchaseVoucherForm
+    partial class EBillsForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,7 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EPurchaseVoucherForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EBillsForm));
             this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,8 +60,6 @@
             this.txtPaidAmount = new JkComponents.JkTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.chkWTAX = new System.Windows.Forms.CheckBox();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
             this.cmbSubsidiaryDetail = new JkComponents.JkLookUpComboBox();
             this.cmbVATTypes = new JkComponents.JkLookUpComboBox();
@@ -70,6 +68,7 @@
             this.dstJournalEntry = new JkComponents.JkDetailDataSet();
             this.cmbItems = new JkComponents.JkLookUpComboBox();
             this.flowLayoutPanelWTAX = new System.Windows.Forms.FlowLayoutPanel();
+            this.cmbATC = new JkComponents.JkLookUpComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
@@ -84,7 +83,6 @@
             this.flowLayoutPanel1.SuspendLayout();
             this.tabPageJournalEntry.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).BeginInit();
-            this.flowLayoutPanelWTAX.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainerMasterDetail
@@ -92,6 +90,7 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbATC);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanelWTAX);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbItems);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstJournalEntry);
@@ -119,6 +118,8 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns12"))));
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns13"))));
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns14"))));
             this.dstDetail.CommandText = resources.GetString("dstDetail.CommandText");
             this.dstDetail.Location = new System.Drawing.Point(780, 228);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
@@ -136,14 +137,6 @@
             // 
             this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
             // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(729, 0);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Size = new System.Drawing.Size(837, 34);
-            // 
             // splitContainer
             // 
             this.splitContainer.Size = new System.Drawing.Size(837, 536);
@@ -159,7 +152,7 @@
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "PV";
+            this.jkSeriesProvider1.Code = "B";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
             this.jkSeriesProvider1.Location = new System.Drawing.Point(739, 202);
@@ -302,6 +295,7 @@
             this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(205, 23);
             this.cmbSubsidiary.TabIndex = 15;
+            this.cmbSubsidiary.SelectedValueChanged += new System.EventHandler(this.cmbSubsidiary_SelectedValueChanged);
             // 
             // label9
             // 
@@ -506,27 +500,6 @@
             this.txtBalance.TabIndex = 12;
             this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label14
-            // 
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Margin = new System.Windows.Forms.Padding(0);
-            this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label14.Size = new System.Drawing.Size(116, 60);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Compute and Deduct Withholding  Tax:";
-            // 
-            // chkWTAX
-            // 
-            this.chkWTAX.AutoSize = true;
-            this.chkWTAX.Location = new System.Drawing.Point(122, 5);
-            this.chkWTAX.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.chkWTAX.Name = "chkWTAX";
-            this.chkWTAX.Size = new System.Drawing.Size(15, 14);
-            this.chkWTAX.TabIndex = 6;
-            this.chkWTAX.UseVisualStyleBackColor = true;
-            this.chkWTAX.CheckedChanged += new System.EventHandler(this.chkWTAX_CheckedChanged);
-            // 
             // cmbAccounts
             // 
             this.cmbAccounts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -589,7 +562,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 146);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -614,7 +587,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // dstJournalEntry
@@ -660,19 +633,34 @@
             // 
             // flowLayoutPanelWTAX
             // 
-            this.flowLayoutPanelWTAX.Controls.Add(this.label14);
-            this.flowLayoutPanelWTAX.Controls.Add(this.chkWTAX);
             this.flowLayoutPanelWTAX.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanelWTAX.Location = new System.Drawing.Point(572, 0);
             this.flowLayoutPanelWTAX.Name = "flowLayoutPanelWTAX";
             this.flowLayoutPanelWTAX.Size = new System.Drawing.Size(169, 255);
             this.flowLayoutPanelWTAX.TabIndex = 24;
             // 
-            // EPurchaseVoucherForm
+            // cmbATC
+            // 
+            this.cmbATC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbATC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbATC.DataSet = "dstATC";
+            this.cmbATC.DisplayText = "CodeRate";
+            this.cmbATC.ForeColor = System.Drawing.Color.Black;
+            this.cmbATC.FormattingEnabled = true;
+            this.cmbATC.Key = "Id";
+            this.cmbATC.Location = new System.Drawing.Point(762, 24);
+            this.cmbATC.Name = "cmbATC";
+            this.cmbATC.Required = false;
+            this.cmbATC.SelectedKey = 0;
+            this.cmbATC.Size = new System.Drawing.Size(66, 23);
+            this.cmbATC.TabIndex = 25;
+            this.cmbATC.Visible = false;
+            // 
+            // EBillsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Purchase Voucher";
+            this.Caption = "Bill";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
@@ -696,8 +684,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns19"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns20"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns21"))));
-            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns22"))));
-            this.Name = "EPurchaseVoucherForm";
+            this.Name = "EBillsForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(837, 536);
             this.ZLoadMasterColumns = true;
@@ -720,8 +707,6 @@
             this.flowLayoutPanel1.PerformLayout();
             this.tabPageJournalEntry.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).EndInit();
-            this.flowLayoutPanelWTAX.ResumeLayout(false);
-            this.flowLayoutPanelWTAX.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -764,8 +749,7 @@
         private JkComponents.JkLookUpComboBox cmbItems;
         private JkComponents.JkTextBox txtWTAX;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.CheckBox chkWTAX;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelWTAX;
+        private JkComponents.JkLookUpComboBox cmbATC;
     }
 }

@@ -32,7 +32,7 @@ IF @JournalTypeId = 1
 ELSE IF @JournalTypeId = 2
 	SELECT @JournalId = JournalId,
 		@CompanyId = CompanyId
-	FROM tblPurchaseVouchers
+	FROM tblBills
 	WHERE Id = @Id
 ELSE IF @JournalTypeId = 3
 	SELECT @JournalId = JournalId,
@@ -139,13 +139,13 @@ BEGIN
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
 				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
-			FROM tblPurchaseVouchers
+			FROM tblBills
 			WHERE Id = @Id
 				AND @JournalTypeId = 2
 	
 			SET @JournalId = SCOPE_IDENTITY()
 
-			UPDATE tblPurchaseVouchers
+			UPDATE tblBills
 			SET JournalId = @JournalId
 			WHERE Id = @Id
 
@@ -160,7 +160,7 @@ BEGIN
 				j.ModifiedById = pv.ModifiedById,
 				j.DateModified = pv.DateModified
 			FROM tblJournals j
-				INNER JOIN tblPurchaseVouchers pv ON pv.JournalId = j.Id
+				INNER JOIN tblBills pv ON pv.JournalId = j.Id
 			WHERE j.Id = @JournalId
 				AND @JournalTypeId = 2
 		END
@@ -168,14 +168,14 @@ BEGIN
 		--Purchases
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, AccountId, SubsidiaryId, SUM(GrossAmount), 0, Remarks
-		FROM tblPurchaseVoucherDetails
-		WHERE PurchaseVoucherId = @Id
+		FROM tblBillDetails
+		WHERE BillId = @Id
 		GROUP BY AccountId, SubsidiaryId, Remarks
 
 		--Input VAT
 		IF EXISTS(
 			SELECT *
-			FROM tblPurchaseVouchers
+			FROM tblBills
 			WHERE Id = @Id
 				AND VATAmount > 0
 		)
@@ -187,8 +187,8 @@ BEGIN
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, @InputVATAccountId, SubsidiaryId, SUM(VATAmount), 0, Remarks
-		FROM tblPurchaseVoucherDetails
-		WHERE PurchaseVoucherId = @Id
+		FROM tblBillDetails
+		WHERE BillId = @Id
 		GROUP BY SubsidiaryId, Remarks
 
 		--Payable
@@ -200,7 +200,7 @@ BEGIN
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, @PayableAccountId, SubsidiaryId, 0, NetAmount, Remarks
-		FROM tblPurchaseVouchers
+		FROM tblBills
 		WHERE Id = @Id
 	END
 	ELSE IF @JournalTypeId = 3
