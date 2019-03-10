@@ -352,5 +352,16 @@ namespace Jk_Accounting_Software.External.Accounting
             base.UnPost();
             Post(false);
         }
+
+        private void ECashReceiptVoucherForm_BeforeSave()
+        {
+            for (int i = 0; i <= dataGridView.DataSet.DataTable.Rows.Count - 1; i++)
+            {
+                DataRow row = dataGridView.DataSet.DataTable.Rows[i];
+
+                if (double.Parse(row["AppliedAmount"].ToString()) == 0)
+                    row.Delete();
+            }
+        }
     }
 }

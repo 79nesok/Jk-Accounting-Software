@@ -147,12 +147,15 @@ namespace Jk_Accounting_Software.Internal.Forms
                         {
                             foreach (DataRow row in DataSet.DataTable.Rows)
                             {
-                                if (((row[column.Name] == null || row[column.Name] == DBNull.Value) && String.IsNullOrWhiteSpace(column.ControlName))
-                                    || (!String.IsNullOrWhiteSpace(column.ControlName) && int.Parse(row[column.Name].ToString()) == 0))
+                                if (row.RowState != DataRowState.Deleted)
                                 {
-                                    IMessageHandler.Inform(ISystemMessages.FillRequiredFieldOnGridMessage(column.Caption));
-                                    ValidationFails = true;
-                                    return;
+                                    if (((row[column.Name] == null || row[column.Name] == DBNull.Value) && String.IsNullOrWhiteSpace(column.ControlName))
+                                        || (!String.IsNullOrWhiteSpace(column.ControlName) && int.Parse(row[column.Name].ToString()) == 0))
+                                    {
+                                        IMessageHandler.Inform(ISystemMessages.FillRequiredFieldOnGridMessage(column.Caption));
+                                        ValidationFails = true;
+                                        return;
+                                    }
                                 }
                             }
                         }

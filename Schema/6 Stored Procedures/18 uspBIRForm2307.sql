@@ -6,10 +6,10 @@ CREATE PROCEDURE uspBIRForm2307(@Id INT)
 AS
 SET NOCOUNT ON
 
-SELECT pv.Id,
-	RIGHT('0' + CAST(MONTH(pv.[Date]) AS VARCHAR), 2) AS [Month],
-	RIGHT('0' + CAST(DAY(pv.[Date]) AS VARCHAR), 2) AS [Day],
-	RIGHT(CAST(YEAR(pv.[Date]) AS VARCHAR), 2) AS [Year],
+SELECT bp.Id,
+	RIGHT('0' + CAST(MONTH(bp.[Date]) AS VARCHAR), 2) AS [Month],
+	RIGHT('0' + CAST(DAY(bp.[Date]) AS VARCHAR), 2) AS [Day],
+	RIGHT(CAST(YEAR(bp.[Date]) AS VARCHAR), 2) AS [Year],
 
 	--Payee
 	SUBSTRING(s.TIN, 1, 3) AS PayeesTINFirst,
@@ -31,9 +31,9 @@ SELECT pv.Id,
 	c.ZIPCode AS PayorsZIPCode,
 	SUBSTRING(c.TIN, 1, 3) + '-' + SUBSTRING(c.TIN, 4, 3) + '-' + SUBSTRING(c.TIN, 7, 3) + '-' + SUBSTRING(c.TIN, 10, 3) AS PayorsFullTIN
 
-FROM tblPurchaseVouchers pv
-	INNER JOIN tblSubsidiaries s ON s.Id = pv.SubsidiaryId
-	INNER JOIN tblCompanies c ON c.Id = pv.CompanyId
-WHERE pv.Id = @Id
+FROM tblBillsPayment bp
+	INNER JOIN tblSubsidiaries s ON s.Id = bp.SubsidiaryId
+	INNER JOIN tblCompanies c ON c.Id = bp.CompanyId
+WHERE bp.Id = @Id
 GO
 

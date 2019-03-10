@@ -92,7 +92,7 @@ FROM tblSalesVouchers sv
 WHERE sv.Voided = 0
 
 UPDATE b
-SET b.PaidAmount = b.WithholdingTax + ISNULL(tmp.Amount, 0)
+SET b.PaidAmount = ISNULL(tmp.Amount, 0)
 FROM tblBills b
 	LEFT OUTER JOIN (
 		SELECT bppd.BillId, SUM(bppd.Amount) AS Amount
@@ -102,8 +102,5 @@ FROM tblBills b
 		GROUP BY bppd.BillId
 	) tmp ON tmp.BillId = b.Id
 WHERE b.Voided = 0
-
---Temporary for the bug in posting to GL
-EXEC uspRepostLedgers
 
 ROLLBACK
