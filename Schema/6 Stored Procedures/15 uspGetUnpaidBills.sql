@@ -7,20 +7,20 @@ AS
 SET NOCOUNT ON
 
 IF NULLIF(@Id, 0) IS NULL
-	SELECT pv.Id AS SourceId, pv.TransactionNo, pv.[Date],
-		pv.ReferenceNo, pv.ReferenceNo2, pv.NetAmount,
-		pv.Balance, 0 AS AppliedAmount, 0 AS AmountToApply,
-		pv.Balance AS OldBalance
-	FROM tblPurchaseVouchers pv
-	WHERE pv.SubsidiaryId = @SubsidiaryId
-		AND pv.Balance > 0
+	SELECT b.Id AS SourceId, b.TransactionNo, b.[Date],
+		b.ReferenceNo, b.ReferenceNo2, b.NetAmount,
+		b.Balance, 0 AS AppliedAmount, 0 AS AmountToApply,
+		b.Balance AS OldBalance
+	FROM tblBills b
+	WHERE b.SubsidiaryId = @SubsidiaryId
+		AND b.Balance > 0
 ELSE
-	SELECT did.SourceId, pv.TransactionNo, pv.[Date],
-		pv.ReferenceNo, pv.ReferenceNo2, pv.NetAmount,
-		pv.Balance, did.AppliedAmount, 0 AS AmountToApply,
-		pv.Balance AS OldBalance
-	FROM tblCashDisbursementVoucherBillsDetails did
-		INNER JOIN tblPurchaseVouchers pv ON pv.Id = did.SourceId
-	WHERE did.CashDisbursementVoucherId = @Id
+	SELECT bpbd.SourceId, b.TransactionNo, b.[Date],
+		b.ReferenceNo, b.ReferenceNo2, b.NetAmount,
+		b.Balance, bpbd.AppliedAmount, 0 AS AmountToApply,
+		b.Balance AS OldBalance
+	FROM tblBillsPaymentBillDetails bpbd
+		INNER JOIN tblBills b ON b.Id = bpbd.SourceId
+	WHERE bpbd.BillsPaymentId = @Id
 GO
 

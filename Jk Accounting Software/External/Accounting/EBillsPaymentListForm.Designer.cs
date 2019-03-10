@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class ECashDisbursementVouchersListForm
+    partial class EBillsPaymentListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashDisbursementVouchersListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EBillsPaymentListForm));
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
@@ -38,10 +38,18 @@
             // 
             this.splitContainer.Size = new System.Drawing.Size(837, 481);
             // 
-            // ECashDisbursementVouchersListForm
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            // 
+            // EBillsPaymentListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Supplier Payments";
+            this.Caption = "Bills Payment";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
@@ -55,9 +63,9 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns10"))));
             this.CommandText = resources.GetString("$this.CommandText");
             this.GridAutoSize = false;
-            this.Name = "ECashDisbursementVouchersListForm";
-            this.NewFormName = "ECashDisbursementVoucherForm";
-            this.OpenFormName = "ECashDisbursementVoucherForm";
+            this.Name = "EBillsPaymentListForm";
+            this.NewFormName = "EBillsPaymentForm";
+            this.OpenFormName = "EBillsPaymentForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
             this.Size = new System.Drawing.Size(837, 481);

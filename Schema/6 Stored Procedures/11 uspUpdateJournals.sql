@@ -47,7 +47,7 @@ ELSE IF @JournalTypeId = 4
 ELSE IF @JournalTypeId = 5
 	SELECT @JournalId = JournalId,
 		@CompanyId = CompanyId
-	FROM tblCashDisbursementVouchers
+	FROM tblBillsPayment
 	WHERE Id = @Id
 
 SELECT @InputVATAccountId = a.Id
@@ -272,7 +272,7 @@ BEGIN
 		END
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
-		SELECT @JournalId, @InputVATAccountId, SubsidiaryId, 0, SUM(VATAmount), Remarks
+		SELECT @JournalId, @OutputVATAccountId, SubsidiaryId, 0, SUM(VATAmount), Remarks
 		FROM tblSalesVoucherDetails
 		WHERE SalesVoucherId = @Id
 		GROUP BY SubsidiaryId, Remarks
@@ -402,13 +402,13 @@ BEGIN
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
 				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
-			FROM tblCashDisbursementVouchers
+			FROM tblBillsPayment
 			WHERE Id = @Id
 				AND @JournalTypeId = 5
 	
 			SET @JournalId = SCOPE_IDENTITY()
 
-			UPDATE tblCashDisbursementVouchers
+			UPDATE tblBillsPayment
 			SET JournalId = @JournalId
 			WHERE Id = @Id
 
@@ -417,21 +417,21 @@ BEGIN
 		ELSE
 		BEGIN
 			UPDATE j
-			SET j.[Date] = cdv.[Date],
-				j.ReferenceNo = cdv.ReferenceNo,
-				j.ReferenceNo2 = cdv.ReferenceNo2,
-				j.ModifiedById = cdv.ModifiedById,
-				j.DateModified = cdv.DateModified
+			SET j.[Date] = bp.[Date],
+				j.ReferenceNo = bp.ReferenceNo,
+				j.ReferenceNo2 = bp.ReferenceNo2,
+				j.ModifiedById = bp.ModifiedById,
+				j.DateModified = bp.DateModified
 			FROM tblJournals j
-				INNER JOIN tblCashDisbursementVouchers cdv ON cdv.JournalId = j.Id
+				INNER JOIN tblBillsPayment bp ON bp.JournalId = j.Id
 			WHERE j.Id = @JournalId
 				AND @JournalTypeId = 5
 		END
 
 		SELECT @PaymentMethodName = pm.Name
-		FROM tblCashDisbursementVoucherDetails cdd
-			INNER JOIN tblPaymentMethods pm ON pm.Id = cdd.PaymentMethodId
-		WHERE cdd.CashDisbursementVoucherId = @Id
+		FROM tblBillsPaymentDetails bpd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = bpd.PaymentMethodId
+		WHERE bpd.BillsPaymentId = @Id
 			AND pm.AccountId IS NULL
 
 		--Payable
@@ -442,11 +442,11 @@ BEGIN
 		END
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
-		SELECT @JournalId, @PayableAccountId, cdv.SubsidiaryId, SUM(cbd.AppliedAmount), 0
-		FROM tblCashDisbursementVoucherBillsDetails cbd
-			INNER JOIN tblCashDisbursementVouchers cdv ON cdv.Id = cbd.CashDisbursementVoucherId
-		WHERE cbd.CashDisbursementVoucherId = @Id
-		GROUP BY cdv.SubsidiaryId
+		SELECT @JournalId, @PayableAccountId, bp.SubsidiaryId, SUM(bpbd.AppliedAmount), 0
+		FROM tblBillsPaymentBillDetails bpbd
+			INNER JOIN tblBillsPayment bp ON bp.Id = bpbd.BillsPaymentId
+		WHERE bpbd.BillsPaymentId = @Id
+		GROUP BY bp.SubsidiaryId
 
 		IF NULLIF(@PaymentMethodName, '') IS NOT NULL
 		BEGIN
@@ -456,10 +456,10 @@ BEGIN
 
 		--Payment
 		INSERT INTO tblJournalDetails(JournalId, AccountId, Debit, Credit)
-		SELECT @JournalId, pm.AccountId, 0, SUM(cvd.Amount)
-		FROM tblCashDisbursementVoucherDetails cvd
-			INNER JOIN tblPaymentMethods pm ON pm.Id = cvd.PaymentMethodId
-		WHERE cvd.CashDisbursementVoucherId = @Id
+		SELECT @JournalId, pm.AccountId, 0, SUM(bpd.Amount)
+		FROM tblBillsPaymentDetails bpd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = bpd.PaymentMethodId
+		WHERE bpd.BillsPaymentId = @Id
 		GROUP BY pm.AccountId
 	END
 	

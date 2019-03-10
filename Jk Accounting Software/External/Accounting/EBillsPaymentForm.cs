@@ -13,9 +13,9 @@ using System.Data.SqlClient;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
-    public partial class ECashDisbursementVoucherForm : IMasterDetailForm
+    public partial class EBillsPaymentForm : IMasterDetailForm
     {
-        public ECashDisbursementVoucherForm()
+        public EBillsPaymentForm()
         {
             InitializeComponent();
             dataGridView.CellFormatting += dataGridView_CellFormatting;

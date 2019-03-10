@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class ECashDisbursementVoucherForm
+    partial class EBillsPaymentForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashDisbursementVoucherForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EBillsPaymentForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTransactionNo = new JkComponents.JkTextBox();
@@ -114,8 +114,8 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns9"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
-            this.dstDetail.CommandText = "SELECT Id, CashDisbursementVoucherId, SourceId, AppliedAmount\r\nFROM tblCashDisbur" +
-    "sementVoucherBillsDetails\r\nWHERE CashDisbursementVoucherId = @Id";
+            this.dstDetail.CommandText = "SELECT Id, BillsPaymentId, SourceId, AppliedAmount\r\nFROM tblBillsPaymentBillDetai" +
+    "ls\r\nWHERE BillsPaymentId = @Id";
             this.dstDetail.Location = new System.Drawing.Point(756, 220);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
             this.dstDetail.ZLoadColumns = true;
@@ -131,14 +131,6 @@
             // tabPageDetails
             // 
             this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
-            // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(729, 0);
-            // 
-            // FormFooter
-            // 
-            this.FormFooter.Size = new System.Drawing.Size(837, 34);
             // 
             // splitContainer
             // 
@@ -350,20 +342,20 @@
             // 
             // dataGridViewPaymentDetails
             // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.dataGridViewPaymentDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewPaymentDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewPaymentDetails.AutoGenerateColumns = false;
             this.dataGridViewPaymentDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewPaymentDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPaymentDetails.DataSet = this.dstPaymentDetails;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPaymentDetails.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPaymentDetails.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewPaymentDetails.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewPaymentDetails.Location = new System.Drawing.Point(0, 0);
@@ -380,9 +372,8 @@
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns3"))));
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns4"))));
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns5"))));
-            this.dstPaymentDetails.CommandText = "SELECT Id, CashDisbursementVoucherId, PaymentMethodId,\r\n\tReferenceNo, Amount, Rem" +
-    "arks\r\nFROM tblCashDisbursementVoucherDetails\r\nWHERE CashDisbursementVoucherId = " +
-    "@Id";
+            this.dstPaymentDetails.CommandText = "SELECT Id, BillsPaymentId, PaymentMethodId,\r\n\tReferenceNo, Amount, Remarks\r\nFROM " +
+    "tblBillsPaymentDetails\r\nWHERE BillsPaymentId = @Id";
             this.dstPaymentDetails.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
     "ity Info=True;User ID=sa;Password=masterkey";
             this.dstPaymentDetails.GridAutoSize = false;
@@ -485,7 +476,7 @@
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "SP";
+            this.jkSeriesProvider1.Code = "BP";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
             this.jkSeriesProvider1.Location = new System.Drawing.Point(705, 181);
@@ -521,31 +512,31 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 146);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
             // 
             // dataGridViewJournalEntry
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
             this.dataGridViewJournalEntry.TabIndex = 1;
             // 
             // dstJournalEntry
@@ -572,11 +563,11 @@
             this.dstJournalEntry.ZLoadColumns = true;
             this.dstJournalEntry.ZLoadGrid = false;
             // 
-            // ECashDisbursementVoucherForm
+            // EBillsPaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Supplier Payment";
+            this.Caption = "Bills Payment";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
@@ -596,7 +587,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns15"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns16"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
-            this.Name = "ECashDisbursementVoucherForm";
+            this.Name = "EBillsPaymentForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(837, 536);
             this.ZLoadMasterColumns = true;

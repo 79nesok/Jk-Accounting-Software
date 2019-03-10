@@ -118,6 +118,10 @@ namespace Jk_Accounting_Software.Internal.Forms
                         if (!String.IsNullOrWhiteSpace(column.DataPropertyName))
                             column.Visible = DataSet.Columns.Find(c => c.Name == column.DataPropertyName).Visible;
                     }
+
+                    //workaround to fix temporary columns that are not recomputing
+                    //after cancelling a transaction
+                    DataSet.GridView.ComputeFooterValues();
                 }
                 splitContainerMasterDetail.Panel1.Focus();
             }

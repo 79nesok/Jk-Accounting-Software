@@ -14,11 +14,11 @@ TRUNCATE TABLE tblJournalVoucherDetails
 --B
 TRUNCATE TABLE tblBills
 TRUNCATE TABLE tblBillDetails
---CDV
-TRUNCATE TABLE tblCashDisbursementVouchers
-TRUNCATE TABLE tblCashDisbursementVoucherDetails
-TRUNCATE TABLE tblCashDisbursementVoucherBillsDetails
-TRUNCATE TABLE tblCashDisbursementVoucherPaymentDistribution
+--BP
+TRUNCATE TABLE tblBillsPayment
+TRUNCATE TABLE tblBillsPaymentDetails
+TRUNCATE TABLE tblBillsPaymentBillDetails
+TRUNCATE TABLE tblBillsPaymentPaymentDisbtribution
 --SV
 TRUNCATE TABLE tblSalesVouchers
 TRUNCATE TABLE tblSalesVoucherDetails

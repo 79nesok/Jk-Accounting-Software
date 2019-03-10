@@ -7,11 +7,11 @@ AS
 SET NOCOUNT ON
 
 --Update Invoice amounts
-UPDATE pv
-SET pv.PaidAmount = pv.PaidAmount + (cbd.AppliedAmount * CASE WHEN @IsPost = 1 THEN 1 ELSE -1 END)
-FROM tblPurchaseVouchers pv
-	INNER JOIN tblCashDisbursementVoucherBillsDetails cbd ON cbd.SourceId = pv.Id
-WHERE cbd.CashDisbursementVoucherId = @Id
+UPDATE b
+SET b.PaidAmount = b.PaidAmount + (bpd.AppliedAmount * CASE WHEN @IsPost = 1 THEN 1 ELSE -1 END)
+FROM tblBills b
+	INNER JOIN tblBillsPaymentBillDetails bpd ON bpd.SourceId = b.Id
+WHERE bpd.BillsPaymentId = @Id
 
 --Generate payment distribution
 IF @IsPost = 1
@@ -25,13 +25,13 @@ BEGIN
 
 	INSERT INTO @PaymentDetails(Id, Amount)
 	SELECT Id, Amount
-	FROM tblCashDisbursementVoucherDetails
-	WHERE CashDisbursementVoucherId = @Id
+	FROM tblBillsPaymentDetails
+	WHERE BillsPaymentId = @Id
 
 	INSERT INTO @BillsDetails(BillId, AppliedAmount)
 	SELECT SourceId, AppliedAmount
-	FROM tblCashDisbursementVoucherBillsDetails
-	WHERE CashDisbursementVoucherId = @Id
+	FROM tblBillsPaymentBillDetails
+	WHERE BillsPaymentId = @Id
 
 	WHILE 1 = 1
 	BEGIN
@@ -49,7 +49,7 @@ BEGIN
 
 		SET @Amount = CASE WHEN @AppliedAmount > @Amount THEN @Amount ELSE @AppliedAmount END
 
-		INSERT INTO tblCashDisbursementVoucherPaymentDistribution(CashDisbursementVoucherId, CashDisbursementVoucherDetailId, BillId, Amount)
+		INSERT INTO tblBillsPaymentPaymentDisbtribution(BillsPaymentId, BillsPaymentDetailId, BillId, Amount)
 		SELECT @Id, @DetailId, @BillId, @Amount
 
 		UPDATE @PaymentDetails
@@ -67,9 +67,9 @@ BEGIN
 END
 ELSE
 BEGIN
-	DELETE pd
-	FROM tblCashDisbursementVoucherPaymentDistribution pd
-	WHERE pd.CashDisbursementVoucherId = @Id
+	DELETE bppd
+	FROM tblBillsPaymentPaymentDisbtribution bppd
+	WHERE bppd.BillsPaymentId = @Id
 END
 GO
 

@@ -9,9 +9,9 @@ using Jk_Accounting_Software.Internal.Forms;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
-    public partial class ECashDisbursementVouchersListForm : IListForm
+    public partial class EBillsPaymentListForm : IListForm
     {
-        public ECashDisbursementVouchersListForm()
+        public EBillsPaymentListForm()
         {
             InitializeComponent();
         }

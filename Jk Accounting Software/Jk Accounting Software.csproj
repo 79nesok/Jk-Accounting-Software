@@ -83,11 +83,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="External\Accounting\ECashDisbursementVoucherForm.cs">
+    <Compile Include="External\Accounting\EBillsPaymentForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ECashDisbursementVoucherForm.Designer.cs">
-      <DependentUpon>ECashDisbursementVoucherForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\EBillsPaymentForm.Designer.cs">
+      <DependentUpon>EBillsPaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\ECustomerOverpaymentForm.cs">
       <SubType>UserControl</SubType>
@@ -173,11 +173,11 @@
     <Compile Include="External\Maintenance\EAssetsListForm.Designer.cs">
       <DependentUpon>EAssetsListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\ECashDisbursementVouchersListForm.cs">
+    <Compile Include="External\Accounting\EBillsPaymentListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ECashDisbursementVouchersListForm.Designer.cs">
-      <DependentUpon>ECashDisbursementVouchersListForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\EBillsPaymentListForm.Designer.cs">
+      <DependentUpon>EBillsPaymentListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\ECashReceiptVoucherForm.cs">
       <SubType>UserControl</SubType>
@@ -598,8 +598,8 @@
       <DependentUpon>ITextPropertyEditor.cs</DependentUpon>
     </Compile>
     <Compile Include="Testing\MainApplication.cs" />
-    <EmbeddedResource Include="External\Accounting\ECashDisbursementVoucherForm.resx">
-      <DependentUpon>ECashDisbursementVoucherForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\EBillsPaymentForm.resx">
+      <DependentUpon>EBillsPaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECustomerOverpaymentForm.resx">
       <DependentUpon>ECustomerOverpaymentForm.cs</DependentUpon>
@@ -616,8 +616,8 @@
     <EmbeddedResource Include="External\Maintenance\EAssetsListForm.resx">
       <DependentUpon>EAssetsListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\ECashDisbursementVouchersListForm.resx">
-      <DependentUpon>ECashDisbursementVouchersListForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\EBillsPaymentListForm.resx">
+      <DependentUpon>EBillsPaymentListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECashReceiptVoucherForm.resx">
       <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>

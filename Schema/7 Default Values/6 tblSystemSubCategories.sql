@@ -29,7 +29,7 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = '
 
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Supplier', @ListForm = NULL, @MasterForm = NULL, @Index = 1
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Supplier', @Name = 'Bills', @ListForm = 'EBillsListForm', @MasterForm = 'EBillsForm', @Index = 2
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Supplier', @Name = 'Supplier Payments', @ListForm = 'ECashDisbursementVouchersListForm', @MasterForm = 'ECashDisbursementVoucherForm', @Index = 3
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Supplier', @Name = 'Bills Payment', @ListForm = 'EBillsPaymentListForm', @MasterForm = 'EBillsPaymentForm', @Index = 3
 
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Customer', @ListForm = NULL, @MasterForm = NULL, @Index = 4
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Name = 'Sales Vouchers', @ListForm = 'ESalesVouchersListForm', @MasterForm = 'ESalesVoucherForm', @Index = 5

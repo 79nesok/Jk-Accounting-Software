@@ -3,7 +3,7 @@ EXEC uspAddSystemSeries 'JV' --Journal Voucher
 EXEC uspAddSystemSeries 'B' --Bills
 EXEC uspAddSystemSeries 'SV' --Sales Voucher
 EXEC uspAddSystemSeries 'CP' --Customer Payment
-EXEC uspAddSystemSeries 'SP' --Supplier Payment
+EXEC uspAddSystemSeries 'BP' --Bills Payment
 
 --Journals
 EXEC uspAddSystemSeries 'GJ' --General Journal

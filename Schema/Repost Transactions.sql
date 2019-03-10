@@ -5,7 +5,7 @@ TRUNCATE TABLE tblJournalDetails
 TRUNCATE TABLE tblGeneralLedger
 TRUNCATE TABLE tblSubsidiaryLedger
 TRUNCATE TABLE tblCashReceiptVoucherPaymentDistribution
-TRUNCATE TABLE tblCashDisbursementVoucherPaymentDistribution
+TRUNCATE TABLE tblBillsPaymentPaymentDisbtribution
 
 UPDATE tblSystemSeries
 SET NextNumber = 1
@@ -23,7 +23,7 @@ SET JournalId = NULL
 UPDATE tblCashReceiptVouchers
 SET JournalId = NULL
 
-UPDATE tblCashDisbursementVouchers
+UPDATE tblBillsPayment
 SET JournalId = NULL
 
 DECLARE @Id INT
@@ -57,7 +57,7 @@ FROM tblCashReceiptVouchers
 
 --Supplier Payment
 SELECT Id, 5
-FROM tblCashDisbursementVouchers
+FROM tblBillsPayment
 
 
 WHILE 1 = 1
@@ -95,11 +95,11 @@ UPDATE b
 SET b.PaidAmount = b.WithholdingTax + ISNULL(tmp.Amount, 0)
 FROM tblBills b
 	LEFT OUTER JOIN (
-		SELECT cpd.BillId, SUM(cpd.Amount) AS Amount
-		FROM tblCashDisbursementVouchers cdv
-			INNER JOIN tblCashDisbursementVoucherPaymentDistribution cpd ON cpd.CashDisbursementVoucherId = cdv.Id
-		WHERE cdv.Voided = 0
-		GROUP BY cpd.BillId
+		SELECT bppd.BillId, SUM(bppd.Amount) AS Amount
+		FROM tblBillsPayment bp
+			INNER JOIN tblBillsPaymentPaymentDisbtribution bppd ON bppd.BillsPaymentId = bp.Id
+		WHERE bp.Voided = 0
+		GROUP BY bppd.BillId
 	) tmp ON tmp.BillId = b.Id
 WHERE b.Voided = 0
 
