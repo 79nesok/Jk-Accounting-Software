@@ -761,7 +761,7 @@
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>9pt</FontSize>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -797,7 +797,7 @@
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>9pt</FontSize>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -833,7 +833,7 @@
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>9pt</FontSize>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -869,7 +869,7 @@
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>9pt</FontSize>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -905,7 +905,7 @@
                               <Style>
                                 <FontFamily>Consolas</FontFamily>
                                 <FontSize>9pt</FontSize>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -973,7 +973,7 @@
                 <Style>
                   <FontFamily>Consolas</FontFamily>
                   <FontSize>9pt</FontSize>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1009,7 +1009,7 @@
                 <Style>
                   <FontFamily>Consolas</FontFamily>
                   <FontSize>9pt</FontSize>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1045,7 +1045,7 @@
                 <Style>
                   <FontFamily>Consolas</FontFamily>
                   <FontSize>9pt</FontSize>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1081,7 +1081,7 @@
                 <Style>
                   <FontFamily>Consolas</FontFamily>
                   <FontSize>9pt</FontSize>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -1117,7 +1117,7 @@
                 <Style>
                   <FontFamily>Consolas</FontFamily>
                   <FontSize>9pt</FontSize>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>

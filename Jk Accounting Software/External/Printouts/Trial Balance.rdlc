@@ -173,7 +173,7 @@
                               <Value>=Fields!Debit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -208,7 +208,7 @@
                               <Value>=Fields!Credit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -274,7 +274,7 @@
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -310,7 +310,7 @@
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>

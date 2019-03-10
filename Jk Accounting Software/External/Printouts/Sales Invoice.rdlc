@@ -325,7 +325,7 @@
                               <Value>=Fields!Amount.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -360,7 +360,7 @@
                               <Value>=Fields!GrossAmount.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -395,7 +395,7 @@
                               <Value>=Fields!VATAmount.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -430,7 +430,7 @@
                               <Value>=Fields!DiscountAmount.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -465,7 +465,7 @@
                               <Value>=Fields!Total.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -486,6 +486,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -667,7 +668,7 @@
                 <Value>=First(Fields!DiscountAmount.Value, "SalesVoucher")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -702,7 +703,7 @@
                 <Value>=First(Fields!GrossAmount.Value, "SalesVoucher")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -737,7 +738,7 @@
                 <Value>=First(Fields!VATAmount.Value, "SalesVoucher")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -805,7 +806,7 @@
                 <Value>=First(Fields!NetAmount.Value, "SalesVoucher")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>

@@ -211,7 +211,7 @@
                               <Value>=Fields!Debit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -232,6 +232,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -246,7 +247,7 @@
                               <Value>=Fields!Credit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -267,6 +268,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -281,7 +283,7 @@
                               <Value>=Fields!RunningBalance.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -302,6 +304,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -354,7 +357,7 @@
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -375,6 +378,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -390,7 +394,7 @@
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -411,6 +415,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>

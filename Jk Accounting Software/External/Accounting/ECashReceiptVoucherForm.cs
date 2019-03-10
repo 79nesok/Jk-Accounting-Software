@@ -264,9 +264,9 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void DisplaySummary()
         {
-            txtAmountPaid.Text = ComputeAmountPaid().ToString("N2");
-            txtAmountApplied.Text = ComputeAmountApplied().ToString("N2");
-            txtBalance.Text = (ComputeAmountPaid() - ComputeAmountApplied()).ToString("N2");
+            txtAmountPaid.Text = ComputeAmountPaid().ToString("#,##0.00;(#,##0.00)");
+            txtAmountApplied.Text = ComputeAmountApplied().ToString("#,##0.00;(#,##0.00)");
+            txtBalance.Text = (ComputeAmountPaid() - ComputeAmountApplied()).ToString("#,##0.00;(#,##0.00)");
         }
 
         private Double ComputeAmountPaid()

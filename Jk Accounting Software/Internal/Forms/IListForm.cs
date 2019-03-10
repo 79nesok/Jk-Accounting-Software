@@ -314,7 +314,7 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                         if (col.DataType == SqlDbType.Money || col.DataType == SqlDbType.Float || col.DataType == SqlDbType.Decimal)
                         {
-                            GridColText.DefaultCellStyle.Format = "N2";
+                            GridColText.DefaultCellStyle.Format = "#,##0.00;(#,##0.00)";
                             GridColText.ValueType = Type.GetType("System.Decimal");
                             GridColText.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         }
@@ -441,7 +441,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                                 total += Convert.ToDouble(row[ic.Name]);
 
                             total = total / VMasterDataTable.Rows.Count;
-                            value = total.ToString("N2");
+                            value = total.ToString("#,##0.00;(#,##0.00)");
                         }
                         else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftCount)
                             value = VMasterDataTable.Rows.Count.ToString();
@@ -456,7 +456,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                             if (ic.DataType == SqlDbType.BigInt || ic.DataType == SqlDbType.Int)
                                 value = max.ToString();
                             else
-                                value = max.ToString("N2");
+                                value = max.ToString("#,##0.00;(#,##0.00)");
                         }
                         else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftMin)
                         {
@@ -469,7 +469,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                             if (ic.DataType == SqlDbType.BigInt || ic.DataType == SqlDbType.Int)
                                 value = min.ToString();
                             else
-                                value = min.ToString("N2");
+                                value = min.ToString("#,##0.00;(#,##0.00)");
                         }
                         else if (ic.FooterType == JkColumn.ColumnFooterTypes.ftSum)
                         {
@@ -478,7 +478,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                             foreach (DataRow row in VMasterDataTable.Rows)
                                 total += Convert.ToDouble(row[ic.Name]);
 
-                            value = total.ToString("N2");
+                            value = total.ToString("#,##0.00;(#,##0.00)");
                         }
 
                         foreach (Control c in GridFooter.Controls)

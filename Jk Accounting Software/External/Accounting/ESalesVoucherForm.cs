@@ -25,12 +25,12 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void ESalesVoucherForm_AfterRun()
         {
-            txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("N2");
-            txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("N2");
-            txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("N2");
-            txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("N2");
-            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("N2");
-            txtBalance.Text = (double.Parse(txtNetAmount.Text) - double.Parse(txtPaidAmount.Text)).ToString("N2");
+            txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtBalance.Text = (double.Parse(txtNetAmount.Text) - double.Parse(txtPaidAmount.Text)).ToString("#,##0.00;(#,##0.00)");
 
             //load journal entry
             if (FormState == FormStates.fsView)
@@ -139,21 +139,21 @@ namespace Jk_Accounting_Software.External.Accounting
                     NetAmount += double.Parse(dataGridView.Rows[i].Cells[dataGridView.GetCellIndex("Total")].Value.ToString());
             }
 
-            txtGrossAmount.Text = GrossAmount.ToString("N2");
-            txtVATAmount.Text = VATAmount.ToString("N2");
-            txtDiscountAmount.Text = DiscountAmount.ToString("N2");
-            txtNetAmount.Text = NetAmount.ToString("N2");
-            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("N2");
+            txtGrossAmount.Text = GrossAmount.ToString("#,##0.00;(#,##0.00)");
+            txtVATAmount.Text = VATAmount.ToString("#,##0.00;(#,##0.00)");
+            txtDiscountAmount.Text = DiscountAmount.ToString("#,##0.00;(#,##0.00)");
+            txtNetAmount.Text = NetAmount.ToString("#,##0.00;(#,##0.00)");
+            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("#,##0.00;(#,##0.00)");
         }
 
         private void EPurchaseVoucherForm_AfterRun()
         {
-            txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("N2");
-            txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("N2");
-            txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("N2");
-            txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("N2");
-            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("N2");
-            txtBalance.Text = (double.Parse(txtNetAmount.Text) - double.Parse(txtPaidAmount.Text)).ToString("N2");
+            txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtDiscountAmount.Text = double.Parse(txtDiscountAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtNetAmount.Text = double.Parse(txtNetAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("#,##0.00;(#,##0.00)");
+            txtBalance.Text = (double.Parse(txtNetAmount.Text) - double.Parse(txtPaidAmount.Text)).ToString("#,##0.00;(#,##0.00)");
         }
 
         private void Post(bool IsPost)

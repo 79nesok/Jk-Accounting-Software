@@ -666,7 +666,7 @@
                               <Value>=Fields!Debit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -701,7 +701,7 @@
                               <Value>=Fields!Credit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
-                                <Format>N2</Format>
+                                <Format>#,##0.00;(#,##0.00)</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -774,7 +774,7 @@
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -785,7 +785,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>2.62202cm</Top>
-        <Left>20.10043cm</Left>
+        <Left>20.22743cm</Left>
         <Height>0.6cm</Height>
         <Width>2.64111cm</Width>
         <ZIndex>1</ZIndex>
@@ -810,7 +810,7 @@
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
-                  <Format>N2</Format>
+                  <Format>#,##0.00;(#,##0.00)</Format>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -837,7 +837,7 @@
       </Textbox>
       <Line Name="Line2">
         <Top>3.33111cm</Top>
-        <Left>20.0206cm</Left>
+        <Left>20.1476cm</Left>
         <Height>0cm</Height>
         <Width>2.77033cm</Width>
         <ZIndex>3</ZIndex>
