@@ -206,11 +206,24 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnEdit.Visible = (FormState == FormStates.fsView) && (!IsListForm()); ;
                 btnSave.Visible = (FormState != FormStates.fsView);
                 btnCancel.Visible = (FormState != FormStates.fsView);
-                btnNavigator.Visible = !IsListForm();
+
+                toolStriplblFind.Visible = IsListForm();
+                toolStriptxtFind.Visible = IsListForm();
+                toolStripbtnReset.Visible = IsListForm();
+
+                NavigatorSeparatorFirst.Visible = !IsListForm();
+                NavigatorSeparatorSecond.Visible = !IsListForm();
+
+                btnFirstRecord.Visible = !IsListForm();
+                btnPreviousRecord.Visible = !IsListForm();
+                btnNextRecord.Visible = !IsListForm();
+                btnLastRecord.Visible = !IsListForm();
+
                 btnFirstRecord.Enabled = (FormState == FormStates.fsView);
                 btnPreviousRecord.Enabled = (FormState == FormStates.fsView);
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
                 btnLastRecord.Enabled = (FormState == FormStates.fsView);
+
                 btnPrint.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
 
                 ProcessControls(splitContainer.Panel2);

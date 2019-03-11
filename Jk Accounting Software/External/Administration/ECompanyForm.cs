@@ -31,7 +31,7 @@ namespace Jk_Accounting_Software.External.Administration
             base.UpdateControls();
 
             btnNew.Visible = false;
-            btnNavigator.Visible = false;
+            btnNavigatorHolder.Visible = false;
         }
 
         private void lblLink_Click(object sender, EventArgs e)

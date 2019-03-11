@@ -45,7 +45,15 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.dataGridView);
             this.splitContainer.Panel2.Controls.Add(this.GridFooter);
-            this.splitContainer.Size = new System.Drawing.Size(808, 481);
+            this.splitContainer.Size = new System.Drawing.Size(836, 481);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // GridFooter
             // 
@@ -55,7 +63,7 @@
             this.GridFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.GridFooter.Location = new System.Drawing.Point(0, 378);
             this.GridFooter.Name = "GridFooter";
-            this.GridFooter.Size = new System.Drawing.Size(808, 34);
+            this.GridFooter.Size = new System.Drawing.Size(836, 34);
             this.GridFooter.TabIndex = 0;
             this.GridFooter.WrapContents = false;
             // 
@@ -74,7 +82,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.Size = new System.Drawing.Size(808, 378);
+            this.dataGridView.Size = new System.Drawing.Size(836, 378);
             this.dataGridView.TabIndex = 6;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView_ColumnWidthChanged);
@@ -86,8 +94,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "List Form";
             this.Name = "IListForm";
-            this.Size = new System.Drawing.Size(808, 481);
+            this.Size = new System.Drawing.Size(836, 481);
             this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IListForm_BeforeRun);
+            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IListForm_AfterRun);
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();

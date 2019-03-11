@@ -40,7 +40,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 base.UpdateControls();
 
                 btnHolder.Visible = false;
-                btnNavigator.Visible = false;
+                btnNavigatorHolder.Visible = false;
                 lblCreatedBy.Visible = false;
                 lblModifiedBy.Visible = false;
                 lblMode.Visible = false;

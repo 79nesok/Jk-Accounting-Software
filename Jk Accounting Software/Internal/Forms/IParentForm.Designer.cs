@@ -36,12 +36,15 @@
             this.lblCaption = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelButton = new System.Windows.Forms.Panel();
-            this.btnNavigator = new System.Windows.Forms.ToolStrip();
+            this.btnNavigatorHolder = new System.Windows.Forms.ToolStrip();
+            this.toolStriplblFind = new System.Windows.Forms.ToolStripLabel();
+            this.toolStriptxtFind = new System.Windows.Forms.ToolStripTextBox();
+            this.toolStripbtnReset = new System.Windows.Forms.ToolStripButton();
             this.btnFirstRecord = new System.Windows.Forms.ToolStripButton();
             this.NavigatorSeparatorFirst = new System.Windows.Forms.ToolStripSeparator();
             this.btnPreviousRecord = new System.Windows.Forms.ToolStripButton();
             this.btnNextRecord = new System.Windows.Forms.ToolStripButton();
-            this.NavigatorSeparatorFourth = new System.Windows.Forms.ToolStripSeparator();
+            this.NavigatorSeparatorSecond = new System.Windows.Forms.ToolStripSeparator();
             this.btnLastRecord = new System.Windows.Forms.ToolStripButton();
             this.btnHolder = new System.Windows.Forms.ToolStrip();
             this.btnNew = new System.Windows.Forms.ToolStripButton();
@@ -56,7 +59,7 @@
             this.flowLayoutPanelTop.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.panelButton.SuspendLayout();
-            this.btnNavigator.SuspendLayout();
+            this.btnNavigatorHolder.SuspendLayout();
             this.btnHolder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -149,7 +152,7 @@
             // 
             this.panelButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panelButton.BackColor = System.Drawing.SystemColors.Control;
-            this.panelButton.Controls.Add(this.btnNavigator);
+            this.panelButton.Controls.Add(this.btnNavigatorHolder);
             this.panelButton.Controls.Add(this.btnHolder);
             this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelButton.Location = new System.Drawing.Point(0, 40);
@@ -158,26 +161,57 @@
             this.panelButton.Size = new System.Drawing.Size(852, 26);
             this.panelButton.TabIndex = 12;
             // 
-            // btnNavigator
+            // btnNavigatorHolder
             // 
-            this.btnNavigator.BackColor = System.Drawing.SystemColors.Control;
-            this.btnNavigator.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnNavigator.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNavigatorHolder.BackColor = System.Drawing.SystemColors.Control;
+            this.btnNavigatorHolder.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnNavigatorHolder.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNavigatorHolder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStriplblFind,
+            this.toolStriptxtFind,
+            this.toolStripbtnReset,
             this.btnFirstRecord,
             this.NavigatorSeparatorFirst,
             this.btnPreviousRecord,
             this.btnNextRecord,
-            this.NavigatorSeparatorFourth,
+            this.NavigatorSeparatorSecond,
             this.btnLastRecord});
-            this.btnNavigator.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigator.Location = new System.Drawing.Point(713, 0);
-            this.btnNavigator.Name = "btnNavigator";
-            this.btnNavigator.Padding = new System.Windows.Forms.Padding(0);
-            this.btnNavigator.Size = new System.Drawing.Size(139, 26);
-            this.btnNavigator.Stretch = true;
-            this.btnNavigator.TabIndex = 18;
-            this.btnNavigator.Text = "toolStrip1";
+            this.btnNavigatorHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            this.btnNavigatorHolder.Location = new System.Drawing.Point(452, 0);
+            this.btnNavigatorHolder.Name = "btnNavigatorHolder";
+            this.btnNavigatorHolder.Padding = new System.Windows.Forms.Padding(0);
+            this.btnNavigatorHolder.Size = new System.Drawing.Size(400, 26);
+            this.btnNavigatorHolder.Stretch = true;
+            this.btnNavigatorHolder.TabIndex = 18;
+            this.btnNavigatorHolder.Text = "toolStrip1";
+            // 
+            // toolStriplblFind
+            // 
+            this.toolStriplblFind.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStriplblFind.Name = "toolStriplblFind";
+            this.toolStriplblFind.Size = new System.Drawing.Size(30, 23);
+            this.toolStriplblFind.Text = "Find";
+            this.toolStriplblFind.ToolTipText = "Filters the record (Ctrl+F)";
+            // 
+            // toolStriptxtFind
+            // 
+            this.toolStriptxtFind.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.toolStriptxtFind.Name = "toolStriptxtFind";
+            this.toolStriptxtFind.Size = new System.Drawing.Size(150, 26);
+            this.toolStriptxtFind.ToolTipText = "Filters the record (Ctrl+F)";
+            // 
+            // toolStripbtnReset
+            // 
+            this.toolStripbtnReset.BackColor = System.Drawing.Color.SteelBlue;
+            this.toolStripbtnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripbtnReset.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStripbtnReset.Image = ((System.Drawing.Image)(resources.GetObject("toolStripbtnReset.Image")));
+            this.toolStripbtnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripbtnReset.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
+            this.toolStripbtnReset.Name = "toolStripbtnReset";
+            this.toolStripbtnReset.Size = new System.Drawing.Size(39, 23);
+            this.toolStripbtnReset.Text = "Reset";
+            this.toolStripbtnReset.ToolTipText = "Clears the current search";
             // 
             // btnFirstRecord
             // 
@@ -217,10 +251,10 @@
             this.btnNextRecord.Text = " ";
             this.btnNextRecord.ToolTipText = "Shows the next record (Ctrl+Right)";
             // 
-            // NavigatorSeparatorFourth
+            // NavigatorSeparatorSecond
             // 
-            this.NavigatorSeparatorFourth.Name = "NavigatorSeparatorFourth";
-            this.NavigatorSeparatorFourth.Size = new System.Drawing.Size(6, 26);
+            this.NavigatorSeparatorSecond.Name = "NavigatorSeparatorSecond";
+            this.NavigatorSeparatorSecond.Size = new System.Drawing.Size(6, 26);
             // 
             // btnLastRecord
             // 
@@ -317,8 +351,8 @@
             this.panelTop.ResumeLayout(false);
             this.panelButton.ResumeLayout(false);
             this.panelButton.PerformLayout();
-            this.btnNavigator.ResumeLayout(false);
-            this.btnNavigator.PerformLayout();
+            this.btnNavigatorHolder.ResumeLayout(false);
+            this.btnNavigatorHolder.PerformLayout();
             this.btnHolder.ResumeLayout(false);
             this.btnHolder.PerformLayout();
             this.ResumeLayout(false);
@@ -331,10 +365,9 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label lblCaption;
-        private System.Windows.Forms.Panel panelButton;
-        protected System.Windows.Forms.ToolStrip btnNavigator;
+        protected System.Windows.Forms.ToolStrip btnNavigatorHolder;
         private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFirst;
-        private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFourth;
+        private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorSecond;
         protected System.Windows.Forms.ToolStrip btnHolder;
         public System.Windows.Forms.ToolStripButton btnNew;
         public System.Windows.Forms.ToolStripButton btnEdit;
@@ -347,6 +380,10 @@
         public System.Windows.Forms.ToolStripButton btnLastRecord;
         private System.Windows.Forms.ToolTip btnCloseToolTip;
         public System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Panel panelButton;
+        public System.Windows.Forms.ToolStripLabel toolStriplblFind;
+        public System.Windows.Forms.ToolStripTextBox toolStriptxtFind;
+        public System.Windows.Forms.ToolStripButton toolStripbtnReset;
     }
 }
 

@@ -132,6 +132,12 @@ namespace Jk_Accounting_Software
                 if (e.KeyData == (Keys.Control | Keys.F4))
                     IAppHandler.FindActiveForm().btnClose.PerformClick();
 
+                if (e.KeyData == (Keys.Control | Keys.F))
+                {
+                    if (IAppHandler.FindActiveForm().IsListForm())
+                        IAppHandler.FindActiveForm().toolStriptxtFind.Focus();
+                }
+
                 if (e.KeyData == (Keys.Control | Keys.Home))
                     IAppHandler.FindActiveForm().btnFirstRecord.PerformClick();
 

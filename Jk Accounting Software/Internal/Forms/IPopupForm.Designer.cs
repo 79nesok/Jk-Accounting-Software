@@ -65,7 +65,7 @@
             this.lblCaption.BackColor = System.Drawing.Color.Maroon;
             this.lblCaption.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblCaption.Font = new System.Drawing.Font("Tahoma", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.White;
+            this.lblCaption.ForeColor = System.Drawing.Color.Gold;
             this.lblCaption.Location = new System.Drawing.Point(0, 0);
             this.lblCaption.Name = "lblCaption";
             this.lblCaption.Size = new System.Drawing.Size(489, 30);

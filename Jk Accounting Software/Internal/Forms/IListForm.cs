@@ -203,6 +203,37 @@ namespace Jk_Accounting_Software.Internal.Forms
                     if (!String.IsNullOrWhiteSpace(this.NewFormName))
                         OnOpenForm(null, btnNew);
                 };
+
+                toolStriptxtFind.KeyDown += toolStriptxtFind_KeyDown;
+                toolStripbtnReset.Click += toolStripbtnReset_Click;
+            }
+
+            private void toolStripbtnReset_Click(object sender, EventArgs e)
+            {
+                toolStriptxtFind.Clear();
+                (dataGridView.DataSource as DataTable).DefaultView.RowFilter = String.Empty;
+                toolStriptxtFind.Focus();
+            }
+
+            private void toolStriptxtFind_KeyDown(object sender, KeyEventArgs e)
+            {
+                if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(toolStriptxtFind.Text))
+                {
+                    String filtering = null;
+
+                    foreach (JkColumn column in Columns)
+                    {
+                        if (column.Visible
+                            && (column.DataType == SqlDbType.NVarChar || column.DataType == SqlDbType.VarChar))
+                        {
+                            filtering += String.Format(" {0} LIKE '%{1}%' ", column.Name, toolStriptxtFind.Text);
+                            filtering += "OR";
+                        }
+                    }
+                    filtering = filtering.Substring(0, filtering.Count() - 3);
+
+                    (dataGridView.DataSource as DataTable).DefaultView.RowFilter = filtering;
+                }
             }
 
             private void IListForm_BeforeRun()
@@ -251,6 +282,11 @@ namespace Jk_Accounting_Software.Internal.Forms
                     GridFooter.Update();
                     dataGridView.Update();
                 }
+            }
+
+            private void IListForm_AfterRun()
+            {
+                SetAutoCompleteForSearchField();
             }
         #endregion
 
@@ -515,6 +551,31 @@ namespace Jk_Accounting_Software.Internal.Forms
                 {
                     dg.Visible = (Columns.First(col => col.Name == dg.DataPropertyName) as JkColumn).Visible;
                 }
+            }
+
+            private void SetAutoCompleteForSearchField()
+            {
+                AutoCompleteStringCollection source = new AutoCompleteStringCollection();
+
+                foreach (JkColumn column in Columns)
+                {
+                    if (column.Visible
+                        && (column.DataType == SqlDbType.VarChar || column.DataType == SqlDbType.NVarChar))
+                    {
+                        foreach (String str in VMasterDataTable
+                               .AsEnumerable()
+                               .Select<System.Data.DataRow, String>(x => x.Field<String>(column.Name))
+                               .ToArray())
+                        {
+                            if (!source.Contains(str) && !String.IsNullOrWhiteSpace(str))
+                                source.Add(str);
+                        }
+                    }
+                }
+
+                toolStriptxtFind.AutoCompleteCustomSource = source;
+                toolStriptxtFind.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                toolStriptxtFind.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
         #endregion
     }
