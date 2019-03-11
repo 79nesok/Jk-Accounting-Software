@@ -8,10 +8,10 @@ SET NOCOUNT ON
 
 --Update Invoice amounts
 UPDATE si
-SET si.PaidAmount = si.PaidAmount + (cid.AppliedAmount * CASE WHEN @IsPost = 1 THEN 1 ELSE -1 END)
+SET si.PaidAmount = si.PaidAmount + (crid.AppliedAmount * CASE WHEN @IsPost = 1 THEN 1 ELSE -1 END)
 FROM tblSalesInvoices si
-	INNER JOIN tblCashReceiptVoucherInvoiceDetails cid ON cid.SourceId = si.Id
-WHERE cid.CashReceiptVoucherId = @Id
+	INNER JOIN tblCashReceiptInvoiceDetails crid ON crid.SourceId = si.Id
+WHERE crid.CashReceiptId = @Id
 
 --Generate payment distribution
 IF @IsPost = 1
@@ -25,13 +25,13 @@ BEGIN
 
 	INSERT INTO @PaymentDetails(Id, Amount)
 	SELECT Id, Amount
-	FROM tblCashReceiptVoucherDetails
-	WHERE CashReceiptVoucherId = @Id
+	FROM tblCashReceiptDetails
+	WHERE CashReceiptId = @Id
 
 	INSERT INTO @InvoiceDetails(InvoiceId, AppliedAmount)
 	SELECT SourceId, AppliedAmount
-	FROM tblCashReceiptVoucherInvoiceDetails
-	WHERE CashReceiptVoucherId = @Id
+	FROM tblCashReceiptInvoiceDetails
+	WHERE CashReceiptId = @Id
 
 	WHILE 1 = 1
 	BEGIN
@@ -49,7 +49,7 @@ BEGIN
 
 		SET @Amount = CASE WHEN @AppliedAmount > @Amount THEN @Amount ELSE @AppliedAmount END
 
-		INSERT INTO tblCashReceiptVoucherPaymentDistribution(CashReceiptVoucherId, CashReceiptVoucherDetailId, InvoiceId, Amount)
+		INSERT INTO tblCashReceiptPaymentDistribution(CashReceiptId, CashReceiptDetailId, InvoiceId, Amount)
 		SELECT @Id, @DetailId, @InvoiceId, @Amount
 
 		UPDATE @PaymentDetails
@@ -67,27 +67,27 @@ BEGIN
 END
 ELSE
 BEGIN
-	DELETE pd
-	FROM tblCashReceiptVoucherPaymentDistribution pd
-	WHERE pd.CashReceiptVoucherId = @Id
+	DELETE crpd
+	FROM tblCashReceiptPaymentDistribution crpd
+	WHERE crpd.CashReceiptId = @Id
 END
 
 --Create Customer Overpayment
 IF EXISTS(
-	SELECT cv.Id
-	FROM tblCashReceiptVouchers cv
+	SELECT cr.Id
+	FROM tblCashReceipts cr
 		INNER JOIN (
-			SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
-			FROM tblCashReceiptVoucherDetails cd
-			GROUP BY cd.CashReceiptVoucherId
-		) cd ON cd.CashReceiptVoucherId = cv.Id
+			SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+			FROM tblCashReceiptDetails crd
+			GROUP BY crd.CashReceiptId
+		) cd ON cd.CashReceiptId = cr.Id
 		INNER JOIN (
-			SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
-			FROM tblCashReceiptVoucherInvoiceDetails cid
-			GROUP BY cid.CashReceiptVoucherId
-		) cid ON cid.CashReceiptVoucherId = cv.Id
-	WHERE cv.Id = @Id
-		AND cd.Amount <> cid.AppliedAmount
+			SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+			FROM tblCashReceiptInvoiceDetails crid
+			GROUP BY crid.CashReceiptId
+		) crid ON crid.CashReceiptId = cr.Id
+	WHERE cr.Id = @Id
+		AND cd.Amount <> crid.AppliedAmount
 )
 BEGIN
 	IF NOT EXISTS(
@@ -115,21 +115,21 @@ BEGIN
 		INSERT INTO tblCustomerOverpayments(CompanyId, TransactionNo, [Date], ReferenceNo, ReferenceNo2,
 			SubsidiaryId, Remarks, Amount, AmountApplied, SourceId, CreatedById,
 			DateCreated, ModifiedById, DateModified)
-		SELECT cv.CompanyId, @TransactionNo, cv.[Date], cv.TransactionNo, NULL,
-			cv.SubsidiaryId, @Remarks, cd.Amount - cid.AppliedAmount, 0, cv.Id, cv.CreatedById,
-			GETDATE(), cv.ModifiedById, GETDATE()
-		FROM tblCashReceiptVouchers cv
+		SELECT cr.CompanyId, @TransactionNo, cr.[Date], cr.TransactionNo, NULL,
+			cr.SubsidiaryId, @Remarks, cd.Amount - crid.AppliedAmount, 0, cr.Id, cr.CreatedById,
+			GETDATE(), cr.ModifiedById, GETDATE()
+		FROM tblCashReceipts cr
 			INNER JOIN (
-				SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
-				FROM tblCashReceiptVoucherDetails cd
-				GROUP BY cd.CashReceiptVoucherId
-			) cd ON cd.CashReceiptVoucherId = cv.Id
+				SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+				FROM tblCashReceiptDetails crd
+				GROUP BY crd.CashReceiptId
+			) cd ON cd.CashReceiptId = cr.Id
 			INNER JOIN (
-				SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
-				FROM tblCashReceiptVoucherInvoiceDetails cid
-				GROUP BY cid.CashReceiptVoucherId
-			) cid ON cid.CashReceiptVoucherId = cv.Id
-		WHERE cv.Id = @Id
+				SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+				FROM tblCashReceiptInvoiceDetails crid
+				GROUP BY crid.CashReceiptId
+			) crid ON crid.CashReceiptId = cr.Id
+		WHERE cr.Id = @Id
 	END
 	ELSE
 	BEGIN
@@ -140,19 +140,19 @@ BEGIN
 			co.DateModified = GETDATE()
 		FROM tblCustomerOverpayments co
 			INNER JOIN (
-				SELECT cv.Id, cd.Amount - cid.AppliedAmount AS Amount,
-					cv.SubsidiaryId, cv.ModifiedById
-				FROM tblCashReceiptVouchers cv
+				SELECT cr.Id, cd.Amount - crid.AppliedAmount AS Amount,
+					cr.SubsidiaryId, cr.ModifiedById
+				FROM tblCashReceipts cr
 				INNER JOIN (
-					SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
-					FROM tblCashReceiptVoucherDetails cd
-					GROUP BY cd.CashReceiptVoucherId
-				) cd ON cd.CashReceiptVoucherId = cv.Id
+					SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+					FROM tblCashReceiptDetails crd
+					GROUP BY crd.CashReceiptId
+				) cd ON cd.CashReceiptId = cr.Id
 				INNER JOIN (
-					SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
-					FROM tblCashReceiptVoucherInvoiceDetails cid
-					GROUP BY cid.CashReceiptVoucherId
-				) cid ON cid.CashReceiptVoucherId = cv.Id
+					SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+					FROM tblCashReceiptInvoiceDetails crid
+					GROUP BY crid.CashReceiptId
+				) crid ON crid.CashReceiptId = cr.Id
 			) cv ON cv.Id = co.SourceId
 		WHERE co.SourceId = @Id
 	END

@@ -33,7 +33,7 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Supplier', @Na
 
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Customer', @ListForm = NULL, @MasterForm = NULL, @Index = 4
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Name = 'Sales Invoices', @ListForm = 'ESalesInvoicesListForm', @MasterForm = 'ESalesInvoiceForm', @Index = 5
-EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Name = 'Customer Payments', @ListForm = 'ECashReceiptVouchersListForm', @MasterForm = 'ECashReceiptVoucherForm', @Index = 6
+EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Name = 'Cash Receipts', @ListForm = 'ECashReceiptsListForm', @MasterForm = 'ECashReceiptForm', @Index = 6
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Name = 'Customer Overpayment', @ListForm = 'ECustomerOverpaymentsListForm', @MasterForm = 'ECustomerOverpaymentForm', @Index = 7
 
 --Report

@@ -4,7 +4,7 @@ TRUNCATE TABLE tblJournals
 TRUNCATE TABLE tblJournalDetails
 TRUNCATE TABLE tblGeneralLedger
 TRUNCATE TABLE tblSubsidiaryLedger
-TRUNCATE TABLE tblCashReceiptVoucherPaymentDistribution
+TRUNCATE TABLE tblCashReceiptPaymentDistribution
 TRUNCATE TABLE tblBillsPaymentPaymentDisbtribution
 
 UPDATE tblSystemSeries
@@ -20,7 +20,7 @@ SET JournalId = NULL
 UPDATE tblSalesInvoices
 SET JournalId = NULL
 
-UPDATE tblCashReceiptVouchers
+UPDATE tblCashReceipts
 SET JournalId = NULL
 
 UPDATE tblBillsPayment
@@ -49,9 +49,9 @@ FROM tblSalesInvoices
 
 	UNION ALL
 
---Customer Payment
+--Cash Receipt
 SELECT Id, 4
-FROM tblCashReceiptVouchers
+FROM tblCashReceipts
 
 	UNION ALL
 
@@ -83,11 +83,11 @@ UPDATE si
 SET si.PaidAmount = ISNULL(tmp.Amount, 0)
 FROM tblSalesInvoices si
 	LEFT OUTER JOIN (
-		SELECT cpd.InvoiceId, SUM(cpd.Amount) AS Amount
-		FROM tblCashReceiptVouchers cv
-			INNER JOIN tblCashReceiptVoucherPaymentDistribution cpd ON cpd.CashReceiptVoucherId = cv.Id
-		WHERE cv.Voided = 0
-		GROUP BY cpd.InvoiceId
+		SELECT crpd.InvoiceId, SUM(crpd.Amount) AS Amount
+		FROM tblCashReceipts cr
+			INNER JOIN tblCashReceiptPaymentDistribution crpd ON crpd.CashReceiptId = cr.Id
+		WHERE cr.Voided = 0
+		GROUP BY crpd.InvoiceId
 	) tmp ON tmp.InvoiceId = si.Id
 WHERE si.Voided = 0
 

@@ -42,7 +42,7 @@ ELSE IF @JournalTypeId = 3
 ELSE IF @JournalTypeId = 4
 	SELECT @JournalId = JournalId,
 		@CompanyId = CompanyId
-	FROM tblCashReceiptVouchers
+	FROM tblCashReceipts
 	WHERE Id = @Id
 ELSE IF @JournalTypeId = 5
 	SELECT @JournalId = JournalId,
@@ -295,13 +295,13 @@ BEGIN
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
 				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
-			FROM tblCashReceiptVouchers
+			FROM tblCashReceipts
 			WHERE Id = @Id
 				AND @JournalTypeId = 4
 	
 			SET @JournalId = SCOPE_IDENTITY()
 
-			UPDATE tblCashReceiptVouchers
+			UPDATE tblCashReceipts
 			SET JournalId = @JournalId
 			WHERE Id = @Id
 
@@ -310,22 +310,22 @@ BEGIN
 		ELSE
 		BEGIN
 			UPDATE j
-			SET j.[Date] = cv.[Date],
-				j.ReferenceNo = cv.ReferenceNo,
-				j.ReferenceNo2 = cv.ReferenceNo2,
-				j.Remarks = cv.Remarks,
-				j.ModifiedById = cv.ModifiedById,
-				j.DateModified = cv.DateModified
+			SET j.[Date] = cr.[Date],
+				j.ReferenceNo = cr.ReferenceNo,
+				j.ReferenceNo2 = cr.ReferenceNo2,
+				j.Remarks = cr.Remarks,
+				j.ModifiedById = cr.ModifiedById,
+				j.DateModified = cr.DateModified
 			FROM tblJournals j
-				INNER JOIN tblCashReceiptVouchers cv ON cv.JournalId = j.Id
+				INNER JOIN tblCashReceipts cr ON cr.JournalId = j.Id
 			WHERE j.Id = @JournalId
 				AND @JournalTypeId = 4
 		END
 
 		SELECT @PaymentMethodName = pm.Name
-		FROM tblCashReceiptVoucherDetails cpd
-			INNER JOIN tblPaymentMethods pm ON pm.Id = cpd.PaymentMethodId
-		WHERE cpd.CashReceiptVoucherId = @Id
+		FROM tblCashReceiptDetails crd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = crd.PaymentMethodId
+		WHERE crd.CashReceiptId = @Id
 			AND pm.AccountId IS NULL
 
 		IF NULLIF(@PaymentMethodName, '') IS NOT NULL
@@ -336,10 +336,10 @@ BEGIN
 
 		--Payment
 		INSERT INTO tblJournalDetails(JournalId, AccountId, Debit, Credit)
-		SELECT @JournalId, pm.AccountId, SUM(cvd.Amount), 0
-		FROM tblCashReceiptVoucherDetails cvd
-			INNER JOIN tblPaymentMethods pm ON pm.Id = cvd.PaymentMethodId
-		WHERE cvd.CashReceiptVoucherId = @Id
+		SELECT @JournalId, pm.AccountId, SUM(crd.Amount), 0
+		FROM tblCashReceiptDetails crd
+			INNER JOIN tblPaymentMethods pm ON pm.Id = crd.PaymentMethodId
+		WHERE crd.CashReceiptId = @Id
 		GROUP BY pm.AccountId
 
 		--Receivable
@@ -350,28 +350,28 @@ BEGIN
 		END
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
-		SELECT @JournalId, @ReceivableAccountId, cv.SubsidiaryId, 0, SUM(cid.AppliedAmount)
-		FROM tblCashReceiptVoucherInvoiceDetails cid
-			INNER JOIN tblCashReceiptVouchers cv ON cv.Id = cid.CashReceiptVoucherId
-		WHERE cid.CashReceiptVoucherId = @Id
-		GROUP BY cv.SubsidiaryId
+		SELECT @JournalId, @ReceivableAccountId, cr.SubsidiaryId, 0, SUM(crid.AppliedAmount)
+		FROM tblCashReceiptInvoiceDetails crid
+			INNER JOIN tblCashReceipts cr ON cr.Id = crid.CashReceiptId
+		WHERE crid.CashReceiptId = @Id
+		GROUP BY cr.SubsidiaryId
 
 		--Overpayment
 		IF @CustomerOverPaymentAccountId IS NULL
 			AND EXISTS(
-				SELECT cv.Id
-				FROM tblCashReceiptVouchers cv
+				SELECT cr.Id
+				FROM tblCashReceipts cr
 					INNER JOIN (
-						SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
-						FROM tblCashReceiptVoucherDetails cd
-						GROUP BY cd.CashReceiptVoucherId
-					) cd ON cd.CashReceiptVoucherId = cv.Id
+						SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+						FROM tblCashReceiptDetails crd
+						GROUP BY crd.CashReceiptId
+					) cd ON cd.CashReceiptId = cr.Id
 					INNER JOIN (
-						SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
-						FROM tblCashReceiptVoucherInvoiceDetails cid
-						GROUP BY cid.CashReceiptVoucherId
-					) cid ON cid.CashReceiptVoucherId = cv.Id
-				WHERE cv.Id = @Id
+						SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+						FROM tblCashReceiptInvoiceDetails crid
+						GROUP BY crid.CashReceiptId
+					) cid ON cid.CashReceiptId = cr.Id
+				WHERE cr.Id = @Id
 					AND cd.Amount <> cid.AppliedAmount
 			)
 		BEGIN
@@ -380,19 +380,19 @@ BEGIN
 		END
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
-		SELECT @JournalId, @CustomerOverPaymentAccountId, cv.SubsidiaryId, 0, cd.Amount - cid.AppliedAmount
-		FROM tblCashReceiptVouchers cv
+		SELECT @JournalId, @CustomerOverPaymentAccountId, cr.SubsidiaryId, 0, cd.Amount - cid.AppliedAmount
+		FROM tblCashReceipts cr
 			INNER JOIN (
-				SELECT cd.CashReceiptVoucherId, SUM(cd.Amount) AS Amount
-				FROM tblCashReceiptVoucherDetails cd
-				GROUP BY cd.CashReceiptVoucherId
-			) cd ON cd.CashReceiptVoucherId = cv.Id
+				SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+				FROM tblCashReceiptDetails crd
+				GROUP BY crd.CashReceiptId
+			) cd ON cd.CashReceiptId = cr.Id
 			INNER JOIN (
-				SELECT cid.CashReceiptVoucherId, SUM(cid.AppliedAmount) AS AppliedAmount
-				FROM tblCashReceiptVoucherInvoiceDetails cid
-				GROUP BY cid.CashReceiptVoucherId
-			) cid ON cid.CashReceiptVoucherId = cv.Id
-		WHERE cv.Id = @Id
+				SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+				FROM tblCashReceiptInvoiceDetails crid
+				GROUP BY crid.CashReceiptId
+			) cid ON cid.CashReceiptId = cr.Id
+		WHERE cr.Id = @Id
 			AND cd.Amount > cid.AppliedAmount
 	END
 	ELSE IF @JournalTypeId = 5

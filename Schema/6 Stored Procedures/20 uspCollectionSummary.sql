@@ -36,14 +36,14 @@ SET @CommandText = '
 
 		UNION ALL
 
-		SELECT pm.Name AS PaymentMethod, cpd.Amount
-		FROM tblCashReceiptVouchers cv
-			INNER JOIN tblCashReceiptVoucherDetails cvd ON cvd.CashReceiptVoucherId = cv.Id
-			INNER JOIN tblCashReceiptVoucherPaymentDistribution cpd ON cpd.CashReceiptVoucherDetailId = cvd.Id
-			INNER JOIN tblPaymentMethods pm ON pm.Id = cvd.PaymentMethodId
-		WHERE cv.CompanyId = ' + CAST(@CompanyId AS VARCHAR) + '
-			AND cv.[Date] BETWEEN ''' + CAST(@FromDate AS VARCHAR) + ''' AND ''' + CAST(@ToDate AS VARCHAR)  + '''
-			AND cv.Voided = 0
+		SELECT pm.Name AS PaymentMethod, crpd.Amount
+		FROM tblCashReceipts cr
+			INNER JOIN tblCashReceiptDetails crd ON crd.CashReceiptId = cr.Id
+			INNER JOIN tblCashReceiptPaymentDistribution crpd ON crpd.CashReceiptDetailId = crd.Id
+			INNER JOIN tblPaymentMethods pm ON pm.Id = crd.PaymentMethodId
+		WHERE cr.CompanyId = ' + CAST(@CompanyId AS VARCHAR) + '
+			AND cr.[Date] BETWEEN ''' + CAST(@FromDate AS VARCHAR) + ''' AND ''' + CAST(@ToDate AS VARCHAR)  + '''
+			AND cr.Voided = 0
 	) tmp
 	PIVOT(SUM(Amount) FOR PaymentMethod IN (' + @Columns + ')) AS pvt
 	'

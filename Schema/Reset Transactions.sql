@@ -22,11 +22,11 @@ TRUNCATE TABLE tblBillsPaymentPaymentDisbtribution
 --SI
 TRUNCATE TABLE tblSalesInvoices
 TRUNCATE TABLE tblSalesInvoiceDetails
---CRV
-TRUNCATE TABLE tblCashReceiptVouchers
-TRUNCATE TABLE tblCashReceiptVoucherDetails
-TRUNCATE TABLE tblCashReceiptVoucherInvoiceDetails
-TRUNCATE TABLE tblCashReceiptVoucherPaymentDistribution
+--CR
+TRUNCATE TABLE tblCashReceipts
+TRUNCATE TABLE tblCashReceiptDetails
+TRUNCATE TABLE tblCashReceiptInvoiceDetails
+TRUNCATE TABLE tblCashReceiptPaymentDistribution
 --COP
 TRUNCATE TABLE tblCustomerOverpayments
 

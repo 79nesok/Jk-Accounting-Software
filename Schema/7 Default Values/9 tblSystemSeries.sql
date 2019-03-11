@@ -2,7 +2,7 @@
 EXEC uspAddSystemSeries 'JV' --Journal Voucher
 EXEC uspAddSystemSeries 'B' --Bills
 EXEC uspAddSystemSeries 'SI' --Sales Invoice
-EXEC uspAddSystemSeries 'CP' --Customer Payment
+EXEC uspAddSystemSeries 'CR' --Cash Receipt
 EXEC uspAddSystemSeries 'BP' --Bills Payment
 
 --Journals

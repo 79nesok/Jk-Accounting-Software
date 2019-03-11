@@ -15,12 +15,12 @@ IF NULLIF(@Id, 0) IS NULL
 	WHERE si.SubsidiaryId = @SubsidiaryId
 		AND si.Balance > 0
 ELSE
-	SELECT cid.SourceId, si.TransactionNo, si.[Date],
+	SELECT crid.SourceId, si.TransactionNo, si.[Date],
 		si.ReferenceNo, si.ReferenceNo2, si.NetAmount,
-		si.Balance, cid.AppliedAmount, 0 AS AmountToApply,
+		si.Balance, crid.AppliedAmount, 0 AS AmountToApply,
 		si.Balance AS OldBalance
-	FROM tblCashReceiptVoucherInvoiceDetails cid
-		INNER JOIN tblSalesInvoices si ON si.Id = cid.SourceId
-	WHERE cid.CashReceiptVoucherId = @Id
+	FROM tblCashReceiptInvoiceDetails crid
+		INNER JOIN tblSalesInvoices si ON si.Id = crid.SourceId
+	WHERE crid.CashReceiptId = @Id
 GO
 

@@ -14,9 +14,9 @@ using Jk_Accounting_Software.Internal.Classes;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
-    public partial class ECashReceiptVoucherForm : IMasterDetailForm
+    public partial class ECashReceiptForm : IMasterDetailForm
     {
-        public ECashReceiptVoucherForm()
+        public ECashReceiptForm()
         {
             InitializeComponent();
             dataGridView.CellFormatting += dataGridView_CellFormatting;

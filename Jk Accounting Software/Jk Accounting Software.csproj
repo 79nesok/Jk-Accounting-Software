@@ -179,17 +179,17 @@
     <Compile Include="External\Accounting\EBillsPaymentListForm.Designer.cs">
       <DependentUpon>EBillsPaymentListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\ECashReceiptVoucherForm.cs">
+    <Compile Include="External\Accounting\ECashReceiptForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ECashReceiptVoucherForm.Designer.cs">
-      <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\ECashReceiptForm.Designer.cs">
+      <DependentUpon>ECashReceiptForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\ECashReceiptVouchersListForm.cs">
+    <Compile Include="External\Accounting\ECashReceiptsListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ECashReceiptVouchersListForm.Designer.cs">
-      <DependentUpon>ECashReceiptVouchersListForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\ECashReceiptsListForm.Designer.cs">
+      <DependentUpon>ECashReceiptsListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Maintenance\EEquitiesListForm.cs">
       <SubType>UserControl</SubType>
@@ -619,11 +619,11 @@
     <EmbeddedResource Include="External\Accounting\EBillsPaymentListForm.resx">
       <DependentUpon>EBillsPaymentListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\ECashReceiptVoucherForm.resx">
-      <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\ECashReceiptForm.resx">
+      <DependentUpon>ECashReceiptForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\ECashReceiptVouchersListForm.resx">
-      <DependentUpon>ECashReceiptVouchersListForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\ECashReceiptsListForm.resx">
+      <DependentUpon>ECashReceiptsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\EEquitiesListForm.resx">
       <DependentUpon>EEquitiesListForm.cs</DependentUpon>

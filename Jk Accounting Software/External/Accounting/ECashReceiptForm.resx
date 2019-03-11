@@ -145,10 +145,10 @@
         b24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQbPEZvb3RlclR5cGU+a19fQmFj
         a2luZ0ZpZWxkGTxSZWFkT25seT5rX19CYWNraW5nRmllbGQaPFRlbXBvcmFyeT5rX19CYWNraW5nRmll
         bGQAAQQBAQABAAQAAAEVU3lzdGVtLkRhdGEuU3FsRGJUeXBlAwAAAAEILUprQ29tcG9uZW50cy5Ka0Rl
-        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAAUQ2FzaFJlY2VpcHRWb3Vj
-        aGVySWQF+////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgoACQQA
-        AABkAAAABfr///8tSmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAA
-        AAd2YWx1ZV9fAAgCAAAAAAAAAAAACw==
+        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAANQ2FzaFJlY2VpcHRJZAX7
+        ////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAgAAAAKCgAGBgAAAA1DYXNo
+        UmVjZWlwdElkZAAAAAX5////LUprQ29tcG9uZW50cy5Ka0RldGFpbENvbHVtbitDb2x1bW5Gb290ZXJU
+        eXBlcwEAAAAHdmFsdWVfXwAIAgAAAAAAAAAAAAs=
 </value>
   </data>
   <data name="dstPaymentDetails.Columns2" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -384,10 +384,10 @@ WHERE j.Id = @Id</value>
         b24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQbPEZvb3RlclR5cGU+a19fQmFj
         a2luZ0ZpZWxkGTxSZWFkT25seT5rX19CYWNraW5nRmllbGQaPFRlbXBvcmFyeT5rX19CYWNraW5nRmll
         bGQAAQQBAQABAAQAAAEVU3lzdGVtLkRhdGEuU3FsRGJUeXBlAwAAAAEILUprQ29tcG9uZW50cy5Ka0Rl
-        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAAUQ2FzaFJlY2VpcHRWb3Vj
-        aGVySWQF+////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgoACQQA
-        AABkAAAABfr///8tSmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAA
-        AAd2YWx1ZV9fAAgCAAAAAAAAAAAACw==
+        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAANQ2FzaFJlY2VpcHRJZAX7
+        ////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAgAAAAKCgAGBgAAAA1DYXNo
+        UmVjZWlwdElkZAAAAAX5////LUprQ29tcG9uZW50cy5Ka0RldGFpbENvbHVtbitDb2x1bW5Gb290ZXJU
+        eXBlcwEAAAAHdmFsdWVfXwAIAgAAAAAAAAAAAAs=
 </value>
   </data>
   <data name="dstDetail.Columns2" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -583,7 +583,7 @@ WHERE j.Id = @Id</value>
 	AmountApplied, Posted, Voided,
 	VoidedById, DateVoided, CreatedById,
 	DateCreated, ModifiedById, DateModified
-FROM tblCashReceiptVouchers
+FROM tblCashReceipts
 WHERE Id = @Id</value>
   </data>
   <data name="$this.MasterColumns" mimetype="application/x-microsoft.net.object.binary.base64">
