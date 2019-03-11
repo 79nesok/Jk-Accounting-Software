@@ -37,7 +37,7 @@ ELSE IF @JournalTypeId = 2
 ELSE IF @JournalTypeId = 3
 	SELECT @JournalId = JournalId,
 		@CompanyId = CompanyId
-	FROM tblSalesVouchers
+	FROM tblSalesInvoices
 	WHERE Id = @Id
 ELSE IF @JournalTypeId = 4
 	SELECT @JournalId = JournalId,
@@ -116,6 +116,7 @@ BEGIN
 			SET j.[Date] = jv.[Date],
 				j.ReferenceNo = jv.ReferenceNo,
 				j.ReferenceNo2 = jv.ReferenceNo2,
+				j.Remarks = jv.Remarks,
 				j.ModifiedById = jv.ModifiedById,
 				j.DateModified = jv.DateModified
 			FROM tblJournals j
@@ -157,6 +158,7 @@ BEGIN
 			SET j.[Date] = pv.[Date],
 				j.ReferenceNo = pv.ReferenceNo,
 				j.ReferenceNo2 = pv.ReferenceNo2,
+				j.Remarks = pv.Remarks,
 				j.ModifiedById = pv.ModifiedById,
 				j.DateModified = pv.DateModified
 			FROM tblJournals j
@@ -190,6 +192,7 @@ BEGIN
 		FROM tblBillDetails
 		WHERE BillId = @Id
 		GROUP BY SubsidiaryId, Remarks
+		HAVING SUM(VATAmount) > 0
 
 		--Payable
 		IF @PayableAccountId IS NULL
@@ -213,13 +216,13 @@ BEGIN
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
 				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
-			FROM tblSalesVouchers
+			FROM tblSalesInvoices
 			WHERE Id = @Id
 				AND @JournalTypeId = 3
 	
 			SET @JournalId = SCOPE_IDENTITY()
 
-			UPDATE tblSalesVouchers
+			UPDATE tblSalesInvoices
 			SET JournalId = @JournalId
 			WHERE Id = @Id
 
@@ -228,13 +231,14 @@ BEGIN
 		ELSE
 		BEGIN
 			UPDATE j
-			SET j.[Date] = sv.[Date],
-				j.ReferenceNo = sv.ReferenceNo,
-				j.ReferenceNo2 = sv.ReferenceNo2,
-				j.ModifiedById = sv.ModifiedById,
-				j.DateModified = sv.DateModified
+			SET j.[Date] = si.[Date],
+				j.ReferenceNo = si.ReferenceNo,
+				j.ReferenceNo2 = si.ReferenceNo2,
+				j.Remarks = si.Remarks,
+				j.ModifiedById = si.ModifiedById,
+				j.DateModified = si.DateModified
 			FROM tblJournals j
-				INNER JOIN tblSalesVouchers sv ON sv.JournalId = j.Id
+				INNER JOIN tblSalesInvoices si ON si.JournalId = j.Id
 			WHERE j.Id = @JournalId
 				AND @JournalTypeId = 3
 		END
@@ -248,20 +252,20 @@ BEGIN
 		--Receivable
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, @ReceivableAccountId, SubsidiaryId, NetAmount, 0, Remarks
-		FROM tblSalesVouchers
+		FROM tblSalesInvoices
 		WHERE Id = @Id
 
 		--Sales
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, AccountId, SubsidiaryId, 0, SUM(GrossAmount), Remarks
-		FROM tblSalesVoucherDetails
-		WHERE SalesVoucherId = @Id
+		FROM tblSalesInvoiceDetails
+		WHERE SalesInvoiceId = @Id
 		GROUP BY AccountId, SubsidiaryId, Remarks
 
 		--Output VAT
 		IF EXISTS(
 			SELECT *
-			FROM tblSalesVouchers
+			FROM tblSalesInvoices
 			WHERE Id = @Id
 				AND VATAmount > 0
 		)
@@ -273,9 +277,10 @@ BEGIN
 
 		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
 		SELECT @JournalId, @OutputVATAccountId, SubsidiaryId, 0, SUM(VATAmount), Remarks
-		FROM tblSalesVoucherDetails
-		WHERE SalesVoucherId = @Id
+		FROM tblSalesInvoiceDetails
+		WHERE SalesInvoiceId = @Id
 		GROUP BY SubsidiaryId, Remarks
+		HAVING SUM(VATAmount) > 0
 	END
 	ELSE IF @JournalTypeId = 4
 	BEGIN
@@ -308,6 +313,7 @@ BEGIN
 			SET j.[Date] = cv.[Date],
 				j.ReferenceNo = cv.ReferenceNo,
 				j.ReferenceNo2 = cv.ReferenceNo2,
+				j.Remarks = cv.Remarks,
 				j.ModifiedById = cv.ModifiedById,
 				j.DateModified = cv.DateModified
 			FROM tblJournals j
@@ -420,6 +426,7 @@ BEGIN
 			SET j.[Date] = bp.[Date],
 				j.ReferenceNo = bp.ReferenceNo,
 				j.ReferenceNo2 = bp.ReferenceNo2,
+				j.Remarks = bp.Remarks,
 				j.ModifiedById = bp.ModifiedById,
 				j.DateModified = bp.DateModified
 			FROM tblJournals j

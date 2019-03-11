@@ -486,7 +486,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell>
@@ -548,7 +547,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>SalesVoucherDetail</DataSetName>
+        <DataSetName>SalesInvoiceDetails</DataSetName>
         <Top>0.15064cm</Top>
         <Left>0.21166cm</Left>
         <Height>1.2cm</Height>
@@ -665,7 +664,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!DiscountAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!DiscountAmount.Value, "SalesInvoice")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>#,##0.00;(#,##0.00)</Format>
@@ -700,7 +699,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!GrossAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!GrossAmount.Value, "SalesInvoice")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>#,##0.00;(#,##0.00)</Format>
@@ -735,7 +734,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!VATAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!VATAmount.Value, "SalesInvoice")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>#,##0.00;(#,##0.00)</Format>
@@ -803,7 +802,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!NetAmount.Value, "SalesVoucher")</Value>
+                <Value>=First(Fields!NetAmount.Value, "SalesInvoice")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <Format>#,##0.00;(#,##0.00)</Format>
@@ -980,7 +979,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReferenceNo.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!ReferenceNo.Value, "SalesInvoice")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1014,7 +1013,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!TransactionNo.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!TransactionNo.Value, "SalesInvoice")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1048,7 +1047,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Date.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!Date.Value, "SalesInvoice")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <Format>MM/dd/yyyy</Format>
@@ -1083,7 +1082,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Remarks.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!Remarks.Value, "SalesInvoice")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1270,7 +1269,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!ReferenceNo2.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!ReferenceNo2.Value, "SalesInvoice")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1337,7 +1336,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=First(Fields!Customer.Value, "SalesVoucher")</Value>
+                  <Value>=First(Fields!Customer.Value, "SalesInvoice")</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                   </Style>
@@ -1438,7 +1437,43 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="SalesVoucher">
+    <DataSet Name="Company">
+      <Query>
+        <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Code">
+          <DataField>Code</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblCompanies</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>tblCompaniesTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="SalesInvoice">
       <Query>
         <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1495,14 +1530,14 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblSalesVoucher</rd:TableName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblSalesInvoices</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblSalesVoucherTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>tblSalesInvoicesTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="SalesVoucherDetail">
+    <DataSet Name="SalesInvoiceDetails">
       <Query>
         <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -1510,10 +1545,6 @@
       <Fields>
         <Field Name="Id">
           <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="SalesVoucherId">
-          <DataField>SalesVoucherId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="Item">
@@ -1548,50 +1579,18 @@
           <DataField>Remarks</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblSalesVoucherDetail</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblSalesVoucherDetailTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Company">
-      <Query>
-        <DataSourceName>ESalesInvoiceReportDS</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
+        <Field Name="SalesInvoiceId">
+          <DataField>SalesInvoiceId</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="Code">
-          <DataField>Code</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>ESalesInvoiceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblCompanies</rd:TableName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ESalesInvoiceReportDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblSalesInvoiceDetail</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblCompaniesTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>tblSalesInvoiceDetailTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

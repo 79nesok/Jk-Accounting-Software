@@ -8,12 +8,12 @@ SET NOCOUNT ON
 
 SELECT *
 FROM (
-	SELECT sv.Id, sv.TransactionNo, sv.[Date], sv.ReferenceNo, sv.ReferenceNo2,
-		s.Name AS Customer, sv.Balance, DATEDIFF(DAY, sv.[Date], GETDATE()) AS Age
-	FROM tblSalesVouchers sv
-		INNER JOIN tblSubsidiaries s ON s.Id = sv.SubsidiaryId
-	WHERE sv.CompanyId = @CompanyId
-		AND sv.Balance > 0
+	SELECT si.Id, si.TransactionNo, si.[Date], si.ReferenceNo, si.ReferenceNo2,
+		s.Name AS Customer, si.Balance, DATEDIFF(DAY, si.[Date], GETDATE()) AS Age
+	FROM tblSalesInvoices si
+		INNER JOIN tblSubsidiaries s ON s.Id = si.SubsidiaryId
+	WHERE si.CompanyId = @CompanyId
+		AND si.Balance > 0
 ) tmp
 ORDER BY tmp.Age DESC, tmp.Customer
 GO

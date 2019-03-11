@@ -12,11 +12,11 @@ using System.Data.SqlClient;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
-    public partial class ESalesVoucherForm : IMasterDetailForm
+    public partial class ESalesInvoiceForm : IMasterDetailForm
     {
         bool Modifying = false;
 
-        public ESalesVoucherForm()
+        public ESalesInvoiceForm()
         {
             InitializeComponent();
             dataGridView.CellValueChanged += dataGridView_CellValueChanged;

@@ -42,6 +42,10 @@ namespace Jk_Accounting_Software.Internal.Classes
         public const String AmountToApplyExceedsBalance = "Amount cannot be apply because it exceeds on Balance.";
         public const String AmountPaidInsufficient = "Amount Applied exceeds on Amount Paid.";
         public const String NoATCAssigned = "Please assign an ATC on this subsidiary.";
+        public static String NoFormFound(String formname)
+        {
+            return String.Format("No form named '{0}' found.", formname);
+        }
 
         //Messages
         public const String NoFormMessage = "No form available";

@@ -3,7 +3,7 @@ DECLARE @tmp TABLE(FormCaption VARCHAR(100), Report VARCHAR(100), PrintoutFormNa
 INSERT INTO @tmp(FormCaption, Report, PrintoutFormName)
 VALUES
 	('Journal Voucher', 'Journal Voucher', 'EJournalVoucherPrintoutForm'),
-	('Sales Voucher', 'Sales Invoice', 'ESalesInvoicePrintoutForm'),
+	('Sales Invoice', 'Sales Invoice', 'ESalesInvoicePrintoutForm'),
 	('Bill', 'Bill', 'EBillPrintoutForm'),
 	('Bills Payment', 'BIR Form 2307', 'EBIRForm2307PrintoutForm')
 

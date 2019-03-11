@@ -115,12 +115,31 @@ namespace Jk_Accounting_Software.Internal.Forms
             public event OpenFormHandler OpenForm;
             protected virtual void OnOpenForm(IParentForm Form, object sender)
             {
+                String senderName = null;
+
+                if (sender.GetType().Name == "ToolStripButton" && (sender as ToolStripButton).Name == "btnNew")
+                {
+                    senderName = "btnNew";
+                    Form = IAppHandler.FindForm(this.NewFormName);
+                }
+                else
+                    Form = IAppHandler.FindForm(this.OpenFormName);
+
                 try
                 {
                     IAppHandler.StartBusy("Opening master form");
 
-                    Form = IAppHandler.FindForm(this.OpenFormName);
-                    if (sender.GetType().Name == "ToolStripButton" && (sender as ToolStripButton).Name == "btnNew")
+                    if (Form == null)
+                    {
+                        if (senderName == "btnNew")
+                            IMessageHandler.Inform(ISystemMessages.NoFormFound(this.NewFormName));
+                        else
+                            IMessageHandler.Inform(ISystemMessages.NoFormFound(this.OpenFormName));
+
+                        return;
+                    }
+
+                    if (senderName == "btnNew")
                         Form.FormState = FormStates.fsNew;
                     else
                         Form.FormState = FormStates.fsView;

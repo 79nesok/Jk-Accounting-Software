@@ -2,16 +2,16 @@
 {
     
     
-    public partial class ESalesInvoiceReportDS {
+    public partial class ESalesInvoicePrintoutDS {
         partial class tblCompaniesDataTable
         {
         }
 
-        partial class tblSalesVoucherDetailDataTable
+        partial class tblSalesInvoiceDetailsDataTable
         {
         }
 
-        partial class tblSalesVoucherDataTable
+        partial class tblSalesInvoicesDataTable
         {
         }
     }
@@ -19,11 +19,11 @@
 
 namespace Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTableAdapters
 {
-    partial class tblSalesVoucherDetailTableAdapter
+    partial class tblSalesInvoiceDetailsTableAdapter
     {
     }
 
-    partial class tblSalesVoucherTableAdapter
+    partial class tblSalesInvoicesTableAdapter
     {
     }
 

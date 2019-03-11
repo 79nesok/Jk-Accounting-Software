@@ -251,17 +251,17 @@
     <Compile Include="External\Accounting\EBillsListForm.Designer.cs">
       <DependentUpon>EBillsListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\ESalesVoucherForm.cs">
+    <Compile Include="External\Accounting\ESalesInvoiceForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ESalesVoucherForm.Designer.cs">
-      <DependentUpon>ESalesVoucherForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\ESalesInvoiceForm.Designer.cs">
+      <DependentUpon>ESalesInvoiceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="External\Accounting\ESalesVouchersListForm.cs">
+    <Compile Include="External\Accounting\ESalesInvoicesListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="External\Accounting\ESalesVouchersListForm.Designer.cs">
-      <DependentUpon>ESalesVouchersListForm.cs</DependentUpon>
+    <Compile Include="External\Accounting\ESalesInvoicesListForm.Designer.cs">
+      <DependentUpon>ESalesInvoicesListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="External\Accounting\EVoucherForm.cs">
       <SubType>UserControl</SubType>
@@ -320,14 +320,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="External\Datasources\ESalesInvoiceReportDS.cs">
-      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+    <Compile Include="External\Datasources\ESalesInvoicePrintoutDS.cs">
+      <DependentUpon>ESalesInvoicePrintoutDS.xsd</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="External\Datasources\ESalesInvoiceReportDS.Designer.cs">
+    <Compile Include="External\Datasources\ESalesInvoicePrintoutDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+      <DependentUpon>ESalesInvoicePrintoutDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="External\Datasources\ESubsidiaryLedgerReportDS.cs">
       <DependentUpon>ESubsidiaryLedgerReportDS.xsd</DependentUpon>
@@ -655,11 +655,11 @@
     <EmbeddedResource Include="External\Accounting\EBillsListForm.resx">
       <DependentUpon>EBillsListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\ESalesVoucherForm.resx">
-      <DependentUpon>ESalesVoucherForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\ESalesInvoiceForm.resx">
+      <DependentUpon>ESalesInvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="External\Accounting\ESalesVouchersListForm.resx">
-      <DependentUpon>ESalesVouchersListForm.cs</DependentUpon>
+    <EmbeddedResource Include="External\Accounting\ESalesInvoicesListForm.resx">
+      <DependentUpon>ESalesInvoicesListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\EVoucherForm.resx">
       <DependentUpon>EVoucherForm.cs</DependentUpon>
@@ -932,16 +932,16 @@
     <None Include="External\Datasources\EJournalVoucherPrintoutDS.xss">
       <DependentUpon>EJournalVoucherPrintoutDS.xsd</DependentUpon>
     </None>
-    <None Include="External\Datasources\ESalesInvoiceReportDS.xsc">
-      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+    <None Include="External\Datasources\ESalesInvoicePrintoutDS.xsc">
+      <DependentUpon>ESalesInvoicePrintoutDS.xsd</DependentUpon>
     </None>
-    <None Include="External\Datasources\ESalesInvoiceReportDS.xsd">
+    <None Include="External\Datasources\ESalesInvoicePrintoutDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ESalesInvoiceReportDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>ESalesInvoicePrintoutDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="External\Datasources\ESalesInvoiceReportDS.xss">
-      <DependentUpon>ESalesInvoiceReportDS.xsd</DependentUpon>
+    <None Include="External\Datasources\ESalesInvoicePrintoutDS.xss">
+      <DependentUpon>ESalesInvoicePrintoutDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\ESubsidiaryLedgerReportDS.xsc">
       <DependentUpon>ESubsidiaryLedgerReportDS.xsd</DependentUpon>

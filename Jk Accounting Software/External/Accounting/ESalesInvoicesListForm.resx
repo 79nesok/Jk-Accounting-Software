@@ -272,13 +272,13 @@
 </value>
   </data>
   <data name="$this.CommandText" xml:space="preserve">
-    <value>SELECT sv.Id, sv.TransactionNo, sv.[Date],
-	s.Name AS Subsidiary, sv.ReferenceNo, sv.ReferenceNo2,
-	sv.NetAmount, sv.PaidAmount, sv.Balance,
-	sv.Remarks, sv.Voided
-FROM tblSalesVouchers sv
-	INNER JOIN tblSubsidiaries s ON s.Id = sv.SubsidiaryId
-WHERE sv.CompanyId = @CompanyId</value>
+    <value>SELECT si.Id, si.TransactionNo, si.[Date],
+	s.Name AS Subsidiary, si.ReferenceNo, si.ReferenceNo2,
+	si.NetAmount, si.PaidAmount, si.Balance,
+	si.Remarks, si.Voided
+FROM tblSalesInvoices si
+	INNER JOIN tblSubsidiaries s ON s.Id = si.SubsidiaryId
+WHERE si.CompanyId = @CompanyId</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

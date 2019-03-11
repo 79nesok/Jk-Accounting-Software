@@ -269,10 +269,10 @@ WHERE j.Id = @Id</value>
         b24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQbPEZvb3RlclR5cGU+a19fQmFj
         a2luZ0ZpZWxkGTxSZWFkT25seT5rX19CYWNraW5nRmllbGQaPFRlbXBvcmFyeT5rX19CYWNraW5nRmll
         bGQAAQQBAQABAAQAAAEVU3lzdGVtLkRhdGEuU3FsRGJUeXBlAwAAAAEILUprQ29tcG9uZW50cy5Ka0Rl
-        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAAOU2FsZXNWb3VjaGVySWQF
-        +////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgoACQQAAABkAAAA
-        Bfr///8tSmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1
-        ZV9fAAgCAAAAAAAAAAAACw==
+        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAAOU2FsZXNJbnZvaWNlSWQF
+        +////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgoABgYAAAAOU2Fs
+        ZXNJbnZvaWNlSWRkAAAABfn///8tSmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uK0NvbHVtbkZvb3Rl
+        clR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAAACw==
 </value>
   </data>
   <data name="dstDetail.Columns2" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -462,13 +462,30 @@ WHERE j.Id = @Id</value>
         AAAAAAAAAAAL
 </value>
   </data>
+  <data name="dstDetail.Columns13" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uCwAAAAhfVmlzaWJsZRU8TmFtZT5rX19CYWNraW5nRmll
+        bGQZPERhdGFUeXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8
+        Q29udHJvbE5hbWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQYPENhcHRp
+        b24+a19fQmFja2luZ0ZpZWxkFjxXaWR0aD5rX19CYWNraW5nRmllbGQbPEZvb3RlclR5cGU+a19fQmFj
+        a2luZ0ZpZWxkGTxSZWFkT25seT5rX19CYWNraW5nRmllbGQaPFRlbXBvcmFyeT5rX19CYWNraW5nRmll
+        bGQAAQQBAQABAAQAAAEVU3lzdGVtLkRhdGEuU3FsRGJUeXBlAwAAAAEILUprQ29tcG9uZW50cy5Ka0Rl
+        dGFpbENvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAABAQIAAAAABgQAAAAOU2FsZXNJbnZvaWNlSWQF
+        +////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgoACQQAAABkAAAA
+        Bfr///8tSmtDb21wb25lbnRzLkprRGV0YWlsQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1
+        ZV9fAAgCAAAAAAAAAAAACw==
+</value>
+  </data>
   <data name="dstDetail.CommandText" xml:space="preserve">
-    <value>SELECT Id, SalesVoucherId, ItemId, AccountId,
+    <value>SELECT Id, SalesInvoiceId, ItemId, AccountId,
 	SubsidiaryId, Amount, VATTypeId, VATRate,
 	VATAmount, GrossAmount, DiscountAmount,
 	Total, Remarks
-FROM tblSalesVoucherDetails
-WHERE SalesVoucherId = @Id</value>
+FROM tblSalesInvoiceDetails
+WHERE SalesInvoiceId = @Id</value>
   </data>
   <data name="dstDetail.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -493,7 +510,7 @@ WHERE SalesVoucherId = @Id</value>
 	Remarks, JournalId, Posted, Voided, VoidedById,
 	DateVoided, CreatedById, DateCreated,
 	ModifiedById, DateModified
-FROM tblSalesVouchers
+FROM tblSalesInvoices
 WHERE Id = @Id</value>
   </data>
   <data name="$this.MasterColumns" mimetype="application/x-microsoft.net.object.binary.base64">

@@ -7,10 +7,10 @@ AS
 SET NOCOUNT ON
 
 --Update Invoice amounts
-UPDATE sv
-SET sv.PaidAmount = sv.PaidAmount + (cid.AppliedAmount * CASE WHEN @IsPost = 1 THEN 1 ELSE -1 END)
-FROM tblSalesVouchers sv
-	INNER JOIN tblCashReceiptVoucherInvoiceDetails cid ON cid.SourceId = sv.Id
+UPDATE si
+SET si.PaidAmount = si.PaidAmount + (cid.AppliedAmount * CASE WHEN @IsPost = 1 THEN 1 ELSE -1 END)
+FROM tblSalesInvoices si
+	INNER JOIN tblCashReceiptVoucherInvoiceDetails cid ON cid.SourceId = si.Id
 WHERE cid.CashReceiptVoucherId = @Id
 
 --Generate payment distribution

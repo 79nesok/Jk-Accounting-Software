@@ -20,19 +20,19 @@ SET @Columns = LEFT(@Columns, LEN(@Columns) - 1)
 SET @CommandText = '
 	SELECT *
 	FROM (
-		SELECT ''Total Receivables'' AS PaymentMethod, sv.NetAmount AS Amount
-		FROM tblSalesVouchers sv
-		WHERE sv.CompanyId = ' + CAST(@CompanyId AS VARCHAR) + '
-			AND sv.[Date] <= ''' + CAST(@ToDate AS VARCHAR)  + '''
-			AND sv.Voided = 0
+		SELECT ''Total Receivables'' AS PaymentMethod, si.NetAmount AS Amount
+		FROM tblSalesInvoices si
+		WHERE si.CompanyId = ' + CAST(@CompanyId AS VARCHAR) + '
+			AND si.[Date] <= ''' + CAST(@ToDate AS VARCHAR)  + '''
+			AND si.Voided = 0
 
 		UNION ALL
 
-		SELECT ''Unpaid Receivables'' AS PaymentMethod, sv.Balance AS Amount
-		FROM tblSalesVouchers sv
-		WHERE sv.CompanyId = ' + CAST(@CompanyId AS VARCHAR) + '
-			AND sv.[Date] <= ''' + CAST(@ToDate AS VARCHAR)  + '''
-			AND sv.Voided = 0
+		SELECT ''Unpaid Receivables'' AS PaymentMethod, si.Balance AS Amount
+		FROM tblSalesInvoices si
+		WHERE si.CompanyId = ' + CAST(@CompanyId AS VARCHAR) + '
+			AND si.[Date] <= ''' + CAST(@ToDate AS VARCHAR)  + '''
+			AND si.Voided = 0
 
 		UNION ALL
 

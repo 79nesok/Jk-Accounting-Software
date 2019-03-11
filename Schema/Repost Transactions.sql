@@ -17,7 +17,7 @@ SET JournalId = NULL
 UPDATE tblBills
 SET JournalId = NULL
 
-UPDATE tblSalesVouchers
+UPDATE tblSalesInvoices
 SET JournalId = NULL
 
 UPDATE tblCashReceiptVouchers
@@ -37,15 +37,15 @@ FROM tblJournalVouchers
 
 	UNION ALL
 
---Purchase Voucher
+--Bills
 SELECT Id, 2
 FROM tblBills
 
 	UNION ALL
 
---Sales Voucher
+--Sales Invoice
 SELECT Id, 3
-FROM tblSalesVouchers
+FROM tblSalesInvoices
 
 	UNION ALL
 
@@ -55,7 +55,7 @@ FROM tblCashReceiptVouchers
 
 	UNION ALL
 
---Supplier Payment
+--Bills Payment
 SELECT Id, 5
 FROM tblBillsPayment
 
@@ -79,17 +79,17 @@ BEGIN
 END
 
 --Update Paid Amount
-UPDATE sv
-SET sv.PaidAmount = ISNULL(tmp.Amount, 0)
-FROM tblSalesVouchers sv
+UPDATE si
+SET si.PaidAmount = ISNULL(tmp.Amount, 0)
+FROM tblSalesInvoices si
 	LEFT OUTER JOIN (
 		SELECT cpd.InvoiceId, SUM(cpd.Amount) AS Amount
 		FROM tblCashReceiptVouchers cv
 			INNER JOIN tblCashReceiptVoucherPaymentDistribution cpd ON cpd.CashReceiptVoucherId = cv.Id
 		WHERE cv.Voided = 0
 		GROUP BY cpd.InvoiceId
-	) tmp ON tmp.InvoiceId = sv.Id
-WHERE sv.Voided = 0
+	) tmp ON tmp.InvoiceId = si.Id
+WHERE si.Voided = 0
 
 UPDATE b
 SET b.PaidAmount = ISNULL(tmp.Amount, 0)

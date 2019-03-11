@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class ESalesVoucherForm
+    partial class ESalesInvoiceForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesVoucherForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesInvoiceForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTransactionNo = new JkComponents.JkTextBox();
@@ -94,7 +94,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 433);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -112,6 +112,7 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns12"))));
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns13"))));
             this.dstDetail.CommandText = resources.GetString("dstDetail.CommandText");
             this.dstDetail.Location = new System.Drawing.Point(734, 222);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
@@ -121,25 +122,25 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(837, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 174);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 146);
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
             // 
             // FormFooter
             // 
-            this.FormFooter.Size = new System.Drawing.Size(837, 34);
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(837, 536);
+            this.splitContainer.Size = new System.Drawing.Size(836, 536);
             // 
             // btnClose
             // 
@@ -147,7 +148,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -517,7 +518,7 @@
             // jkSeriesProvider1
             // 
             this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "SV";
+            this.jkSeriesProvider1.Code = "SI";
             this.jkSeriesProvider1.CompanyId = null;
             this.jkSeriesProvider1.ConnectionString = null;
             this.jkSeriesProvider1.Location = new System.Drawing.Point(693, 196);
@@ -536,32 +537,32 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 146);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
             // 
             // dataGridViewJournalEntry
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewJournalEntry.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // dstJournalEntry
@@ -605,11 +606,11 @@
             this.cmbItems.TabIndex = 24;
             this.cmbItems.Visible = false;
             // 
-            // ESalesVoucherForm
+            // ESalesInvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Sales Voucher";
+            this.Caption = "Sales Invoice";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
@@ -632,9 +633,9 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns18"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns19"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns20"))));
-            this.Name = "ESalesVoucherForm";
+            this.Name = "ESalesInvoiceForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(837, 536);
+            this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.ESalesVoucherForm_BeforeSave);
             this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ESalesVoucherForm_AfterRun);

@@ -7,20 +7,20 @@ AS
 SET NOCOUNT ON
 
 IF NULLIF(@Id, 0) IS NULL
-	SELECT sv.Id AS SourceId, sv.TransactionNo, sv.[Date],
-		sv.ReferenceNo, sv.ReferenceNo2, sv.NetAmount,
-		sv.Balance, 0 AS AppliedAmount, 0 AS AmountToApply,
-		sv.Balance AS OldBalance
-	FROM tblSalesVouchers sv
-	WHERE sv.SubsidiaryId = @SubsidiaryId
-		AND sv.Balance > 0
+	SELECT si.Id AS SourceId, si.TransactionNo, si.[Date],
+		si.ReferenceNo, si.ReferenceNo2, si.NetAmount,
+		si.Balance, 0 AS AppliedAmount, 0 AS AmountToApply,
+		si.Balance AS OldBalance
+	FROM tblSalesInvoices si
+	WHERE si.SubsidiaryId = @SubsidiaryId
+		AND si.Balance > 0
 ELSE
-	SELECT cid.SourceId, sv.TransactionNo, sv.[Date],
-		sv.ReferenceNo, sv.ReferenceNo2, sv.NetAmount,
-		sv.Balance, cid.AppliedAmount, 0 AS AmountToApply,
-		sv.Balance AS OldBalance
+	SELECT cid.SourceId, si.TransactionNo, si.[Date],
+		si.ReferenceNo, si.ReferenceNo2, si.NetAmount,
+		si.Balance, cid.AppliedAmount, 0 AS AmountToApply,
+		si.Balance AS OldBalance
 	FROM tblCashReceiptVoucherInvoiceDetails cid
-		INNER JOIN tblSalesVouchers sv ON sv.Id = cid.SourceId
+		INNER JOIN tblSalesInvoices si ON si.Id = cid.SourceId
 	WHERE cid.CashReceiptVoucherId = @Id
 GO
 

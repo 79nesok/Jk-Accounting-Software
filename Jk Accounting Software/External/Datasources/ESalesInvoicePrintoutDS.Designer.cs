@@ -22,11 +22,11 @@ namespace Jk_Accounting_Software.External.Datasources {
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
     [global::System.Xml.Serialization.XmlRootAttribute("ESalesInvoiceReportDS")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ESalesInvoiceReportDS : global::System.Data.DataSet {
+    public partial class ESalesInvoicePrintoutDS : global::System.Data.DataSet {
         
-        private tblSalesVoucherDataTable tabletblSalesVoucher;
+        private tblSalesInvoicesDataTable tabletblSalesInvoices;
         
-        private tblSalesVoucherDetailDataTable tabletblSalesVoucherDetail;
+        private tblSalesInvoiceDetailsDataTable tabletblSalesInvoiceDetails;
         
         private tblCompaniesDataTable tabletblCompanies;
         
@@ -34,7 +34,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ESalesInvoiceReportDS() {
+        public ESalesInvoicePrintoutDS() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ESalesInvoiceReportDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected ESalesInvoicePrintoutDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -58,11 +58,11 @@ namespace Jk_Accounting_Software.External.Datasources {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["tblSalesVoucher"] != null)) {
-                    base.Tables.Add(new tblSalesVoucherDataTable(ds.Tables["tblSalesVoucher"]));
+                if ((ds.Tables["tblSalesInvoices"] != null)) {
+                    base.Tables.Add(new tblSalesInvoicesDataTable(ds.Tables["tblSalesInvoices"]));
                 }
-                if ((ds.Tables["tblSalesVoucherDetail"] != null)) {
-                    base.Tables.Add(new tblSalesVoucherDetailDataTable(ds.Tables["tblSalesVoucherDetail"]));
+                if ((ds.Tables["tblSalesInvoiceDetails"] != null)) {
+                    base.Tables.Add(new tblSalesInvoiceDetailsDataTable(ds.Tables["tblSalesInvoiceDetails"]));
                 }
                 if ((ds.Tables["tblCompanies"] != null)) {
                     base.Tables.Add(new tblCompaniesDataTable(ds.Tables["tblCompanies"]));
@@ -89,9 +89,9 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tblSalesVoucherDataTable tblSalesVoucher {
+        public tblSalesInvoicesDataTable tblSalesInvoices {
             get {
-                return this.tabletblSalesVoucher;
+                return this.tabletblSalesInvoices;
             }
         }
         
@@ -99,9 +99,9 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tblSalesVoucherDetailDataTable tblSalesVoucherDetail {
+        public tblSalesInvoiceDetailsDataTable tblSalesInvoiceDetails {
             get {
-                return this.tabletblSalesVoucherDetail;
+                return this.tabletblSalesInvoiceDetails;
             }
         }
         
@@ -157,7 +157,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ESalesInvoiceReportDS cln = ((ESalesInvoiceReportDS)(base.Clone()));
+            ESalesInvoicePrintoutDS cln = ((ESalesInvoicePrintoutDS)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -182,11 +182,11 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["tblSalesVoucher"] != null)) {
-                    base.Tables.Add(new tblSalesVoucherDataTable(ds.Tables["tblSalesVoucher"]));
+                if ((ds.Tables["tblSalesInvoices"] != null)) {
+                    base.Tables.Add(new tblSalesInvoicesDataTable(ds.Tables["tblSalesInvoices"]));
                 }
-                if ((ds.Tables["tblSalesVoucherDetail"] != null)) {
-                    base.Tables.Add(new tblSalesVoucherDetailDataTable(ds.Tables["tblSalesVoucherDetail"]));
+                if ((ds.Tables["tblSalesInvoiceDetails"] != null)) {
+                    base.Tables.Add(new tblSalesInvoiceDetailsDataTable(ds.Tables["tblSalesInvoiceDetails"]));
                 }
                 if ((ds.Tables["tblCompanies"] != null)) {
                     base.Tables.Add(new tblCompaniesDataTable(ds.Tables["tblCompanies"]));
@@ -224,16 +224,16 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletblSalesVoucher = ((tblSalesVoucherDataTable)(base.Tables["tblSalesVoucher"]));
+            this.tabletblSalesInvoices = ((tblSalesInvoicesDataTable)(base.Tables["tblSalesInvoices"]));
             if ((initTable == true)) {
-                if ((this.tabletblSalesVoucher != null)) {
-                    this.tabletblSalesVoucher.InitVars();
+                if ((this.tabletblSalesInvoices != null)) {
+                    this.tabletblSalesInvoices.InitVars();
                 }
             }
-            this.tabletblSalesVoucherDetail = ((tblSalesVoucherDetailDataTable)(base.Tables["tblSalesVoucherDetail"]));
+            this.tabletblSalesInvoiceDetails = ((tblSalesInvoiceDetailsDataTable)(base.Tables["tblSalesInvoiceDetails"]));
             if ((initTable == true)) {
-                if ((this.tabletblSalesVoucherDetail != null)) {
-                    this.tabletblSalesVoucherDetail.InitVars();
+                if ((this.tabletblSalesInvoiceDetails != null)) {
+                    this.tabletblSalesInvoiceDetails.InitVars();
                 }
             }
             this.tabletblCompanies = ((tblCompaniesDataTable)(base.Tables["tblCompanies"]));
@@ -252,23 +252,23 @@ namespace Jk_Accounting_Software.External.Datasources {
             this.Namespace = "http://tempuri.org/ESalesInvoiceReportDS.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletblSalesVoucher = new tblSalesVoucherDataTable();
-            base.Tables.Add(this.tabletblSalesVoucher);
-            this.tabletblSalesVoucherDetail = new tblSalesVoucherDetailDataTable();
-            base.Tables.Add(this.tabletblSalesVoucherDetail);
+            this.tabletblSalesInvoices = new tblSalesInvoicesDataTable();
+            base.Tables.Add(this.tabletblSalesInvoices);
+            this.tabletblSalesInvoiceDetails = new tblSalesInvoiceDetailsDataTable();
+            base.Tables.Add(this.tabletblSalesInvoiceDetails);
             this.tabletblCompanies = new tblCompaniesDataTable();
             base.Tables.Add(this.tabletblCompanies);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializetblSalesVoucher() {
+        private bool ShouldSerializetblSalesInvoices() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializetblSalesVoucherDetail() {
+        private bool ShouldSerializetblSalesInvoiceDetails() {
             return false;
         }
         
@@ -289,7 +289,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ESalesInvoiceReportDS ds = new ESalesInvoiceReportDS();
+            ESalesInvoicePrintoutDS ds = new ESalesInvoicePrintoutDS();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -334,10 +334,10 @@ namespace Jk_Accounting_Software.External.Datasources {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void tblSalesVoucherRowChangeEventHandler(object sender, tblSalesVoucherRowChangeEvent e);
+        public delegate void tblSalesInvoicesRowChangeEventHandler(object sender, tblSalesInvoicesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void tblSalesVoucherDetailRowChangeEventHandler(object sender, tblSalesVoucherDetailRowChangeEvent e);
+        public delegate void tblSalesInvoiceDetailsRowChangeEventHandler(object sender, tblSalesInvoiceDetailsRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void tblCompaniesRowChangeEventHandler(object sender, tblCompaniesRowChangeEvent e);
@@ -347,7 +347,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tblSalesVoucherDataTable : global::System.Data.TypedTableBase<tblSalesVoucherRow> {
+        public partial class tblSalesInvoicesDataTable : global::System.Data.TypedTableBase<tblSalesInvoicesRow> {
             
             private global::System.Data.DataColumn columnId;
             
@@ -375,8 +375,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDataTable() {
-                this.TableName = "tblSalesVoucher";
+            public tblSalesInvoicesDataTable() {
+                this.TableName = "tblSalesInvoices";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -384,7 +384,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblSalesVoucherDataTable(global::System.Data.DataTable table) {
+            internal tblSalesInvoicesDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -401,7 +401,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected tblSalesVoucherDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tblSalesInvoicesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -513,34 +513,34 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherRow this[int index] {
+            public tblSalesInvoicesRow this[int index] {
                 get {
-                    return ((tblSalesVoucherRow)(this.Rows[index]));
+                    return ((tblSalesInvoicesRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherRowChangeEventHandler tblSalesVoucherRowChanging;
+            public event tblSalesInvoicesRowChangeEventHandler tblSalesInvoicesRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherRowChangeEventHandler tblSalesVoucherRowChanged;
+            public event tblSalesInvoicesRowChangeEventHandler tblSalesInvoicesRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherRowChangeEventHandler tblSalesVoucherRowDeleting;
+            public event tblSalesInvoicesRowChangeEventHandler tblSalesInvoicesRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherRowChangeEventHandler tblSalesVoucherRowDeleted;
+            public event tblSalesInvoicesRowChangeEventHandler tblSalesInvoicesRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddtblSalesVoucherRow(tblSalesVoucherRow row) {
+            public void AddtblSalesInvoicesRow(tblSalesInvoicesRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherRow AddtblSalesVoucherRow(int CompanyId, string TransactionNo, System.DateTime Date, string ReferenceNo, string ReferenceNo2, string Customer, string Remarks, decimal GrossAmount, decimal VATAmount, decimal DiscountAmount, decimal NetAmount) {
-                tblSalesVoucherRow rowtblSalesVoucherRow = ((tblSalesVoucherRow)(this.NewRow()));
+            public tblSalesInvoicesRow AddtblSalesInvoicesRow(int CompanyId, string TransactionNo, System.DateTime Date, string ReferenceNo, string ReferenceNo2, string Customer, string Remarks, decimal GrossAmount, decimal VATAmount, decimal DiscountAmount, decimal NetAmount) {
+                tblSalesInvoicesRow rowtblSalesInvoicesRow = ((tblSalesInvoicesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         CompanyId,
@@ -554,22 +554,22 @@ namespace Jk_Accounting_Software.External.Datasources {
                         VATAmount,
                         DiscountAmount,
                         NetAmount};
-                rowtblSalesVoucherRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtblSalesVoucherRow);
-                return rowtblSalesVoucherRow;
+                rowtblSalesInvoicesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtblSalesInvoicesRow);
+                return rowtblSalesInvoicesRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherRow FindById(int Id) {
-                return ((tblSalesVoucherRow)(this.Rows.Find(new object[] {
+            public tblSalesInvoicesRow FindById(int Id) {
+                return ((tblSalesInvoicesRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tblSalesVoucherDataTable cln = ((tblSalesVoucherDataTable)(base.Clone()));
+                tblSalesInvoicesDataTable cln = ((tblSalesInvoicesDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -577,7 +577,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tblSalesVoucherDataTable();
+                return new tblSalesInvoicesDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -649,28 +649,28 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherRow NewtblSalesVoucherRow() {
-                return ((tblSalesVoucherRow)(this.NewRow()));
+            public tblSalesInvoicesRow NewtblSalesInvoicesRow() {
+                return ((tblSalesInvoicesRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tblSalesVoucherRow(builder);
+                return new tblSalesInvoicesRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tblSalesVoucherRow);
+                return typeof(tblSalesInvoicesRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tblSalesVoucherRowChanged != null)) {
-                    this.tblSalesVoucherRowChanged(this, new tblSalesVoucherRowChangeEvent(((tblSalesVoucherRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoicesRowChanged != null)) {
+                    this.tblSalesInvoicesRowChanged(this, new tblSalesInvoicesRowChangeEvent(((tblSalesInvoicesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -678,8 +678,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tblSalesVoucherRowChanging != null)) {
-                    this.tblSalesVoucherRowChanging(this, new tblSalesVoucherRowChangeEvent(((tblSalesVoucherRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoicesRowChanging != null)) {
+                    this.tblSalesInvoicesRowChanging(this, new tblSalesInvoicesRowChangeEvent(((tblSalesInvoicesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -687,8 +687,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tblSalesVoucherRowDeleted != null)) {
-                    this.tblSalesVoucherRowDeleted(this, new tblSalesVoucherRowChangeEvent(((tblSalesVoucherRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoicesRowDeleted != null)) {
+                    this.tblSalesInvoicesRowDeleted(this, new tblSalesInvoicesRowChangeEvent(((tblSalesInvoicesRow)(e.Row)), e.Action));
                 }
             }
             
@@ -696,14 +696,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tblSalesVoucherRowDeleting != null)) {
-                    this.tblSalesVoucherRowDeleting(this, new tblSalesVoucherRowChangeEvent(((tblSalesVoucherRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoicesRowDeleting != null)) {
+                    this.tblSalesInvoicesRowDeleting(this, new tblSalesInvoicesRowChangeEvent(((tblSalesInvoicesRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovetblSalesVoucherRow(tblSalesVoucherRow row) {
+            public void RemovetblSalesInvoicesRow(tblSalesInvoicesRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -712,7 +712,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ESalesInvoiceReportDS ds = new ESalesInvoiceReportDS();
+                ESalesInvoicePrintoutDS ds = new ESalesInvoicePrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -730,7 +730,7 @@ namespace Jk_Accounting_Software.External.Datasources {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tblSalesVoucherDataTable";
+                attribute2.FixedValue = "tblSalesInvoicesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -776,11 +776,9 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tblSalesVoucherDetailDataTable : global::System.Data.TypedTableBase<tblSalesVoucherDetailRow> {
+        public partial class tblSalesInvoiceDetailsDataTable : global::System.Data.TypedTableBase<tblSalesInvoiceDetailsRow> {
             
             private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnSalesVoucherId;
             
             private global::System.Data.DataColumn columnItem;
             
@@ -798,10 +796,12 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             private global::System.Data.DataColumn columnRemarks;
             
+            private global::System.Data.DataColumn columnSalesInvoiceId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailDataTable() {
-                this.TableName = "tblSalesVoucherDetail";
+            public tblSalesInvoiceDetailsDataTable() {
+                this.TableName = "tblSalesInvoiceDetails";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -809,7 +809,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblSalesVoucherDetailDataTable(global::System.Data.DataTable table) {
+            internal tblSalesInvoiceDetailsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -826,7 +826,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected tblSalesVoucherDetailDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected tblSalesInvoiceDetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -836,14 +836,6 @@ namespace Jk_Accounting_Software.External.Datasources {
             public global::System.Data.DataColumn IdColumn {
                 get {
                     return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn SalesVoucherIdColumn {
-                get {
-                    return this.columnSalesVoucherId;
                 }
             }
             
@@ -913,6 +905,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SalesInvoiceIdColumn {
+                get {
+                    return this.columnSalesInvoiceId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -922,37 +922,36 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailRow this[int index] {
+            public tblSalesInvoiceDetailsRow this[int index] {
                 get {
-                    return ((tblSalesVoucherDetailRow)(this.Rows[index]));
+                    return ((tblSalesInvoiceDetailsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherDetailRowChangeEventHandler tblSalesVoucherDetailRowChanging;
+            public event tblSalesInvoiceDetailsRowChangeEventHandler tblSalesInvoiceDetailsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherDetailRowChangeEventHandler tblSalesVoucherDetailRowChanged;
+            public event tblSalesInvoiceDetailsRowChangeEventHandler tblSalesInvoiceDetailsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherDetailRowChangeEventHandler tblSalesVoucherDetailRowDeleting;
+            public event tblSalesInvoiceDetailsRowChangeEventHandler tblSalesInvoiceDetailsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblSalesVoucherDetailRowChangeEventHandler tblSalesVoucherDetailRowDeleted;
+            public event tblSalesInvoiceDetailsRowChangeEventHandler tblSalesInvoiceDetailsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddtblSalesVoucherDetailRow(tblSalesVoucherDetailRow row) {
+            public void AddtblSalesInvoiceDetailsRow(tblSalesInvoiceDetailsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailRow AddtblSalesVoucherDetailRow(int SalesVoucherId, string Item, decimal Amount, string VATType, decimal GrossAmount, decimal VATAmount, decimal DiscountAmount, decimal Total, string Remarks) {
-                tblSalesVoucherDetailRow rowtblSalesVoucherDetailRow = ((tblSalesVoucherDetailRow)(this.NewRow()));
+            public tblSalesInvoiceDetailsRow AddtblSalesInvoiceDetailsRow(string Item, decimal Amount, string VATType, decimal GrossAmount, decimal VATAmount, decimal DiscountAmount, decimal Total, string Remarks, int SalesInvoiceId) {
+                tblSalesInvoiceDetailsRow rowtblSalesInvoiceDetailsRow = ((tblSalesInvoiceDetailsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        SalesVoucherId,
                         Item,
                         Amount,
                         VATType,
@@ -960,23 +959,24 @@ namespace Jk_Accounting_Software.External.Datasources {
                         VATAmount,
                         DiscountAmount,
                         Total,
-                        Remarks};
-                rowtblSalesVoucherDetailRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtblSalesVoucherDetailRow);
-                return rowtblSalesVoucherDetailRow;
+                        Remarks,
+                        SalesInvoiceId};
+                rowtblSalesInvoiceDetailsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowtblSalesInvoiceDetailsRow);
+                return rowtblSalesInvoiceDetailsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailRow FindById(int Id) {
-                return ((tblSalesVoucherDetailRow)(this.Rows.Find(new object[] {
+            public tblSalesInvoiceDetailsRow FindById(int Id) {
+                return ((tblSalesInvoiceDetailsRow)(this.Rows.Find(new object[] {
                             Id})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tblSalesVoucherDetailDataTable cln = ((tblSalesVoucherDetailDataTable)(base.Clone()));
+                tblSalesInvoiceDetailsDataTable cln = ((tblSalesInvoiceDetailsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -984,14 +984,13 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tblSalesVoucherDetailDataTable();
+                return new tblSalesInvoiceDetailsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnId = base.Columns["Id"];
-                this.columnSalesVoucherId = base.Columns["SalesVoucherId"];
                 this.columnItem = base.Columns["Item"];
                 this.columnAmount = base.Columns["Amount"];
                 this.columnVATType = base.Columns["VATType"];
@@ -1000,6 +999,7 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.columnDiscountAmount = base.Columns["DiscountAmount"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnRemarks = base.Columns["Remarks"];
+                this.columnSalesInvoiceId = base.Columns["SalesInvoiceId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1007,8 +1007,6 @@ namespace Jk_Accounting_Software.External.Datasources {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnSalesVoucherId = new global::System.Data.DataColumn("SalesVoucherId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSalesVoucherId);
                 this.columnItem = new global::System.Data.DataColumn("Item", typeof(string), null, global::System.Data.MappingType.Element);
                 this.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "Item");
                 this.columnItem.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "ItemColumn");
@@ -1029,6 +1027,8 @@ namespace Jk_Accounting_Software.External.Datasources {
                 base.Columns.Add(this.columnTotal);
                 this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemarks);
+                this.columnSalesInvoiceId = new global::System.Data.DataColumn("SalesInvoiceId", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSalesInvoiceId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -1037,7 +1037,6 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.columnId.AllowDBNull = false;
                 this.columnId.ReadOnly = true;
                 this.columnId.Unique = true;
-                this.columnSalesVoucherId.AllowDBNull = false;
                 this.columnItem.MaxLength = 100;
                 this.columnAmount.AllowDBNull = false;
                 this.columnVATType.MaxLength = 100;
@@ -1046,32 +1045,33 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.columnDiscountAmount.AllowDBNull = false;
                 this.columnTotal.AllowDBNull = false;
                 this.columnRemarks.MaxLength = 1000;
+                this.columnSalesInvoiceId.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailRow NewtblSalesVoucherDetailRow() {
-                return ((tblSalesVoucherDetailRow)(this.NewRow()));
+            public tblSalesInvoiceDetailsRow NewtblSalesInvoiceDetailsRow() {
+                return ((tblSalesInvoiceDetailsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tblSalesVoucherDetailRow(builder);
+                return new tblSalesInvoiceDetailsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tblSalesVoucherDetailRow);
+                return typeof(tblSalesInvoiceDetailsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tblSalesVoucherDetailRowChanged != null)) {
-                    this.tblSalesVoucherDetailRowChanged(this, new tblSalesVoucherDetailRowChangeEvent(((tblSalesVoucherDetailRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoiceDetailsRowChanged != null)) {
+                    this.tblSalesInvoiceDetailsRowChanged(this, new tblSalesInvoiceDetailsRowChangeEvent(((tblSalesInvoiceDetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1079,8 +1079,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tblSalesVoucherDetailRowChanging != null)) {
-                    this.tblSalesVoucherDetailRowChanging(this, new tblSalesVoucherDetailRowChangeEvent(((tblSalesVoucherDetailRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoiceDetailsRowChanging != null)) {
+                    this.tblSalesInvoiceDetailsRowChanging(this, new tblSalesInvoiceDetailsRowChangeEvent(((tblSalesInvoiceDetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1088,8 +1088,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tblSalesVoucherDetailRowDeleted != null)) {
-                    this.tblSalesVoucherDetailRowDeleted(this, new tblSalesVoucherDetailRowChangeEvent(((tblSalesVoucherDetailRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoiceDetailsRowDeleted != null)) {
+                    this.tblSalesInvoiceDetailsRowDeleted(this, new tblSalesInvoiceDetailsRowChangeEvent(((tblSalesInvoiceDetailsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1097,14 +1097,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tblSalesVoucherDetailRowDeleting != null)) {
-                    this.tblSalesVoucherDetailRowDeleting(this, new tblSalesVoucherDetailRowChangeEvent(((tblSalesVoucherDetailRow)(e.Row)), e.Action));
+                if ((this.tblSalesInvoiceDetailsRowDeleting != null)) {
+                    this.tblSalesInvoiceDetailsRowDeleting(this, new tblSalesInvoiceDetailsRowChangeEvent(((tblSalesInvoiceDetailsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovetblSalesVoucherDetailRow(tblSalesVoucherDetailRow row) {
+            public void RemovetblSalesInvoiceDetailsRow(tblSalesInvoiceDetailsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1113,7 +1113,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ESalesInvoiceReportDS ds = new ESalesInvoiceReportDS();
+                ESalesInvoicePrintoutDS ds = new ESalesInvoicePrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1131,7 +1131,7 @@ namespace Jk_Accounting_Software.External.Datasources {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tblSalesVoucherDetailDataTable";
+                attribute2.FixedValue = "tblSalesInvoiceDetailsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1435,7 +1435,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ESalesInvoiceReportDS ds = new ESalesInvoiceReportDS();
+                ESalesInvoicePrintoutDS ds = new ESalesInvoicePrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1497,25 +1497,25 @@ namespace Jk_Accounting_Software.External.Datasources {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tblSalesVoucherRow : global::System.Data.DataRow {
+        public partial class tblSalesInvoicesRow : global::System.Data.DataRow {
             
-            private tblSalesVoucherDataTable tabletblSalesVoucher;
+            private tblSalesInvoicesDataTable tabletblSalesInvoices;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblSalesVoucherRow(global::System.Data.DataRowBuilder rb) : 
+            internal tblSalesInvoicesRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletblSalesVoucher = ((tblSalesVoucherDataTable)(this.Table));
+                this.tabletblSalesInvoices = ((tblSalesInvoicesDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tabletblSalesVoucher.IdColumn]));
+                    return ((int)(this[this.tabletblSalesInvoices.IdColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.IdColumn] = value;
+                    this[this.tabletblSalesInvoices.IdColumn] = value;
                 }
             }
             
@@ -1523,10 +1523,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int CompanyId {
                 get {
-                    return ((int)(this[this.tabletblSalesVoucher.CompanyIdColumn]));
+                    return ((int)(this[this.tabletblSalesInvoices.CompanyIdColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.CompanyIdColumn] = value;
+                    this[this.tabletblSalesInvoices.CompanyIdColumn] = value;
                 }
             }
             
@@ -1534,10 +1534,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string TransactionNo {
                 get {
-                    return ((string)(this[this.tabletblSalesVoucher.TransactionNoColumn]));
+                    return ((string)(this[this.tabletblSalesInvoices.TransactionNoColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.TransactionNoColumn] = value;
+                    this[this.tabletblSalesInvoices.TransactionNoColumn] = value;
                 }
             }
             
@@ -1545,10 +1545,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Date {
                 get {
-                    return ((global::System.DateTime)(this[this.tabletblSalesVoucher.DateColumn]));
+                    return ((global::System.DateTime)(this[this.tabletblSalesInvoices.DateColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.DateColumn] = value;
+                    this[this.tabletblSalesInvoices.DateColumn] = value;
                 }
             }
             
@@ -1556,10 +1556,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ReferenceNo {
                 get {
-                    return ((string)(this[this.tabletblSalesVoucher.ReferenceNoColumn]));
+                    return ((string)(this[this.tabletblSalesInvoices.ReferenceNoColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.ReferenceNoColumn] = value;
+                    this[this.tabletblSalesInvoices.ReferenceNoColumn] = value;
                 }
             }
             
@@ -1568,14 +1568,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string ReferenceNo2 {
                 get {
                     try {
-                        return ((string)(this[this.tabletblSalesVoucher.ReferenceNo2Column]));
+                        return ((string)(this[this.tabletblSalesInvoices.ReferenceNo2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReferenceNo2\' in table \'tblSalesVoucher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReferenceNo2\' in table \'tblSalesInvoices\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblSalesVoucher.ReferenceNo2Column] = value;
+                    this[this.tabletblSalesInvoices.ReferenceNo2Column] = value;
                 }
             }
             
@@ -1584,14 +1584,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string Customer {
                 get {
                     try {
-                        return ((string)(this[this.tabletblSalesVoucher.CustomerColumn]));
+                        return ((string)(this[this.tabletblSalesInvoices.CustomerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer\' in table \'tblSalesVoucher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer\' in table \'tblSalesInvoices\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblSalesVoucher.CustomerColumn] = value;
+                    this[this.tabletblSalesInvoices.CustomerColumn] = value;
                 }
             }
             
@@ -1600,14 +1600,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string Remarks {
                 get {
                     try {
-                        return ((string)(this[this.tabletblSalesVoucher.RemarksColumn]));
+                        return ((string)(this[this.tabletblSalesInvoices.RemarksColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'tblSalesVoucher\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'tblSalesInvoices\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblSalesVoucher.RemarksColumn] = value;
+                    this[this.tabletblSalesInvoices.RemarksColumn] = value;
                 }
             }
             
@@ -1615,10 +1615,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal GrossAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucher.GrossAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoices.GrossAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.GrossAmountColumn] = value;
+                    this[this.tabletblSalesInvoices.GrossAmountColumn] = value;
                 }
             }
             
@@ -1626,10 +1626,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal VATAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucher.VATAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoices.VATAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.VATAmountColumn] = value;
+                    this[this.tabletblSalesInvoices.VATAmountColumn] = value;
                 }
             }
             
@@ -1637,10 +1637,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal DiscountAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucher.DiscountAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoices.DiscountAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.DiscountAmountColumn] = value;
+                    this[this.tabletblSalesInvoices.DiscountAmountColumn] = value;
                 }
             }
             
@@ -1648,83 +1648,72 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal NetAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucher.NetAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoices.NetAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucher.NetAmountColumn] = value;
+                    this[this.tabletblSalesInvoices.NetAmountColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsReferenceNo2Null() {
-                return this.IsNull(this.tabletblSalesVoucher.ReferenceNo2Column);
+                return this.IsNull(this.tabletblSalesInvoices.ReferenceNo2Column);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetReferenceNo2Null() {
-                this[this.tabletblSalesVoucher.ReferenceNo2Column] = global::System.Convert.DBNull;
+                this[this.tabletblSalesInvoices.ReferenceNo2Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomerNull() {
-                return this.IsNull(this.tabletblSalesVoucher.CustomerColumn);
+                return this.IsNull(this.tabletblSalesInvoices.CustomerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomerNull() {
-                this[this.tabletblSalesVoucher.CustomerColumn] = global::System.Convert.DBNull;
+                this[this.tabletblSalesInvoices.CustomerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsRemarksNull() {
-                return this.IsNull(this.tabletblSalesVoucher.RemarksColumn);
+                return this.IsNull(this.tabletblSalesInvoices.RemarksColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRemarksNull() {
-                this[this.tabletblSalesVoucher.RemarksColumn] = global::System.Convert.DBNull;
+                this[this.tabletblSalesInvoices.RemarksColumn] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tblSalesVoucherDetailRow : global::System.Data.DataRow {
+        public partial class tblSalesInvoiceDetailsRow : global::System.Data.DataRow {
             
-            private tblSalesVoucherDetailDataTable tabletblSalesVoucherDetail;
+            private tblSalesInvoiceDetailsDataTable tabletblSalesInvoiceDetails;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblSalesVoucherDetailRow(global::System.Data.DataRowBuilder rb) : 
+            internal tblSalesInvoiceDetailsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletblSalesVoucherDetail = ((tblSalesVoucherDetailDataTable)(this.Table));
+                this.tabletblSalesInvoiceDetails = ((tblSalesInvoiceDetailsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public int Id {
                 get {
-                    return ((int)(this[this.tabletblSalesVoucherDetail.IdColumn]));
+                    return ((int)(this[this.tabletblSalesInvoiceDetails.IdColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int SalesVoucherId {
-                get {
-                    return ((int)(this[this.tabletblSalesVoucherDetail.SalesVoucherIdColumn]));
-                }
-                set {
-                    this[this.tabletblSalesVoucherDetail.SalesVoucherIdColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.IdColumn] = value;
                 }
             }
             
@@ -1733,14 +1722,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string Item {
                 get {
                     try {
-                        return ((string)(this[this.tabletblSalesVoucherDetail.ItemColumn]));
+                        return ((string)(this[this.tabletblSalesInvoiceDetails.ItemColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Item\' in table \'tblSalesVoucherDetail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Item\' in table \'tblSalesInvoiceDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.ItemColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.ItemColumn] = value;
                 }
             }
             
@@ -1748,10 +1737,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Amount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucherDetail.AmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoiceDetails.AmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.AmountColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.AmountColumn] = value;
                 }
             }
             
@@ -1760,14 +1749,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string VATType {
                 get {
                     try {
-                        return ((string)(this[this.tabletblSalesVoucherDetail.VATTypeColumn]));
+                        return ((string)(this[this.tabletblSalesInvoiceDetails.VATTypeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'VATType\' in table \'tblSalesVoucherDetail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'VATType\' in table \'tblSalesInvoiceDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.VATTypeColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.VATTypeColumn] = value;
                 }
             }
             
@@ -1775,10 +1764,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal GrossAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucherDetail.GrossAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoiceDetails.GrossAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.GrossAmountColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.GrossAmountColumn] = value;
                 }
             }
             
@@ -1786,10 +1775,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal VATAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucherDetail.VATAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoiceDetails.VATAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.VATAmountColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.VATAmountColumn] = value;
                 }
             }
             
@@ -1797,10 +1786,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal DiscountAmount {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucherDetail.DiscountAmountColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoiceDetails.DiscountAmountColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.DiscountAmountColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.DiscountAmountColumn] = value;
                 }
             }
             
@@ -1808,10 +1797,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public decimal Total {
                 get {
-                    return ((decimal)(this[this.tabletblSalesVoucherDetail.TotalColumn]));
+                    return ((decimal)(this[this.tabletblSalesInvoiceDetails.TotalColumn]));
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.TotalColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.TotalColumn] = value;
                 }
             }
             
@@ -1820,51 +1809,62 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string Remarks {
                 get {
                     try {
-                        return ((string)(this[this.tabletblSalesVoucherDetail.RemarksColumn]));
+                        return ((string)(this[this.tabletblSalesInvoiceDetails.RemarksColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'tblSalesVoucherDetail\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'tblSalesInvoiceDetails\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblSalesVoucherDetail.RemarksColumn] = value;
+                    this[this.tabletblSalesInvoiceDetails.RemarksColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int SalesInvoiceId {
+                get {
+                    return ((int)(this[this.tabletblSalesInvoiceDetails.SalesInvoiceIdColumn]));
+                }
+                set {
+                    this[this.tabletblSalesInvoiceDetails.SalesInvoiceIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsItemNull() {
-                return this.IsNull(this.tabletblSalesVoucherDetail.ItemColumn);
+                return this.IsNull(this.tabletblSalesInvoiceDetails.ItemColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetItemNull() {
-                this[this.tabletblSalesVoucherDetail.ItemColumn] = global::System.Convert.DBNull;
+                this[this.tabletblSalesInvoiceDetails.ItemColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsVATTypeNull() {
-                return this.IsNull(this.tabletblSalesVoucherDetail.VATTypeColumn);
+                return this.IsNull(this.tabletblSalesInvoiceDetails.VATTypeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetVATTypeNull() {
-                this[this.tabletblSalesVoucherDetail.VATTypeColumn] = global::System.Convert.DBNull;
+                this[this.tabletblSalesInvoiceDetails.VATTypeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsRemarksNull() {
-                return this.IsNull(this.tabletblSalesVoucherDetail.RemarksColumn);
+                return this.IsNull(this.tabletblSalesInvoiceDetails.RemarksColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRemarksNull() {
-                this[this.tabletblSalesVoucherDetail.RemarksColumn] = global::System.Convert.DBNull;
+                this[this.tabletblSalesInvoiceDetails.RemarksColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1993,22 +1993,22 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class tblSalesVoucherRowChangeEvent : global::System.EventArgs {
+        public class tblSalesInvoicesRowChangeEvent : global::System.EventArgs {
             
-            private tblSalesVoucherRow eventRow;
+            private tblSalesInvoicesRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherRowChangeEvent(tblSalesVoucherRow row, global::System.Data.DataRowAction action) {
+            public tblSalesInvoicesRowChangeEvent(tblSalesInvoicesRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherRow Row {
+            public tblSalesInvoicesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2027,22 +2027,22 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class tblSalesVoucherDetailRowChangeEvent : global::System.EventArgs {
+        public class tblSalesInvoiceDetailsRowChangeEvent : global::System.EventArgs {
             
-            private tblSalesVoucherDetailRow eventRow;
+            private tblSalesInvoiceDetailsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailRowChangeEvent(tblSalesVoucherDetailRow row, global::System.Data.DataRowAction action) {
+            public tblSalesInvoiceDetailsRowChangeEvent(tblSalesInvoiceDetailsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblSalesVoucherDetailRow Row {
+            public tblSalesInvoiceDetailsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2104,7 +2104,7 @@ namespace Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTable
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tblSalesVoucherTableAdapter : global::System.ComponentModel.Component {
+    public partial class tblSalesInvoicesTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -2118,7 +2118,7 @@ namespace Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTable
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public tblSalesVoucherTableAdapter() {
+        public tblSalesInvoicesTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -2215,7 +2215,7 @@ namespace Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTable
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tblSalesVoucher";
+            tableMapping.DataSetTable = "tblSalesInvoices";
             tableMapping.ColumnMappings.Add("Id", "Id");
             tableMapping.ColumnMappings.Add("CompanyId", "CompanyId");
             tableMapping.ColumnMappings.Add("TransactionNo", "TransactionNo");
@@ -2244,13 +2244,13 @@ namespace Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTable
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT sv.Id, sv.CompanyId, sv.TransactionNo, sv.[Date],
-	sv.ReferenceNo, sv.ReferenceNo2, s.Name AS Customer,
-	sv.Remarks, sv.GrossAmount, sv.VATAmount,
-	sv.DiscountAmount, sv.NetAmount 
-FROM tblSalesVouchers sv
-	INNER JOIN tblSubsidiaries s ON s.Id = sv.SubsidiaryId
-WHERE sv.Id = @Id";
+            this._commandCollection[0].CommandText = @"SELECT si.Id, si.CompanyId, si.TransactionNo, si.[Date],
+	si.ReferenceNo, si.ReferenceNo2, s.Name AS Customer,
+	si.Remarks, si.GrossAmount, si.VATAmount,
+	si.DiscountAmount, si.NetAmount 
+FROM tblSalesInvoices si
+	INNER JOIN tblSubsidiaries s ON s.Id = si.SubsidiaryId
+WHERE si.Id = @Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -2259,7 +2259,7 @@ WHERE sv.Id = @Id";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ESalesInvoiceReportDS.tblSalesVoucherDataTable dataTable, int Id) {
+        public virtual int Fill(ESalesInvoicePrintoutDS.tblSalesInvoicesDataTable dataTable, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             if ((this.ClearBeforeFill == true)) {
@@ -2273,10 +2273,10 @@ WHERE sv.Id = @Id";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ESalesInvoiceReportDS.tblSalesVoucherDataTable GetData(int Id) {
+        public virtual ESalesInvoicePrintoutDS.tblSalesInvoicesDataTable GetData(int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
-            ESalesInvoiceReportDS.tblSalesVoucherDataTable dataTable = new ESalesInvoiceReportDS.tblSalesVoucherDataTable();
+            ESalesInvoicePrintoutDS.tblSalesInvoicesDataTable dataTable = new ESalesInvoicePrintoutDS.tblSalesInvoicesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2291,7 +2291,7 @@ WHERE sv.Id = @Id";
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tblSalesVoucherDetailTableAdapter : global::System.ComponentModel.Component {
+    public partial class tblSalesInvoiceDetailsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -2305,7 +2305,7 @@ WHERE sv.Id = @Id";
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public tblSalesVoucherDetailTableAdapter() {
+        public tblSalesInvoiceDetailsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -2402,9 +2402,8 @@ WHERE sv.Id = @Id";
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tblSalesVoucherDetail";
+            tableMapping.DataSetTable = "tblSalesInvoiceDetails";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("SalesVoucherId", "SalesVoucherId");
             tableMapping.ColumnMappings.Add("Item", "Item");
             tableMapping.ColumnMappings.Add("Amount", "Amount");
             tableMapping.ColumnMappings.Add("VATType", "VATType");
@@ -2413,6 +2412,7 @@ WHERE sv.Id = @Id";
             tableMapping.ColumnMappings.Add("DiscountAmount", "DiscountAmount");
             tableMapping.ColumnMappings.Add("Total", "Total");
             tableMapping.ColumnMappings.Add("Remarks", "Remarks");
+            tableMapping.ColumnMappings.Add("SalesInvoiceId", "SalesInvoiceId");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2429,22 +2429,22 @@ WHERE sv.Id = @Id";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT sd.Id, sd.SalesVoucherId, i.Name AS Item, sd.Amount,
+            this._commandCollection[0].CommandText = @"SELECT sd.Id, sd.SalesInvoiceId, i.Name AS Item, sd.Amount,
 	vt.Name AS VATType, sd.GrossAmount, sd.VATAmount,
 	sd.DiscountAmount, sd.Total, sd.Remarks
-FROM tblSalesVoucherDetails sd
+FROM tblSalesInvoiceDetails sd
 	LEFT OUTER JOIN tblItems i ON i.Id = sd.ItemId
 	INNER JOIN tblVATTypes vt ON vt.Id = sd.VATTypeId
-WHERE sd.SalesVoucherId = @Id";
+WHERE sd.SalesInvoiceId = @Id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SalesVoucherId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "SalesInvoiceId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ESalesInvoiceReportDS.tblSalesVoucherDetailDataTable dataTable, int Id) {
+        public virtual int Fill(ESalesInvoicePrintoutDS.tblSalesInvoiceDetailsDataTable dataTable, int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             if ((this.ClearBeforeFill == true)) {
@@ -2458,10 +2458,10 @@ WHERE sd.SalesVoucherId = @Id";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ESalesInvoiceReportDS.tblSalesVoucherDetailDataTable GetData(int Id) {
+        public virtual ESalesInvoicePrintoutDS.tblSalesInvoiceDetailsDataTable GetData(int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
-            ESalesInvoiceReportDS.tblSalesVoucherDetailDataTable dataTable = new ESalesInvoiceReportDS.tblSalesVoucherDetailDataTable();
+            ESalesInvoicePrintoutDS.tblSalesInvoiceDetailsDataTable dataTable = new ESalesInvoicePrintoutDS.tblSalesInvoiceDetailsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2647,7 +2647,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ESalesInvoiceReportDS.tblCompaniesDataTable dataTable, int CompanyId) {
+        public virtual int Fill(ESalesInvoicePrintoutDS.tblCompaniesDataTable dataTable, int CompanyId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CompanyId));
             if ((this.ClearBeforeFill == true)) {
@@ -2661,10 +2661,10 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ESalesInvoiceReportDS.tblCompaniesDataTable GetData(int CompanyId) {
+        public virtual ESalesInvoicePrintoutDS.tblCompaniesDataTable GetData(int CompanyId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CompanyId));
-            ESalesInvoiceReportDS.tblCompaniesDataTable dataTable = new ESalesInvoiceReportDS.tblCompaniesDataTable();
+            ESalesInvoicePrintoutDS.tblCompaniesDataTable dataTable = new ESalesInvoicePrintoutDS.tblCompaniesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2672,14 +2672,14 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ESalesInvoiceReportDS.tblCompaniesDataTable dataTable) {
+        public virtual int Update(ESalesInvoicePrintoutDS.tblCompaniesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ESalesInvoiceReportDS dataSet) {
+        public virtual int Update(ESalesInvoicePrintoutDS dataSet) {
             return this.Adapter.Update(dataSet, "tblCompanies");
         }
         
@@ -2911,7 +2911,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(ESalesInvoiceReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(ESalesInvoicePrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -2930,7 +2930,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(ESalesInvoiceReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(ESalesInvoicePrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -2948,7 +2948,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(ESalesInvoiceReportDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(ESalesInvoicePrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -2990,7 +2990,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(ESalesInvoiceReportDS dataSet) {
+        public virtual int UpdateAll(ESalesInvoicePrintoutDS dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

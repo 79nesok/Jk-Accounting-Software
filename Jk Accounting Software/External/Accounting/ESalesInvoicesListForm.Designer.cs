@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class ESalesVouchersListForm
+    partial class ESalesInvoicesListForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesVouchersListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesInvoicesListForm));
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
@@ -36,12 +36,20 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 481);
+            this.splitContainer.Size = new System.Drawing.Size(836, 481);
             // 
-            // ESalesVouchersListForm
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
+            // 
+            // ESalesInvoicesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Sales Vouchers";
+            this.Caption = "Sales Invoices";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
@@ -55,11 +63,11 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns10"))));
             this.CommandText = resources.GetString("$this.CommandText");
             this.GridAutoSize = false;
-            this.Name = "ESalesVouchersListForm";
-            this.NewFormName = "ESalesVoucherForm";
-            this.OpenFormName = "ESalesVoucherForm";
+            this.Name = "ESalesInvoicesListForm";
+            this.NewFormName = "ESalesInvoiceForm";
+            this.OpenFormName = "ESalesInvoiceForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(789, 481);
+            this.Size = new System.Drawing.Size(836, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

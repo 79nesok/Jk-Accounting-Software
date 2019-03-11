@@ -19,9 +19,9 @@ TRUNCATE TABLE tblBillsPayment
 TRUNCATE TABLE tblBillsPaymentDetails
 TRUNCATE TABLE tblBillsPaymentBillDetails
 TRUNCATE TABLE tblBillsPaymentPaymentDisbtribution
---SV
-TRUNCATE TABLE tblSalesVouchers
-TRUNCATE TABLE tblSalesVoucherDetails
+--SI
+TRUNCATE TABLE tblSalesInvoices
+TRUNCATE TABLE tblSalesInvoiceDetails
 --CRV
 TRUNCATE TABLE tblCashReceiptVouchers
 TRUNCATE TABLE tblCashReceiptVoucherDetails
