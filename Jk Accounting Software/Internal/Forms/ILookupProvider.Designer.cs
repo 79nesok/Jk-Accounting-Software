@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ILookupProvider));
-            this.dstSecurityUsers = new JkComponents.JkDataSet();
+            this.dstSystemUsers = new JkComponents.JkDataSet();
             this.cnConnection = new JkComponents.JkConnection();
             this.dstSubsidiaryTypes = new JkComponents.JkDataSet();
             this.dstJournalTypes = new JkComponents.JkDataSet();
@@ -45,17 +45,17 @@
             this.dstATC = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
-            // dstSecurityUsers
+            // dstSystemUsers
             // 
-            this.dstSecurityUsers.BackColor = System.Drawing.Color.Khaki;
-            this.dstSecurityUsers.CommandText = "SELECT Id, UserName, FormalName\r\nFROM tblSecurityUsers";
-            this.dstSecurityUsers.Connection = this.cnConnection;
-            this.dstSecurityUsers.Location = new System.Drawing.Point(80, 4);
-            this.dstSecurityUsers.Name = "dstSecurityUsers";
-            this.dstSecurityUsers.Size = new System.Drawing.Size(86, 20);
-            this.dstSecurityUsers.TabIndex = 0;
-            this.dstSecurityUsers.Text = "jkDataSet1";
-            this.dstSecurityUsers.ZLoadColumns = false;
+            this.dstSystemUsers.BackColor = System.Drawing.Color.Khaki;
+            this.dstSystemUsers.CommandText = "SELECT Id, UserName, FormalName\r\nFROM tblSystemUsers";
+            this.dstSystemUsers.Connection = this.cnConnection;
+            this.dstSystemUsers.Location = new System.Drawing.Point(80, 4);
+            this.dstSystemUsers.Name = "dstSystemUsers";
+            this.dstSystemUsers.Size = new System.Drawing.Size(86, 20);
+            this.dstSystemUsers.TabIndex = 0;
+            this.dstSystemUsers.Text = "jkDataSet1";
+            this.dstSystemUsers.ZLoadColumns = false;
             // 
             // cnConnection
             // 
@@ -239,7 +239,7 @@
             this.Controls.Add(this.cnConnection);
             this.Controls.Add(this.dstJournalTypes);
             this.Controls.Add(this.dstSubsidiaryTypes);
-            this.Controls.Add(this.dstSecurityUsers);
+            this.Controls.Add(this.dstSystemUsers);
             this.Name = "ILookupProvider";
             this.Size = new System.Drawing.Size(577, 331);
             this.ResumeLayout(false);
@@ -248,7 +248,7 @@
 
         #endregion
 
-        public JkComponents.JkDataSet dstSecurityUsers;
+        public JkComponents.JkDataSet dstSystemUsers;
         public JkComponents.JkDataSet dstSubsidiaryTypes;
         public JkComponents.JkDataSet dstJournalTypes;
         private JkComponents.JkConnection cnConnection;

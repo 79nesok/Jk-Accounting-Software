@@ -101,6 +101,24 @@
     <Compile Include="External\Accounting\ECustomerOverpaymentsListForm.Designer.cs">
       <DependentUpon>ECustomerOverpaymentsListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Administration\ELogConfigurationForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Administration\ELogConfigurationForm.Designer.cs">
+      <DependentUpon>ELogConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Administration\ELogConfigurationListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Administration\ELogConfigurationListForm.Designer.cs">
+      <DependentUpon>ELogConfigurationListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Administration\EUsersListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Administration\EUsersListForm.Designer.cs">
+      <DependentUpon>EUsersListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\EAgingOfPayablesReportDS.cs">
       <DependentUpon>EAgingOfPayablesReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -606,6 +624,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECustomerOverpaymentsListForm.resx">
       <DependentUpon>ECustomerOverpaymentsListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Administration\ELogConfigurationForm.resx">
+      <DependentUpon>ELogConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Administration\ELogConfigurationListForm.resx">
+      <DependentUpon>ELogConfigurationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Administration\EUsersListForm.resx">
+      <DependentUpon>EUsersListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\EAccountForm.resx">
       <DependentUpon>EAccountForm.cs</DependentUpon>

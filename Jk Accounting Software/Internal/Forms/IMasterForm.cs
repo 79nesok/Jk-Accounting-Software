@@ -452,12 +452,12 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 if (lblCreatedBy.Visible)
                 {
-                    lblCreatedBy.Text = String.Format("Created By:     {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSecurityUsers, "Id", MasterColumns.Find(col => col.Name == "CreatedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateCreated").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+                    lblCreatedBy.Text = String.Format("Created By:     {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSystemUsers, "Id", MasterColumns.Find(col => col.Name == "CreatedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateCreated").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
                 }
 
                 if (lblModifiedBy.Visible)
                 {
-                    lblModifiedBy.Text = String.Format("Modified By:   {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSecurityUsers, "Id", MasterColumns.Find(col => col.Name == "ModifiedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateModified").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+                    lblModifiedBy.Text = String.Format("Modified By:   {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSystemUsers, "Id", MasterColumns.Find(col => col.Name == "ModifiedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateModified").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
 
                     if (MasterColumns.Find(col => col.Name == "DateCreated").Value.ToString() == MasterColumns.Find(col => col.Name == "DateModified").Value.ToString())
                     {

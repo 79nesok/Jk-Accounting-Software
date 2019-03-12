@@ -18,9 +18,15 @@ ELSE
 	SELECT crid.SourceId, si.TransactionNo, si.[Date],
 		si.ReferenceNo, si.ReferenceNo2, si.NetAmount,
 		si.Balance, crid.AppliedAmount, 0 AS AmountToApply,
-		si.Balance AS OldBalance
+		si.Balance + tmp.Applied AS OldBalance
 	FROM tblCashReceiptInvoiceDetails crid
 		INNER JOIN tblSalesInvoices si ON si.Id = crid.SourceId
+		INNER JOIN (
+			SELECT InvoiceId, SUM(Amount) AS Applied
+			FROM tblCashReceiptPaymentDistribution
+			WHERE CashReceiptId = @Id
+			GROUP BY InvoiceId
+		) tmp ON tmp.InvoiceId = crid.SourceId
 	WHERE crid.CashReceiptId = @Id
 GO
 

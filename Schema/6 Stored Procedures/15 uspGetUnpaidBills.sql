@@ -18,9 +18,15 @@ ELSE
 	SELECT bpbd.SourceId, b.TransactionNo, b.[Date],
 		b.ReferenceNo, b.ReferenceNo2, b.NetAmount,
 		b.Balance, bpbd.AppliedAmount, 0 AS AmountToApply,
-		b.Balance AS OldBalance
+		b.Balance + tmp.Applied AS OldBalance
 	FROM tblBillsPaymentBillDetails bpbd
 		INNER JOIN tblBills b ON b.Id = bpbd.SourceId
+		INNER JOIN (
+			SELECT BillId, SUM(Amount) AS Applied
+			FROM tblBillsPaymentPaymentDisbtribution
+			WHERE BillsPaymentId = @Id
+			GROUP BY BillId
+		) tmp ON bpbd.SourceId = tmp.BillId
 	WHERE bpbd.BillsPaymentId = @Id
 GO
 

@@ -22,7 +22,8 @@ EXEC uspAddSystemSubCategory @Category = 'Maintenance', @Parent = 'Subsidiaries'
 
 --Administration
 EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Company', @ListForm = 'ECompanyForm', @MasterForm = NULL, @Index = 0
-EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Security', @ListForm = NULL, @MasterForm = NULL, @Index = 1
+EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Users', @ListForm = 'EUsersListForm', @MasterForm = 'EUserForm', @Index = 1
+EXEC uspAddSystemSubCategory @Category = 'Administration', @Parent = NULL, @Name = 'Log Configuration', @ListForm = 'ELogConfigurationListForm', @MasterForm = 'ELogConfigurationForm', @Index = 2
 
 --Accounting
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = NULL, @Name = 'Journal Vouchers', @ListForm = 'EJournalVouchersListForm', @MasterForm = 'EJournalVoucherForm', @Index = 0
