@@ -46,6 +46,10 @@ namespace Jk_Accounting_Software.Internal.Classes
         {
             return String.Format("No form named '{0}' found.", formname);
         }
+        public static String ErrorExecutingCommand(String error)
+        {
+            return "Error executing command: " + error;
+        }
 
         //Messages
         public const String NoFormMessage = "No form available";

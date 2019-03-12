@@ -20,8 +20,8 @@ BEGIN
 	DECLARE @InvoiceDetails TABLE(InvoiceId INT, AppliedAmount MONEY PRIMARY KEY(InvoiceId))
 	DECLARE @DetailId INT
 	DECLARE @InvoiceId INT
-	DECLARE @Amount INT
-	DECLARE @AppliedAmount INT
+	DECLARE @Amount MONEY
+	DECLARE @AppliedAmount MONEY
 
 	INSERT INTO @PaymentDetails(Id, Amount)
 	SELECT Id, Amount

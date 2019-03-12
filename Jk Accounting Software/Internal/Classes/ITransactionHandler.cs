@@ -266,5 +266,30 @@ namespace Jk_Accounting_Software.Internal.Classes
                 DataAdapter.Dispose();
             }
         }
+
+        public void ExecuteStoredProc(SqlCommand Command)
+        {
+            try
+            {
+                Connect();
+                try
+                {
+                    BeginTran();
+                    Command.Connection = VConnection;
+                    Command.Transaction = VTransaction;
+                    Command.ExecuteNonQuery();
+                    CommitTran();
+                }
+                catch(Exception ex)
+                {
+                    Rollback();
+                    IMessageHandler.ShowError(ISystemMessages.ErrorExecutingCommand(ex.Message));
+                }
+            }
+            finally
+            {
+                Disconnect();
+            }
+        }
     }
 }

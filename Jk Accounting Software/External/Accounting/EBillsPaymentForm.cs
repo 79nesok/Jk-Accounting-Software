@@ -218,6 +218,29 @@ namespace Jk_Accounting_Software.External.Accounting
             base.UpdateControls();
 
             dataGridView.AllowUserToAddRows = false;
+            btnPrint.Visible = (FormState == FormStates.fsView) && Print2307();
+        }
+
+        private bool Print2307()
+        {
+            bool result = false;
+
+            SqlCommand Command = new SqlCommand();
+            SqlParameter Result = new SqlParameter();
+
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "uspPrintBIRForm2307";
+            Command.Parameters.AddWithValue("@Id", Parameters.Find(p => p.Name == "Id").Value);
+
+            Result.ParameterName = "@Result";
+            Result.Direction = ParameterDirection.Output;
+            Result.SqlDbType = SqlDbType.Bit;
+            Command.Parameters.Add(Result);
+
+            VTransactionHandler.ExecuteStoredProc(Command);
+            result = bool.Parse(Command.Parameters["@Result"].Value.ToString());
+
+            return result;
         }
 
         private void ShowAmountToApply()

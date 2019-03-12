@@ -562,13 +562,13 @@ namespace Jk_Accounting_Software.Internal.Forms
                     if (column.Visible
                         && (column.DataType == SqlDbType.VarChar || column.DataType == SqlDbType.NVarChar))
                     {
-                        foreach (String str in VMasterDataTable
+                        foreach (String data in VMasterDataTable
                                .AsEnumerable()
                                .Select<System.Data.DataRow, String>(x => x.Field<String>(column.Name))
                                .ToArray())
                         {
-                            if (!source.Contains(str) && !String.IsNullOrWhiteSpace(str))
-                                source.Add(str);
+                            if (!source.Contains(data) && !String.IsNullOrWhiteSpace(data))
+                                source.Add(data);
                         }
                     }
                 }
