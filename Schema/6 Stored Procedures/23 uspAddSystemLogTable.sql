@@ -2,7 +2,7 @@ IF OBJECT_ID('uspAddSystemLogTable') IS NOT NULL
 	DROP PROCEDURE uspAddSystemLogTable
 GO
 
-CREATE PROCEDURE uspAddSystemLogTable(@TableName VARCHAR(100), @Caption VARCHAR(100), @Track BIT, @Enable BIT, @SeparatorColumnName VARCHAR(100) = NULL, @SeparatorColumnId INT = NULL)
+CREATE PROCEDURE uspAddSystemLogTable(@TableName VARCHAR(100), @Caption VARCHAR(100), @IdentifierColumnName VARCHAR(100), @Track BIT, @Enable BIT, @SeparatorColumnName VARCHAR(100) = NULL, @SeparatorColumnId INT = NULL)
 AS
 SET NOCOUNT ON
 
@@ -21,6 +21,18 @@ IF NOT EXISTS(
 	FROM sys.tables t
 		INNER JOIN sys.columns c ON c.object_id = t.object_id
 	WHERE t.name = @TableName
+		AND c.name = @IdentifierColumnName
+)
+BEGIN
+	RAISERROR('No identifier column found named: ''%s'' on table: ''%s''', 11, 1, @IdentifierColumnName, @TableName)
+	RETURN
+END
+
+IF NOT EXISTS(
+	SELECT *
+	FROM sys.tables t
+		INNER JOIN sys.columns c ON c.object_id = t.object_id
+	WHERE t.name = @TableName
 		AND c.name = @SeparatorColumnName
 )
 AND NULLIF(@SeparatorColumnName, '') IS NOT NULL
@@ -30,11 +42,12 @@ BEGIN
 END
 
 IF NOT EXISTS(SELECT * FROM tblSystemLogTableConfig WHERE TableName = @TableName AND Caption = @Caption)
-	INSERT INTO tblSystemLogTableConfig(TableName, Caption, SeparatorColumnName, SeparatorColumnId, Track, [Enable])
-	SELECT @TableName, @Caption, @SeparatorColumnName, @SeparatorColumnId, @Track, @Enable
+	INSERT INTO tblSystemLogTableConfig(TableName, Caption, IdentifierColumnName, SeparatorColumnName, SeparatorColumnId, Track, [Enable])
+	SELECT @TableName, @Caption, @IdentifierColumnName, @SeparatorColumnName, @SeparatorColumnId, @Track, @Enable
 ELSE
 	UPDATE tblSystemLogTableConfig
 	SET Caption = @Caption,
+		IdentifierColumnName = @IdentifierColumnName,
 		SeparatorColumnName = @SeparatorColumnName,
 		SeparatorColumnId = @SeparatorColumnId,
 		Track = @Track,

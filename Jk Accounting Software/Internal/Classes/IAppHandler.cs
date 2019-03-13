@@ -41,7 +41,7 @@ namespace Jk_Accounting_Software.Internal.Classes
             Classes.Add(PClassname);
         }
 
-        public static IParentForm FindForm(String PClassname, String Caption = null, bool IsReport = false)
+        public static IParentForm FindForm(String PClassname, String Caption = null, bool IsPrintout = false)
         {
             IParentForm form = null;
 
@@ -59,7 +59,7 @@ namespace Jk_Accounting_Software.Internal.Classes
             }
 
             //open new instance
-            if (IsReport)
+            if (IsPrintout)
             {
                 if (form == null && Type.GetType("Jk_Accounting_Software.External.Report." + PClassname) != null)
                     form = Activator.CreateInstance(Type.GetType("Jk_Accounting_Software.External.Report." + PClassname)) as IParentForm;

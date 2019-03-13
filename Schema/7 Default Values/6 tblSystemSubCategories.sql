@@ -38,9 +38,9 @@ EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Na
 EXEC uspAddSystemSubCategory @Category = 'Accounting', @Parent = 'Customer', @Name = 'Customer Overpayment', @ListForm = 'ECustomerOverpaymentsListForm', @MasterForm = 'ECustomerOverpaymentForm', @Index = 7
 
 --Report
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'General Ledger', @ListForm = 'EGeneralLedgerReportForm', @MasterForm = NULL, @Index = 0
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Subsidiary Ledger', @ListForm = 'ESubsidiaryLedgerReportForm', @MasterForm = NULL, @Index = 1
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Trial Balance', @ListForm = 'ETrialBalanceReportForm', @MasterForm = NULL, @Index = 2
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Ledgers', @ListForm = NULL, @MasterForm = NULL, @Index = 0
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Ledgers', @Name = 'General Ledger', @ListForm = 'EGeneralLedgerReportForm', @MasterForm = NULL, @Index = 1
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Ledgers', @Name = 'Subsidiary Ledger', @ListForm = 'ESubsidiaryLedgerReportForm', @MasterForm = NULL, @Index = 2
 
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Receivables and Payables', @ListForm = NULL, @MasterForm = NULL, @Index = 3
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Receivables and Payables', @Name = 'Aging of Receivables', @ListForm = 'EAgingOfReceivablesReportForm', @MasterForm = NULL, @Index = 4
@@ -48,15 +48,18 @@ EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Receivables and Pa
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Receivables and Payables', @Name = 'Collection Summary', @ListForm = 'ECollectionSummaryReportForm', @MasterForm = NULL, @Index = 6
 
 EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Financial Statement', @ListForm = NULL, @MasterForm = NULL, @Index = 7
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Income Statement', @ListForm = 'EIncomeStatementReportForm', @MasterForm = NULL, @Index = 8
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Balance Sheet', @ListForm = 'EBalanceSheetReportForm', @MasterForm = NULL, @Index = 9
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Cash Flow', @ListForm = NULL, @MasterForm = NULL, @Index = 10
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Trial Balance', @ListForm = 'ETrialBalanceReportForm', @MasterForm = NULL, @Index = 8
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Income Statement', @ListForm = 'EIncomeStatementReportForm', @MasterForm = NULL, @Index = 9
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Balance Sheet', @ListForm = 'EBalanceSheetReportForm', @MasterForm = NULL, @Index = 10
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Financial Statement', @Name = 'Cash Flow', @ListForm = NULL, @MasterForm = NULL, @Index = 11
 
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Journals', @ListForm = NULL, @MasterForm = NULL, @Index = 11
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'General', @ListForm = 'EGeneralJournalReportForm', @MasterForm = NULL, @Index = 12
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Purchase', @ListForm = 'EPurchaseJournalReportForm', @MasterForm = NULL, @Index = 13
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Cash Disbursement', @ListForm = 'ECashDisbursementJournalReportForm', @MasterForm = NULL, @Index = 14
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Sales', @ListForm = 'ESalesJournalReportForm', @MasterForm = NULL, @Index = 15
-EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Cash Receipt', @ListForm = 'ECashReceiptJournalReportForm', @MasterForm = NULL, @Index = 16
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'Journals', @ListForm = NULL, @MasterForm = NULL, @Index = 12
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'General', @ListForm = 'EGeneralJournalReportForm', @MasterForm = NULL, @Index = 13
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Purchase', @ListForm = 'EPurchaseJournalReportForm', @MasterForm = NULL, @Index = 14
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Cash Disbursement', @ListForm = 'ECashDisbursementJournalReportForm', @MasterForm = NULL, @Index = 15
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Sales', @ListForm = 'ESalesJournalReportForm', @MasterForm = NULL, @Index = 16
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'Journals', @Name = 'Cash Receipt', @ListForm = 'ECashReceiptJournalReportForm', @MasterForm = NULL, @Index = 17
+
+EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = NULL, @Name = 'System Logs', @ListForm = NULL, @MasterForm = NULL, @Index = 18
 GO
 

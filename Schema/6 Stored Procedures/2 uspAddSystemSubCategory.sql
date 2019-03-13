@@ -18,7 +18,7 @@ IF @CategoryId IS NULL
 
 SET @Structure = @Category + '.' + CASE WHEN NULLIF(@Parent, '') IS NULL THEN '' ELSE @Parent + '.' END + @Name
 
-IF NOT EXISTS(SELECT * FROM tblSystemSubCategories WHERE Name = @Name)
+IF NOT EXISTS(SELECT * FROM tblSystemSubCategories WHERE Name = @Name AND CategoryId = @CategoryId)
 	INSERT INTO tblSystemSubCategories(CategoryId, Parent, Structure, Name, ListForm, MasterForm,[Index])
 	SELECT @CategoryId, @Parent, @Structure, @Name, @ListForm, @MasterForm, @Index
 ELSE
@@ -27,5 +27,6 @@ ELSE
 		MasterForm = @MasterForm,
 		[Index] = @Index
 	WHERE Name = @Name
+		AND CategoryId = @CategoryId
 GO
 

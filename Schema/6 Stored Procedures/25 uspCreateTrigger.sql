@@ -79,31 +79,33 @@ SET @CommandText +=
 	@NewLine
 
 --Set TableId
-SET @CommandText +=
-	'IF(SELECT COUNT(*) FROM tblSystemLogTableConfig WHERE TableName = @TableName) > 1' + @NewLine +
-	'BEGIN' + @NewLine +
-	'	IF @IsNew = 1' + @NewLine +
-	'	BEGIN' + @NewLine +
-	'		SELECT @SeparatorId = Inserted.' + @SeparatorColumnName + @NewLine +
-	'		FROM Inserted' + @NewLine +
-	'	END' + @NewLine +
-	'	ELSE' + @NewLine +
-	'	BEGIN' + @NewLine +
-	'		SELECT @SeparatorId = Deleted.' + @SeparatorColumnName + @NewLine +
-	'		FROM Deleted' + @NewLine +
-	'	END' + @NewLine +
-	@NewLine +
+IF NULLIF(@SeparatorColumnName, '') IS NULL
+	SET @CommandText +=
+		'SELECT @TableId = Id' + @NewLine +
+		'	FROM tblSystemLogTableConfig' + @NewLine +
+		'	WHERE TableName = @TableName' + @NewLine +
+		@NewLine
+ELSE
+BEGIN
+	SET @CommandText +=
+		'IF @IsNew = 1' + @NewLine +
+		'	BEGIN' + @NewLine +
+		'		SELECT @SeparatorId = Inserted.' + @SeparatorColumnName + @NewLine +
+		'		FROM Inserted' + @NewLine +
+		'	END' + @NewLine +
+		'	ELSE' + @NewLine +
+		'	BEGIN' + @NewLine +
+		'		SELECT @SeparatorId = Deleted.' + @SeparatorColumnName + @NewLine +
+		'		FROM Deleted' + @NewLine +
+		'	END' + @NewLine +
+		@NewLine +
 
-	'	SELECT @TableId = Id' + @NewLine +
-	'	FROM tblSystemLogTableConfig' + @NewLine +
-	'	WHERE TableName = @TableName' + @NewLine +
-	'		AND SeparatorColumnId = @SeparatorId' + @NewLine +
-	'END' + @NewLine +
-	'ELSE' + @NewLine +
-	'	SELECT @TableId = Id' + @NewLine +
-	'	FROM tblSystemLogTableConfig' + @NewLine +
-	'	WHERE TableName = @TableName' + @NewLine +
-	@NewLine
+		'	SELECT @TableId = Id' + @NewLine +
+		'	FROM tblSystemLogTableConfig' + @NewLine +
+		'	WHERE TableName = @TableName' + @NewLine +
+		'		AND SeparatorColumnId = @SeparatorId' + @NewLine +
+		@NewLine
+END
 
 DECLARE @col TABLE(KeyId INT IDENTITY(1, 1), ColumnId  INT, ColumnName VARCHAR(100),
 	DataType VARCHAR(100), TableSouce VARCHAR(100) PRIMARY KEY(KeyId))

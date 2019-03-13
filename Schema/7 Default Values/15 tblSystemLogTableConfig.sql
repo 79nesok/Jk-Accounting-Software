@@ -5,6 +5,7 @@ TRUNCATE TABLE tblSystemLogColumnConfig
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Assets',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0,
 	@SeparatorColumnName = 'AccountTypeId',
@@ -12,6 +13,7 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Liabilities',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0,
 	@SeparatorColumnName = 'AccountTypeId',
@@ -19,6 +21,7 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Equities',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0,
 	@SeparatorColumnName = 'AccountTypeId',
@@ -26,6 +29,7 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Income',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0,
 	@SeparatorColumnName = 'AccountTypeId',
@@ -33,6 +37,7 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Expenses',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0,
 	@SeparatorColumnName = 'AccountTypeId',
@@ -77,6 +82,7 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblItems',
 	@Caption = 'Items',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0
 
@@ -119,39 +125,54 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblPaymentMethods',
 	@Caption = 'Payment Methods',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0
 
 EXEC uspAddSystemLogTable
 	@TableName = 'tblSubsidiaries',
 	@Caption = 'Customers',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'SubsidiaryTypeId',
+	@SeparatorColumnId = 1
 EXEC uspAddSystemLogTable
 	@TableName = 'tblSubsidiaries',
 	@Caption = 'Suppliers',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'SubsidiaryTypeId',
+	@SeparatorColumnId = 2
 EXEC uspAddSystemLogTable
 	@TableName = 'tblSubsidiaries',
 	@Caption = 'Employees',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'SubsidiaryTypeId',
+	@SeparatorColumnId = 3
 EXEC uspAddSystemLogTable
 	@TableName = 'tblSubsidiaries',
 	@Caption = 'Others',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'SubsidiaryTypeId',
+	@SeparatorColumnId = 4
 
 --Administration
 EXEC uspAddSystemLogTable
 	@TableName = 'tblCompanies',
 	@Caption = 'Company',
+	@IdentifierColumnName = 'Code',
 	@Track = 1,
 	@Enable = 0
 EXEC uspAddSystemLogTable
 	@TableName = 'tblSystemUsers',
 	@Caption = 'Users',
+	@IdentifierColumnName = 'FormalName',
 	@Track = 1,
 	@Enable = 0
 
@@ -159,29 +180,69 @@ EXEC uspAddSystemLogTable
 EXEC uspAddSystemLogTable
 	@TableName = 'tblJournalVouchers',
 	@Caption = 'Journal Vouchers',
+	@IdentifierColumnName = 'TransactionNo',
 	@Track = 1,
 	@Enable = 0
 
 EXEC uspAddSystemLogTable
 	@TableName = 'tblBills',
 	@Caption = 'Bills',
+	@IdentifierColumnName = 'TransactionNo',
 	@Track = 1,
 	@Enable = 0
 EXEC uspAddSystemLogTable
 	@TableName = 'tblBillsPayment',
 	@Caption = 'Bills Payment',
+	@IdentifierColumnName = 'TransactionNo',
 	@Track = 1,
 	@Enable = 0
 
 EXEC uspAddSystemLogTable
 	@TableName = 'tblSalesInvoices',
 	@Caption = 'Sales Invoices',
+	@IdentifierColumnName = 'TransactionNo',
 	@Track = 1,
 	@Enable = 0
 EXEC uspAddSystemLogTable
 	@TableName = 'tblCashReceipts',
 	@Caption = 'Cash Receipts',
+	@IdentifierColumnName = 'TransactionNo',
 	@Track = 1,
 	@Enable = 0
+
+--Insert System Log Items
+DECLARE @tmp TABLE(Id INT IDENTITY(1, 1), Caption VARCHAR(100) PRIMARY KEY(Id))
+DECLARE @Id INT
+DECLARE @Caption VARCHAR(100)
+DECLARE @LastIndex INT
+
+INSERT INTO @tmp(Caption)
+SELECT Caption
+FROM tblSystemLogTableConfig
+WHERE Track = 1
+ORDER BY Caption
+
+SELECT @LastIndex = [Index]
+FROM tblSystemSubCategories
+WHERE Name = 'System Logs'
+
+WHILE 1 = 1
+BEGIN
+	SELECT TOP 1
+		@Id = Id,
+		@Caption = Caption
+	FROM @tmp
+
+	SET @LastIndex = @LastIndex + 1
+
+	EXEC uspAddSystemSubCategory @Category = 'Report', @Parent = 'System Logs', @Name = @Caption, @ListForm = 'ESystemLogsReportForm', @MasterForm = NULL, @Index = @LastIndex
+
+	DELETE
+	FROM @tmp
+	WHERE Id = @Id
+
+	IF NOT EXISTS(SELECT * FROM @tmp)
+		BREAK
+END
 GO
 

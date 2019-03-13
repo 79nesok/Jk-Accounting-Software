@@ -2,7 +2,8 @@ IF OBJECT_ID('tblSystemLogTableConfig') IS NULL
 	CREATE TABLE tblSystemLogTableConfig(
 		Id INT IDENTITY(1, 1) NOT NULL,
 		TableName VARCHAR(100) NOT NULL,
-		Caption VARCHAR(100) NULL,
+		Caption VARCHAR(100) NOT NULL,
+		IdentifierColumnName VARCHAR(100) NOT NULL,
 		SeparatorColumnName VARCHAR(100) NULL,
 		SeparatorColumnId INT NULL,
 		Track BIT NOT NULL CONSTRAINT DF_tblSystemLogTableConfig_Track DEFAULT 0,
