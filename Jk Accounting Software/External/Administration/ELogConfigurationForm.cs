@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
+using System.Data.SqlClient;
 
 namespace Jk_Accounting_Software.External.Administration
 {
@@ -25,6 +26,16 @@ namespace Jk_Accounting_Software.External.Administration
             btnNew.Visible = false;
             dataGridView.AllowUserToAddRows = false;
             dataGridView.AllowUserToDeleteRows = false;
+        }
+
+        private void ELogConfigurationForm_AfterSave()
+        {
+            SqlCommand Command = new SqlCommand();
+
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "uspCreateTrigger";
+            Command.Parameters.AddWithValue("@Id", Parameters.Find(p => p.Name == "Id").Value);
+            VTransactionHandler.ExecuteStoredProc(Command);
         }
     }
 }

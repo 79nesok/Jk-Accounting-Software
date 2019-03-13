@@ -51,15 +51,19 @@ WHERE t.name = @TableName
 
 IF NOT EXISTS(SELECT * FROM tblSystemLogColumnConfig WHERE TableId = @TableId AND ColumnName = @ColumnName)
 	INSERT INTO tblSystemLogColumnConfig(TableId, ColumnName, Caption, DataType, [Index], Track, TableSource)
-	SELECT @TableId, @ColumnName, @Caption, @DataType, @Index, @Track, @TableSource
+	SELECT Id, @ColumnName, @Caption, @DataType, @Index, @Track, @TableSource
+	FROM tblSystemLogTableConfig
+	WHERE TableName = @TableName
 ELSE
-	UPDATE tblSystemLogColumnConfig
-	SET Caption = @Caption,
-		DataType = @DataType,
-		[Index] = @Index,
-		Track = @Track,
-		TableSource = @TableSource
-	WHERE TableId = @TableId
-		AND ColumnName = @ColumnName
+	UPDATE c
+	SET c.Caption = @Caption,
+		c.DataType = @DataType,
+		c.[Index] = @Index,
+		c.Track = @Track,
+		c.TableSource = @TableSource
+	FROM tblSystemLogColumnConfig c
+		INNER JOIN tblSystemLogTableConfig t ON t.Id = c.TableId
+	WHERE c.ColumnName = @ColumnName
+		AND t.TableName = @TableName
 GO
 

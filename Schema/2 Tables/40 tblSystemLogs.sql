@@ -1,0 +1,25 @@
+IF OBJECT_ID('tblSystemLogs') IS NULL
+	CREATE TABLE tblSystemLogs(
+		Id INT NOT NULL IDENTITY(1, 1),
+		TableId INT NOT NULL,
+		ColumnId INT NOT NULL,
+		CompanyId INT NOT NULL,
+		MasterId INT NOT NULL,
+		DetailId INT NULL,
+		OldValue VARCHAR(MAX) NULL,
+		NewValue VARCHAR(MAX) NULL,
+		New BIT NOT NULL CONSTRAINT DF_tblSystemLogs_New DEFAULT 0,
+		Edit BIT NOT NULL CONSTRAINT DF_tblSystemLogs_Edit DEFAULT 0,
+		[Delete] BIT NOT NULL CONSTRAINT DF_tblSystemLogs_Delete DEFAULT 0,
+		SystemUserId INT NOT NULL,
+		[DateTime] DATETIME NOT NULL,
+	)
+GO
+
+IF OBJECT_ID('tblSystemLogs_PK') IS NOT NULL
+	ALTER TABLE tblSystemLogs DROP CONSTRAINT tblSystemLogs_PK
+GO
+
+ALTER TABLE tblSystemLogs ADD CONSTRAINT tblSystemLogs_PK PRIMARY KEY(Id)
+GO
+

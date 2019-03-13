@@ -1,30 +1,42 @@
 TRUNCATE TABLE tblSystemLogTableConfig
+TRUNCATE TABLE tblSystemLogColumnConfig
 
 --Maintenance
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Assets',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'AccountTypeId',
+	@SeparatorColumnId = 1
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Liabilities',
-	@Track = 1, @Enable = 0
+	@Track = 1,
+	@Enable = 0,
+	@SeparatorColumnName = 'AccountTypeId',
+	@SeparatorColumnId = 2
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Equities',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'AccountTypeId',
+	@SeparatorColumnId = 3
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Income',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'AccountTypeId',
+	@SeparatorColumnId = 4
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
 	@Caption = 'Expenses',
 	@Track = 1,
-	@Enable = 0
+	@Enable = 0,
+	@SeparatorColumnName = 'AccountTypeId',
+	@SeparatorColumnId = 5
 
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblAccounts',
@@ -67,6 +79,42 @@ EXEC uspAddSystemLogTable
 	@Caption = 'Items',
 	@Track = 1,
 	@Enable = 0
+
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblItems',
+		@ColumnName = 'Code',
+		@Caption = 'Code',
+		@Index = 0,
+		@Track = 1,
+		@TableSource = NULL
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblItems',
+		@ColumnName = 'Name',
+		@Caption = 'Name',
+		@Index = 1,
+		@Track = 1,
+		@TableSource = NULL
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblItems',
+		@ColumnName = 'TypeId',
+		@Caption = 'Type',
+		@Index = 2,
+		@Track = 1,
+		@TableSource = 'tblItemTypes'
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblItems',
+		@ColumnName = 'Remarks',
+		@Caption = 'Remarks',
+		@Index = 3,
+		@Track = 1,
+		@TableSource = NULL
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblItems',
+		@ColumnName = 'Active',
+		@Caption = 'Active',
+		@Index = 4,
+		@Track = 1,
+		@TableSource = NULL
 
 EXEC uspAddSystemLogTable
 	@TableName = 'tblPaymentMethods',
