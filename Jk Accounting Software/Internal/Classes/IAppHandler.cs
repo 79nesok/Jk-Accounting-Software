@@ -21,11 +21,11 @@ namespace Jk_Accounting_Software.Internal.Classes
         private static String InitialStatus;
         private static int CurrentTag = 0;
 
-        public static String GetSubCategory(String Name, String Result)
+        public static String GetSubCategory(String Name, String Category, String Result)
         {
             try
             {
-                return SubCategories.Select("Name = '" + Name + "'")[0][Result].ToString();
+                return SubCategories.Select(String.Format("Name = '{0}' AND Category = '{1}'", Name, Category))[0][Result].ToString();
             }
             catch (Exception ex)
             {

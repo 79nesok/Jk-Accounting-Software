@@ -244,5 +244,34 @@ BEGIN
 	IF NOT EXISTS(SELECT * FROM @tmp)
 		BREAK
 END
+
+--Create all triggers
+DECLARE @table TABLE(TableId INT)
+DECLARE @TableId INT
+
+INSERT INTO @table(TableId)
+SELECT Id
+FROM tblSystemLogTableConfig
+WHERE Track = 1
+
+WHILE 1 = 1
+BEGIN
+	SELECT TOP 1
+		@TableId = TableId
+	FROM @table
+
+	EXEC uspCreateTrigger @TableId
+
+	UPDATE tblSystemLogTableConfig
+	SET [Enable] = 1
+	WHERE Id = @TableId
+
+	DELETE
+	FROM @table
+	WHERE TableId = @TableId
+
+	IF NOT EXISTS(SELECT * FROM @table)
+		BREAK
+END
 GO
 

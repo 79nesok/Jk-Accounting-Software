@@ -41,7 +41,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             public FormStates FormState { get; set; }
 
             [Browsable(false)]
-            public String ListForm { get; set; }
+            public String SubCategory { get; set; }
         #endregion
 
         #region Added Events

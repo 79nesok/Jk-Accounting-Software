@@ -162,7 +162,6 @@ namespace Jk_Accounting_Software.Internal.Forms
                             }
                         }
                     }
-                    Form.ListForm = this.Name;
 
                     if (OpenForm != null)
                         OpenForm();

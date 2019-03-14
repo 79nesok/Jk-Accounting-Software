@@ -313,8 +313,9 @@
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns3"))));
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns4"))));
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns5"))));
-            this.dstPaymentDetails.CommandText = "SELECT Id, CashReceiptId, PaymentMethodId,\r\n\tReferenceNo, Amount, Remarks\r\nFROM t" +
-    "blCashReceiptDetails\r\nWHERE CashReceiptId = @Id";
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns6"))));
+            this.dstPaymentDetails.CommandText = "SELECT Id, CashReceiptId, PaymentMethodId,\r\n\tAmount, CheckNo, CheckDate, Remarks\r" +
+    "\nFROM tblCashReceiptDetails\r\nWHERE CashReceiptId = @Id";
             this.dstPaymentDetails.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
     "ity Info=True;User ID=sa;Password=masterkey";
             this.dstPaymentDetails.GridAutoSize = false;
@@ -471,7 +472,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 161);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // flowLayoutPanelPaymentDetails
@@ -566,7 +567,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 171);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 146);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;

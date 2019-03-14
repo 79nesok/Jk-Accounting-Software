@@ -173,6 +173,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\ESystemLogsReportDS.cs">
+      <DependentUpon>ESystemLogsReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\ESystemLogsReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESystemLogsReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Maintenance\EAccountForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -503,6 +512,12 @@
     <Compile Include="External\Report\ESubsidiaryLedgerReportForm.Designer.cs">
       <DependentUpon>ESubsidiaryLedgerReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\ESystemLogsReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\ESystemLogsReportForm.Designer.cs">
+      <DependentUpon>ESystemLogsReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\ETrialBalanceReportForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -726,6 +741,7 @@
     <EmbeddedResource Include="External\Printouts\Journals.rdlc" />
     <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
+    <EmbeddedResource Include="External\Printouts\System Logs.rdlc" />
     <EmbeddedResource Include="External\Printouts\Trial Balance.rdlc" />
     <EmbeddedResource Include="External\Report\EAgingOfPayablesReportForm.resx">
       <DependentUpon>EAgingOfPayablesReportForm.cs</DependentUpon>
@@ -776,6 +792,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\ESubsidiaryLedgerReportForm.resx">
       <DependentUpon>ESubsidiaryLedgerReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\ESystemLogsReportForm.resx">
+      <DependentUpon>ESystemLogsReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\ETrialBalanceReportForm.resx">
       <DependentUpon>ETrialBalanceReportForm.cs</DependentUpon>
@@ -980,6 +999,17 @@
     </None>
     <None Include="External\Datasources\ESubsidiaryLedgerReportDS.xss">
       <DependentUpon>ESubsidiaryLedgerReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ESystemLogsReportDS.xsc">
+      <DependentUpon>ESystemLogsReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ESystemLogsReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ESystemLogsReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\ESystemLogsReportDS.xss">
+      <DependentUpon>ESystemLogsReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\ETrialBalanceReportDS.xsc">
       <DependentUpon>ETrialBalanceReportDS.xsd</DependentUpon>

@@ -107,16 +107,15 @@ BEGIN
 		@NewLine
 END
 
-DECLARE @col TABLE(KeyId INT IDENTITY(1, 1), ColumnId  INT, ColumnName VARCHAR(100),
+DECLARE @col TABLE(KeyId INT IDENTITY(1, 1), ColumnName VARCHAR(100),
 	DataType VARCHAR(100), TableSouce VARCHAR(100) PRIMARY KEY(KeyId))
 DECLARE @KeyId INT
-DECLARE @ColumnId INT
 DECLARE @ColumnName VARCHAR(100)
 DECLARE @DataType VARCHAR(100)
 DECLARE @TableSource VARCHAR(100)
 
-INSERT INTO @col(ColumnId, ColumnName, DataType, TableSouce)
-SELECT Id, ColumnName, DataType, TableSource
+INSERT INTO @col(ColumnName, DataType, TableSouce)
+SELECT ColumnName, DataType, TableSource
 FROM tblSystemLogColumnConfig
 WHERE TableId = @Id
 	AND Track = 1
@@ -124,6 +123,7 @@ ORDER BY [Index]
 
 --Declarations for Columns
 SET @CommandText +=
+	'DECLARE @ColumnId INT' + @NewLine +
 	'DECLARE @CompanyId INT' + @NewLine +
 	'DECLARE @MasterId INT' + @NewLine +
 	'DECLARE @OldValue VARCHAR(MAX)' + @NewLine +
@@ -134,7 +134,6 @@ WHILE 1 = 1
 BEGIN
 	SELECT TOP 1
 		@KeyId = KeyId,
-		@ColumnId = ColumnId,
 		@ColumnName = ColumnName,
 		@DataType = DataType,
 		@TableSource = TableSouce
@@ -201,8 +200,15 @@ BEGIN
 
 	SET @CommandText +=
 		'IF ISNULL(@OldValue, '''') <> ISNULL(@NewValue, '''')' + @NewLine +
+		'BEGIN' + @NewLine +
+		'	SELECT @ColumnId = Id' + @NewLine +
+		'	FROM tblSystemLogColumnConfig' + @NewLine +
+		'	WHERE TableId = @TableId' + @NewLine +
+		'		AND ColumnName = ''' + @ColumnName + '''' + @NewLine +
+		@NewLine +
 		'	INSERT INTO @tmp(TableId, ColumnId, CompanyId, MasterId, OldValue, NewValue, New, Edit, [Delete])' + @NewLine +
-		'	SELECT @TableId, ' + CAST(@ColumnId AS VARCHAR) + ', @CompanyId, @MasterId, @OldValue, @NewValue, @IsNew, @IsEdit, @IsDelete' + @NewLine +
+		'	SELECT @TableId, @ColumnId, @CompanyId, @MasterId, @OldValue, @NewValue, @IsNew, @IsEdit, @IsDelete' + @NewLine +
+		'END' + @NewLine +
 		@NewLine
 
 	DELETE

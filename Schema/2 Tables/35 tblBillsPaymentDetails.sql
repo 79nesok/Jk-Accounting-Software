@@ -3,8 +3,9 @@ IF OBJECT_ID('tblBillsPaymentDetails') IS NULL
 		Id INT IDENTITY(1, 1) NOT NULL,
 		BillsPaymentId INT NOT NULL,
 		PaymentMethodId INT NOT NULL,
-		ReferenceNo VARCHAR(50) NULL,
 		Amount MONEY NOT NULL CONSTRAINT DF_tblBillsPaymentDetails_Amount DEFAULT 0,
+		CheckNo VARCHAR(50) NULL,
+		CheckDate DATETIME NULL,
 		Remarks VARCHAR(1000) NULL,
 	)
 GO

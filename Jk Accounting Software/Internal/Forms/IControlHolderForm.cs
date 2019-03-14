@@ -200,6 +200,7 @@ namespace Jk_Accounting_Software
                 treeView.Cursor = Cursors.Hand;
                 treeView.BackColor = Color.Silver;
                 treeView.NodeMouseClick += treeView_NodeMouseClick;
+                treeView.Tag = caption;
 
                 try
                 {
@@ -250,11 +251,12 @@ namespace Jk_Accounting_Software
                             IAppHandler.FindActiveForm().Hide();
                         }
 
-                        formname = IAppHandler.GetSubCategory(e.Node.Text, "ListForm");
+                        formname = IAppHandler.GetSubCategory(e.Node.Text, e.Node.TreeView.Tag.ToString(), "ListForm");
 
                         if (formname != null)
                         {
                             form = IAppHandler.FindForm(formname, e.Node.Text);
+                            form.SubCategory = e.Node.Text;
                             if (form != null)
                                 form.Run();
                             else

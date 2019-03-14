@@ -97,7 +97,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.tabControlPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 433);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -124,17 +124,25 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(837, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 174);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 146);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(837, 536);
+            this.splitContainer.Size = new System.Drawing.Size(836, 536);
             // 
             // btnClose
             // 
@@ -142,7 +150,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -372,8 +380,9 @@
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns3"))));
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns4"))));
             this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns5"))));
-            this.dstPaymentDetails.CommandText = "SELECT Id, BillsPaymentId, PaymentMethodId,\r\n\tReferenceNo, Amount, Remarks\r\nFROM " +
-    "tblBillsPaymentDetails\r\nWHERE BillsPaymentId = @Id";
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns6"))));
+            this.dstPaymentDetails.CommandText = "SELECT Id, BillsPaymentId, PaymentMethodId,\r\n\tAmount, CheckNo, CheckDate, Remarks" +
+    "\r\nFROM tblBillsPaymentDetails\r\nWHERE BillsPaymentId = @Id";
             this.dstPaymentDetails.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
     "ity Info=True;User ID=sa;Password=masterkey";
             this.dstPaymentDetails.GridAutoSize = false;
@@ -589,7 +598,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
             this.Name = "EBillsPaymentForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(837, 536);
+            this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
             this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashDisbursementVoucherForm_BeforeRun);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashDisbursementVoucherForm_ValidateSave);

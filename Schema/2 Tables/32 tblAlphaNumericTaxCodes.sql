@@ -7,6 +7,7 @@ IF OBJECT_ID('tblAlphaNumericTaxCodes') IS NULL
 		NewRate MONEY NOT NULL CONSTRAINT DF_tblAlphaNumericTaxCodes_NewRate DEFAULT 0,
 		Remarks VARCHAR(1000) NULL,
 		Active BIT NOT NULL CONSTRAINT DF_tblAlphaNumericTaxCodes_Active DEFAULT 1,
+		Name AS (Code + '-' + CAST(NewRate AS VARCHAR) + '%'),
 	)
 GO
 
