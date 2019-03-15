@@ -34,6 +34,14 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
+            // 
             // EEquitiesListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -44,13 +52,13 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns3"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns4"))));
             this.CommandText = "SELECT Id, Code, Name, Remarks, Active\r\nFROM tblAccounts\r\nWHERE CompanyId = @Comp" +
-    "anyId\r\n\tAND AccountTypeId = @AccountTypeId";
+    "anyId\r\n\tAND AccountTypeId = @AccountTypeId\r\nORDER BY Code";
             this.Name = "EEquitiesListForm";
             this.NewFormName = "EAccountForm";
             this.OpenFormName = "EAccountForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 506);
+            this.Size = new System.Drawing.Size(836, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

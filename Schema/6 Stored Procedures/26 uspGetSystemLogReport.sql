@@ -47,16 +47,32 @@ SET @CommandText =
 		END AS Mode,
 		tn.' + @IdentifierColumnName + ' AS Code,
 		slcc.Caption AS [Column], sl.OldValue, sl.NewValue
-	FROM tblSystemLogs sl
+	FROM (
+		SELECT sl.Id, sl.TableId, sl.ColumnId, sl.CompanyId, sl.MasterId, sl.OldValue,
+			sl.NewValue, sl.New, sl.Edit, sl.[Delete], sl.SystemUserId, sl.[DateTime]
+		FROM tblSystemLogs sl
+			INNER JOIN tblSystemLogTableConfig sltc ON sltc.Id = sl.TableId
+		WHERE sl.CompanyId = @CompanyId
+			AND CAST(sl.[DateTime] AS DATE) BETWEEN @FromDate AND @ToDate
+			AND sltc.Caption = @SubCategory
+
+		UNION ALL
+
+		SELECT sl.Id, sl.TableId, sl.ColumnId, sl.CompanyId, sl.MasterId, sl.OldValue,
+			sl.NewValue, sl.New, sl.Edit, sl.[Delete], sl.SystemUserId, sl.[DateTime]
+		FROM tblSystemLogs sl
+			INNER JOIN tblSystemLogTableLinks sltl ON sltl.ChildTableId = sl.TableId
+			INNER JOIN tblSystemLogTableConfig sltc ON sltc.Id = sltl.TableId
+		WHERE sl.CompanyId = @CompanyId
+			AND CAST(sl.[DateTime] AS DATE) BETWEEN @FromDate AND @ToDate
+			AND sltc.Caption = @SubCategory
+	) sl
 		INNER JOIN tblSystemLogTableConfig sltc ON sltc.Id = sl.TableId
 		INNER JOIN tblSystemLogColumnConfig slcc ON slcc.TableId = sltc.Id
 			AND slcc.Id = sl.ColumnId
 		INNER JOIN tblSystemUsers su ON su.Id = sl.SystemUserId
 		INNER JOIN ' + @TableName + ' tn ON tn.Id = sl.MasterId
-	WHERE sl.CompanyId = @CompanyId
-		AND CAST(sl.[DateTime] AS DATE) BETWEEN @FromDate AND @ToDate
-		AND sltc.Caption = @SubCategory
-	ORDER BY sl.[DateTime], slcc.[Index]
+	ORDER BY sl.Id
 	'
 
 EXEC(@CommandText)

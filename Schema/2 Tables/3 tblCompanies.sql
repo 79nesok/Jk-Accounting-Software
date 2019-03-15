@@ -1,6 +1,7 @@
 IF OBJECT_ID('tblCompanies') IS NULL
 	CREATE TABLE tblCompanies(
 		Id INT IDENTITY(1, 1) NOT NULL,
+		CompanyId AS Id,
 		Code VARCHAR(50) NOT NULL,
 		Name VARCHAR(100) NULL,
 		[Address] VARCHAR(250) NULL,

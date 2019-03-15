@@ -5,10 +5,15 @@ DECLARE @Caption VARCHAR(100)
 DECLARE @LastIndex INT
 
 INSERT INTO @tmp(Caption)
-SELECT Caption
-FROM tblSystemLogTableConfig
-WHERE Track = 1
-ORDER BY Caption
+SELECT sltc.Caption
+FROM tblSystemLogTableConfig sltc
+WHERE sltc.Track = 1
+	AND NOT EXISTS(
+		SELECT *
+		FROM tblSystemLogTableLinks sltl
+		WHERE sltl.ChildTableId = sltc.Id
+	)
+ORDER BY sltc.Caption
 
 SELECT @LastIndex = [Index]
 FROM tblSystemSubCategories
@@ -39,7 +44,7 @@ DECLARE @TableId INT
 
 INSERT INTO @table(TableId)
 SELECT Id
-FROM tblSystemLogTableConfig
+FROM tblSystemLogTableConfig sltc
 WHERE Track = 1
 
 WHILE 1 = 1

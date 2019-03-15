@@ -7,21 +7,29 @@ AS
 SET NOCOUNT ON
 
 DECLARE @TableName VARCHAR(100)
+DECLARE @IdentifierColumnName VARCHAR(100)
 DECLARE @SeparatorColumnName VARCHAR(100)
 DECLARE @SeparatorColumnId INT
 DECLARE @Track BIT
 DECLARE @Enable BIT
+DECLARE @ParentTableName VARCHAR(100)
 DECLARE @CommandText VARCHAR(MAX)
 DECLARE @TriggerName VARCHAR(100)
 DECLARE @NewLine VARCHAR(1) = CHAR(13)
 
 SELECT @TableName = TableName,
+	@IdentifierColumnName = IdentifierColumnName,
 	@SeparatorColumnName = ISNULL(SeparatorColumnName, ''),
 	@SeparatorColumnId = ISNULL(SeparatorColumnId, ''),
 	@Track = Track,
 	@Enable = [Enable]
 FROM tblSystemLogTableConfig
 WHERE Id = @Id
+
+SELECT @ParentTableName = t.TableName
+FROM tblSystemLogTableLinks tl
+	INNER JOIN tblSystemLogTableConfig t ON t.Id = tl.TableId
+WHERE tl.ChildTableId = @Id
 
 SET @TriggerName = @TableName + '_INSERT_UPDATE_DELETE'
 
@@ -52,8 +60,8 @@ SET @CommandText +=
 	'DECLARE @SeparatorId INT' + @NewLine +
 	'DECLARE @Cmd VARCHAR(MAX)' + @NewLine +
 	'DECLARE @TableId INT' + @NewLine +
-	'DECLARE @tmp TABLE(TableId INT, ColumnId INT, CompanyId INT, MasterId INT, OldValue VARCHAR(MAX),' + @NewLine +
-	'	NewValue VARCHAR(MAX), New BIT, Edit BIT, [Delete] BIT)' + @NewLine +
+	'DECLARE @tmp TABLE(TableId INT, ColumnId INT, CompanyId INT, MasterId INT, DetailId INT,' + @NewLine +
+	'	OldValue VARCHAR(MAX), NewValue VARCHAR(MAX), New BIT, Edit BIT, [Delete] BIT)' + @NewLine +
 	@NewLine
 
 --Set Bits
@@ -126,6 +134,7 @@ SET @CommandText +=
 	'DECLARE @ColumnId INT' + @NewLine +
 	'DECLARE @CompanyId INT' + @NewLine +
 	'DECLARE @MasterId INT' + @NewLine +
+	'DECLARE @DetailId INT' + @NewLine +
 	'DECLARE @OldValue VARCHAR(MAX)' + @NewLine +
 	'DECLARE @NewValue VARCHAR(MAX)' + @NewLine +
 	@NewLine
@@ -141,18 +150,34 @@ BEGIN
 
 	--Check columns
 	SET @CommandText +=
+		'--' + @ColumnName + @NewLine +
 		'SET @OldValue = NULL' + @NewLine +
 		'SET @NewValue = NULL' + @NewLine +
 		@NewLine +
 
 		'IF @IsNew = 1' + @NewLine +
-		'BEGIN' + @NewLine +
-		'	SET @CompanyId = (SELECT Inserted.CompanyId FROM Inserted)' + @NewLine +
-		'	SET @MasterId = (SELECT Inserted.Id FROM Inserted)' + @NewLine
+		'BEGIN' + @NewLine
+
+		IF NULLIF(@ParentTableName, '') IS NULL
+		BEGIN
+			SET @CommandText +=
+				'	SET @CompanyId = (SELECT Inserted.CompanyId FROM Inserted)' + @NewLine +
+				'	SET @MasterId = (SELECT Inserted.Id FROM Inserted)' + @NewLine
+		END
+		ELSE
+		BEGIN
+			SET @CommandText +=
+				'	SET @CompanyId = (SELECT p.CompanyId FROM Inserted i INNER JOIN ' + @ParentTableName +' p ON p.Id = i.' + @IdentifierColumnName +')' + @NewLine +
+				'	SET @MasterId = (SELECT Inserted.' + @IdentifierColumnName +' FROM Inserted)' + @NewLine +
+				'	SET @DetailId = (SELECT Inserted.Id FROM Inserted)' + @NewLine
+		END
 
 		IF @DataType = 'bit'
 			SET @CommandText +=
 				'	SET @NewValue = (SELECT CASE WHEN Inserted.' + @ColumnName + ' = 1 THEN ''True'' ELSE ''False'' END FROM Inserted)' + @NewLine
+		ELSE IF @DataType = 'dateTime'
+			SET @CommandText +=
+				'	SET @NewValue = (SELECT CONVERT(VARCHAR, Inserted.' + @ColumnName + ', 101) FROM Inserted)' + @NewLine
 		ELSE
 		BEGIN
 			IF NULLIF(@TableSource, '') IS NULL
@@ -166,15 +191,35 @@ BEGIN
 	SET @CommandText +=
 		'END' + @NewLine +
 		'ELSE' + @NewLine +
-		'BEGIN' + @NewLine +
-		'	SET @CompanyId = (SELECT Deleted.CompanyId FROM Deleted)' + @NewLine +
-		'	SET @MasterId = (SELECT Deleted.Id FROM Deleted)' + @NewLine
+		'BEGIN' + @NewLine
+
+		IF NULLIF(@ParentTableName, '') IS NULL
+		BEGIN
+			SET @CommandText +=
+				'	SET @CompanyId = (SELECT Deleted.CompanyId FROM Deleted)' + @NewLine +
+				'	SET @MasterId = (SELECT Deleted.Id FROM Deleted)' + @NewLine
+		END
+		ELSE
+		BEGIN
+			SET @CommandText +=
+				'	SET @CompanyId = (SELECT p.CompanyId FROM Deleted d INNER JOIN ' + @ParentTableName + ' p ON p.Id = d.' + @IdentifierColumnName +')' + @NewLine +
+				'	SET @MasterId = (SELECT Deleted.' + @IdentifierColumnName +' FROM Deleted)' + @NewLine +
+				'	SET @DetailId = (SELECT Deleted.Id FROM Deleted)' + @NewLine
+		END
 
 		IF @DataType = 'bit'
 		BEGIN
 			SET @CommandText +=
 				'	SET @NewValue = (SELECT CASE WHEN Inserted.' + @ColumnName + ' = 1 THEN ''True'' ELSE ''False'' END FROM Inserted)' + @NewLine +
 				'	SET @OldValue = (SELECT CASE WHEN Deleted.' + @ColumnName + ' = 1 THEN ''True'' ELSE ''False'' END FROM Deleted)' + @NewLine +
+				'END' + @NewLine +
+				@NewLine
+		END
+		ELSE IF @DataType = 'datetime'
+		BEGIN
+			SET @CommandText +=
+				'	SET @NewValue = (SELECT CONVERT(VARCHAR, Inserted.' + @ColumnName + ', 101) FROM Inserted)' + @NewLine +
+				'	SET @OldValue = (SELECT CONVERT(VARCHAR, Deleted.' + @ColumnName + ', 101) FROM Deleted)' + @NewLine +
 				'END' + @NewLine +
 				@NewLine
 		END
@@ -206,8 +251,8 @@ BEGIN
 		'	WHERE TableId = @TableId' + @NewLine +
 		'		AND ColumnName = ''' + @ColumnName + '''' + @NewLine +
 		@NewLine +
-		'	INSERT INTO @tmp(TableId, ColumnId, CompanyId, MasterId, OldValue, NewValue, New, Edit, [Delete])' + @NewLine +
-		'	SELECT @TableId, @ColumnId, @CompanyId, @MasterId, @OldValue, @NewValue, @IsNew, @IsEdit, @IsDelete' + @NewLine +
+		'	INSERT INTO @tmp(TableId, ColumnId, CompanyId, MasterId, DetailId, OldValue, NewValue, New, Edit, [Delete])' + @NewLine +
+		'	SELECT @TableId, @ColumnId, @CompanyId, @MasterId, @DetailId, @OldValue, @NewValue, @IsNew, @IsEdit, @IsDelete' + @NewLine +
 		'END' + @NewLine +
 		@NewLine
 
@@ -223,17 +268,24 @@ END
 SET @CommandText +=
 	'DECLARE @SystemUserId INT' + @NewLine +
 	'DECLARE @DateTime DATETIME' + @NewLine +
-	@NewLine +
-
-	'SET @SystemUserId = (SELECT Inserted.ModifiedById FROM Inserted)' + @NewLine +
-	'SET @DateTime = (SELECT Inserted.DateModified FROM Inserted)' + @NewLine +
 	@NewLine
+
+	IF NULLIF(@ParentTableName, '') IS NULL
+		SET @CommandText +=
+			'SET @SystemUserId = (SELECT Inserted.ModifiedById FROM Inserted)' + @NewLine +
+			'SET @DateTime = (SELECT Inserted.DateModified FROM Inserted)' + @NewLine +
+			@NewLine
+	ELSE
+		SET @CommandText +=
+			'SET @SystemUserId = (SELECT p.ModifiedById FROM Inserted i INNER JOIN ' + @ParentTableName +' p ON p.Id = i.' + @IdentifierColumnName + ')' + @NewLine +
+			'SET @DateTime = (SELECT p.DateModified FROM Inserted i INNER JOIN ' + @ParentTableName +' p ON p.Id = i.' + @IdentifierColumnName + ')' + @NewLine +
+			@NewLine
 
 --Insert to physical table
 SET @CommandText +=
-	'INSERT INTO tblSystemLogs(TableId, ColumnId, CompanyId, MasterId,' + @NewLine +
+	'INSERT INTO tblSystemLogs(TableId, ColumnId, CompanyId, MasterId, DetailId,' + @NewLine +
 	'	OldValue, NewValue, New, Edit, [Delete], SystemUserId, [DateTime])' + @NewLine +
-	'SELECT TableId, ColumnId, CompanyId, MasterId,' + @NewLine +
+	'SELECT TableId, ColumnId, CompanyId, MasterId, DetailId,' + @NewLine +
 	'	OldValue, NewValue, New, Edit, [Delete], @SystemUserId, @DateTime' + @NewLine +
 	'FROM @tmp' + @NewLine
 

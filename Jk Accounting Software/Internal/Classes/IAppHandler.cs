@@ -191,7 +191,10 @@ namespace Jk_Accounting_Software.Internal.Classes
             else if (PControl is DateTimePicker)
                 (PControl as DateTimePicker).Value = new DateTime(Convert.ToDateTime(PValue).Year, Convert.ToDateTime(PValue).Month, Convert.ToDateTime(PValue).Day);
             else if (PControl is PictureBox)
-                (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
+            {
+                if (PValue != null && PValue != DBNull.Value)
+                    (PControl as PictureBox).Image = IImageHandler.ConvertByteToImage(PValue as byte[]);
+            }
             else if (PControl is JkLookUpComboBox)
             {
                 if (PValue == DBNull.Value)

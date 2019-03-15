@@ -220,7 +220,8 @@
 	pm.Remarks, pm.ForClearing, pm.Active
 FROM tblPaymentMethods pm
 	LEFT OUTER JOIN tblAccounts a ON a.Id = pm.AccountId
-WHERE pm.CompanyId = @CompanyId</value>
+WHERE pm.CompanyId = @CompanyId
+ORDER BY pm.Code</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
