@@ -256,9 +256,12 @@ namespace Jk_Accounting_Software
                         if (formname != null)
                         {
                             form = IAppHandler.FindForm(formname, e.Node.Text);
-                            form.SubCategory = e.Node.Text;
+
                             if (form != null)
+                            {
+                                form.SubCategory = e.Node.Text;
                                 form.Run();
+                            }
                             else
                                 IMessageHandler.Inform(ISystemMessages.NoFormMessage);
                         }

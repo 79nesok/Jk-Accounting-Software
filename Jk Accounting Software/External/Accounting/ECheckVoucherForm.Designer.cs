@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class ECashReceiptForm
+    partial class ECheckVoucherForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECashReceiptForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECheckVoucherForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTransactionNo = new JkComponents.JkTextBox();
@@ -46,15 +46,11 @@
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
-            this.dstPaymentDetails = new JkComponents.JkDetailDataSet();
-            this.dataGridViewPaymentDetails = new JkComponents.JkDataGridView();
-            this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
-            this.cmbPaymentMethods = new JkComponents.JkLookUpComboBox();
             this.tabControlPaymentDetails = new System.Windows.Forms.TabControl();
             this.tabPagePaymentDetails = new System.Windows.Forms.TabPage();
             this.splitContainerPaymentDetails = new System.Windows.Forms.SplitContainer();
-            this.dstJournalEntry = new JkComponents.JkDetailDataSet();
-            this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
+            this.dataGridViewPaymentDetails = new JkComponents.JkDataGridView();
+            this.dstPaymentDetails = new JkComponents.JkDetailDataSet();
             this.flowLayoutPanelPaymentDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAmountPaid = new JkComponents.JkTextBox();
@@ -62,7 +58,13 @@
             this.txtAmountApplied = new JkComponents.JkTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
+            this.dstJournalEntry = new JkComponents.JkDetailDataSet();
+            this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
+            this.jkSeriesProvider1 = new JkComponents.JkSeriesProvider();
+            this.cmbPaymentMethods = new JkComponents.JkLookUpComboBox();
             this.tabPageJournalEntry = new System.Windows.Forms.TabPage();
+            this.cmbAccounts = new JkComponents.JkLookUpComboBox();
+            this.cmbSubsidiaryDetail = new JkComponents.JkLookUpComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
             this.splitContainerMasterDetail.Panel2.SuspendLayout();
@@ -74,15 +76,15 @@
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).BeginInit();
             this.tabControlPaymentDetails.SuspendLayout();
             this.tabPagePaymentDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerPaymentDetails)).BeginInit();
             this.splitContainerPaymentDetails.Panel1.SuspendLayout();
             this.splitContainerPaymentDetails.Panel2.SuspendLayout();
             this.splitContainerPaymentDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).BeginInit();
             this.flowLayoutPanelPaymentDetails.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).BeginInit();
             this.tabPageJournalEntry.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +93,9 @@
             // 
             // splitContainerMasterDetail.Panel1
             // 
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiaryDetail);
+            this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
@@ -108,14 +113,10 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns4"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns5"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns6"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns7"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns8"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns9"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
-            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
-            this.dstDetail.CommandText = "SELECT Id, CashReceiptId, SourceId, AppliedAmount\r\nFROM tblCashReceiptInvoiceDeta" +
-    "ils\r\nWHERE CashReceiptId = @Id";
-            this.dstDetail.Location = new System.Drawing.Point(733, 218);
+            this.dstDetail.CommandText = "SELECT Id, BillsPaymentId, AccountId, SubsidiaryId,\r\n\tDebit, Credit, Remarks\r\nFRO" +
+    "M tblBillsPaymentAccountDetails\r\nWHERE BillsPaymentId = @Id";
+            this.dstDetail.GridAutoSize = true;
+            this.dstDetail.Location = new System.Drawing.Point(779, 203);
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
@@ -169,7 +170,7 @@
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(325, 255);
-            this.flowLayoutPanel2.TabIndex = 18;
+            this.flowLayoutPanel2.TabIndex = 20;
             // 
             // label6
             // 
@@ -264,7 +265,7 @@
             // 
             // cmbSubsidiary
             // 
-            this.cmbSubsidiary.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSubsidiary.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cmbSubsidiary.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubsidiary.BackColor = System.Drawing.SystemColors.Window;
             this.cmbSubsidiary.DataSet = "dstSubsidiaries";
@@ -282,7 +283,6 @@
             this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(194, 23);
             this.cmbSubsidiary.TabIndex = 15;
-            this.cmbSubsidiary.SelectedIndexChanged += new System.EventHandler(this.cmbSubsidiary_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -304,87 +304,6 @@
             this.txtRemarks.Size = new System.Drawing.Size(194, 76);
             this.txtRemarks.TabIndex = 12;
             // 
-            // dstPaymentDetails
-            // 
-            this.dstPaymentDetails.BackColor = System.Drawing.Color.Tan;
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns"))));
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns1"))));
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns2"))));
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns3"))));
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns4"))));
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns5"))));
-            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns6"))));
-            this.dstPaymentDetails.CommandText = "SELECT Id, CashReceiptId, PaymentMethodId,\r\n\tAmount, CheckNo, CheckDate, Remarks\r" +
-    "\nFROM tblCashReceiptDetails\r\nWHERE CashReceiptId = @Id";
-            this.dstPaymentDetails.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
-    "ity Info=True;User ID=sa;Password=masterkey";
-            this.dstPaymentDetails.GridAutoSize = false;
-            this.dstPaymentDetails.GridView = this.dataGridViewPaymentDetails;
-            this.dstPaymentDetails.LinkToMaster = true;
-            this.dstPaymentDetails.Location = new System.Drawing.Point(686, 166);
-            this.dstPaymentDetails.Name = "dstPaymentDetails";
-            this.dstPaymentDetails.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstPaymentDetails.Parameters"))));
-            this.dstPaymentDetails.Size = new System.Drawing.Size(95, 20);
-            this.dstPaymentDetails.TabIndex = 27;
-            this.dstPaymentDetails.Visible = false;
-            this.dstPaymentDetails.ZLoadColumns = true;
-            this.dstPaymentDetails.ZLoadGrid = true;
-            // 
-            // dataGridViewPaymentDetails
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.dataGridViewPaymentDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewPaymentDetails.AutoGenerateColumns = false;
-            this.dataGridViewPaymentDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewPaymentDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPaymentDetails.DataSet = this.dstPaymentDetails;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewPaymentDetails.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewPaymentDetails.GridColor = System.Drawing.Color.Peru;
-            this.dataGridViewPaymentDetails.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewPaymentDetails.Name = "dataGridViewPaymentDetails";
-            this.dataGridViewPaymentDetails.Size = new System.Drawing.Size(402, 160);
-            this.dataGridViewPaymentDetails.TabIndex = 34;
-            // 
-            // jkSeriesProvider1
-            // 
-            this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
-            this.jkSeriesProvider1.Code = "CR";
-            this.jkSeriesProvider1.CompanyId = null;
-            this.jkSeriesProvider1.ConnectionString = null;
-            this.jkSeriesProvider1.Location = new System.Drawing.Point(692, 192);
-            this.jkSeriesProvider1.Name = "jkSeriesProvider1";
-            this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
-            this.jkSeriesProvider1.TabIndex = 23;
-            this.jkSeriesProvider1.Text = "jkSeriesProvider1";
-            this.jkSeriesProvider1.TransactionColumn = "TransactionNo";
-            this.jkSeriesProvider1.Value = null;
-            this.jkSeriesProvider1.Visible = false;
-            // 
-            // cmbPaymentMethods
-            // 
-            this.cmbPaymentMethods.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbPaymentMethods.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbPaymentMethods.DataSet = "dstPaymentMethods";
-            this.cmbPaymentMethods.DisplayText = "Name";
-            this.cmbPaymentMethods.ForeColor = System.Drawing.Color.Black;
-            this.cmbPaymentMethods.FormattingEnabled = true;
-            this.cmbPaymentMethods.Key = "Id";
-            this.cmbPaymentMethods.Location = new System.Drawing.Point(692, 137);
-            this.cmbPaymentMethods.Name = "cmbPaymentMethods";
-            this.cmbPaymentMethods.Required = false;
-            this.cmbPaymentMethods.SelectedKey = 0;
-            this.cmbPaymentMethods.Size = new System.Drawing.Size(83, 23);
-            this.cmbPaymentMethods.TabIndex = 29;
-            this.cmbPaymentMethods.Visible = false;
-            // 
             // tabControlPaymentDetails
             // 
             this.tabControlPaymentDetails.Controls.Add(this.tabPagePaymentDetails);
@@ -393,7 +312,7 @@
             this.tabControlPaymentDetails.Name = "tabControlPaymentDetails";
             this.tabControlPaymentDetails.SelectedIndex = 0;
             this.tabControlPaymentDetails.Size = new System.Drawing.Size(420, 255);
-            this.tabControlPaymentDetails.TabIndex = 30;
+            this.tabControlPaymentDetails.TabIndex = 32;
             // 
             // tabPagePaymentDetails
             // 
@@ -418,7 +337,6 @@
             // 
             // splitContainerPaymentDetails.Panel1
             // 
-            this.splitContainerPaymentDetails.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerPaymentDetails.Panel1.Controls.Add(this.dataGridViewPaymentDetails);
             // 
             // splitContainerPaymentDetails.Panel2
@@ -429,51 +347,54 @@
             this.splitContainerPaymentDetails.SplitterWidth = 1;
             this.splitContainerPaymentDetails.TabIndex = 0;
             // 
-            // dstJournalEntry
+            // dataGridViewPaymentDetails
             // 
-            this.dstJournalEntry.BackColor = System.Drawing.Color.Tan;
-            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns"))));
-            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns1"))));
-            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns2"))));
-            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns3"))));
-            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns4"))));
-            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns5"))));
-            this.dstJournalEntry.CommandText = resources.GetString("dstJournalEntry.CommandText");
-            this.dstJournalEntry.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewPaymentDetails.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewPaymentDetails.AutoGenerateColumns = false;
+            this.dataGridViewPaymentDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewPaymentDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPaymentDetails.DataSet = this.dstPaymentDetails;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewPaymentDetails.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewPaymentDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewPaymentDetails.GridColor = System.Drawing.Color.Peru;
+            this.dataGridViewPaymentDetails.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewPaymentDetails.Name = "dataGridViewPaymentDetails";
+            this.dataGridViewPaymentDetails.Size = new System.Drawing.Size(402, 160);
+            this.dataGridViewPaymentDetails.TabIndex = 34;
+            // 
+            // dstPaymentDetails
+            // 
+            this.dstPaymentDetails.BackColor = System.Drawing.Color.Tan;
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns1"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns2"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns3"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns4"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns5"))));
+            this.dstPaymentDetails.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstPaymentDetails.Columns6"))));
+            this.dstPaymentDetails.CommandText = "SELECT Id, BillsPaymentId, PaymentMethodId,\r\n\tAmount, CheckNo, CheckDate, Remarks" +
+    "\r\nFROM tblBillsPaymentDetails\r\nWHERE BillsPaymentId = @Id";
+            this.dstPaymentDetails.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
     "ity Info=True;User ID=sa;Password=masterkey";
-            this.dstJournalEntry.GridAutoSize = true;
-            this.dstJournalEntry.GridView = this.dataGridViewJournalEntry;
-            this.dstJournalEntry.LinkToMaster = false;
-            this.dstJournalEntry.Location = new System.Drawing.Point(261, 111);
-            this.dstJournalEntry.Name = "dstJournalEntry";
-            this.dstJournalEntry.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstJournalEntry.Parameters"))));
-            this.dstJournalEntry.Size = new System.Drawing.Size(81, 20);
-            this.dstJournalEntry.TabIndex = 24;
-            this.dstJournalEntry.Visible = false;
-            this.dstJournalEntry.ZLoadColumns = true;
-            this.dstJournalEntry.ZLoadGrid = false;
-            // 
-            // dataGridViewJournalEntry
-            // 
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
-            this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
-            this.dataGridViewJournalEntry.TabIndex = 0;
+            this.dstPaymentDetails.GridAutoSize = false;
+            this.dstPaymentDetails.GridView = this.dataGridViewPaymentDetails;
+            this.dstPaymentDetails.LinkToMaster = true;
+            this.dstPaymentDetails.Location = new System.Drawing.Point(731, 148);
+            this.dstPaymentDetails.Name = "dstPaymentDetails";
+            this.dstPaymentDetails.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstPaymentDetails.Parameters"))));
+            this.dstPaymentDetails.Size = new System.Drawing.Size(95, 20);
+            this.dstPaymentDetails.TabIndex = 43;
+            this.dstPaymentDetails.Visible = false;
+            this.dstPaymentDetails.ZLoadColumns = true;
+            this.dstPaymentDetails.ZLoadGrid = true;
             // 
             // flowLayoutPanelPaymentDetails
             // 
@@ -560,6 +481,84 @@
             this.txtBalance.TabIndex = 5;
             this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // dstJournalEntry
+            // 
+            this.dstJournalEntry.BackColor = System.Drawing.Color.Tan;
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns1"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns2"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns3"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns4"))));
+            this.dstJournalEntry.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstJournalEntry.Columns5"))));
+            this.dstJournalEntry.CommandText = resources.GetString("dstJournalEntry.CommandText");
+            this.dstJournalEntry.ConnectionString = "Data Source=.\\sqlexpress2014;Initial Catalog=FreeAccountingSoftware;Persist Secur" +
+    "ity Info=True;User ID=sa;Password=masterkey";
+            this.dstJournalEntry.GridAutoSize = true;
+            this.dstJournalEntry.GridView = this.dataGridViewJournalEntry;
+            this.dstJournalEntry.LinkToMaster = false;
+            this.dstJournalEntry.Location = new System.Drawing.Point(739, 93);
+            this.dstJournalEntry.Name = "dstJournalEntry";
+            this.dstJournalEntry.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstJournalEntry.Parameters"))));
+            this.dstJournalEntry.Size = new System.Drawing.Size(81, 20);
+            this.dstJournalEntry.TabIndex = 45;
+            this.dstJournalEntry.Visible = false;
+            this.dstJournalEntry.ZLoadColumns = true;
+            this.dstJournalEntry.ZLoadGrid = false;
+            // 
+            // dataGridViewJournalEntry
+            // 
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
+            this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
+            this.dataGridViewJournalEntry.TabIndex = 2;
+            // 
+            // jkSeriesProvider1
+            // 
+            this.jkSeriesProvider1.BackColor = System.Drawing.Color.Tan;
+            this.jkSeriesProvider1.Code = "CV";
+            this.jkSeriesProvider1.CompanyId = null;
+            this.jkSeriesProvider1.ConnectionString = null;
+            this.jkSeriesProvider1.Location = new System.Drawing.Point(737, 174);
+            this.jkSeriesProvider1.Name = "jkSeriesProvider1";
+            this.jkSeriesProvider1.Size = new System.Drawing.Size(89, 20);
+            this.jkSeriesProvider1.TabIndex = 42;
+            this.jkSeriesProvider1.Text = "jkSeriesProvider1";
+            this.jkSeriesProvider1.TransactionColumn = "TransactionNo";
+            this.jkSeriesProvider1.Value = null;
+            this.jkSeriesProvider1.Visible = false;
+            // 
+            // cmbPaymentMethods
+            // 
+            this.cmbPaymentMethods.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPaymentMethods.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbPaymentMethods.DataSet = "dstPaymentMethods";
+            this.cmbPaymentMethods.DisplayText = "Name";
+            this.cmbPaymentMethods.ForeColor = System.Drawing.Color.Black;
+            this.cmbPaymentMethods.FormattingEnabled = true;
+            this.cmbPaymentMethods.Key = "Id";
+            this.cmbPaymentMethods.Location = new System.Drawing.Point(737, 119);
+            this.cmbPaymentMethods.Name = "cmbPaymentMethods";
+            this.cmbPaymentMethods.Required = false;
+            this.cmbPaymentMethods.SelectedKey = 0;
+            this.cmbPaymentMethods.Size = new System.Drawing.Size(83, 23);
+            this.cmbPaymentMethods.TabIndex = 44;
+            this.cmbPaymentMethods.Visible = false;
+            // 
             // tabPageJournalEntry
             // 
             this.tabPageJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -572,11 +571,49 @@
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
             // 
-            // ECashReceiptForm
+            // cmbAccounts
+            // 
+            this.cmbAccounts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbAccounts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbAccounts.DataSet = "dstAccounts";
+            this.cmbAccounts.DisplayText = "Name";
+            this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
+            this.cmbAccounts.FormattingEnabled = true;
+            this.cmbAccounts.Key = "Id";
+            this.cmbAccounts.Location = new System.Drawing.Point(754, 27);
+            this.cmbAccounts.Name = "cmbAccounts";
+            this.cmbAccounts.Required = false;
+            this.cmbAccounts.SelectedKey = 0;
+            this.cmbAccounts.Size = new System.Drawing.Size(66, 23);
+            this.cmbAccounts.TabIndex = 47;
+            this.cmbAccounts.Visible = false;
+            // 
+            // cmbSubsidiaryDetail
+            // 
+            this.cmbSubsidiaryDetail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbSubsidiaryDetail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSubsidiaryDetail.DataSet = "dstSubsidiaries";
+            this.cmbSubsidiaryDetail.DisplayText = "Name";
+            this.cmbSubsidiaryDetail.DropDownHeight = 200;
+            this.cmbSubsidiaryDetail.DropDownWidth = 300;
+            this.cmbSubsidiaryDetail.ForeColor = System.Drawing.Color.Black;
+            this.cmbSubsidiaryDetail.FormattingEnabled = true;
+            this.cmbSubsidiaryDetail.IntegralHeight = false;
+            this.cmbSubsidiaryDetail.Key = "Id";
+            this.cmbSubsidiaryDetail.Location = new System.Drawing.Point(754, 63);
+            this.cmbSubsidiaryDetail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.cmbSubsidiaryDetail.Name = "cmbSubsidiaryDetail";
+            this.cmbSubsidiaryDetail.Required = false;
+            this.cmbSubsidiaryDetail.SelectedKey = 0;
+            this.cmbSubsidiaryDetail.Size = new System.Drawing.Size(66, 23);
+            this.cmbSubsidiaryDetail.TabIndex = 46;
+            this.cmbSubsidiaryDetail.Visible = false;
+            // 
+            // ECheckVoucherForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Caption = "Cash Receipt";
+            this.Caption = "Check Voucher";
             this.CommandText = resources.GetString("$this.CommandText");
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns1"))));
@@ -597,14 +634,11 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns16"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns18"))));
-            this.Name = "ECashReceiptForm";
+            this.Name = "ECheckVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashReceiptVoucherForm_BeforeRun);
-            this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashReceiptVoucherForm_ValidateSave);
-            this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.ECashReceiptVoucherForm_BeforeSave);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECashReceiptVoucherForm_AfterRun);
+            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECheckVoucherForm_AfterRun);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
@@ -618,16 +652,16 @@
             this.splitContainer.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).EndInit();
             this.tabControlPaymentDetails.ResumeLayout(false);
             this.tabPagePaymentDetails.ResumeLayout(false);
             this.splitContainerPaymentDetails.Panel1.ResumeLayout(false);
             this.splitContainerPaymentDetails.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerPaymentDetails)).EndInit();
             this.splitContainerPaymentDetails.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPaymentDetails)).EndInit();
             this.flowLayoutPanelPaymentDetails.ResumeLayout(false);
             this.flowLayoutPanelPaymentDetails.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewJournalEntry)).EndInit();
             this.tabPageJournalEntry.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -648,22 +682,24 @@
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
         private System.Windows.Forms.Label label9;
         private JkComponents.JkTextBox txtRemarks;
-        private JkComponents.JkDetailDataSet dstPaymentDetails;
-        private JkComponents.JkSeriesProvider jkSeriesProvider1;
-        private JkComponents.JkLookUpComboBox cmbPaymentMethods;
         private System.Windows.Forms.TabControl tabControlPaymentDetails;
         private System.Windows.Forms.TabPage tabPagePaymentDetails;
         private System.Windows.Forms.SplitContainer splitContainerPaymentDetails;
         private JkComponents.JkDataGridView dataGridViewPaymentDetails;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelPaymentDetails;
+        private System.Windows.Forms.Label label5;
+        private JkComponents.JkTextBox txtAmountPaid;
         private System.Windows.Forms.Label label3;
         private JkComponents.JkTextBox txtAmountApplied;
         private System.Windows.Forms.Label label4;
         private JkComponents.JkTextBox txtBalance;
-        private System.Windows.Forms.Label label5;
-        private JkComponents.JkTextBox txtAmountPaid;
+        private JkComponents.JkDetailDataSet dstJournalEntry;
+        private JkComponents.JkSeriesProvider jkSeriesProvider1;
+        private JkComponents.JkDetailDataSet dstPaymentDetails;
+        private JkComponents.JkLookUpComboBox cmbPaymentMethods;
         private System.Windows.Forms.TabPage tabPageJournalEntry;
         private JkComponents.JkDataGridView dataGridViewJournalEntry;
-        private JkComponents.JkDetailDataSet dstJournalEntry;
+        private JkComponents.JkLookUpComboBox cmbAccounts;
+        private JkComponents.JkLookUpComboBox cmbSubsidiaryDetail;
     }
 }

@@ -1,9 +1,13 @@
---Vouchers
+--Transactions
 EXEC uspAddSystemSeries 'JV' --Journal Voucher
+
 EXEC uspAddSystemSeries 'B' --Bills
+EXEC uspAddSystemSeries 'BP' --Bills Payment
+EXEC uspAddSystemSeries 'CV' --Check Voucher
+
 EXEC uspAddSystemSeries 'SI' --Sales Invoice
 EXEC uspAddSystemSeries 'CR' --Cash Receipt
-EXEC uspAddSystemSeries 'BP' --Bills Payment
+EXEC uspAddSystemSeries 'CRV' --Cash Receipt Voucher
 
 --Journals
 EXEC uspAddSystemSeries 'GJ' --General Journal

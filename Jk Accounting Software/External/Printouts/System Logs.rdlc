@@ -287,7 +287,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Date Time</Value>
+                            <Value>Date and Time</Value>
                             <Style>
                               <FontFamily>Segoe UI</FontFamily>
                               <FontWeight>Bold</FontWeight>

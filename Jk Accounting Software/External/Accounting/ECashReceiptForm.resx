@@ -594,12 +594,11 @@ WHERE j.Id = @Id</value>
     <value>25</value>
   </metadata>
   <data name="$this.CommandText" xml:space="preserve">
-    <value>SELECT Id, CompanyId, TransactionNo, [Date],
-	ReferenceNo, ReferenceNo2, SubsidiaryId,
-	Remarks, JournalId, AmountPaid,
-	AmountApplied, Posted, Voided,
-	VoidedById, DateVoided, CreatedById,
-	DateCreated, ModifiedById, DateModified
+    <value>SELECT Id, CompanyId, PaymentTypeId, TransactionNo, [Date],
+	ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks,
+	JournalId, AmountPaid, AmountApplied, Posted, Voided,
+	VoidedById, DateVoided, CreatedById, DateCreated,
+	ModifiedById, DateModified
 FROM tblCashReceipts
 WHERE Id = @Id</value>
   </data>
@@ -624,12 +623,25 @@ WHERE Id = @Id</value>
         SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
         eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
         bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
+        bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAA1QYXltZW50VHlw
+        ZUlkBfv///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAACAAAAAYGAAAAATMK
+        AAoL
+</value>
+  </data>
+  <data name="$this.MasterColumns2" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
+        ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
+        LjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAb
+        SmtDb21wb25lbnRzLkprTWFzdGVyQ29sdW1uBgAAABU8TmFtZT5rX19CYWNraW5nRmllbGQZPERhdGFU
+        eXBlPmtfX0JhY2tpbmdGaWVsZB08RGVmYXVsdFZhbHVlPmtfX0JhY2tpbmdGaWVsZBw8Q29udHJvbE5h
+        bWU+a19fQmFja2luZ0ZpZWxkGTxSZXF1aXJlZD5rX19CYWNraW5nRmllbGQWPFZhbHVlPmtfX0JhY2tp
         bmdGaWVsZAEEAQEAAhVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUDAAAAAQIAAAAGBAAAAA1UcmFuc2FjdGlv
         bk5vBfv///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAADAAAAAoGBgAAABB0
         eHRUcmFuc2FjdGlvbk5vAQoL
 </value>
   </data>
-  <data name="$this.MasterColumns2" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns3" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -642,7 +654,7 @@ WHERE Id = @Id</value>
         ZGF0ZVBpY2tlcgEKCw==
 </value>
   </data>
-  <data name="$this.MasterColumns3" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns4" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -655,7 +667,7 @@ WHERE Id = @Id</value>
         UmVmZXJlbmNlTm8BCgs=
 </value>
   </data>
-  <data name="$this.MasterColumns4" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns5" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -668,7 +680,7 @@ WHERE Id = @Id</value>
         dFJlZmVyZW5jZU5vMgAKCw==
 </value>
   </data>
-  <data name="$this.MasterColumns5" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns6" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -681,7 +693,7 @@ WHERE Id = @Id</value>
         YlN1YnNpZGlhcnkBCgs=
 </value>
   </data>
-  <data name="$this.MasterColumns6" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns7" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -694,7 +706,7 @@ WHERE Id = @Id</value>
         cmtzAAoL
 </value>
   </data>
-  <data name="$this.MasterColumns7" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns8" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -706,7 +718,7 @@ WHERE Id = @Id</value>
         +////xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAAIAAAACgoACgs=
 </value>
   </data>
-  <data name="$this.MasterColumns8" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns9" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -719,7 +731,7 @@ WHERE Id = @Id</value>
         AA10eHRBbW91bnRQYWlkAAoL
 </value>
   </data>
-  <data name="$this.MasterColumns9" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns10" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -732,7 +744,7 @@ WHERE Id = @Id</value>
         BwAAABB0eHRBbW91bnRBcHBsaWVkAAoL
 </value>
   </data>
-  <data name="$this.MasterColumns10" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns11" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -744,7 +756,7 @@ WHERE Id = @Id</value>
         /xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAACAAAABgYAAAAEVHJ1ZQoBCgs=
 </value>
   </data>
-  <data name="$this.MasterColumns11" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns12" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -756,7 +768,7 @@ WHERE Id = @Id</value>
         /xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUBAAAAB3ZhbHVlX18ACAMAAAACAAAABgYAAAAFRmFsc2UKAQoL
 </value>
   </data>
-  <data name="$this.MasterColumns12" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns13" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -768,7 +780,7 @@ WHERE Id = @Id</value>
         Bfv///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAACAAAAAoKAAoL
 </value>
   </data>
-  <data name="$this.MasterColumns13" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns14" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -780,7 +792,7 @@ WHERE Id = @Id</value>
         Bfv///8VU3lzdGVtLkRhdGEuU3FsRGJUeXBlAQAAAAd2YWx1ZV9fAAgDAAAABAAAAAoKAAoL
 </value>
   </data>
-  <data name="$this.MasterColumns14" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns15" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -793,7 +805,7 @@ WHERE Id = @Id</value>
         dXJpdHlVc2VySWQKAQoL
 </value>
   </data>
-  <data name="$this.MasterColumns15" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns16" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -806,7 +818,7 @@ WHERE Id = @Id</value>
         ZQoBCgs=
 </value>
   </data>
-  <data name="$this.MasterColumns16" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns17" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w
@@ -819,7 +831,7 @@ WHERE Id = @Id</value>
         Y3VyaXR5VXNlcklkCgEKCw==
 </value>
   </data>
-  <data name="$this.MasterColumns17" mimetype="application/x-microsoft.net.object.binary.base64">
+  <data name="$this.MasterColumns18" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAENKa0NvbXBvbmVudHMsIFZlcnNpb249MS4wLjAuMCwgQ3VsdHVy
         ZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1udWxsDAMAAABOU3lzdGVtLkRhdGEsIFZlcnNpb249NC4w

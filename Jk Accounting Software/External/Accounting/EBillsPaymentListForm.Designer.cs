@@ -34,17 +34,13 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer
-            // 
-            this.splitContainer.Size = new System.Drawing.Size(837, 481);
-            // 
             // btnClose
             // 
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // EBillsPaymentListForm
             // 
@@ -68,7 +64,7 @@
             this.OpenFormName = "EBillsPaymentForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(837, 481);
+            this.Size = new System.Drawing.Size(836, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

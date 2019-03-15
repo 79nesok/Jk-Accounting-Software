@@ -2,6 +2,7 @@ IF OBJECT_ID('tblCashReceipts') IS NULL
 	CREATE TABLE tblCashReceipts(
 		Id INT IDENTITY(1, 1) NOT NULL,
 		CompanyId INT NOT NULL,
+		PaymentTypeId INT NOT NULL,
 		TransactionNo VARCHAR(50) NOT NULL,
 		[Date] DATETIME NOT NULL,
 		ReferenceNo VARCHAR(50) NOT NULL,

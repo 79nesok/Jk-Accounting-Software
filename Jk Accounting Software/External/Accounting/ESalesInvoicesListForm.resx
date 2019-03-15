@@ -278,7 +278,8 @@
 	si.Remarks, si.Voided
 FROM tblSalesInvoices si
 	INNER JOIN tblSubsidiaries s ON s.Id = si.SubsidiaryId
-WHERE si.CompanyId = @CompanyId</value>
+WHERE si.CompanyId = @CompanyId
+ORDER BY si.[Date]</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

@@ -114,6 +114,7 @@
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns9"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns10"))));
             this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns11"))));
+            this.dstDetail.Columns.Add(((JkComponents.JkDetailColumn)(resources.GetObject("dstDetail.Columns12"))));
             this.dstDetail.CommandText = "SELECT Id, BillsPaymentId, SourceId, AppliedAmount\r\nFROM tblBillsPaymentBillDetai" +
     "ls\r\nWHERE BillsPaymentId = @Id";
             this.dstDetail.Location = new System.Drawing.Point(756, 220);
@@ -596,6 +597,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns15"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns16"))));
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns17"))));
+            this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns18"))));
             this.Name = "EBillsPaymentForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 536);

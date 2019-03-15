@@ -19,6 +19,7 @@ DECLARE @ReceivableAccountId INT
 DECLARE @CustomerOverPaymentAccountId INT
 DECLARE @PaymentMethodName VARCHAR(100)
 DECLARE @WithholdingTaxAccountId INT
+DECLARE @HasSourceTransaction BIT
 
 SELECT @Code = Code
 FROM tblJournalTypes
@@ -40,15 +41,19 @@ ELSE IF @JournalTypeId = 3
 	FROM tblSalesInvoices
 	WHERE Id = @Id
 ELSE IF @JournalTypeId = 4
-	SELECT @JournalId = JournalId,
-		@CompanyId = CompanyId
-	FROM tblCashReceipts
-	WHERE Id = @Id
+	SELECT @JournalId = cr.JournalId,
+		@CompanyId = cr.CompanyId,
+		@HasSourceTransaction = pt.HasSourceTransaction
+	FROM tblCashReceipts cr
+		INNER JOIN tblPaymentTypes pt ON pt.Id = cr.PaymentTypeId
+	WHERE cr.Id = @Id
 ELSE IF @JournalTypeId = 5
-	SELECT @JournalId = JournalId,
-		@CompanyId = CompanyId
-	FROM tblBillsPayment
-	WHERE Id = @Id
+	SELECT @JournalId = bp.JournalId,
+		@CompanyId = bp.CompanyId,
+		@HasSourceTransaction = pt.HasSourceTransaction
+	FROM tblBillsPayment bp
+		INNER JOIN tblPaymentTypes pt ON pt.Id = bp.PaymentTypeId
+	WHERE bp.Id = @Id
 
 SELECT @InputVATAccountId = a.Id
 FROM tblAccounts a
@@ -284,8 +289,9 @@ BEGIN
 	END
 	ELSE IF @JournalTypeId = 4
 	BEGIN
-		--Post payment to invoice
-		EXEC uspUpdateInvoiceAmounts @Id, @IsPost
+		IF @HasSourceTransaction = 1
+			--Post payment to invoice
+			EXEC uspUpdateInvoiceAmounts @Id, @IsPost
 
 		IF @JournalId IS NULL
 		BEGIN
@@ -342,63 +348,74 @@ BEGIN
 		WHERE crd.CashReceiptId = @Id
 		GROUP BY pm.AccountId
 
-		--Receivable
-		IF @ReceivableAccountId IS NULL
+		IF @HasSourceTransaction = 1
 		BEGIN
-			RAISERROR('No Receivable Account has been set-up.', 11, 1)
-			RETURN
+			--Receivable
+			IF @ReceivableAccountId IS NULL
+			BEGIN
+				RAISERROR('No Receivable Account has been set-up.', 11, 1)
+				RETURN
+			END
+
+			INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+			SELECT @JournalId, @ReceivableAccountId, cr.SubsidiaryId, 0, SUM(crid.AppliedAmount)
+			FROM tblCashReceiptInvoiceDetails crid
+				INNER JOIN tblCashReceipts cr ON cr.Id = crid.CashReceiptId
+			WHERE crid.CashReceiptId = @Id
+			GROUP BY cr.SubsidiaryId
+
+			--Overpayment
+			IF @CustomerOverPaymentAccountId IS NULL
+				AND EXISTS(
+					SELECT cr.Id
+					FROM tblCashReceipts cr
+						INNER JOIN (
+							SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+							FROM tblCashReceiptDetails crd
+							GROUP BY crd.CashReceiptId
+						) cd ON cd.CashReceiptId = cr.Id
+						INNER JOIN (
+							SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+							FROM tblCashReceiptInvoiceDetails crid
+							GROUP BY crid.CashReceiptId
+						) cid ON cid.CashReceiptId = cr.Id
+					WHERE cr.Id = @Id
+						AND cd.Amount <> cid.AppliedAmount
+				)
+			BEGIN
+				RAISERROR('No Customer Overpayment Account has been set-up.', 11, 1)
+				RETURN
+			END
+
+			INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+			SELECT @JournalId, @CustomerOverPaymentAccountId, cr.SubsidiaryId, 0, cd.Amount - cid.AppliedAmount
+			FROM tblCashReceipts cr
+				INNER JOIN (
+					SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
+					FROM tblCashReceiptDetails crd
+					GROUP BY crd.CashReceiptId
+				) cd ON cd.CashReceiptId = cr.Id
+				INNER JOIN (
+					SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
+					FROM tblCashReceiptInvoiceDetails crid
+					GROUP BY crid.CashReceiptId
+				) cid ON cid.CashReceiptId = cr.Id
+			WHERE cr.Id = @Id
+				AND cd.Amount > cid.AppliedAmount
 		END
-
-		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
-		SELECT @JournalId, @ReceivableAccountId, cr.SubsidiaryId, 0, SUM(crid.AppliedAmount)
-		FROM tblCashReceiptInvoiceDetails crid
-			INNER JOIN tblCashReceipts cr ON cr.Id = crid.CashReceiptId
-		WHERE crid.CashReceiptId = @Id
-		GROUP BY cr.SubsidiaryId
-
-		--Overpayment
-		IF @CustomerOverPaymentAccountId IS NULL
-			AND EXISTS(
-				SELECT cr.Id
-				FROM tblCashReceipts cr
-					INNER JOIN (
-						SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
-						FROM tblCashReceiptDetails crd
-						GROUP BY crd.CashReceiptId
-					) cd ON cd.CashReceiptId = cr.Id
-					INNER JOIN (
-						SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
-						FROM tblCashReceiptInvoiceDetails crid
-						GROUP BY crid.CashReceiptId
-					) cid ON cid.CashReceiptId = cr.Id
-				WHERE cr.Id = @Id
-					AND cd.Amount <> cid.AppliedAmount
-			)
+		ELSE
 		BEGIN
-			RAISERROR('No Customer Overpayment Account has been set-up.', 11, 1)
-			RETURN
+			INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks)
+			SELECT @JournalId, AccountId, SubsidiaryId, Debit, Credit, Remarks
+			FROM tblCashReceiptAccountDetails
+			WHERE CashReceiptId = @Id
 		END
-
-		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
-		SELECT @JournalId, @CustomerOverPaymentAccountId, cr.SubsidiaryId, 0, cd.Amount - cid.AppliedAmount
-		FROM tblCashReceipts cr
-			INNER JOIN (
-				SELECT crd.CashReceiptId, SUM(crd.Amount) AS Amount
-				FROM tblCashReceiptDetails crd
-				GROUP BY crd.CashReceiptId
-			) cd ON cd.CashReceiptId = cr.Id
-			INNER JOIN (
-				SELECT crid.CashReceiptId, SUM(crid.AppliedAmount) AS AppliedAmount
-				FROM tblCashReceiptInvoiceDetails crid
-				GROUP BY crid.CashReceiptId
-			) cid ON cid.CashReceiptId = cr.Id
-		WHERE cr.Id = @Id
-			AND cd.Amount > cid.AppliedAmount
 	END
 	ELSE IF @JournalTypeId = 5
 	BEGIN
 		--Post payment to bills
-		EXEC uspUpdateBillsAmounts @Id, @IsPost
+		IF @HasSourceTransaction = 1
+			EXEC uspUpdateBillsAmounts @Id, @IsPost
 
 		IF @JournalId IS NULL
 		BEGIN
@@ -435,25 +452,35 @@ BEGIN
 				AND @JournalTypeId = 5
 		END
 
+		IF @HasSourceTransaction = 1
+		BEGIN
+			--Payable
+			IF @PayableAccountId IS NULL
+			BEGIN
+				RAISERROR('No Payable Account has been set-up.', 11, 1)
+				RETURN
+			END
+
+			INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+			SELECT @JournalId, @PayableAccountId, bp.SubsidiaryId, SUM(bpbd.AppliedAmount), 0
+			FROM tblBillsPaymentBillDetails bpbd
+				INNER JOIN tblBillsPayment bp ON bp.Id = bpbd.BillsPaymentId
+			WHERE bpbd.BillsPaymentId = @Id
+			GROUP BY bp.SubsidiaryId
+		END
+		ELSE
+		BEGIN
+			INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
+			SELECT @JournalId, AccountId, SubsidiaryId, Debit, Credit
+			FROM tblBillsPaymentAccountDetails
+			WHERE BillsPaymentId = @Id
+		END
+
 		SELECT @PaymentMethodName = pm.Name
 		FROM tblBillsPaymentDetails bpd
 			INNER JOIN tblPaymentMethods pm ON pm.Id = bpd.PaymentMethodId
 		WHERE bpd.BillsPaymentId = @Id
 			AND pm.AccountId IS NULL
-
-		--Payable
-		IF @PayableAccountId IS NULL
-		BEGIN
-			RAISERROR('No Payable Account has been set-up.', 11, 1)
-			RETURN
-		END
-
-		INSERT INTO tblJournalDetails(JournalId, AccountId, SubsidiaryId, Debit, Credit)
-		SELECT @JournalId, @PayableAccountId, bp.SubsidiaryId, SUM(bpbd.AppliedAmount), 0
-		FROM tblBillsPaymentBillDetails bpbd
-			INNER JOIN tblBillsPayment bp ON bp.Id = bpbd.BillsPaymentId
-		WHERE bpbd.BillsPaymentId = @Id
-		GROUP BY bp.SubsidiaryId
 
 		IF NULLIF(@PaymentMethodName, '') IS NOT NULL
 		BEGIN

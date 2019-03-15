@@ -169,7 +169,7 @@
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
         AQYEAAAAClN1YnNpZGlhcnkJBAAAAAX7////FVN5c3RlbS5EYXRhLlNxbERiVHlwZQEAAAAHdmFsdWVf
-        XwAIAwAAAAwAAABkAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVz
+        XwAIAwAAAAwAAACMAAAABfr///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVtbkZvb3RlclR5cGVz
         AQAAAAd2YWx1ZV9fAAgCAAAAAAAAAAs=
 </value>
   </data>
@@ -210,9 +210,9 @@
         cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAACU5ldEFtb3VudAYFAAAACk5ldCBBbW91bnQF+v///xVTeXN0ZW0uRGF0YS5TcWxEYlR5cGUB
-        AAAAB3ZhbHVlX18ACAMAAAAFAAAAZAAAAAX5////J0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5G
-        b290ZXJUeXBlcwEAAAAHdmFsdWVfXwAIAgAAAAIAAAAL
+        AQYEAAAACkFtb3VudFBhaWQGBQAAAAtBbW91bnQgUGFpZAX6////FVN5c3RlbS5EYXRhLlNxbERiVHlw
+        ZQEAAAAHdmFsdWVfXwAIAwAAAAUAAAB4AAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVt
+        bkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAgAAAAs=
 </value>
   </data>
   <data name="$this.Columns7" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -224,9 +224,9 @@
         cHRpb24+a19fQmFja2luZ0ZpZWxkGTxEYXRhVHlwZT5rX19CYWNraW5nRmllbGQWPFdpZHRoPmtfX0Jh
         Y2tpbmdGaWVsZBs8Rm9vdGVyVHlwZT5rX19CYWNraW5nRmllbGQAAQEEAAQBFVN5c3RlbS5EYXRhLlNx
         bERiVHlwZQMAAAAIJ0prQ29tcG9uZW50cy5Ka0NvbHVtbitDb2x1bW5Gb290ZXJUeXBlcwIAAAACAAAA
-        AQYEAAAAClBhaWRBbW91bnQGBQAAAAtQYWlkIEFtb3VudAX6////FVN5c3RlbS5EYXRhLlNxbERiVHlw
-        ZQEAAAAHdmFsdWVfXwAIAwAAAAUAAABkAAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1uK0NvbHVt
-        bkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAgAAAAs=
+        AQYEAAAADUFtb3VudEFwcGxpZWQGBQAAAA5BbW91bnQgQXBwbGllZAX6////FVN5c3RlbS5EYXRhLlNx
+        bERiVHlwZQEAAAAHdmFsdWVfXwAIAwAAAAUAAAB4AAAABfn///8nSmtDb21wb25lbnRzLkprQ29sdW1u
+        K0NvbHVtbkZvb3RlclR5cGVzAQAAAAd2YWx1ZV9fAAgCAAAAAgAAAAs=
 </value>
   </data>
   <data name="$this.Columns8" mimetype="application/x-microsoft.net.object.binary.base64">
@@ -272,14 +272,15 @@
 </value>
   </data>
   <data name="$this.CommandText" xml:space="preserve">
-    <value>SELECT b.Id, b.TransactionNo, b.[Date],
-	s.Name AS Subsidiary, b.ReferenceNo, b.ReferenceNo2,
-	b.NetAmount, b.PaidAmount, b.Balance,
-	b.Remarks, b.Voided
-FROM tblBills b
-	INNER JOIN tblSubsidiaries s ON s.Id = b.SubsidiaryId
-WHERE b.CompanyId = @CompanyId
-ORDER BY b.[Date]</value>
+    <value>SELECT bp.Id, bp.TransactionNo, bp.[Date],
+	s.Name AS Subsidiary, bp.ReferenceNo, bp.ReferenceNo2,
+	bp.AmountPaid, bp.AmountApplied, bp.Balance,
+	bp.Remarks, bp.Voided
+FROM tblBillsPayment bp
+	INNER JOIN tblSubsidiaries s ON s.Id = bp.SubsidiaryId
+WHERE bp.CompanyId = @CompanyId
+	AND bp.PaymentTypeId = 2
+ORDER BY bp.[Date]</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

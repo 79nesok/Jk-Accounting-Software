@@ -263,7 +263,8 @@
 	co.Balance, co.Remarks, co.Voided
 FROM tblCustomerOverpayments co
 	INNER JOIN tblSubsidiaries s ON s.Id = co.SubsidiaryId
-WHERE co.CompanyId = @CompanyId</value>
+WHERE co.CompanyId = @CompanyId
+ORDER BY co.[Date]</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

@@ -278,7 +278,9 @@
 	bp.Remarks, bp.Voided
 FROM tblBillsPayment bp
 	INNER JOIN tblSubsidiaries s ON s.Id = bp.SubsidiaryId
-WHERE bp.CompanyId = @CompanyId</value>
+WHERE bp.CompanyId = @CompanyId
+	AND bp.PaymentTypeId = 1
+ORDER BY bp.[Date]</value>
   </data>
   <data name="$this.Parameters" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

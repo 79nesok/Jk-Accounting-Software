@@ -89,6 +89,30 @@
     <Compile Include="External\Accounting\EBillsPaymentForm.Designer.cs">
       <DependentUpon>EBillsPaymentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Accounting\ECashReceiptsVoucherListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECashReceiptsVoucherListForm.Designer.cs">
+      <DependentUpon>ECashReceiptsVoucherListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\ECashReceiptVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECashReceiptVoucherForm.Designer.cs">
+      <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\ECheckVoucherForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECheckVoucherForm.Designer.cs">
+      <DependentUpon>ECheckVoucherForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="External\Accounting\ECheckVouchersListForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Accounting\ECheckVouchersListForm.Designer.cs">
+      <DependentUpon>ECheckVouchersListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Accounting\ECustomerOverpaymentForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -633,6 +657,18 @@
     <Compile Include="Testing\MainApplication.cs" />
     <EmbeddedResource Include="External\Accounting\EBillsPaymentForm.resx">
       <DependentUpon>EBillsPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ECashReceiptsVoucherListForm.resx">
+      <DependentUpon>ECashReceiptsVoucherListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ECashReceiptVoucherForm.resx">
+      <DependentUpon>ECashReceiptVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ECheckVoucherForm.resx">
+      <DependentUpon>ECheckVoucherForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Accounting\ECheckVouchersListForm.resx">
+      <DependentUpon>ECheckVouchersListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Accounting\ECustomerOverpaymentForm.resx">
       <DependentUpon>ECustomerOverpaymentForm.cs</DependentUpon>

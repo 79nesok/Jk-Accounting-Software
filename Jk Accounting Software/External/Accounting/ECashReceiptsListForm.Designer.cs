@@ -34,10 +34,6 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer
-            // 
-            this.splitContainer.Size = new System.Drawing.Size(836, 481);
-            // 
             // btnClose
             // 
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;

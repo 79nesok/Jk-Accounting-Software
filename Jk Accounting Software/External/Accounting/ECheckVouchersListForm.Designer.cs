@@ -1,13 +1,13 @@
 ﻿namespace Jk_Accounting_Software.External.Accounting
 {
-    partial class ESalesInvoicesListForm
+    partial class ECheckVouchersListForm
     {
-        /// <summary>
+        /// <summary> 
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <summary> 
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,15 +20,15 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Component Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesInvoicesListForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECheckVouchersListForm));
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.SuspendLayout();
@@ -42,10 +42,11 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
-            // ESalesInvoicesListForm
+            // ECheckVouchersListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.Caption = "Sales Invoices";
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Caption = "Check Vouchers";
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns1"))));
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns2"))));
@@ -59,9 +60,9 @@
             this.Columns.Add(((JkComponents.JkColumn)(resources.GetObject("$this.Columns10"))));
             this.CommandText = resources.GetString("$this.CommandText");
             this.GridAutoSize = false;
-            this.Name = "ESalesInvoicesListForm";
-            this.NewFormName = "ESalesInvoiceForm";
-            this.OpenFormName = "ESalesInvoiceForm";
+            this.Name = "ECheckVouchersListForm";
+            this.NewFormName = "ECheckVoucherForm";
+            this.OpenFormName = "ECheckVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 481);
             this.ZLoadColumns = true;
