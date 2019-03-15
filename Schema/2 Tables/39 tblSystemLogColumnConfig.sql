@@ -8,6 +8,7 @@ IF OBJECT_ID('tblSystemLogColumnConfig') IS NULL
 		[Index] INT NOT NULL CONSTRAINT DF_tblSystemLogColumnConfig_Index DEFAULT 0,
 		Track BIT NOT NULL CONSTRAINT DF_tblSystemLogColumnConfig_Track DEFAULT 0,
 		TableSource VARCHAR(100) NULL,
+		TableSourceResult VARCHAR(100) NULL,
 	)
 GO
 

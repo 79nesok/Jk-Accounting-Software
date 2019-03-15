@@ -2,7 +2,7 @@ IF OBJECT_ID('uspAddSystemLogColumn') IS NOT NULL
 	DROP PROCEDURE uspAddSystemLogColumn
 GO
 
-CREATE PROCEDURE uspAddSystemLogColumn(@TableName VARCHAR(100), @ColumnName VARCHAR(100), @Caption VARCHAR(100), @Index INT, @Track BIT, @TableSource VARCHAR(100))
+CREATE PROCEDURE uspAddSystemLogColumn(@TableName VARCHAR(100), @ColumnName VARCHAR(100), @Caption VARCHAR(100), @Index INT, @Track BIT, @TableSource VARCHAR(100), @TableSourceResult VARCHAR(100))
 AS
 SET NOCOUNT ON
 
@@ -42,6 +42,19 @@ BEGIN
 	RETURN
 END
 
+IF NOT EXISTS(
+	SELECT *
+	FROM sys.tables t
+		INNER JOIN sys.columns c ON c.object_id = t.object_id
+	WHERE t.name = @TableSource
+		AND c.name = @TableSourceResult
+)
+	AND NULLIF(@TableSourceResult, '') IS NOT NULL
+BEGIN
+	RAISERROR('No column found named: ''%s'' on tablesource: ''%s''', 11, 1, @TableSourceResult, @TableSource)
+	RETURN
+END
+
 SELECT @DataType = st.name
 FROM sys.tables t
 	INNER JOIN sys.columns c ON c.object_id = t.object_id
@@ -50,8 +63,8 @@ WHERE t.name = @TableName
 	AND c.name = @ColumnName
 
 IF NOT EXISTS(SELECT * FROM tblSystemLogColumnConfig WHERE TableId = @TableId AND ColumnName = @ColumnName)
-	INSERT INTO tblSystemLogColumnConfig(TableId, ColumnName, Caption, DataType, [Index], Track, TableSource)
-	SELECT Id, @ColumnName, @Caption, @DataType, @Index, @Track, @TableSource
+	INSERT INTO tblSystemLogColumnConfig(TableId, ColumnName, Caption, DataType, [Index], Track, TableSource, TableSourceResult)
+	SELECT Id, @ColumnName, @Caption, @DataType, @Index, @Track, @TableSource, @TableSourceResult
 	FROM tblSystemLogTableConfig
 	WHERE TableName = @TableName
 ELSE
@@ -60,7 +73,8 @@ ELSE
 		c.DataType = @DataType,
 		c.[Index] = @Index,
 		c.Track = @Track,
-		c.TableSource = @TableSource
+		c.TableSource = @TableSource,
+		c.TableSourceResult = @TableSourceResult
 	FROM tblSystemLogColumnConfig c
 		INNER JOIN tblSystemLogTableConfig t ON t.Id = c.TableId
 	WHERE c.ColumnName = @ColumnName

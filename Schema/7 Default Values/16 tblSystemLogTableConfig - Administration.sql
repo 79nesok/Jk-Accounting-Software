@@ -15,49 +15,56 @@ EXEC uspAddSystemLogTable
 		@Caption = 'Code',
 		@Index = 0,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblCompanies',
 		@ColumnName = 'Name',
 		@Caption = 'Name',
 		@Index = 1,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblCompanies',
 		@ColumnName = 'Address',
 		@Caption = 'Address',
 		@Index = 2,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblCompanies',
 		@ColumnName = 'Remarks',
 		@Caption = 'Remarks',
 		@Index = 3,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblCompanies',
 		@ColumnName = 'TIN',
 		@Caption = 'TIN',
 		@Index = 4,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblCompanies',
 		@ColumnName = 'ZIPCode',
 		@Caption = 'ZIP Code',
 		@Index = 5,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblCompanies',
 		@ColumnName = 'ATCId',
 		@Caption = 'ATC',
 		@Index = 6,
 		@Track = 1,
-		@TableSource = 'tblAlphaNumericTaxCodes'
+		@TableSource = 'tblAlphaNumericTaxCodes',
+		@TableSourceResult = 'Name'
 
 --No CompanyId, trigger will error
 ----tblSystemUsers

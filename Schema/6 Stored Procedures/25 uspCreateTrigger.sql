@@ -115,15 +115,16 @@ BEGIN
 		@NewLine
 END
 
-DECLARE @col TABLE(KeyId INT IDENTITY(1, 1), ColumnName VARCHAR(100),
-	DataType VARCHAR(100), TableSouce VARCHAR(100) PRIMARY KEY(KeyId))
+DECLARE @col TABLE(KeyId INT IDENTITY(1, 1), ColumnName VARCHAR(100), DataType VARCHAR(100),
+	TableSouce VARCHAR(100), TableSourceResult VARCHAR(100) PRIMARY KEY(KeyId))
 DECLARE @KeyId INT
 DECLARE @ColumnName VARCHAR(100)
 DECLARE @DataType VARCHAR(100)
 DECLARE @TableSource VARCHAR(100)
+DECLARE @TableSourceResult VARCHAR(100)
 
-INSERT INTO @col(ColumnName, DataType, TableSouce)
-SELECT ColumnName, DataType, TableSource
+INSERT INTO @col(ColumnName, DataType, TableSouce, TableSourceResult)
+SELECT ColumnName, DataType, TableSource, TableSourceResult
 FROM tblSystemLogColumnConfig
 WHERE TableId = @Id
 	AND Track = 1
@@ -145,7 +146,8 @@ BEGIN
 		@KeyId = KeyId,
 		@ColumnName = ColumnName,
 		@DataType = DataType,
-		@TableSource = TableSouce
+		@TableSource = TableSouce,
+		@TableSourceResult = TableSourceResult
 	FROM @col
 
 	--Check columns
@@ -185,7 +187,7 @@ BEGIN
 					'	SET @NewValue = (SELECT Inserted.' + @ColumnName + ' FROM Inserted)' + @NewLine
 			ELSE
 				SET @CommandText +=
-					'	SET @NewValue = (SELECT Name FROM ' + @TableSource + ' WHERE Id = (SELECT Inserted.' + @ColumnName + ' FROM Inserted))' + @NewLine
+					'	SET @NewValue = (SELECT ' + @TableSourceResult +' FROM ' + @TableSource + ' WHERE Id = (SELECT Inserted.' + @ColumnName + ' FROM Inserted))' + @NewLine
 		END
 
 	SET @CommandText +=
@@ -236,8 +238,8 @@ BEGIN
 			ELSE
 			BEGIN
 				SET @CommandText +=
-					'	SET @NewValue = (SELECT Name FROM ' + @TableSource + ' WHERE Id = (SELECT Inserted.' + @ColumnName + ' FROM Inserted))' + @NewLine +
-					'	SET @OldValue = (SELECT Name FROM ' + @TableSource + ' WHERE Id = (SELECT Deleted.' + @ColumnName + ' FROM Deleted))' + @NewLine +
+					'	SET @NewValue = (SELECT ' + @TableSourceResult + ' FROM ' + @TableSource + ' WHERE Id = (SELECT Inserted.' + @ColumnName + ' FROM Inserted))' + @NewLine +
+					'	SET @OldValue = (SELECT ' + @TableSourceResult + ' FROM ' + @TableSource + ' WHERE Id = (SELECT Deleted.' + @ColumnName + ' FROM Deleted))' + @NewLine +
 					'END' + @NewLine +
 					@NewLine
 			END

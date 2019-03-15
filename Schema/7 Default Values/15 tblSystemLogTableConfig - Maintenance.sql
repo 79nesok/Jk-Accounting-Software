@@ -1,6 +1,3 @@
-TRUNCATE TABLE tblSystemLogTableConfig
-TRUNCATE TABLE tblSystemLogColumnConfig
-
 --tblAccounts
 EXEC uspAddSystemLogTable
 	@TableName = 'tblAccounts',
@@ -50,35 +47,40 @@ EXEC uspAddSystemLogTable
 		@Caption = 'Code',
 		@Index = 0,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblAccounts',
 		@ColumnName = 'Name',
 		@Caption = 'Name',
 		@Index = 1,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblAccounts',
 		@ColumnName = 'SystemAccountCodeId',
 		@Caption = 'System Account Code',
 		@Index = 2,
 		@Track = 1,
-		@TableSource = 'tblSystemAccountCodes'
+		@TableSource = 'tblSystemAccountCodes',
+		@TableSourceResult = 'Name'
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblAccounts',
 		@ColumnName = 'Remarks',
 		@Caption = 'Remarks',
 		@Index = 3,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblAccounts',
 		@ColumnName = 'Active',
 		@Caption = 'Active',
 		@Index = 4,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 
 --tblItems
 EXEC uspAddSystemLogTable
@@ -95,35 +97,40 @@ EXEC uspAddSystemLogTable
 		@Caption = 'Code',
 		@Index = 0,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblItems',
 		@ColumnName = 'Name',
 		@Caption = 'Name',
 		@Index = 1,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblItems',
 		@ColumnName = 'TypeId',
 		@Caption = 'Type',
 		@Index = 2,
 		@Track = 1,
-		@TableSource = 'tblItemTypes'
+		@TableSource = 'tblItemTypes',
+		@TableSourceResult = 'Name'
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblItems',
 		@ColumnName = 'Remarks',
 		@Caption = 'Remarks',
 		@Index = 3,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblItems',
 		@ColumnName = 'Active',
 		@Caption = 'Active',
 		@Index = 4,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 
 --tblPaymentMethods
 EXEC uspAddSystemLogTable
@@ -142,42 +149,48 @@ EXEC uspAddSystemLogTable
 		@Caption = 'Code',
 		@Index = 0,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblPaymentMethods',
 		@ColumnName = 'Name',
 		@Caption = 'Name',
 		@Index = 1,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblPaymentMethods',
 		@ColumnName = 'AccountId',
 		@Caption = 'Account',
 		@Index = 2,
 		@Track = 1,
-		@TableSource = 'tblAccounts'
+		@TableSource = 'tblAccounts',
+		@TableSourceResult = 'Name'
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblPaymentMethods',
 		@ColumnName = 'Remarks',
 		@Caption = 'Remarks',
 		@Index = 3,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblPaymentMethods',
 		@ColumnName = 'ForClearing',
 		@Caption = 'For Clearing',
 		@Index = 4,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblPaymentMethods',
 		@ColumnName = 'Active',
 		@Caption = 'Active',
 		@Index = 4,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 
 --tblSubsidiaries
 EXEC uspAddSystemLogTable
@@ -220,55 +233,63 @@ EXEC uspAddSystemLogTable
 		@Caption = 'Code',
 		@Index = 0,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'Name',
 		@Caption = 'Name',
 		@Index = 1,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'Address',
 		@Caption = 'Address',
 		@Index = 2,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'Remarks',
 		@Caption = 'Remarks',
 		@Index = 3,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'Active',
 		@Caption = 'Active',
 		@Index = 4,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'TIN',
 		@Caption = 'TIN',
 		@Index = 5,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'ZIPCode',
 		@Caption = 'ZIP Code',
 		@Index = 6,
 		@Track = 1,
-		@TableSource = NULL
+		@TableSource = NULL,
+		@TableSourceResult = NULL
 	EXEC uspAddSystemLogColumn
 		@TableName = 'tblSubsidiaries',
 		@ColumnName = 'ATCId',
 		@Caption = 'ATC',
 		@Index = 7,
 		@Track = 1,
-		@TableSource = 'tblAlphaNumericTaxCodes'
+		@TableSource = 'tblAlphaNumericTaxCodes',
+		@TableSourceResult = 'Name'
 GO
 
