@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Report
 {
-    partial class EJournalVoucherPrintoutForm
+    partial class EJournalPrintoutForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EJournalVoucherPrintoutForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EJournalPrintoutForm));
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -37,23 +37,36 @@
             // 
             // reportViewer
             // 
-            this.reportViewer.Size = new System.Drawing.Size(789, 349);
+            this.reportViewer.Size = new System.Drawing.Size(836, 349);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
             // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 447);
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 481);
+            this.splitContainer.Size = new System.Drawing.Size(836, 481);
             // 
-            // EJournalVoucherPrintoutForm
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
+            // 
+            // EJournalPrintoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.Caption = "Printout";
-            this.Name = "EJournalVoucherPrintoutForm";
+            this.Name = "EJournalPrintoutForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(789, 481);
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
+            this.Size = new System.Drawing.Size(836, 481);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

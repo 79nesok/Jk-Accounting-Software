@@ -140,10 +140,10 @@ BEGIN
 		IF @JournalId IS NULL
 		BEGIN
 			INSERT INTO tblJournals(CompanyId, JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, SourceId, SourceTransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, SourceId, SourceTransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified)
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
 			FROM tblBills
 			WHERE Id = @Id
@@ -163,6 +163,7 @@ BEGIN
 			SET j.[Date] = pv.[Date],
 				j.ReferenceNo = pv.ReferenceNo,
 				j.ReferenceNo2 = pv.ReferenceNo2,
+				j.SubsidiaryId = pv.SubsidiaryId,
 				j.Remarks = pv.Remarks,
 				j.ModifiedById = pv.ModifiedById,
 				j.DateModified = pv.DateModified
@@ -216,10 +217,10 @@ BEGIN
 		IF @JournalId IS NULL
 		BEGIN
 			INSERT INTO tblJournals(CompanyId, JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, SourceId, SourceTransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, SourceId, SourceTransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified)
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
 			FROM tblSalesInvoices
 			WHERE Id = @Id
@@ -239,6 +240,7 @@ BEGIN
 			SET j.[Date] = si.[Date],
 				j.ReferenceNo = si.ReferenceNo,
 				j.ReferenceNo2 = si.ReferenceNo2,
+				j.SubsidiaryId = si.SubsidiaryId,
 				j.Remarks = si.Remarks,
 				j.ModifiedById = si.ModifiedById,
 				j.DateModified = si.DateModified
@@ -296,10 +298,10 @@ BEGIN
 		IF @JournalId IS NULL
 		BEGIN
 			INSERT INTO tblJournals(CompanyId, JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, SourceId, SourceTransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, SourceId, SourceTransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified)
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
 			FROM tblCashReceipts
 			WHERE Id = @Id
@@ -319,6 +321,7 @@ BEGIN
 			SET j.[Date] = cr.[Date],
 				j.ReferenceNo = cr.ReferenceNo,
 				j.ReferenceNo2 = cr.ReferenceNo2,
+				j.SubsidiaryId = cr.SubsidiaryId,
 				j.Remarks = cr.Remarks,
 				j.ModifiedById = cr.ModifiedById,
 				j.DateModified = cr.DateModified
@@ -420,10 +423,10 @@ BEGIN
 		IF @JournalId IS NULL
 		BEGIN
 			INSERT INTO tblJournals(CompanyId, JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, SourceId, SourceTransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, SourceId, SourceTransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified)
 			SELECT CompanyId, @JournalTypeId, TransactionNo, [Date],
-				ReferenceNo, ReferenceNo2, Remarks, Id, TransactionNo,
+				ReferenceNo, ReferenceNo2, SubsidiaryId, Remarks, Id, TransactionNo,
 				CreatedById, DateCreated, ModifiedById, DateModified
 			FROM tblBillsPayment
 			WHERE Id = @Id
@@ -443,6 +446,7 @@ BEGIN
 			SET j.[Date] = bp.[Date],
 				j.ReferenceNo = bp.ReferenceNo,
 				j.ReferenceNo2 = bp.ReferenceNo2,
+				j.SubsidiaryId = bp.SubsidiaryId,
 				j.Remarks = bp.Remarks,
 				j.ModifiedById = bp.ModifiedById,
 				j.DateModified = bp.DateModified

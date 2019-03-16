@@ -16,8 +16,13 @@ namespace Jk_Accounting_Software.Internal.Forms
 {
     public partial class IReportForm : IMasterForm
     {
+        #region Variable declarations
+            [Browsable(false)]
+            public String PrintoutHeader { get; set; }
+        #endregion
+
         #region Built-in Events
-            public IReportForm()
+        public IReportForm()
             {
                 InitializeComponent();
             }

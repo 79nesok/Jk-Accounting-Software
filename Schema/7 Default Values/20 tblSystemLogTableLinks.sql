@@ -1,39 +1,39 @@
 TRUNCATE TABLE tblSystemLogTableLinks
 
 DECLARE @tmp TABLE(Id INT IDENTITY,
-	TableName VARCHAR(100), ChildTableName VARCHAR(100),
+	Caption VARCHAR(100), ChildTableName VARCHAR(100),
 	TableId INT, ChildTableId INT PRIMARY KEY(Id))
 
-INSERT INTO @tmp(TableName, ChildTableName)
+INSERT INTO @tmp(Caption, ChildTableName)
 VALUES
 	--JV
-	('tblJournalVouchers', 'tblJournalVoucherDetails'),
+	('Journal Vouchers', 'tblJournalVoucherDetails'),
 
 	--B
-	('tblBills', 'tblBillDetails'),
+	('Bills', 'tblBillDetails'),
 
 	--BP
-	('tblBillsPayment', 'tblBillsPaymentDetails'),
-	('tblBillsPayment', 'tblBillsPaymentBillDetails'),
+	('Bills Payment', 'tblBillsPaymentDetails'),
+	('Bills Payment', 'tblBillsPaymentBillDetails'),
 
 	--CV
-	('tblBillsPayment', 'tblBillsPaymentAccountDetails'),
+	('Check Vouchers', 'tblBillsPaymentAccountDetails'),
 
 	--SI
-	('tblSalesInvoices', 'tblSalesInvoiceDetails'),
+	('Sales Invoices', 'tblSalesInvoiceDetails'),
 
 	--CR
-	('tblCashReceipts', 'tblCashReceiptDetails'),
-	('tblCashReceipts', 'tblCashReceiptInvoiceDetails'),
+	('Cash Receipts', 'tblCashReceiptDetails'),
+	('Cash Receipts', 'tblCashReceiptInvoiceDetails'),
 
 	--CRV
-	('tblCashReceipts', 'tblCashReceiptAccountDetails')
+	('Cash Receipts Voucher', 'tblCashReceiptAccountDetails')
 
 UPDATE tmp
 SET tmp.TableId = t.Id,
 	tmp.ChildTableId = ct.Id
 FROM @tmp tmp
-	INNER JOIN tblSystemLogTableConfig t ON t.TableName = tmp.TableName
+	INNER JOIN tblSystemLogTableConfig t ON t.Caption = tmp.Caption
 	INNER JOIN tblSystemLogTableConfig ct ON ct.TableName = tmp.ChildTableName
 
 INSERT INTO tblSystemLogTableLinks(TableId, ChildTableId)

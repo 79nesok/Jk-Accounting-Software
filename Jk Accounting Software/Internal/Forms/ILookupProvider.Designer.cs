@@ -43,6 +43,7 @@
             this.dstItems = new JkComponents.JkDataSet();
             this.dstItemTypes = new JkComponents.JkDataSet();
             this.dstATC = new JkComponents.JkDataSet();
+            this.dstSystemLogTableConfig = new JkComponents.JkDataSet();
             this.SuspendLayout();
             // 
             // dstSystemUsers
@@ -52,7 +53,7 @@
             this.dstSystemUsers.Connection = this.cnConnection;
             this.dstSystemUsers.Location = new System.Drawing.Point(80, 4);
             this.dstSystemUsers.Name = "dstSystemUsers";
-            this.dstSystemUsers.Size = new System.Drawing.Size(86, 20);
+            this.dstSystemUsers.Size = new System.Drawing.Size(82, 20);
             this.dstSystemUsers.TabIndex = 0;
             this.dstSystemUsers.Text = "jkDataSet1";
             this.dstSystemUsers.ZLoadColumns = false;
@@ -221,11 +222,24 @@
             this.dstATC.Text = "jkDataSet3";
             this.dstATC.ZLoadColumns = false;
             // 
+            // dstSystemLogTableConfig
+            // 
+            this.dstSystemLogTableConfig.BackColor = System.Drawing.Color.Khaki;
+            this.dstSystemLogTableConfig.CommandText = "SELECT Id, TableName, Caption\r\nFROM tblSystemLogTableConfig";
+            this.dstSystemLogTableConfig.Connection = this.cnConnection;
+            this.dstSystemLogTableConfig.Location = new System.Drawing.Point(128, 56);
+            this.dstSystemLogTableConfig.Name = "dstSystemLogTableConfig";
+            this.dstSystemLogTableConfig.Size = new System.Drawing.Size(58, 20);
+            this.dstSystemLogTableConfig.TabIndex = 14;
+            this.dstSystemLogTableConfig.Text = "jkDataSet3";
+            this.dstSystemLogTableConfig.ZLoadColumns = false;
+            // 
             // ILookupProvider
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
+            this.Controls.Add(this.dstSystemLogTableConfig);
             this.Controls.Add(this.dstATC);
             this.Controls.Add(this.dstItemTypes);
             this.Controls.Add(this.dstItems);
@@ -262,5 +276,6 @@
         public JkComponents.JkDataSet dstItems;
         public JkComponents.JkDataSet dstItemTypes;
         public JkComponents.JkDataSet dstATC;
+        public JkComponents.JkDataSet dstSystemLogTableConfig;
     }
 }

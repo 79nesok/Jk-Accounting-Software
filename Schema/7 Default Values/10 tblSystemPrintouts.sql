@@ -2,10 +2,30 @@ DECLARE @tmp TABLE(FormCaption VARCHAR(100), Report VARCHAR(100), PrintoutFormNa
 
 INSERT INTO @tmp(FormCaption, Report, PrintoutFormName)
 VALUES
-	('Journal Voucher', 'Journal Voucher', 'EJournalVoucherPrintoutForm'),
-	('Sales Invoice', 'Sales Invoice', 'ESalesInvoicePrintoutForm'),
-	('Bill', 'Bill', 'EBillPrintoutForm'),
-	('Bills Payment', 'BIR Form 2307', 'EBIRForm2307PrintoutForm')
+	--JV
+	('Journal Voucher', 'Journal Voucher', 'EJournalPrintoutForm'),
+
+	--B
+	('Bill', 'Bill', 'EBillPrintoutForm'),	--done
+	('Bill', 'Puchase Journal', 'EJournalPrintoutForm'),
+
+	--BP
+	('Bills Payment', 'BIR Form 2307', 'EBIRForm2307PrintoutForm'),--done
+	('Bills Payment', 'Cash Disbursement Journal', 'EJournalPrintoutForm'),
+
+	--CV
+	('Check Voucher', 'Check Voucher', 'EJournalPrintoutForm'),
+
+	--SI
+	('Sales Invoice', 'Sales Invoice', 'ESalesInvoicePrintoutForm'), --done
+	('Sales Invoice', 'Sales Journal', 'EJournalPrintoutForm'),
+
+	--CR
+	('Cash Receipt', 'Cash Receipt Journal', 'EJournalPrintoutForm'),
+
+	--CRV
+	('Cash Receipt Voucher', 'Cash Receipt Voucher', 'EJournalPrintoutForm')
+
 
 INSERT INTO tblSystemPrintouts(FormCaption, Report, PrintoutFormName)
 SELECT t.FormCaption, t.Report, t.PrintoutFormName

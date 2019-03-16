@@ -238,7 +238,7 @@ EXEC uspAddSystemLogTable
 --tblBillsPaymentDetails
 EXEC uspAddSystemLogTable
 	@TableName = 'tblBillsPaymentDetails',
-	@Caption = 'Payment Details',
+	@Caption = 'Bills Payment Payment Details',
 	@IdentifierColumnName = 'BillsPaymentId',
 	@Track = 1,
 	@Enable = 0,
@@ -266,7 +266,7 @@ EXEC uspAddSystemLogTable
 		@TableName = 'tblBillsPaymentDetails',
 		@ColumnName = 'CheckNo',
 		@Caption = 'Payment Detail - Check No',
-		@Index = 1,
+		@Index = 2,
 		@Track = 1,
 		@TableSource = NULL,
 		@TableSourceResult = NULL
@@ -274,7 +274,7 @@ EXEC uspAddSystemLogTable
 		@TableName = 'tblBillsPaymentDetails',
 		@ColumnName = 'CheckDate',
 		@Caption = 'Payment Detail - Check Date',
-		@Index = 1,
+		@Index = 3,
 		@Track = 1,
 		@TableSource = NULL,
 		@TableSourceResult = NULL
@@ -282,7 +282,88 @@ EXEC uspAddSystemLogTable
 		@TableName = 'tblBillsPaymentDetails',
 		@ColumnName = 'Remarks',
 		@Caption = 'Payment Detail - Remarks',
+		@Index = 4,
+		@Track = 1,
+		@TableSource = NULL,
+		@TableSourceResult = NULL
+
+--tblBillsPaymentBillDetails
+EXEC uspAddSystemLogTable
+	@TableName = 'tblBillsPaymentBillDetails',
+	@Caption = 'Bills Payment Details',
+	@IdentifierColumnName = 'BillsPaymentId',
+	@Track = 1,
+	@Enable = 0,
+	@SeparatorColumnName = NULL,
+	@SeparatorColumnId = NULL
+
+	--tblBillsPaymentBillDetails Column
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentBillDetails',
+		@ColumnName = 'SourceId',
+		@Caption = 'Detail - Transaction No',
+		@Index = 0,
+		@Track = 1,
+		@TableSource = 'tblBills',
+		@TableSourceResult = 'TransactionNo'
+
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentBillDetails',
+		@ColumnName = 'AppliedAmount',
+		@Caption = 'Detail - Applied Amount',
 		@Index = 1,
+		@Track = 1,
+		@TableSource = NULL,
+		@TableSourceResult = NULL
+
+--tblBillsPaymentAccountDetails
+EXEC uspAddSystemLogTable
+	@TableName = 'tblBillsPaymentAccountDetails',
+	@Caption = 'Check Voucher Details',
+	@IdentifierColumnName = 'BillsPaymentId',
+	@Track = 1,
+	@Enable = 0,
+	@SeparatorColumnName = NULL,
+	@SeparatorColumnId = NULL
+
+	--tblBillsPaymentAccountDetails Column
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentAccountDetails',
+		@ColumnName = 'AccountId',
+		@Caption = 'Detail - Account',
+		@Index = 0,
+		@Track = 1,
+		@TableSource = 'tblAccounts',
+		@TableSourceResult = 'Name'
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentAccountDetails',
+		@ColumnName = 'SubsidiaryId',
+		@Caption = 'Detail - Subsidiary',
+		@Index = 1,
+		@Track = 1,
+		@TableSource = 'tblSubsidiaries',
+		@TableSourceResult = 'Name'
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentAccountDetails',
+		@ColumnName = 'Debit',
+		@Caption = 'Detail - Debit',
+		@Index = 2,
+		@Track = 1,
+		@TableSource = NULL,
+		@TableSourceResult = NULL
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentAccountDetails',
+		@ColumnName = 'Credit',
+		@Caption = 'Detail - Credit',
+		@Index = 3,
+		@Track = 1,
+		@TableSource = NULL,
+		@TableSourceResult = NULL
+	EXEC uspAddSystemLogColumn
+		@TableName = 'tblBillsPaymentAccountDetails',
+		@ColumnName = 'Remarks',
+		@Caption = 'Detail - Remarks',
+		@Index = 4,
 		@Track = 1,
 		@TableSource = NULL,
 		@TableSourceResult = NULL

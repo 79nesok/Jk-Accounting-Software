@@ -19,6 +19,7 @@ TRUNCATE TABLE tblBillsPayment
 TRUNCATE TABLE tblBillsPaymentDetails
 TRUNCATE TABLE tblBillsPaymentBillDetails
 TRUNCATE TABLE tblBillsPaymentPaymentDisbtribution
+TRUNCATE TABLE tblBillsPaymentAccountDetails
 --SI
 TRUNCATE TABLE tblSalesInvoices
 TRUNCATE TABLE tblSalesInvoiceDetails
@@ -27,6 +28,7 @@ TRUNCATE TABLE tblCashReceipts
 TRUNCATE TABLE tblCashReceiptDetails
 TRUNCATE TABLE tblCashReceiptInvoiceDetails
 TRUNCATE TABLE tblCashReceiptPaymentDistribution
+TRUNCATE TABLE tblCashReceiptAccountDetails
 --COP
 TRUNCATE TABLE tblCustomerOverpayments
 

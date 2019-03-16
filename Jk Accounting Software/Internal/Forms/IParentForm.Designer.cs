@@ -51,7 +51,7 @@
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
-            this.btnPrint = new System.Windows.Forms.ToolStripButton();
+            this.btnPrint = new System.Windows.Forms.ToolStripSplitButton();
             this.btnCloseToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -177,10 +177,10 @@
             this.NavigatorSeparatorSecond,
             this.btnLastRecord});
             this.btnNavigatorHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigatorHolder.Location = new System.Drawing.Point(452, 0);
+            this.btnNavigatorHolder.Location = new System.Drawing.Point(483, 0);
             this.btnNavigatorHolder.Name = "btnNavigatorHolder";
             this.btnNavigatorHolder.Padding = new System.Windows.Forms.Padding(0);
-            this.btnNavigatorHolder.Size = new System.Drawing.Size(400, 26);
+            this.btnNavigatorHolder.Size = new System.Drawing.Size(369, 26);
             this.btnNavigatorHolder.Stretch = true;
             this.btnNavigatorHolder.TabIndex = 18;
             this.btnNavigatorHolder.Text = "toolStrip1";
@@ -281,7 +281,7 @@
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(276, 26);
+            this.btnHolder.Size = new System.Drawing.Size(319, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -327,10 +327,10 @@
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
             this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(52, 23);
+            this.btnPrint.Size = new System.Drawing.Size(64, 23);
             this.btnPrint.Text = "Print";
             this.btnPrint.ToolTipText = "Opens the printing window (Ctrl+P)";
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            this.btnPrint.ButtonClick += new System.EventHandler(this.btnPrint_Click);
             // 
             // IParentForm
             // 
@@ -373,7 +373,6 @@
         public System.Windows.Forms.ToolStripButton btnEdit;
         public System.Windows.Forms.ToolStripButton btnSave;
         public System.Windows.Forms.ToolStripButton btnCancel;
-        public System.Windows.Forms.ToolStripButton btnPrint;
         public System.Windows.Forms.ToolStripButton btnFirstRecord;
         public System.Windows.Forms.ToolStripButton btnPreviousRecord;
         public System.Windows.Forms.ToolStripButton btnNextRecord;
@@ -384,6 +383,7 @@
         public System.Windows.Forms.ToolStripLabel toolStriplblFind;
         public System.Windows.Forms.ToolStripTextBox toolStriptxtFind;
         public System.Windows.Forms.ToolStripButton toolStripbtnReset;
+        public System.Windows.Forms.ToolStripSplitButton btnPrint;
     }
 }
 

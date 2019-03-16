@@ -20,13 +20,13 @@ namespace Jk_Accounting_Software.External.Datasources {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("EJournalVoucherPrintoutDS")]
+    [global::System.Xml.Serialization.XmlRootAttribute("EJournalPrintoutDS")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class EJournalVoucherPrintoutDS : global::System.Data.DataSet {
+    public partial class EJournalPrintoutDS : global::System.Data.DataSet {
         
-        private tblJournalVouchersDataTable tabletblJournalVouchers;
+        private GetJournalPrintoutDataTable tableGetJournalPrintout;
         
-        private tblJournalVoucherDetailsDataTable tabletblJournalVoucherDetails;
+        private GetJournalDetailPrintoutDataTable tableGetJournalDetailPrintout;
         
         private tblCompaniesDataTable tabletblCompanies;
         
@@ -34,7 +34,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public EJournalVoucherPrintoutDS() {
+        public EJournalPrintoutDS() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected EJournalVoucherPrintoutDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected EJournalPrintoutDS(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -58,11 +58,11 @@ namespace Jk_Accounting_Software.External.Datasources {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["tblJournalVouchers"] != null)) {
-                    base.Tables.Add(new tblJournalVouchersDataTable(ds.Tables["tblJournalVouchers"]));
+                if ((ds.Tables["GetJournalPrintout"] != null)) {
+                    base.Tables.Add(new GetJournalPrintoutDataTable(ds.Tables["GetJournalPrintout"]));
                 }
-                if ((ds.Tables["tblJournalVoucherDetails"] != null)) {
-                    base.Tables.Add(new tblJournalVoucherDetailsDataTable(ds.Tables["tblJournalVoucherDetails"]));
+                if ((ds.Tables["GetJournalDetailPrintout"] != null)) {
+                    base.Tables.Add(new GetJournalDetailPrintoutDataTable(ds.Tables["GetJournalDetailPrintout"]));
                 }
                 if ((ds.Tables["tblCompanies"] != null)) {
                     base.Tables.Add(new tblCompaniesDataTable(ds.Tables["tblCompanies"]));
@@ -89,9 +89,9 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tblJournalVouchersDataTable tblJournalVouchers {
+        public GetJournalPrintoutDataTable GetJournalPrintout {
             get {
-                return this.tabletblJournalVouchers;
+                return this.tableGetJournalPrintout;
             }
         }
         
@@ -99,9 +99,9 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public tblJournalVoucherDetailsDataTable tblJournalVoucherDetails {
+        public GetJournalDetailPrintoutDataTable GetJournalDetailPrintout {
             get {
-                return this.tabletblJournalVoucherDetails;
+                return this.tableGetJournalDetailPrintout;
             }
         }
         
@@ -157,7 +157,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            EJournalVoucherPrintoutDS cln = ((EJournalVoucherPrintoutDS)(base.Clone()));
+            EJournalPrintoutDS cln = ((EJournalPrintoutDS)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -182,11 +182,11 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["tblJournalVouchers"] != null)) {
-                    base.Tables.Add(new tblJournalVouchersDataTable(ds.Tables["tblJournalVouchers"]));
+                if ((ds.Tables["GetJournalPrintout"] != null)) {
+                    base.Tables.Add(new GetJournalPrintoutDataTable(ds.Tables["GetJournalPrintout"]));
                 }
-                if ((ds.Tables["tblJournalVoucherDetails"] != null)) {
-                    base.Tables.Add(new tblJournalVoucherDetailsDataTable(ds.Tables["tblJournalVoucherDetails"]));
+                if ((ds.Tables["GetJournalDetailPrintout"] != null)) {
+                    base.Tables.Add(new GetJournalDetailPrintoutDataTable(ds.Tables["GetJournalDetailPrintout"]));
                 }
                 if ((ds.Tables["tblCompanies"] != null)) {
                     base.Tables.Add(new tblCompaniesDataTable(ds.Tables["tblCompanies"]));
@@ -224,16 +224,16 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabletblJournalVouchers = ((tblJournalVouchersDataTable)(base.Tables["tblJournalVouchers"]));
+            this.tableGetJournalPrintout = ((GetJournalPrintoutDataTable)(base.Tables["GetJournalPrintout"]));
             if ((initTable == true)) {
-                if ((this.tabletblJournalVouchers != null)) {
-                    this.tabletblJournalVouchers.InitVars();
+                if ((this.tableGetJournalPrintout != null)) {
+                    this.tableGetJournalPrintout.InitVars();
                 }
             }
-            this.tabletblJournalVoucherDetails = ((tblJournalVoucherDetailsDataTable)(base.Tables["tblJournalVoucherDetails"]));
+            this.tableGetJournalDetailPrintout = ((GetJournalDetailPrintoutDataTable)(base.Tables["GetJournalDetailPrintout"]));
             if ((initTable == true)) {
-                if ((this.tabletblJournalVoucherDetails != null)) {
-                    this.tabletblJournalVoucherDetails.InitVars();
+                if ((this.tableGetJournalDetailPrintout != null)) {
+                    this.tableGetJournalDetailPrintout.InitVars();
                 }
             }
             this.tabletblCompanies = ((tblCompaniesDataTable)(base.Tables["tblCompanies"]));
@@ -247,28 +247,28 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "EJournalVoucherPrintoutDS";
+            this.DataSetName = "EJournalPrintoutDS";
             this.Prefix = "";
             this.Namespace = "http://tempuri.org/EJournalVoucherPrintoutDS.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabletblJournalVouchers = new tblJournalVouchersDataTable();
-            base.Tables.Add(this.tabletblJournalVouchers);
-            this.tabletblJournalVoucherDetails = new tblJournalVoucherDetailsDataTable();
-            base.Tables.Add(this.tabletblJournalVoucherDetails);
+            this.tableGetJournalPrintout = new GetJournalPrintoutDataTable();
+            base.Tables.Add(this.tableGetJournalPrintout);
+            this.tableGetJournalDetailPrintout = new GetJournalDetailPrintoutDataTable();
+            base.Tables.Add(this.tableGetJournalDetailPrintout);
             this.tabletblCompanies = new tblCompaniesDataTable();
             base.Tables.Add(this.tabletblCompanies);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializetblJournalVouchers() {
+        private bool ShouldSerializeGetJournalPrintout() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializetblJournalVoucherDetails() {
+        private bool ShouldSerializeGetJournalDetailPrintout() {
             return false;
         }
         
@@ -289,7 +289,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            EJournalVoucherPrintoutDS ds = new EJournalVoucherPrintoutDS();
+            EJournalPrintoutDS ds = new EJournalPrintoutDS();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -334,10 +334,10 @@ namespace Jk_Accounting_Software.External.Datasources {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void tblJournalVouchersRowChangeEventHandler(object sender, tblJournalVouchersRowChangeEvent e);
+        public delegate void GetJournalPrintoutRowChangeEventHandler(object sender, GetJournalPrintoutRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void tblJournalVoucherDetailsRowChangeEventHandler(object sender, tblJournalVoucherDetailsRowChangeEvent e);
+        public delegate void GetJournalDetailPrintoutRowChangeEventHandler(object sender, GetJournalDetailPrintoutRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public delegate void tblCompaniesRowChangeEventHandler(object sender, tblCompaniesRowChangeEvent e);
@@ -347,26 +347,24 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tblJournalVouchersDataTable : global::System.Data.TypedTableBase<tblJournalVouchersRow> {
-            
-            private global::System.Data.DataColumn columnId;
-            
-            private global::System.Data.DataColumn columnCompanyId;
+        public partial class GetJournalPrintoutDataTable : global::System.Data.TypedTableBase<GetJournalPrintoutRow> {
             
             private global::System.Data.DataColumn columnTransactionNo;
             
-            private global::System.Data.DataColumn columnReferenceNo;
-            
             private global::System.Data.DataColumn columnDate;
             
-            private global::System.Data.DataColumn columnRemarks;
+            private global::System.Data.DataColumn columnReferenceNo;
             
             private global::System.Data.DataColumn columnReferenceNo2;
             
+            private global::System.Data.DataColumn columnSubsidiary;
+            
+            private global::System.Data.DataColumn columnRemarks;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersDataTable() {
-                this.TableName = "tblJournalVouchers";
+            public GetJournalPrintoutDataTable() {
+                this.TableName = "GetJournalPrintout";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -374,7 +372,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblJournalVouchersDataTable(global::System.Data.DataTable table) {
+            internal GetJournalPrintoutDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -391,25 +389,9 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected tblJournalVouchersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected GetJournalPrintoutDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
-                get {
-                    return this.columnId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CompanyIdColumn {
-                get {
-                    return this.columnCompanyId;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -417,14 +399,6 @@ namespace Jk_Accounting_Software.External.Datasources {
             public global::System.Data.DataColumn TransactionNoColumn {
                 get {
                     return this.columnTransactionNo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ReferenceNoColumn {
-                get {
-                    return this.columnReferenceNo;
                 }
             }
             
@@ -438,9 +412,9 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn RemarksColumn {
+            public global::System.Data.DataColumn ReferenceNoColumn {
                 get {
-                    return this.columnRemarks;
+                    return this.columnReferenceNo;
                 }
             }
             
@@ -449,6 +423,22 @@ namespace Jk_Accounting_Software.External.Datasources {
             public global::System.Data.DataColumn ReferenceNo2Column {
                 get {
                     return this.columnReferenceNo2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SubsidiaryColumn {
+                get {
+                    return this.columnSubsidiary;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RemarksColumn {
+                get {
+                    return this.columnRemarks;
                 }
             }
             
@@ -463,58 +453,50 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersRow this[int index] {
+            public GetJournalPrintoutRow this[int index] {
                 get {
-                    return ((tblJournalVouchersRow)(this.Rows[index]));
+                    return ((GetJournalPrintoutRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVouchersRowChangeEventHandler tblJournalVouchersRowChanging;
+            public event GetJournalPrintoutRowChangeEventHandler GetJournalPrintoutRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVouchersRowChangeEventHandler tblJournalVouchersRowChanged;
+            public event GetJournalPrintoutRowChangeEventHandler GetJournalPrintoutRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVouchersRowChangeEventHandler tblJournalVouchersRowDeleting;
+            public event GetJournalPrintoutRowChangeEventHandler GetJournalPrintoutRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVouchersRowChangeEventHandler tblJournalVouchersRowDeleted;
+            public event GetJournalPrintoutRowChangeEventHandler GetJournalPrintoutRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddtblJournalVouchersRow(tblJournalVouchersRow row) {
+            public void AddGetJournalPrintoutRow(GetJournalPrintoutRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersRow AddtblJournalVouchersRow(int CompanyId, string TransactionNo, string ReferenceNo, System.DateTime Date, string Remarks, string ReferenceNo2) {
-                tblJournalVouchersRow rowtblJournalVouchersRow = ((tblJournalVouchersRow)(this.NewRow()));
+            public GetJournalPrintoutRow AddGetJournalPrintoutRow(string TransactionNo, System.DateTime Date, string ReferenceNo, string ReferenceNo2, string Subsidiary, string Remarks) {
+                GetJournalPrintoutRow rowGetJournalPrintoutRow = ((GetJournalPrintoutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        CompanyId,
                         TransactionNo,
-                        ReferenceNo,
                         Date,
-                        Remarks,
-                        ReferenceNo2};
-                rowtblJournalVouchersRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtblJournalVouchersRow);
-                return rowtblJournalVouchersRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersRow FindById(int Id) {
-                return ((tblJournalVouchersRow)(this.Rows.Find(new object[] {
-                            Id})));
+                        ReferenceNo,
+                        ReferenceNo2,
+                        Subsidiary,
+                        Remarks};
+                rowGetJournalPrintoutRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetJournalPrintoutRow);
+                return rowGetJournalPrintoutRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tblJournalVouchersDataTable cln = ((tblJournalVouchersDataTable)(base.Clone()));
+                GetJournalPrintoutDataTable cln = ((GetJournalPrintoutDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -522,80 +504,66 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tblJournalVouchersDataTable();
+                return new GetJournalPrintoutDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnId = base.Columns["Id"];
-                this.columnCompanyId = base.Columns["CompanyId"];
                 this.columnTransactionNo = base.Columns["TransactionNo"];
-                this.columnReferenceNo = base.Columns["ReferenceNo"];
                 this.columnDate = base.Columns["Date"];
-                this.columnRemarks = base.Columns["Remarks"];
+                this.columnReferenceNo = base.Columns["ReferenceNo"];
                 this.columnReferenceNo2 = base.Columns["ReferenceNo2"];
+                this.columnSubsidiary = base.Columns["Subsidiary"];
+                this.columnRemarks = base.Columns["Remarks"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
-                this.columnCompanyId = new global::System.Data.DataColumn("CompanyId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCompanyId);
                 this.columnTransactionNo = new global::System.Data.DataColumn("TransactionNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTransactionNo);
-                this.columnReferenceNo = new global::System.Data.DataColumn("ReferenceNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnReferenceNo);
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
-                this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnRemarks);
+                this.columnReferenceNo = new global::System.Data.DataColumn("ReferenceNo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReferenceNo);
                 this.columnReferenceNo2 = new global::System.Data.DataColumn("ReferenceNo2", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnReferenceNo2);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
-                this.columnCompanyId.AllowDBNull = false;
-                this.columnTransactionNo.AllowDBNull = false;
+                this.columnSubsidiary = new global::System.Data.DataColumn("Subsidiary", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSubsidiary);
+                this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemarks);
                 this.columnTransactionNo.MaxLength = 50;
-                this.columnReferenceNo.AllowDBNull = false;
                 this.columnReferenceNo.MaxLength = 50;
-                this.columnDate.AllowDBNull = false;
-                this.columnRemarks.MaxLength = 1000;
                 this.columnReferenceNo2.MaxLength = 50;
+                this.columnSubsidiary.MaxLength = 100;
+                this.columnRemarks.MaxLength = 1000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersRow NewtblJournalVouchersRow() {
-                return ((tblJournalVouchersRow)(this.NewRow()));
+            public GetJournalPrintoutRow NewGetJournalPrintoutRow() {
+                return ((GetJournalPrintoutRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tblJournalVouchersRow(builder);
+                return new GetJournalPrintoutRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tblJournalVouchersRow);
+                return typeof(GetJournalPrintoutRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tblJournalVouchersRowChanged != null)) {
-                    this.tblJournalVouchersRowChanged(this, new tblJournalVouchersRowChangeEvent(((tblJournalVouchersRow)(e.Row)), e.Action));
+                if ((this.GetJournalPrintoutRowChanged != null)) {
+                    this.GetJournalPrintoutRowChanged(this, new GetJournalPrintoutRowChangeEvent(((GetJournalPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
@@ -603,8 +571,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tblJournalVouchersRowChanging != null)) {
-                    this.tblJournalVouchersRowChanging(this, new tblJournalVouchersRowChangeEvent(((tblJournalVouchersRow)(e.Row)), e.Action));
+                if ((this.GetJournalPrintoutRowChanging != null)) {
+                    this.GetJournalPrintoutRowChanging(this, new GetJournalPrintoutRowChangeEvent(((GetJournalPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
@@ -612,8 +580,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tblJournalVouchersRowDeleted != null)) {
-                    this.tblJournalVouchersRowDeleted(this, new tblJournalVouchersRowChangeEvent(((tblJournalVouchersRow)(e.Row)), e.Action));
+                if ((this.GetJournalPrintoutRowDeleted != null)) {
+                    this.GetJournalPrintoutRowDeleted(this, new GetJournalPrintoutRowChangeEvent(((GetJournalPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
@@ -621,14 +589,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tblJournalVouchersRowDeleting != null)) {
-                    this.tblJournalVouchersRowDeleting(this, new tblJournalVouchersRowChangeEvent(((tblJournalVouchersRow)(e.Row)), e.Action));
+                if ((this.GetJournalPrintoutRowDeleting != null)) {
+                    this.GetJournalPrintoutRowDeleting(this, new GetJournalPrintoutRowChangeEvent(((GetJournalPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovetblJournalVouchersRow(tblJournalVouchersRow row) {
+            public void RemoveGetJournalPrintoutRow(GetJournalPrintoutRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -637,7 +605,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EJournalVoucherPrintoutDS ds = new EJournalVoucherPrintoutDS();
+                EJournalPrintoutDS ds = new EJournalPrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -655,7 +623,7 @@ namespace Jk_Accounting_Software.External.Datasources {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tblJournalVouchersDataTable";
+                attribute2.FixedValue = "GetJournalPrintoutDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -701,7 +669,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class tblJournalVoucherDetailsDataTable : global::System.Data.TypedTableBase<tblJournalVoucherDetailsRow> {
+        public partial class GetJournalDetailPrintoutDataTable : global::System.Data.TypedTableBase<GetJournalDetailPrintoutRow> {
             
             private global::System.Data.DataColumn columnAccount;
             
@@ -713,12 +681,10 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             private global::System.Data.DataColumn columnRemarks;
             
-            private global::System.Data.DataColumn columnJournalVoucherId;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVoucherDetailsDataTable() {
-                this.TableName = "tblJournalVoucherDetails";
+            public GetJournalDetailPrintoutDataTable() {
+                this.TableName = "GetJournalDetailPrintout";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -726,7 +692,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblJournalVoucherDetailsDataTable(global::System.Data.DataTable table) {
+            internal GetJournalDetailPrintoutDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -743,7 +709,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected tblJournalVoucherDetailsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected GetJournalDetailPrintoutDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -790,14 +756,6 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn JournalVoucherIdColumn {
-                get {
-                    return this.columnJournalVoucherId;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -807,50 +765,49 @@ namespace Jk_Accounting_Software.External.Datasources {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVoucherDetailsRow this[int index] {
+            public GetJournalDetailPrintoutRow this[int index] {
                 get {
-                    return ((tblJournalVoucherDetailsRow)(this.Rows[index]));
+                    return ((GetJournalDetailPrintoutRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVoucherDetailsRowChangeEventHandler tblJournalVoucherDetailsRowChanging;
+            public event GetJournalDetailPrintoutRowChangeEventHandler GetJournalDetailPrintoutRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVoucherDetailsRowChangeEventHandler tblJournalVoucherDetailsRowChanged;
+            public event GetJournalDetailPrintoutRowChangeEventHandler GetJournalDetailPrintoutRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVoucherDetailsRowChangeEventHandler tblJournalVoucherDetailsRowDeleting;
+            public event GetJournalDetailPrintoutRowChangeEventHandler GetJournalDetailPrintoutRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event tblJournalVoucherDetailsRowChangeEventHandler tblJournalVoucherDetailsRowDeleted;
+            public event GetJournalDetailPrintoutRowChangeEventHandler GetJournalDetailPrintoutRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddtblJournalVoucherDetailsRow(tblJournalVoucherDetailsRow row) {
+            public void AddGetJournalDetailPrintoutRow(GetJournalDetailPrintoutRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVoucherDetailsRow AddtblJournalVoucherDetailsRow(string Account, string Subsidiary, decimal Debit, decimal Credit, string Remarks, int JournalVoucherId) {
-                tblJournalVoucherDetailsRow rowtblJournalVoucherDetailsRow = ((tblJournalVoucherDetailsRow)(this.NewRow()));
+            public GetJournalDetailPrintoutRow AddGetJournalDetailPrintoutRow(string Account, string Subsidiary, decimal Debit, decimal Credit, string Remarks) {
+                GetJournalDetailPrintoutRow rowGetJournalDetailPrintoutRow = ((GetJournalDetailPrintoutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Account,
                         Subsidiary,
                         Debit,
                         Credit,
-                        Remarks,
-                        JournalVoucherId};
-                rowtblJournalVoucherDetailsRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtblJournalVoucherDetailsRow);
-                return rowtblJournalVoucherDetailsRow;
+                        Remarks};
+                rowGetJournalDetailPrintoutRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGetJournalDetailPrintoutRow);
+                return rowGetJournalDetailPrintoutRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                tblJournalVoucherDetailsDataTable cln = ((tblJournalVoucherDetailsDataTable)(base.Clone()));
+                GetJournalDetailPrintoutDataTable cln = ((GetJournalDetailPrintoutDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -858,7 +815,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new tblJournalVoucherDetailsDataTable();
+                return new GetJournalDetailPrintoutDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -869,7 +826,6 @@ namespace Jk_Accounting_Software.External.Datasources {
                 this.columnDebit = base.Columns["Debit"];
                 this.columnCredit = base.Columns["Credit"];
                 this.columnRemarks = base.Columns["Remarks"];
-                this.columnJournalVoucherId = base.Columns["JournalVoucherId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -885,40 +841,35 @@ namespace Jk_Accounting_Software.External.Datasources {
                 base.Columns.Add(this.columnCredit);
                 this.columnRemarks = new global::System.Data.DataColumn("Remarks", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRemarks);
-                this.columnJournalVoucherId = new global::System.Data.DataColumn("JournalVoucherId", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnJournalVoucherId);
                 this.columnAccount.MaxLength = 100;
                 this.columnSubsidiary.MaxLength = 100;
-                this.columnDebit.AllowDBNull = false;
-                this.columnCredit.AllowDBNull = false;
                 this.columnRemarks.MaxLength = 1000;
-                this.columnJournalVoucherId.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVoucherDetailsRow NewtblJournalVoucherDetailsRow() {
-                return ((tblJournalVoucherDetailsRow)(this.NewRow()));
+            public GetJournalDetailPrintoutRow NewGetJournalDetailPrintoutRow() {
+                return ((GetJournalDetailPrintoutRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new tblJournalVoucherDetailsRow(builder);
+                return new GetJournalDetailPrintoutRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(tblJournalVoucherDetailsRow);
+                return typeof(GetJournalDetailPrintoutRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.tblJournalVoucherDetailsRowChanged != null)) {
-                    this.tblJournalVoucherDetailsRowChanged(this, new tblJournalVoucherDetailsRowChangeEvent(((tblJournalVoucherDetailsRow)(e.Row)), e.Action));
+                if ((this.GetJournalDetailPrintoutRowChanged != null)) {
+                    this.GetJournalDetailPrintoutRowChanged(this, new GetJournalDetailPrintoutRowChangeEvent(((GetJournalDetailPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
@@ -926,8 +877,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.tblJournalVoucherDetailsRowChanging != null)) {
-                    this.tblJournalVoucherDetailsRowChanging(this, new tblJournalVoucherDetailsRowChangeEvent(((tblJournalVoucherDetailsRow)(e.Row)), e.Action));
+                if ((this.GetJournalDetailPrintoutRowChanging != null)) {
+                    this.GetJournalDetailPrintoutRowChanging(this, new GetJournalDetailPrintoutRowChangeEvent(((GetJournalDetailPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
@@ -935,8 +886,8 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.tblJournalVoucherDetailsRowDeleted != null)) {
-                    this.tblJournalVoucherDetailsRowDeleted(this, new tblJournalVoucherDetailsRowChangeEvent(((tblJournalVoucherDetailsRow)(e.Row)), e.Action));
+                if ((this.GetJournalDetailPrintoutRowDeleted != null)) {
+                    this.GetJournalDetailPrintoutRowDeleted(this, new GetJournalDetailPrintoutRowChangeEvent(((GetJournalDetailPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
@@ -944,14 +895,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.tblJournalVoucherDetailsRowDeleting != null)) {
-                    this.tblJournalVoucherDetailsRowDeleting(this, new tblJournalVoucherDetailsRowChangeEvent(((tblJournalVoucherDetailsRow)(e.Row)), e.Action));
+                if ((this.GetJournalDetailPrintoutRowDeleting != null)) {
+                    this.GetJournalDetailPrintoutRowDeleting(this, new GetJournalDetailPrintoutRowChangeEvent(((GetJournalDetailPrintoutRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovetblJournalVoucherDetailsRow(tblJournalVoucherDetailsRow row) {
+            public void RemoveGetJournalDetailPrintoutRow(GetJournalDetailPrintoutRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -960,7 +911,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EJournalVoucherPrintoutDS ds = new EJournalVoucherPrintoutDS();
+                EJournalPrintoutDS ds = new EJournalPrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -978,7 +929,7 @@ namespace Jk_Accounting_Software.External.Datasources {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "tblJournalVoucherDetailsDataTable";
+                attribute2.FixedValue = "GetJournalDetailPrintoutDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1282,7 +1233,7 @@ namespace Jk_Accounting_Software.External.Datasources {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                EJournalVoucherPrintoutDS ds = new EJournalVoucherPrintoutDS();
+                EJournalPrintoutDS ds = new EJournalPrintoutDS();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -1344,58 +1295,30 @@ namespace Jk_Accounting_Software.External.Datasources {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class tblJournalVouchersRow : global::System.Data.DataRow {
+        public partial class GetJournalPrintoutRow : global::System.Data.DataRow {
             
-            private tblJournalVouchersDataTable tabletblJournalVouchers;
+            private GetJournalPrintoutDataTable tableGetJournalPrintout;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblJournalVouchersRow(global::System.Data.DataRowBuilder rb) : 
+            internal GetJournalPrintoutRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletblJournalVouchers = ((tblJournalVouchersDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
-                get {
-                    return ((int)(this[this.tabletblJournalVouchers.IdColumn]));
-                }
-                set {
-                    this[this.tabletblJournalVouchers.IdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int CompanyId {
-                get {
-                    return ((int)(this[this.tabletblJournalVouchers.CompanyIdColumn]));
-                }
-                set {
-                    this[this.tabletblJournalVouchers.CompanyIdColumn] = value;
-                }
+                this.tableGetJournalPrintout = ((GetJournalPrintoutDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string TransactionNo {
                 get {
-                    return ((string)(this[this.tabletblJournalVouchers.TransactionNoColumn]));
+                    try {
+                        return ((string)(this[this.tableGetJournalPrintout.TransactionNoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TransactionNo\' in table \'GetJournalPrintout\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tabletblJournalVouchers.TransactionNoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ReferenceNo {
-                get {
-                    return ((string)(this[this.tabletblJournalVouchers.ReferenceNoColumn]));
-                }
-                set {
-                    this[this.tabletblJournalVouchers.ReferenceNoColumn] = value;
+                    this[this.tableGetJournalPrintout.TransactionNoColumn] = value;
                 }
             }
             
@@ -1403,26 +1326,31 @@ namespace Jk_Accounting_Software.External.Datasources {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public System.DateTime Date {
                 get {
-                    return ((global::System.DateTime)(this[this.tabletblJournalVouchers.DateColumn]));
+                    try {
+                        return ((global::System.DateTime)(this[this.tableGetJournalPrintout.DateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'GetJournalPrintout\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tabletblJournalVouchers.DateColumn] = value;
+                    this[this.tableGetJournalPrintout.DateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Remarks {
+            public string ReferenceNo {
                 get {
                     try {
-                        return ((string)(this[this.tabletblJournalVouchers.RemarksColumn]));
+                        return ((string)(this[this.tableGetJournalPrintout.ReferenceNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'tblJournalVouchers\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReferenceNo\' in table \'GetJournalPrintout\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblJournalVouchers.RemarksColumn] = value;
+                    this[this.tableGetJournalPrintout.ReferenceNoColumn] = value;
                 }
             }
             
@@ -1431,69 +1359,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string ReferenceNo2 {
                 get {
                     try {
-                        return ((string)(this[this.tabletblJournalVouchers.ReferenceNo2Column]));
+                        return ((string)(this[this.tableGetJournalPrintout.ReferenceNo2Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ReferenceNo2\' in table \'tblJournalVouchers\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ReferenceNo2\' in table \'GetJournalPrintout\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblJournalVouchers.ReferenceNo2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsRemarksNull() {
-                return this.IsNull(this.tabletblJournalVouchers.RemarksColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetRemarksNull() {
-                this[this.tabletblJournalVouchers.RemarksColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsReferenceNo2Null() {
-                return this.IsNull(this.tabletblJournalVouchers.ReferenceNo2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetReferenceNo2Null() {
-                this[this.tabletblJournalVouchers.ReferenceNo2Column] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class tblJournalVoucherDetailsRow : global::System.Data.DataRow {
-            
-            private tblJournalVoucherDetailsDataTable tabletblJournalVoucherDetails;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal tblJournalVoucherDetailsRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tabletblJournalVoucherDetails = ((tblJournalVoucherDetailsDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Account {
-                get {
-                    try {
-                        return ((string)(this[this.tabletblJournalVoucherDetails.AccountColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Account\' in table \'tblJournalVoucherDetails\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabletblJournalVoucherDetails.AccountColumn] = value;
+                    this[this.tableGetJournalPrintout.ReferenceNo2Column] = value;
                 }
             }
             
@@ -1502,36 +1375,14 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string Subsidiary {
                 get {
                     try {
-                        return ((string)(this[this.tabletblJournalVoucherDetails.SubsidiaryColumn]));
+                        return ((string)(this[this.tableGetJournalPrintout.SubsidiaryColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Subsidiary\' in table \'tblJournalVoucherDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Subsidiary\' in table \'GetJournalPrintout\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblJournalVoucherDetails.SubsidiaryColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Debit {
-                get {
-                    return ((decimal)(this[this.tabletblJournalVoucherDetails.DebitColumn]));
-                }
-                set {
-                    this[this.tabletblJournalVoucherDetails.DebitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal Credit {
-                get {
-                    return ((decimal)(this[this.tabletblJournalVoucherDetails.CreditColumn]));
-                }
-                set {
-                    this[this.tabletblJournalVoucherDetails.CreditColumn] = value;
+                    this[this.tableGetJournalPrintout.SubsidiaryColumn] = value;
                 }
             }
             
@@ -1540,62 +1391,242 @@ namespace Jk_Accounting_Software.External.Datasources {
             public string Remarks {
                 get {
                     try {
-                        return ((string)(this[this.tabletblJournalVoucherDetails.RemarksColumn]));
+                        return ((string)(this[this.tableGetJournalPrintout.RemarksColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'tblJournalVoucherDetails\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'GetJournalPrintout\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabletblJournalVoucherDetails.RemarksColumn] = value;
+                    this[this.tableGetJournalPrintout.RemarksColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int JournalVoucherId {
+            public bool IsTransactionNoNull() {
+                return this.IsNull(this.tableGetJournalPrintout.TransactionNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTransactionNoNull() {
+                this[this.tableGetJournalPrintout.TransactionNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDateNull() {
+                return this.IsNull(this.tableGetJournalPrintout.DateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDateNull() {
+                this[this.tableGetJournalPrintout.DateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReferenceNoNull() {
+                return this.IsNull(this.tableGetJournalPrintout.ReferenceNoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReferenceNoNull() {
+                this[this.tableGetJournalPrintout.ReferenceNoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsReferenceNo2Null() {
+                return this.IsNull(this.tableGetJournalPrintout.ReferenceNo2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetReferenceNo2Null() {
+                this[this.tableGetJournalPrintout.ReferenceNo2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSubsidiaryNull() {
+                return this.IsNull(this.tableGetJournalPrintout.SubsidiaryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSubsidiaryNull() {
+                this[this.tableGetJournalPrintout.SubsidiaryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRemarksNull() {
+                return this.IsNull(this.tableGetJournalPrintout.RemarksColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRemarksNull() {
+                this[this.tableGetJournalPrintout.RemarksColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class GetJournalDetailPrintoutRow : global::System.Data.DataRow {
+            
+            private GetJournalDetailPrintoutDataTable tableGetJournalDetailPrintout;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal GetJournalDetailPrintoutRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableGetJournalDetailPrintout = ((GetJournalDetailPrintoutDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Account {
                 get {
-                    return ((int)(this[this.tabletblJournalVoucherDetails.JournalVoucherIdColumn]));
+                    try {
+                        return ((string)(this[this.tableGetJournalDetailPrintout.AccountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Account\' in table \'GetJournalDetailPrintout\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tabletblJournalVoucherDetails.JournalVoucherIdColumn] = value;
+                    this[this.tableGetJournalDetailPrintout.AccountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Subsidiary {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetJournalDetailPrintout.SubsidiaryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Subsidiary\' in table \'GetJournalDetailPrintout\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetJournalDetailPrintout.SubsidiaryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Debit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableGetJournalDetailPrintout.DebitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Debit\' in table \'GetJournalDetailPrintout\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetJournalDetailPrintout.DebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Credit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableGetJournalDetailPrintout.CreditColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Credit\' in table \'GetJournalDetailPrintout\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetJournalDetailPrintout.CreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Remarks {
+                get {
+                    try {
+                        return ((string)(this[this.tableGetJournalDetailPrintout.RemarksColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Remarks\' in table \'GetJournalDetailPrintout\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGetJournalDetailPrintout.RemarksColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAccountNull() {
-                return this.IsNull(this.tabletblJournalVoucherDetails.AccountColumn);
+                return this.IsNull(this.tableGetJournalDetailPrintout.AccountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAccountNull() {
-                this[this.tabletblJournalVoucherDetails.AccountColumn] = global::System.Convert.DBNull;
+                this[this.tableGetJournalDetailPrintout.AccountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSubsidiaryNull() {
-                return this.IsNull(this.tabletblJournalVoucherDetails.SubsidiaryColumn);
+                return this.IsNull(this.tableGetJournalDetailPrintout.SubsidiaryColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSubsidiaryNull() {
-                this[this.tabletblJournalVoucherDetails.SubsidiaryColumn] = global::System.Convert.DBNull;
+                this[this.tableGetJournalDetailPrintout.SubsidiaryColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDebitNull() {
+                return this.IsNull(this.tableGetJournalDetailPrintout.DebitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDebitNull() {
+                this[this.tableGetJournalDetailPrintout.DebitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCreditNull() {
+                return this.IsNull(this.tableGetJournalDetailPrintout.CreditColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCreditNull() {
+                this[this.tableGetJournalDetailPrintout.CreditColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsRemarksNull() {
-                return this.IsNull(this.tabletblJournalVoucherDetails.RemarksColumn);
+                return this.IsNull(this.tableGetJournalDetailPrintout.RemarksColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRemarksNull() {
-                this[this.tabletblJournalVoucherDetails.RemarksColumn] = global::System.Convert.DBNull;
+                this[this.tableGetJournalDetailPrintout.RemarksColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1724,22 +1755,22 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class tblJournalVouchersRowChangeEvent : global::System.EventArgs {
+        public class GetJournalPrintoutRowChangeEvent : global::System.EventArgs {
             
-            private tblJournalVouchersRow eventRow;
+            private GetJournalPrintoutRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersRowChangeEvent(tblJournalVouchersRow row, global::System.Data.DataRowAction action) {
+            public GetJournalPrintoutRowChangeEvent(GetJournalPrintoutRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVouchersRow Row {
+            public GetJournalPrintoutRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1758,22 +1789,22 @@ namespace Jk_Accounting_Software.External.Datasources {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class tblJournalVoucherDetailsRowChangeEvent : global::System.EventArgs {
+        public class GetJournalDetailPrintoutRowChangeEvent : global::System.EventArgs {
             
-            private tblJournalVoucherDetailsRow eventRow;
+            private GetJournalDetailPrintoutRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVoucherDetailsRowChangeEvent(tblJournalVoucherDetailsRow row, global::System.Data.DataRowAction action) {
+            public GetJournalDetailPrintoutRowChangeEvent(GetJournalDetailPrintoutRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public tblJournalVoucherDetailsRow Row {
+            public GetJournalDetailPrintoutRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1823,7 +1854,7 @@ namespace Jk_Accounting_Software.External.Datasources {
         }
     }
 }
-namespace Jk_Accounting_Software.External.Datasources.EJournalVoucherPrintoutDSTableAdapters {
+namespace Jk_Accounting_Software.External.Datasources.EJournalPrintoutDSTableAdapters {
     
     
     /// <summary>
@@ -1835,7 +1866,7 @@ namespace Jk_Accounting_Software.External.Datasources.EJournalVoucherPrintoutDST
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tblJournalVouchersTableAdapter : global::System.ComponentModel.Component {
+    public partial class GetJournalPrintoutTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1849,7 +1880,7 @@ namespace Jk_Accounting_Software.External.Datasources.EJournalVoucherPrintoutDST
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public tblJournalVouchersTableAdapter() {
+        public GetJournalPrintoutTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1946,49 +1977,14 @@ namespace Jk_Accounting_Software.External.Datasources.EJournalVoucherPrintoutDST
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tblJournalVouchers";
-            tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("CompanyId", "CompanyId");
+            tableMapping.DataSetTable = "GetJournalPrintout";
             tableMapping.ColumnMappings.Add("TransactionNo", "TransactionNo");
-            tableMapping.ColumnMappings.Add("ReferenceNo", "ReferenceNo");
             tableMapping.ColumnMappings.Add("Date", "Date");
-            tableMapping.ColumnMappings.Add("Remarks", "Remarks");
+            tableMapping.ColumnMappings.Add("ReferenceNo", "ReferenceNo");
             tableMapping.ColumnMappings.Add("ReferenceNo2", "ReferenceNo2");
+            tableMapping.ColumnMappings.Add("Subsidiary", "Subsidiary");
+            tableMapping.ColumnMappings.Add("Remarks", "Remarks");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [tblJournalVouchers] WHERE (([Id] = @Original_Id) AND ([CompanyId] = @Original_CompanyId) AND ([TransactionNo] = @Original_TransactionNo) AND ([ReferenceNo] = @Original_ReferenceNo) AND ((@IsNull_ReferenceNo2 = 1 AND [ReferenceNo2] IS NULL) OR ([ReferenceNo2] = @Original_ReferenceNo2)) AND ([Date] = @Original_Date) AND ((@IsNull_Remarks = 1 AND [Remarks] IS NULL) OR ([Remarks] = @Original_Remarks)))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompanyId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReferenceNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReferenceNo2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReferenceNo2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Remarks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remarks", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Remarks", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remarks", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [tblJournalVouchers] SET [CompanyId] = @CompanyId, [TransactionNo] = @TransactionNo, [ReferenceNo] = @ReferenceNo, [ReferenceNo2] = @ReferenceNo2, [Date] = @Date, [Remarks] = @Remarks WHERE (([Id] = @Original_Id) AND ([CompanyId] = @Original_CompanyId) AND ([TransactionNo] = @Original_TransactionNo) AND ([ReferenceNo] = @Original_ReferenceNo) AND ((@IsNull_ReferenceNo2 = 1 AND [ReferenceNo2] IS NULL) OR ([ReferenceNo2] = @Original_ReferenceNo2)) AND ([Date] = @Original_Date) AND ((@IsNull_Remarks = 1 AND [Remarks] IS NULL) OR ([Remarks] = @Original_Remarks)));
-SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FROM tblJournalVouchers WHERE (Id = @Id)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReferenceNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ReferenceNo2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Remarks", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remarks", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CompanyId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TransactionNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReferenceNo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ReferenceNo2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ReferenceNo2", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ReferenceNo2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Remarks", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remarks", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Remarks", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Remarks", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2004,19 +2000,31 @@ SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, CompanyId, TransactionNo, ReferenceNo,\r\n\tReferenceNo2, [Date], Remarks" +
-                "\r\nFROM tblJournalVouchers\r\nWHERE Id = @Id";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].CommandText = "dbo.uspGetJournalPrintout";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Caption", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EJournalVoucherPrintoutDS.tblJournalVouchersDataTable dataTable, int Id) {
+        public virtual int Fill(EJournalPrintoutDS.GetJournalPrintoutDataTable dataTable, global::System.Nullable<int> Id, string Caption) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
+            if ((Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Caption == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Caption));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2028,180 +2036,23 @@ SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EJournalVoucherPrintoutDS.tblJournalVouchersDataTable GetData(int Id) {
+        public virtual EJournalPrintoutDS.GetJournalPrintoutDataTable GetData(global::System.Nullable<int> Id, string Caption) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
-            EJournalVoucherPrintoutDS.tblJournalVouchersDataTable dataTable = new EJournalVoucherPrintoutDS.tblJournalVouchersDataTable();
+            if ((Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Caption == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Caption));
+            }
+            EJournalPrintoutDS.GetJournalPrintoutDataTable dataTable = new EJournalPrintoutDS.GetJournalPrintoutDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(EJournalVoucherPrintoutDS.tblJournalVouchersDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(EJournalVoucherPrintoutDS dataSet) {
-            return this.Adapter.Update(dataSet, "tblJournalVouchers");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id, int Original_CompanyId, string Original_TransactionNo, string Original_ReferenceNo, string Original_ReferenceNo2, System.DateTime Original_Date, string Original_Remarks) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_CompanyId));
-            if ((Original_TransactionNo == null)) {
-                throw new global::System.ArgumentNullException("Original_TransactionNo");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_TransactionNo));
-            }
-            if ((Original_ReferenceNo == null)) {
-                throw new global::System.ArgumentNullException("Original_ReferenceNo");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_ReferenceNo));
-            }
-            if ((Original_ReferenceNo2 == null)) {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_ReferenceNo2));
-            }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Date));
-            if ((Original_Remarks == null)) {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Remarks));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int CompanyId, string TransactionNo, string ReferenceNo, string ReferenceNo2, System.DateTime Date, string Remarks, int Original_Id, int Original_CompanyId, string Original_TransactionNo, string Original_ReferenceNo, string Original_ReferenceNo2, System.DateTime Original_Date, string Original_Remarks, int Id) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(CompanyId));
-            if ((TransactionNo == null)) {
-                throw new global::System.ArgumentNullException("TransactionNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(TransactionNo));
-            }
-            if ((ReferenceNo == null)) {
-                throw new global::System.ArgumentNullException("ReferenceNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(ReferenceNo));
-            }
-            if ((ReferenceNo2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(ReferenceNo2));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Date));
-            if ((Remarks == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Remarks));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_Id));
-            this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Original_CompanyId));
-            if ((Original_TransactionNo == null)) {
-                throw new global::System.ArgumentNullException("Original_TransactionNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_TransactionNo));
-            }
-            if ((Original_ReferenceNo == null)) {
-                throw new global::System.ArgumentNullException("Original_ReferenceNo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_ReferenceNo));
-            }
-            if ((Original_ReferenceNo2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ReferenceNo2));
-            }
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((System.DateTime)(Original_Date));
-            if ((Original_Remarks == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Remarks));
-            }
-            this.Adapter.UpdateCommand.Parameters[15].Value = ((int)(Id));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int CompanyId, string TransactionNo, string ReferenceNo, string ReferenceNo2, System.DateTime Date, string Remarks, int Original_Id, int Original_CompanyId, string Original_TransactionNo, string Original_ReferenceNo, string Original_ReferenceNo2, System.DateTime Original_Date, string Original_Remarks) {
-            return this.Update(CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks, Original_Id, Original_CompanyId, Original_TransactionNo, Original_ReferenceNo, Original_ReferenceNo2, Original_Date, Original_Remarks, Original_Id);
         }
     }
     
@@ -2214,7 +2065,7 @@ SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FR
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class tblJournalVoucherDetailsTableAdapter : global::System.ComponentModel.Component {
+    public partial class GetJournalDetailPrintoutTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -2228,7 +2079,7 @@ SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FR
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public tblJournalVoucherDetailsTableAdapter() {
+        public GetJournalDetailPrintoutTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -2325,13 +2176,12 @@ SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FR
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "tblJournalVoucherDetails";
+            tableMapping.DataSetTable = "GetJournalDetailPrintout";
             tableMapping.ColumnMappings.Add("Account", "Account");
             tableMapping.ColumnMappings.Add("Subsidiary", "Subsidiary");
             tableMapping.ColumnMappings.Add("Debit", "Debit");
             tableMapping.ColumnMappings.Add("Credit", "Credit");
             tableMapping.ColumnMappings.Add("Remarks", "Remarks");
-            tableMapping.ColumnMappings.Add("JournalVoucherId", "JournalVoucherId");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2348,23 +2198,31 @@ SELECT Id, CompanyId, TransactionNo, ReferenceNo, ReferenceNo2, Date, Remarks FR
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT jd.JournalVoucherId, a.Name AS Account, s.Name AS Subsidiary,
-	jd.Debit, jd.Credit, jd.Remarks
-FROM tblJournalVoucherDetails jd
-	INNER JOIN tblAccounts a ON a.Id = jd.AccountId
-	LEFT OUTER JOIN tblSubsidiaries s ON s.Id = jd.SubsidiaryId
-WHERE jd.JournalVoucherId = @Id";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "JournalVoucherId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].CommandText = "dbo.uspGetJournalDetailPrintout";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Caption", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EJournalVoucherPrintoutDS.tblJournalVoucherDetailsDataTable dataTable, int Id) {
+        public virtual int Fill(EJournalPrintoutDS.GetJournalDetailPrintoutDataTable dataTable, global::System.Nullable<int> Id, string Caption) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
+            if ((Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Caption == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Caption));
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -2376,10 +2234,21 @@ WHERE jd.JournalVoucherId = @Id";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EJournalVoucherPrintoutDS.tblJournalVoucherDetailsDataTable GetData(int Id) {
+        public virtual EJournalPrintoutDS.GetJournalDetailPrintoutDataTable GetData(global::System.Nullable<int> Id, string Caption) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
-            EJournalVoucherPrintoutDS.tblJournalVoucherDetailsDataTable dataTable = new EJournalVoucherPrintoutDS.tblJournalVoucherDetailsDataTable();
+            if ((Id.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((int)(Id.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Caption == null)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((string)(Caption));
+            }
+            EJournalPrintoutDS.GetJournalDetailPrintoutDataTable dataTable = new EJournalPrintoutDS.GetJournalDetailPrintoutDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2565,7 +2434,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(EJournalVoucherPrintoutDS.tblCompaniesDataTable dataTable, int CompanyId) {
+        public virtual int Fill(EJournalPrintoutDS.tblCompaniesDataTable dataTable, int CompanyId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CompanyId));
             if ((this.ClearBeforeFill == true)) {
@@ -2579,10 +2448,10 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual EJournalVoucherPrintoutDS.tblCompaniesDataTable GetData(int CompanyId) {
+        public virtual EJournalPrintoutDS.tblCompaniesDataTable GetData(int CompanyId) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(CompanyId));
-            EJournalVoucherPrintoutDS.tblCompaniesDataTable dataTable = new EJournalVoucherPrintoutDS.tblCompaniesDataTable();
+            EJournalPrintoutDS.tblCompaniesDataTable dataTable = new EJournalPrintoutDS.tblCompaniesDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -2590,14 +2459,14 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(EJournalVoucherPrintoutDS.tblCompaniesDataTable dataTable) {
+        public virtual int Update(EJournalPrintoutDS.tblCompaniesDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(EJournalVoucherPrintoutDS dataSet) {
+        public virtual int Update(EJournalPrintoutDS dataSet) {
             return this.Adapter.Update(dataSet, "tblCompanies");
         }
         
@@ -2750,8 +2619,6 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         
         private UpdateOrderOption _updateOrder;
         
-        private tblJournalVouchersTableAdapter _tblJournalVouchersTableAdapter;
-        
         private tblCompaniesTableAdapter _tblCompaniesTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
@@ -2766,20 +2633,6 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public tblJournalVouchersTableAdapter tblJournalVouchersTableAdapter {
-            get {
-                return this._tblJournalVouchersTableAdapter;
-            }
-            set {
-                this._tblJournalVouchersTableAdapter = value;
             }
         }
         
@@ -2816,10 +2669,6 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._tblJournalVouchersTableAdapter != null) 
-                            && (this._tblJournalVouchersTableAdapter.Connection != null))) {
-                    return this._tblJournalVouchersTableAdapter.Connection;
-                }
                 if (((this._tblCompaniesTableAdapter != null) 
                             && (this._tblCompaniesTableAdapter.Connection != null))) {
                     return this._tblCompaniesTableAdapter.Connection;
@@ -2837,9 +2686,6 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._tblJournalVouchersTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._tblCompaniesTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -2852,17 +2698,8 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(EJournalVoucherPrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(EJournalPrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tblJournalVouchersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.tblJournalVouchers.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._tblJournalVouchersTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -2880,16 +2717,8 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(EJournalVoucherPrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(EJournalPrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._tblJournalVouchersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.tblJournalVouchers.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._tblJournalVouchersTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -2906,21 +2735,13 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(EJournalVoucherPrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(EJournalPrintoutDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._tblCompaniesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.tblCompanies.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._tblCompaniesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._tblJournalVouchersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.tblJournalVouchers.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._tblJournalVouchersTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -2956,17 +2777,12 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(EJournalVoucherPrintoutDS dataSet) {
+        public virtual int UpdateAll(EJournalPrintoutDS dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._tblJournalVouchersTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._tblJournalVouchersTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
-                        "tring.");
             }
             if (((this._tblCompaniesTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._tblCompaniesTableAdapter.Connection) == false))) {
@@ -3005,15 +2821,6 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._tblJournalVouchersTableAdapter != null)) {
-                    revertConnections.Add(this._tblJournalVouchersTableAdapter, this._tblJournalVouchersTableAdapter.Connection);
-                    this._tblJournalVouchersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._tblJournalVouchersTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._tblJournalVouchersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._tblJournalVouchersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._tblJournalVouchersTableAdapter.Adapter);
-                    }
-                }
                 if ((this._tblCompaniesTableAdapter != null)) {
                     revertConnections.Add(this._tblCompaniesTableAdapter, this._tblCompaniesTableAdapter.Connection);
                     this._tblCompaniesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -3080,10 +2887,6 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)";
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._tblJournalVouchersTableAdapter != null)) {
-                    this._tblJournalVouchersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblJournalVouchersTableAdapter]));
-                    this._tblJournalVouchersTableAdapter.Transaction = null;
                 }
                 if ((this._tblCompaniesTableAdapter != null)) {
                     this._tblCompaniesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._tblCompaniesTableAdapter]));

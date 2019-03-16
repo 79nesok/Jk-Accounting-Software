@@ -150,6 +150,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 if (!btnPrint.Visible || !btnPrint.Enabled)
                     return;
 
+                //print the first item on selection
                 String reportFormName = VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "PrintoutFormName").ToString();
                 IParentForm reportForm = IAppHandler.FindForm(reportFormName, "Printout", true);
 
@@ -163,6 +164,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                     if (reportForm.Parameters.Find(p => p.Name == "Id") != null)
                         reportForm.Parameters.Find(p => p.Name == "Id").Value = this.Parameters.Find(pa => pa.Name == "Id").Value;
 
+                    (reportForm as IReportForm).PrintoutHeader = this.Caption;
                     reportForm.Run();
                 }
             }
@@ -227,6 +229,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnPrint.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
 
                 ProcessControls(splitContainer.Panel2);
+                LoadPrintoutSelection();
             }
 
             private void ProcessControls(Control control)
@@ -250,7 +253,52 @@ namespace Jk_Accounting_Software.Internal.Forms
                         //set the tabindex to zero, to correct the controls tab arrangement
                         childControl.TabIndex = 0;
                     }
+
+                    //readonly controls should not be able to focus upon keypress of tab
+                    if ((childControl is TextBox && (childControl as TextBox).ReadOnly)
+                        || (childControl is JkTextBox && (childControl as JkTextBox).ReadOnly))
+                        childControl.TabStop = false;
+
                     ProcessControls(childControl);
+                }
+            }
+
+            //loads selection for printout
+            private void LoadPrintoutSelection()
+            {
+                if (FormState == FormStates.fsView
+                    && !IsListForm())
+                {
+                    foreach(DataRow row in VLookupProvider.dstSystemPrintouts.DataTable.Select(String.Format("FormCaption = '{0}'", this.Caption)))
+                    {
+                        ToolStripMenuItem item = new ToolStripMenuItem();
+
+                        item.Name = "toolStripMenuItemPrint" + row["Report"].ToString().Replace(" ", "");
+                        item.Text = row["Report"].ToString();
+                        item.Tag = row["PrintoutFormName"].ToString();
+                        item.Click += (obj, ea) =>
+                        {
+                            IParentForm reportForm = IAppHandler.FindForm(item.Tag.ToString(), "Printout", true);
+
+                            if (reportForm == null)
+                                IMessageHandler.ShowError(ISystemMessages.PrintoutNotSet);
+                            else
+                            {
+                                IAppHandler.AddUsedForm(this);
+                                this.Hide();
+
+                                if (reportForm.Parameters.Find(p => p.Name == "Id") != null)
+                                    reportForm.Parameters.Find(p => p.Name == "Id").Value = this.Parameters.Find(pa => pa.Name == "Id").Value;
+
+                                (reportForm as IReportForm).PrintoutHeader = this.Caption;
+                                reportForm.Run();
+                            }
+                        
+                        };
+
+                        if (btnPrint.DropDownItems.Find(item.Name, true).Length == 0)
+                            btnPrint.DropDownItems.Add(item);
+                    }
                 }
             }
 
