@@ -145,9 +145,9 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnClose.ForeColor = Color.RoyalBlue;
             }
 
-            private void btnPrint_Click(object sender, EventArgs e)
+            private void btnPreview_Click(object sender, EventArgs e)
             {
-                if (!btnPrint.Visible || !btnPrint.Enabled)
+                if (!btnPreview.Visible || !btnPreview.Enabled)
                     return;
 
                 //print the first item on selection
@@ -226,7 +226,8 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
                 btnLastRecord.Enabled = (FormState == FormStates.fsView);
 
-                btnPrint.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
+                btnPreview.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
+                toolStripSeparatorPreview.Visible = btnPreview.Visible;
 
                 ProcessControls(splitContainer.Panel2);
                 LoadPrintoutSelection();
@@ -296,8 +297,8 @@ namespace Jk_Accounting_Software.Internal.Forms
                         
                         };
 
-                        if (btnPrint.DropDownItems.Find(item.Name, true).Length == 0)
-                            btnPrint.DropDownItems.Add(item);
+                        if (btnPreview.DropDownItems.Find(item.Name, true).Length == 0)
+                            btnPreview.DropDownItems.Add(item);
                     }
                 }
             }

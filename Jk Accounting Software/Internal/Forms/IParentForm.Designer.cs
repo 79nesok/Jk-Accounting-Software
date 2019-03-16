@@ -51,7 +51,8 @@
             this.btnEdit = new System.Windows.Forms.ToolStripButton();
             this.btnSave = new System.Windows.Forms.ToolStripButton();
             this.btnCancel = new System.Windows.Forms.ToolStripButton();
-            this.btnPrint = new System.Windows.Forms.ToolStripSplitButton();
+            this.toolStripSeparatorPreview = new System.Windows.Forms.ToolStripSeparator();
+            this.btnPreview = new System.Windows.Forms.ToolStripSplitButton();
             this.btnCloseToolTip = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
@@ -177,10 +178,10 @@
             this.NavigatorSeparatorSecond,
             this.btnLastRecord});
             this.btnNavigatorHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigatorHolder.Location = new System.Drawing.Point(483, 0);
+            this.btnNavigatorHolder.Location = new System.Drawing.Point(467, 0);
             this.btnNavigatorHolder.Name = "btnNavigatorHolder";
             this.btnNavigatorHolder.Padding = new System.Windows.Forms.Padding(0);
-            this.btnNavigatorHolder.Size = new System.Drawing.Size(369, 26);
+            this.btnNavigatorHolder.Size = new System.Drawing.Size(385, 26);
             this.btnNavigatorHolder.Stretch = true;
             this.btnNavigatorHolder.TabIndex = 18;
             this.btnNavigatorHolder.Text = "toolStrip1";
@@ -188,8 +189,9 @@
             // toolStriplblFind
             // 
             this.toolStriplblFind.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolStriplblFind.Image = ((System.Drawing.Image)(resources.GetObject("toolStriplblFind.Image")));
             this.toolStriplblFind.Name = "toolStriplblFind";
-            this.toolStriplblFind.Size = new System.Drawing.Size(30, 23);
+            this.toolStriplblFind.Size = new System.Drawing.Size(46, 23);
             this.toolStriplblFind.Text = "Find";
             this.toolStriplblFind.ToolTipText = "Filters the record (Ctrl+F)";
             // 
@@ -277,11 +279,12 @@
             this.btnEdit,
             this.btnSave,
             this.btnCancel,
-            this.btnPrint});
+            this.toolStripSeparatorPreview,
+            this.btnPreview});
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(319, 26);
+            this.btnHolder.Size = new System.Drawing.Size(310, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -322,15 +325,20 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.ToolTipText = "Cancel the current transaction (Esc)";
             // 
-            // btnPrint
+            // toolStripSeparatorPreview
             // 
-            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(64, 23);
-            this.btnPrint.Text = "Print";
-            this.btnPrint.ToolTipText = "Opens the printing window (Ctrl+P)";
-            this.btnPrint.ButtonClick += new System.EventHandler(this.btnPrint_Click);
+            this.toolStripSeparatorPreview.Name = "toolStripSeparatorPreview";
+            this.toolStripSeparatorPreview.Size = new System.Drawing.Size(6, 26);
+            // 
+            // btnPreview
+            // 
+            this.btnPreview.Image = ((System.Drawing.Image)(resources.GetObject("btnPreview.Image")));
+            this.btnPreview.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnPreview.Name = "btnPreview";
+            this.btnPreview.Size = new System.Drawing.Size(80, 23);
+            this.btnPreview.Text = "Preview";
+            this.btnPreview.ToolTipText = "Opens the printing window";
+            this.btnPreview.ButtonClick += new System.EventHandler(this.btnPreview_Click);
             // 
             // IParentForm
             // 
@@ -383,7 +391,8 @@
         public System.Windows.Forms.ToolStripLabel toolStriplblFind;
         public System.Windows.Forms.ToolStripTextBox toolStriptxtFind;
         public System.Windows.Forms.ToolStripButton toolStripbtnReset;
-        public System.Windows.Forms.ToolStripSplitButton btnPrint;
+        public System.Windows.Forms.ToolStripSplitButton btnPreview;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorPreview;
     }
 }
 

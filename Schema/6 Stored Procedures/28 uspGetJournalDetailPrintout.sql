@@ -28,6 +28,13 @@ ELSE IF @Caption = 'Bill' --Purchase Journal
 		INNER JOIN tblAccounts a ON a.Id = jd.AccountId
 		LEFT OUTER JOIN tblSubsidiaries s ON s.Id = jd.SubsidiaryId
 	WHERE b.Id = @Id
+ELSE IF @Caption = 'Bills Payment' --Cash Disbursement Journal
+	SELECT a.Name AS Account, s.Name AS Subsidiary, jd.Debit, jd.Credit, jd.Remarks
+	FROM tblJournalDetails jd
+		INNER JOIN tblBillsPayment bp ON bp.JournalId = jd.JournalId
+		INNER JOIN tblAccounts a ON a.Id = jd.AccountId
+		LEFT OUTER JOIN tblSubsidiaries s ON s.Id = jd.SubsidiaryId
+	WHERE bp.Id = @Id
 ELSE IF @Caption = 'Check Voucher'
 	SELECT a.Name AS Account, s.Name AS Subsidiary, jd.Debit, jd.Credit, jd.Remarks
 	FROM tblJournalDetails jd

@@ -127,7 +127,7 @@ namespace Jk_Accounting_Software
                     IAppHandler.FindActiveForm().btnCancel.PerformClick();
 
                 if (e.KeyData == (Keys.Control | Keys.P))
-                    IAppHandler.FindActiveForm().btnPrint.PerformClick();
+                    IAppHandler.FindActiveForm().btnPreview.PerformClick();
 
                 if (e.KeyData == (Keys.Control | Keys.F4))
                     IAppHandler.FindActiveForm().btnClose.PerformClick();

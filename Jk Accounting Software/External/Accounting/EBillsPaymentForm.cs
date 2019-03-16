@@ -218,7 +218,7 @@ namespace Jk_Accounting_Software.External.Accounting
             base.UpdateControls();
 
             dataGridView.AllowUserToAddRows = false;
-            btnPrint.Visible = (FormState == FormStates.fsView) && Print2307();
+            btnPreview.Visible = (FormState == FormStates.fsView) && Print2307();
         }
 
         private bool Print2307()

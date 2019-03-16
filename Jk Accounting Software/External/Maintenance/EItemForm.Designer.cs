@@ -50,12 +50,12 @@
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
             // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(837, 34);
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
@@ -63,7 +63,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(837, 481);
+            this.splitContainer.Size = new System.Drawing.Size(836, 481);
             // 
             // btnClose
             // 
@@ -71,7 +71,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -214,7 +214,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns9"))));
             this.Name = "EItemForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(837, 481);
+            this.Size = new System.Drawing.Size(836, 481);
             this.ZLoadMasterColumns = true;
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

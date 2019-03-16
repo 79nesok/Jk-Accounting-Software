@@ -26,6 +26,12 @@ ELSE IF @Caption = 'Bill' --Purchase Journal
 		INNER JOIN tblBills b ON b.JournalId = j.Id
 		INNER JOIN tblSubsidiaries s ON s.Id = j.SubsidiaryId
 	WHERE b.Id = @Id
+ELSE IF @Caption = 'Bills Payment' --Cash Disbursement Journal
+	SELECT j.TransactionNo, j.[Date], j.ReferenceNo, j.ReferenceNo2, s.Name AS Subsidiary, j.Remarks
+	FROM tblJournals j
+		INNER JOIN tblBillsPayment bp ON bp.JournalId = j.Id
+		INNER JOIN tblSubsidiaries s ON s.Id = j.SubsidiaryId
+	WHERE bp.Id = @Id
 ELSE IF @Caption = 'Check Voucher'
 	SELECT bp.TransactionNo, bp.[Date], bp.ReferenceNo, bp.ReferenceNo2, s.Name AS Subsidiary, bp.Remarks
 	FROM tblBillsPayment bp
