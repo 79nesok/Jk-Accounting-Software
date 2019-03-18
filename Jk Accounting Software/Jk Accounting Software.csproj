@@ -447,6 +447,12 @@
     <Compile Include="External\Maintenance\ESuppliersListForm.Designer.cs">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Popup\EReportFilterSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="External\Popup\EReportFilterSelectionForm.Designer.cs">
+      <DependentUpon>EReportFilterSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\EAgingOfPayablesReportForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -772,6 +778,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Maintenance\ESuppliersListForm.resx">
       <DependentUpon>ESuppliersListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Popup\EReportFilterSelectionForm.resx">
+      <DependentUpon>EReportFilterSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Printouts\Aging of Payables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />

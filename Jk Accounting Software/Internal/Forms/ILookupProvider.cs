@@ -31,6 +31,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                     dataset = (control as JkDataSet);
                     foreach (JkDataSetParameter param in dataset.Parameters)
                         param.Value = IAppHandler.ConvertMaskValue(param.Value).ToString();
+                    dataset.Open();
                 }
             }
         }

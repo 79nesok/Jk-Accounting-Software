@@ -276,7 +276,6 @@
             this.cmbAccounts.Location = new System.Drawing.Point(713, 63);
             this.cmbAccounts.Name = "cmbAccounts";
             this.cmbAccounts.Required = false;
-            this.cmbAccounts.SelectedKey = 0;
             this.cmbAccounts.Size = new System.Drawing.Size(66, 23);
             this.cmbAccounts.TabIndex = 18;
             this.cmbAccounts.Visible = false;
@@ -297,7 +296,6 @@
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
-            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(66, 23);
             this.cmbSubsidiary.TabIndex = 17;
             this.cmbSubsidiary.Visible = false;

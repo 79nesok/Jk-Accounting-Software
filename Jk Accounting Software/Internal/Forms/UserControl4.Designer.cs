@@ -143,7 +143,6 @@
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
-            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(205, 21);
             this.cmbSubsidiary.TabIndex = 10;
             // 

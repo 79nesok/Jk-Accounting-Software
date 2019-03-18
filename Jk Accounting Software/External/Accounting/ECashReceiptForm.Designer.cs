@@ -279,7 +279,6 @@
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
-            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(194, 23);
             this.cmbSubsidiary.TabIndex = 15;
             this.cmbSubsidiary.SelectedIndexChanged += new System.EventHandler(this.cmbSubsidiary_SelectedIndexChanged);
@@ -380,7 +379,6 @@
             this.cmbPaymentMethods.Location = new System.Drawing.Point(692, 137);
             this.cmbPaymentMethods.Name = "cmbPaymentMethods";
             this.cmbPaymentMethods.Required = false;
-            this.cmbPaymentMethods.SelectedKey = 0;
             this.cmbPaymentMethods.Size = new System.Drawing.Size(83, 23);
             this.cmbPaymentMethods.TabIndex = 29;
             this.cmbPaymentMethods.Visible = false;
@@ -601,7 +599,6 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashReceiptVoucherForm_BeforeRun);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashReceiptVoucherForm_ValidateSave);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.ECashReceiptVoucherForm_BeforeSave);
             this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECashReceiptVoucherForm_AfterRun);

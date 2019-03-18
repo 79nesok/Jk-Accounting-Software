@@ -37,9 +37,11 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.panelButton = new System.Windows.Forms.Panel();
             this.btnNavigatorHolder = new System.Windows.Forms.ToolStrip();
-            this.toolStriplblFind = new System.Windows.Forms.ToolStripLabel();
-            this.toolStriptxtFind = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripbtnReset = new System.Windows.Forms.ToolStripButton();
+            this.btnFilter = new System.Windows.Forms.ToolStripButton();
+            this.btnRemoveFilter = new System.Windows.Forms.ToolStripButton();
+            this.lblFind = new System.Windows.Forms.ToolStripLabel();
+            this.txtFind = new System.Windows.Forms.ToolStripTextBox();
+            this.btnReset = new System.Windows.Forms.ToolStripButton();
             this.btnFirstRecord = new System.Windows.Forms.ToolStripButton();
             this.NavigatorSeparatorFirst = new System.Windows.Forms.ToolStripSeparator();
             this.btnPreviousRecord = new System.Windows.Forms.ToolStripButton();
@@ -168,9 +170,11 @@
             this.btnNavigatorHolder.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnNavigatorHolder.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNavigatorHolder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStriplblFind,
-            this.toolStriptxtFind,
-            this.toolStripbtnReset,
+            this.btnFilter,
+            this.btnRemoveFilter,
+            this.lblFind,
+            this.txtFind,
+            this.btnReset,
             this.btnFirstRecord,
             this.NavigatorSeparatorFirst,
             this.btnPreviousRecord,
@@ -178,42 +182,61 @@
             this.NavigatorSeparatorSecond,
             this.btnLastRecord});
             this.btnNavigatorHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.btnNavigatorHolder.Location = new System.Drawing.Point(467, 0);
+            this.btnNavigatorHolder.Location = new System.Drawing.Point(340, 0);
             this.btnNavigatorHolder.Name = "btnNavigatorHolder";
-            this.btnNavigatorHolder.Padding = new System.Windows.Forms.Padding(0);
-            this.btnNavigatorHolder.Size = new System.Drawing.Size(385, 26);
+            this.btnNavigatorHolder.Padding = new System.Windows.Forms.Padding(0, 0, 5, 0);
+            this.btnNavigatorHolder.Size = new System.Drawing.Size(512, 26);
             this.btnNavigatorHolder.Stretch = true;
             this.btnNavigatorHolder.TabIndex = 18;
             this.btnNavigatorHolder.Text = "toolStrip1";
             // 
-            // toolStriplblFind
+            // btnFilter
             // 
-            this.toolStriplblFind.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStriplblFind.Image = ((System.Drawing.Image)(resources.GetObject("toolStriplblFind.Image")));
-            this.toolStriplblFind.Name = "toolStriplblFind";
-            this.toolStriplblFind.Size = new System.Drawing.Size(46, 23);
-            this.toolStriplblFind.Text = "Find";
-            this.toolStriplblFind.ToolTipText = "Filters the record (Ctrl+F)";
+            this.btnFilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnFilter.Image")));
+            this.btnFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(53, 23);
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.ToolTipText = "Shows the filter selection window";
             // 
-            // toolStriptxtFind
+            // btnRemoveFilter
             // 
-            this.toolStriptxtFind.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.toolStriptxtFind.Name = "toolStriptxtFind";
-            this.toolStriptxtFind.Size = new System.Drawing.Size(150, 26);
-            this.toolStriptxtFind.ToolTipText = "Filters the record (Ctrl+F)";
+            this.btnRemoveFilter.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveFilter.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveFilter.Image")));
+            this.btnRemoveFilter.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnRemoveFilter.Name = "btnRemoveFilter";
+            this.btnRemoveFilter.Size = new System.Drawing.Size(99, 23);
+            this.btnRemoveFilter.Text = "Remove Filter";
             // 
-            // toolStripbtnReset
+            // lblFind
             // 
-            this.toolStripbtnReset.BackColor = System.Drawing.Color.SteelBlue;
-            this.toolStripbtnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripbtnReset.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStripbtnReset.Image = ((System.Drawing.Image)(resources.GetObject("toolStripbtnReset.Image")));
-            this.toolStripbtnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripbtnReset.Margin = new System.Windows.Forms.Padding(5, 1, 5, 2);
-            this.toolStripbtnReset.Name = "toolStripbtnReset";
-            this.toolStripbtnReset.Size = new System.Drawing.Size(39, 23);
-            this.toolStripbtnReset.Text = "Reset";
-            this.toolStripbtnReset.ToolTipText = "Clears the current search";
+            this.lblFind.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFind.Image = ((System.Drawing.Image)(resources.GetObject("lblFind.Image")));
+            this.lblFind.Name = "lblFind";
+            this.lblFind.Size = new System.Drawing.Size(46, 23);
+            this.lblFind.Text = "Find";
+            this.lblFind.ToolTipText = "Filters the record (Ctrl+F)";
+            // 
+            // txtFind
+            // 
+            this.txtFind.Margin = new System.Windows.Forms.Padding(1, 0, 0, 0);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(125, 26);
+            this.txtFind.ToolTipText = "Filters the record (Ctrl+F)";
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnReset.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnReset.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReset.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.Image")));
+            this.btnReset.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnReset.Margin = new System.Windows.Forms.Padding(5, 1, 0, 2);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(39, 23);
+            this.btnReset.Text = "Reset";
+            this.btnReset.ToolTipText = "Clears the current search";
             // 
             // btnFirstRecord
             // 
@@ -284,7 +307,7 @@
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(310, 26);
+            this.btnHolder.Size = new System.Drawing.Size(341, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";
@@ -337,7 +360,7 @@
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(80, 23);
             this.btnPreview.Text = "Preview";
-            this.btnPreview.ToolTipText = "Opens the printing window";
+            this.btnPreview.ToolTipText = "Opens the printing window (Ctrl+P)";
             this.btnPreview.ButtonClick += new System.EventHandler(this.btnPreview_Click);
             // 
             // IParentForm
@@ -374,8 +397,6 @@
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Label lblCaption;
         protected System.Windows.Forms.ToolStrip btnNavigatorHolder;
-        private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFirst;
-        private System.Windows.Forms.ToolStripSeparator NavigatorSeparatorSecond;
         protected System.Windows.Forms.ToolStrip btnHolder;
         public System.Windows.Forms.ToolStripButton btnNew;
         public System.Windows.Forms.ToolStripButton btnEdit;
@@ -388,11 +409,15 @@
         private System.Windows.Forms.ToolTip btnCloseToolTip;
         public System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Panel panelButton;
-        public System.Windows.Forms.ToolStripLabel toolStriplblFind;
-        public System.Windows.Forms.ToolStripTextBox toolStriptxtFind;
-        public System.Windows.Forms.ToolStripButton toolStripbtnReset;
+        public System.Windows.Forms.ToolStripLabel lblFind;
+        public System.Windows.Forms.ToolStripTextBox txtFind;
+        public System.Windows.Forms.ToolStripButton btnReset;
         public System.Windows.Forms.ToolStripSplitButton btnPreview;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparatorPreview;
+        public System.Windows.Forms.ToolStripButton btnFilter;
+        public System.Windows.Forms.ToolStripSeparator NavigatorSeparatorFirst;
+        public System.Windows.Forms.ToolStripSeparator NavigatorSeparatorSecond;
+        public System.Windows.Forms.ToolStripButton btnRemoveFilter;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparatorPreview;
     }
 }
 

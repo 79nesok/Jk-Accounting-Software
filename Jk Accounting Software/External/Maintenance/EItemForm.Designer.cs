@@ -152,7 +152,6 @@
             this.cmbType.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbType.Name = "cmbType";
             this.cmbType.Required = false;
-            this.cmbType.SelectedKey = 0;
             this.cmbType.Size = new System.Drawing.Size(230, 23);
             this.cmbType.TabIndex = 0;
             // 

@@ -51,6 +51,8 @@
             this.dstSystemUsers.BackColor = System.Drawing.Color.Khaki;
             this.dstSystemUsers.CommandText = "SELECT Id, UserName, FormalName\r\nFROM tblSystemUsers";
             this.dstSystemUsers.Connection = this.cnConnection;
+            this.dstSystemUsers.Filter = null;
+            this.dstSystemUsers.Filtered = false;
             this.dstSystemUsers.Location = new System.Drawing.Point(80, 4);
             this.dstSystemUsers.Name = "dstSystemUsers";
             this.dstSystemUsers.Size = new System.Drawing.Size(82, 20);
@@ -74,6 +76,8 @@
             this.dstSubsidiaryTypes.BackColor = System.Drawing.Color.Khaki;
             this.dstSubsidiaryTypes.CommandText = "SELECT Id, Name\r\nFROM tblSubsidiaryTypes";
             this.dstSubsidiaryTypes.Connection = this.cnConnection;
+            this.dstSubsidiaryTypes.Filter = null;
+            this.dstSubsidiaryTypes.Filtered = false;
             this.dstSubsidiaryTypes.Location = new System.Drawing.Point(170, 4);
             this.dstSubsidiaryTypes.Name = "dstSubsidiaryTypes";
             this.dstSubsidiaryTypes.Size = new System.Drawing.Size(98, 20);
@@ -86,6 +90,8 @@
             this.dstJournalTypes.BackColor = System.Drawing.Color.Khaki;
             this.dstJournalTypes.CommandText = "SELECT Id, Code, Name\r\nFROM tblJournalTypes";
             this.dstJournalTypes.Connection = this.cnConnection;
+            this.dstJournalTypes.Filter = null;
+            this.dstJournalTypes.Filtered = false;
             this.dstJournalTypes.Location = new System.Drawing.Point(273, 4);
             this.dstJournalTypes.Name = "dstJournalTypes";
             this.dstJournalTypes.Size = new System.Drawing.Size(84, 20);
@@ -98,6 +104,8 @@
             this.dstAccountTypes.BackColor = System.Drawing.Color.Khaki;
             this.dstAccountTypes.CommandText = "SELECT Id, Code, Name\r\nFROM tblAccountTypes";
             this.dstAccountTypes.Connection = this.cnConnection;
+            this.dstAccountTypes.Filter = null;
+            this.dstAccountTypes.Filtered = false;
             this.dstAccountTypes.Location = new System.Drawing.Point(361, 4);
             this.dstAccountTypes.Name = "dstAccountTypes";
             this.dstAccountTypes.Size = new System.Drawing.Size(87, 20);
@@ -110,6 +118,8 @@
             this.dstSubsidiaries.BackColor = System.Drawing.Color.Khaki;
             this.dstSubsidiaries.CommandText = resources.GetString("dstSubsidiaries.CommandText");
             this.dstSubsidiaries.Connection = this.cnConnection;
+            this.dstSubsidiaries.Filter = "Active = True";
+            this.dstSubsidiaries.Filtered = true;
             this.dstSubsidiaries.Location = new System.Drawing.Point(454, 4);
             this.dstSubsidiaries.Name = "dstSubsidiaries";
             this.dstSubsidiaries.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstSubsidiaries.Parameters"))));
@@ -123,6 +133,8 @@
             this.dstAccounts.BackColor = System.Drawing.Color.Khaki;
             this.dstAccounts.CommandText = resources.GetString("dstAccounts.CommandText");
             this.dstAccounts.Connection = this.cnConnection;
+            this.dstAccounts.Filter = "Active = True";
+            this.dstAccounts.Filtered = true;
             this.dstAccounts.Location = new System.Drawing.Point(4, 30);
             this.dstAccounts.Name = "dstAccounts";
             this.dstAccounts.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstAccounts.Parameters"))));
@@ -137,6 +149,8 @@
             this.dstSystemPrintouts.CommandText = "SELECT FormCaption, Report, PrintoutFormName\r\nFROM tblSystemPrintouts\r\nORDER BY F" +
     "ormCaption, Report";
             this.dstSystemPrintouts.Connection = this.cnConnection;
+            this.dstSystemPrintouts.Filter = null;
+            this.dstSystemPrintouts.Filtered = false;
             this.dstSystemPrintouts.Location = new System.Drawing.Point(73, 30);
             this.dstSystemPrintouts.Name = "dstSystemPrintouts";
             this.dstSystemPrintouts.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstSystemPrintouts.Parameters"))));
@@ -150,6 +164,8 @@
             this.dstSystemAccountCodes.BackColor = System.Drawing.Color.Khaki;
             this.dstSystemAccountCodes.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblSystemAccountCodes\r\nORDER BY Name";
             this.dstSystemAccountCodes.Connection = this.cnConnection;
+            this.dstSystemAccountCodes.Filter = "Active = True";
+            this.dstSystemAccountCodes.Filtered = true;
             this.dstSystemAccountCodes.Location = new System.Drawing.Point(177, 30);
             this.dstSystemAccountCodes.Name = "dstSystemAccountCodes";
             this.dstSystemAccountCodes.Size = new System.Drawing.Size(123, 20);
@@ -162,6 +178,8 @@
             this.dstVATTypes.BackColor = System.Drawing.Color.Khaki;
             this.dstVATTypes.CommandText = "SELECT Id, Code, Name, Rate, Active\r\nFROM tblVATTypes";
             this.dstVATTypes.Connection = this.cnConnection;
+            this.dstVATTypes.Filter = "Active = True";
+            this.dstVATTypes.Filtered = true;
             this.dstVATTypes.Location = new System.Drawing.Point(306, 30);
             this.dstVATTypes.Name = "dstVATTypes";
             this.dstVATTypes.Size = new System.Drawing.Size(68, 20);
@@ -175,6 +193,8 @@
             this.dstPaymentMethods.CommandText = "SELECT Id, Code, Name, AccountId, Active\r\nFROM tblPaymentMethods\r\nWHERE CompanyId" +
     " = @CompanyId\r\nORDER BY Name";
             this.dstPaymentMethods.Connection = this.cnConnection;
+            this.dstPaymentMethods.Filter = "Active = True";
+            this.dstPaymentMethods.Filtered = true;
             this.dstPaymentMethods.Location = new System.Drawing.Point(380, 30);
             this.dstPaymentMethods.Name = "dstPaymentMethods";
             this.dstPaymentMethods.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstPaymentMethods.Parameters"))));
@@ -189,6 +209,8 @@
             this.dstItems.CommandText = "SELECT Id, Code, Name, TypeId, Active\r\nFROM tblItems\r\nWHERE CompanyId = @CompanyI" +
     "d\r\nORDER BY Name";
             this.dstItems.Connection = this.cnConnection;
+            this.dstItems.Filter = "Active = True";
+            this.dstItems.Filtered = true;
             this.dstItems.Location = new System.Drawing.Point(489, 30);
             this.dstItems.Name = "dstItems";
             this.dstItems.Parameters.Add(((JkComponents.JkDataSetParameter)(resources.GetObject("dstItems.Parameters"))));
@@ -202,6 +224,8 @@
             this.dstItemTypes.BackColor = System.Drawing.Color.Khaki;
             this.dstItemTypes.CommandText = "SELECT Id, Code, Name, Active\r\nFROM tblItemTypes";
             this.dstItemTypes.Connection = this.cnConnection;
+            this.dstItemTypes.Filter = "Active = True";
+            this.dstItemTypes.Filtered = true;
             this.dstItemTypes.Location = new System.Drawing.Point(4, 56);
             this.dstItemTypes.Name = "dstItemTypes";
             this.dstItemTypes.Size = new System.Drawing.Size(72, 20);
@@ -215,6 +239,8 @@
             this.dstATC.CommandText = "SELECT Id, Code, NewRate AS Rate, Active,\r\n\tCode + \' - \' + CAST(NewRate AS VARCHA" +
     "R) + \'%\' AS CodeRate\r\nFROM tblAlphaNumericTaxCodes";
             this.dstATC.Connection = this.cnConnection;
+            this.dstATC.Filter = "Active = True";
+            this.dstATC.Filtered = true;
             this.dstATC.Location = new System.Drawing.Point(82, 56);
             this.dstATC.Name = "dstATC";
             this.dstATC.Size = new System.Drawing.Size(40, 20);
@@ -227,9 +253,11 @@
             this.dstSystemLogTableConfig.BackColor = System.Drawing.Color.Khaki;
             this.dstSystemLogTableConfig.CommandText = "SELECT Id, TableName, Caption\r\nFROM tblSystemLogTableConfig";
             this.dstSystemLogTableConfig.Connection = this.cnConnection;
+            this.dstSystemLogTableConfig.Filter = null;
+            this.dstSystemLogTableConfig.Filtered = false;
             this.dstSystemLogTableConfig.Location = new System.Drawing.Point(128, 56);
             this.dstSystemLogTableConfig.Name = "dstSystemLogTableConfig";
-            this.dstSystemLogTableConfig.Size = new System.Drawing.Size(58, 20);
+            this.dstSystemLogTableConfig.Size = new System.Drawing.Size(130, 20);
             this.dstSystemLogTableConfig.TabIndex = 14;
             this.dstSystemLogTableConfig.Text = "jkDataSet3";
             this.dstSystemLogTableConfig.ZLoadColumns = false;

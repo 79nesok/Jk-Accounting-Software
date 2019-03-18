@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using JkComponents;
 using Jk_Accounting_Software.Internal.Classes;
+using System.Drawing.Printing;
 
 namespace Jk_Accounting_Software.Internal.Forms
 {
@@ -203,20 +204,20 @@ namespace Jk_Accounting_Software.Internal.Forms
                         OnOpenForm(null, btnNew);
                 };
 
-                toolStriptxtFind.KeyDown += toolStriptxtFind_KeyDown;
-                toolStripbtnReset.Click += toolStripbtnReset_Click;
+                txtFind.KeyDown += txtFind_KeyDown;
+                btnReset.Click += btnReset_Click;
             }
 
-            private void toolStripbtnReset_Click(object sender, EventArgs e)
+            private void btnReset_Click(object sender, EventArgs e)
             {
-                toolStriptxtFind.Clear();
+                txtFind.Clear();
                 (dataGridView.DataSource as DataTable).DefaultView.RowFilter = String.Empty;
-                toolStriptxtFind.Focus();
+                txtFind.Focus();
             }
 
-            private void toolStriptxtFind_KeyDown(object sender, KeyEventArgs e)
+            private void txtFind_KeyDown(object sender, KeyEventArgs e)
             {
-                if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(toolStriptxtFind.Text))
+                if (e.KeyCode == Keys.Enter && !String.IsNullOrWhiteSpace(txtFind.Text))
                 {
                     String filtering = null;
 
@@ -225,7 +226,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                         if (column.Visible
                             && (column.DataType == SqlDbType.NVarChar || column.DataType == SqlDbType.VarChar))
                         {
-                            filtering += String.Format(" {0} LIKE '%{1}%' ", column.Name, toolStriptxtFind.Text);
+                            filtering += String.Format(" {0} LIKE '%{1}%' ", column.Name, txtFind.Text);
                             filtering += "OR";
                         }
                     }
@@ -264,7 +265,13 @@ namespace Jk_Accounting_Software.Internal.Forms
             protected override void UpdateControls()
             {
                 base.UpdateControls();
+
                 btnNew.Enabled = !String.IsNullOrWhiteSpace(NewFormName);
+
+                //for further update
+                btnPreview.Visible = false;
+                toolStripSeparatorPreview.Visible = false;
+                //btnPreview.Enabled = dataGridView.Rows.Count > 0;
             }
 
             private void dataGridView_Scroll(object sender, ScrollEventArgs e)
@@ -286,6 +293,246 @@ namespace Jk_Accounting_Software.Internal.Forms
             private void IListForm_AfterRun()
             {
                 SetAutoCompleteForSearchField();
+            }
+
+            protected override void Preview()
+            {
+                base.Preview();
+
+                PrintPreviewControl printPreviewControl = new PrintPreviewControl();
+
+                printDocument.DocumentName = "List of " + this.Caption;
+                printDocument.DefaultPageSettings.PaperSize = new PaperSize("Letter", 850, 1100);
+
+
+                printPreviewDialog.Document = printDocument;
+                pageSetupDialog.Document = printDocument;
+                printDialog.Document = printDocument;
+                printPreviewControl.Document = printDocument;
+
+                //printPreviewDialog.Parent = IAppHandler.ParentPanel;
+                printPreviewDialog.Show();
+
+                //printPreviewDialog.ShowDialog();
+
+                //pageSetupDialog.ShowDialog();
+
+                //printDialog.ShowDialog();
+
+                //printPreviewControl.Parent = IAppHandler.ParentPanel;
+                //printPreviewControl.Dock = DockStyle.Fill;
+                //printPreviewControl.Show();
+                this.Hide();
+            }
+
+            private void printDocument_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+            {
+                //String value = null;
+                //int x = 0, y = 0;
+                //Pen blackPen = new Pen(Brushes.Black, 1);
+
+                //int PaperWidth = e.PageSettings.PaperSize.Width;
+                //Font font = null;
+                //int StringWidth = 0;
+
+                ////Report Name
+                //font = new Font(this.Font.Name, this.Font.Size + 8, FontStyle.Bold);
+                //StringWidth = Convert.ToInt32(e.Graphics.MeasureString(printDocument.DocumentName, font).Width);
+                //e.Graphics.DrawString(printDocument.DocumentName, font, Brushes.Black, (PaperWidth - StringWidth) / 2, 5);
+
+                //foreach (DataGridViewColumn column in dataGridView.Columns)
+                //{
+                //    //grid header
+                //    if (dataGridView.Columns[column.Index].Visible)
+                //    {
+                //        e.Graphics.DrawRectangle(blackPen, x * 100 - 5, y * 25 + 45, 100, 25);
+                //        font = new Font(this.Font.Name, this.Font.Size, FontStyle.Bold);
+                //        e.Graphics.DrawString(column.HeaderText, font, Brushes.Black, (x * 100), (y * 25 + 50));
+                //    }
+
+                //    foreach (DataGridViewRow row in dataGridView.Rows)
+                //    {
+                //        if (dataGridView.Columns[column.Index].Visible)
+                //        {
+                //            y++;
+                //            value = dataGridView.Rows[row.Index].Cells[column.Index].FormattedValue.ToString();
+
+                //            //grid
+                //            e.Graphics.DrawRectangle(blackPen, x * 100 - 5, y * 25 + 45, 100, 25);
+
+                //            //item
+                //            e.Graphics.DrawString(value, this.Font, Brushes.Black, (x * 100), (y * 25 + 50));
+                //        }
+                //    }
+                //    y = 0;
+                //    x++;
+                //}
+
+                try
+                {
+                    //Set the left margin
+                    int iLeftMargin = e.MarginBounds.Left;
+                    //Set the top margin
+                    int iTopMargin = e.MarginBounds.Top;
+                    //Whether more pages have to print or not
+                    bool bMorePagesToPrint = false;
+                    int iTmpWidth = 0;
+
+                    bool bFirstPage = true;
+                    int iTotalWidth = 0;
+                    int iHeaderHeight = 0;
+                    int iRow = 0;
+                    int iCellHeight = 0;
+                    bool bNewPage = false;
+                    List<int> arrColumnLefts = new List<int>();
+                    List<int> arrColumnWidths = new List<int>();
+                    StringFormat strFormat = new StringFormat();
+                    int iCount;
+
+                    strFormat = new StringFormat();
+                    strFormat.Alignment = StringAlignment.Near;
+                    strFormat.LineAlignment = StringAlignment.Center;
+                    strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                    arrColumnLefts.Clear();
+                    arrColumnWidths.Clear();
+                    iCellHeight = 0;
+                    iCount = 0;
+                    bFirstPage = true;
+                    bNewPage = true;
+
+                    // Calculating Total Widths
+                    iTotalWidth = 0;
+                    foreach (DataGridViewColumn dgvGridCol in dataGridView.Columns)
+                    {
+                        if (dgvGridCol.Visible)
+                            iTotalWidth += dgvGridCol.GetPreferredWidth(DataGridViewAutoSizeColumnMode.AllCells, true);
+                    }
+
+
+                    //For the first page to print set the cell width and header height
+                    if (bFirstPage)
+                    {
+                        foreach (DataGridViewColumn GridCol in dataGridView.Columns)
+                        {
+                            if (GridCol.Visible)
+                            {
+                                iTmpWidth = (int)(Math.Floor((double)((double)GridCol.Width /
+                                    (double)iTotalWidth * (double)iTotalWidth *
+                                    ((double)e.MarginBounds.Width / (double)iTotalWidth))));
+
+                                iHeaderHeight = (int)(e.Graphics.MeasureString(GridCol.HeaderText,
+                                    GridCol.InheritedStyle.Font, iTmpWidth).Height) + 11;
+
+                                // Save width and height of headers
+                                arrColumnLefts.Add(iLeftMargin);
+                                arrColumnWidths.Add(iTmpWidth);
+                                iLeftMargin += iTmpWidth;
+                            }
+                        }
+                    }
+                    //Loop till all the grid rows not get printed
+                    while (iRow <= dataGridView.Rows.Count - 1)
+                    {
+                        DataGridViewRow GridRow = dataGridView.Rows[iRow];
+                        //Set the cell height
+                        iCellHeight = GridRow.Height + 5;
+                        //Check whether the current page settings allows more rows to print
+                        if (iTopMargin + iCellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                        {
+                            bNewPage = true;
+                            bFirstPage = false;
+                            bMorePagesToPrint = true;
+                            break;
+                        }
+                        else
+                        {
+                            if (bNewPage)
+                            {
+                                //Draw Header
+                                e.Graphics.DrawString(printDocument.DocumentName,
+                                    new Font(dataGridView.Font, FontStyle.Bold),
+                                    Brushes.Black, e.MarginBounds.Left,
+                                    e.MarginBounds.Top - e.Graphics.MeasureString(printDocument.DocumentName,
+                                    new Font(dataGridView.Font, FontStyle.Bold),
+                                    e.MarginBounds.Width).Height - 13);
+
+                                String strDate = DateTime.Now.ToLongDateString() + " " +
+                                    DateTime.Now.ToShortTimeString();
+                                //Draw Date
+                                e.Graphics.DrawString(strDate,
+                                    new Font(dataGridView.Font, FontStyle.Bold), Brushes.Black,
+                                    e.MarginBounds.Left +
+                                    (e.MarginBounds.Width - e.Graphics.MeasureString(strDate,
+                                    new Font(dataGridView.Font, FontStyle.Bold),
+                                    e.MarginBounds.Width).Width),
+                                    e.MarginBounds.Top - e.Graphics.MeasureString(printDocument.DocumentName,
+                                    new Font(new Font(dataGridView.Font, FontStyle.Bold),
+                                    FontStyle.Bold), e.MarginBounds.Width).Height - 13);
+
+                                //Draw Columns                 
+                                iTopMargin = e.MarginBounds.Top;
+                                foreach (DataGridViewColumn GridCol in dataGridView.Columns)
+                                {
+                                    if (GridCol.Visible)
+                                    {
+                                        e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                            new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                            (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                                        e.Graphics.DrawRectangle(Pens.Black,
+                                            new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                            (int)arrColumnWidths[iCount], iHeaderHeight));
+
+                                        e.Graphics.DrawString(GridCol.HeaderText,
+                                            GridCol.InheritedStyle.Font,
+                                            new SolidBrush(GridCol.InheritedStyle.ForeColor),
+                                            new RectangleF((int)arrColumnLefts[iCount], iTopMargin,
+                                            (int)arrColumnWidths[iCount], iHeaderHeight), strFormat);
+                                        iCount++;
+                                    }
+                                }
+                                bNewPage = false;
+                                iTopMargin += iHeaderHeight;
+                            }
+                            iCount = 0;
+                            //Draw Columns Contents                
+                            foreach (DataGridViewCell Cel in GridRow.Cells)
+                            {
+                                if (Cel.Visible)
+                                {
+                                    if (Cel.Value != null)
+                                    {
+                                        e.Graphics.DrawString(Cel.FormattedValue.ToString(),
+                                            Cel.InheritedStyle.Font,
+                                            new SolidBrush(Cel.InheritedStyle.ForeColor),
+                                            new RectangleF((int)arrColumnLefts[iCount],
+                                            (float)iTopMargin,
+                                            (int)arrColumnWidths[iCount], (float)iCellHeight),
+                                            strFormat);
+                                    }
+                                    //Drawing Cells Borders 
+                                    e.Graphics.DrawRectangle(Pens.Black,
+                                        new Rectangle((int)arrColumnLefts[iCount], iTopMargin,
+                                        (int)arrColumnWidths[iCount], iCellHeight));
+                                    iCount++;
+                                }
+                            }
+                        }
+                        iRow++;
+                        iTopMargin += iCellHeight;
+                    }
+                    //If more lines exist, print another page.
+                    if (bMorePagesToPrint)
+                        e.HasMorePages = true;
+                    else
+                        e.HasMorePages = false;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK,
+                       MessageBoxIcon.Error);
+                }
             }
         #endregion
 
@@ -572,10 +819,10 @@ namespace Jk_Accounting_Software.Internal.Forms
                     }
                 }
 
-                toolStriptxtFind.AutoCompleteCustomSource = source;
-                toolStriptxtFind.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                toolStriptxtFind.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                txtFind.AutoCompleteCustomSource = source;
+                txtFind.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                txtFind.AutoCompleteSource = AutoCompleteSource.CustomSource;
             }
-        #endregion
+        #endregion    
     }
 }

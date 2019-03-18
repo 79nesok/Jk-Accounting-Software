@@ -281,7 +281,6 @@
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
-            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(194, 23);
             this.cmbSubsidiary.TabIndex = 15;
             // 
@@ -555,7 +554,6 @@
             this.cmbPaymentMethods.Location = new System.Drawing.Point(742, 98);
             this.cmbPaymentMethods.Name = "cmbPaymentMethods";
             this.cmbPaymentMethods.Required = false;
-            this.cmbPaymentMethods.SelectedKey = 0;
             this.cmbPaymentMethods.Size = new System.Drawing.Size(83, 23);
             this.cmbPaymentMethods.TabIndex = 35;
             this.cmbPaymentMethods.Visible = false;
@@ -572,7 +570,6 @@
             this.cmbAccounts.Location = new System.Drawing.Point(759, 31);
             this.cmbAccounts.Name = "cmbAccounts";
             this.cmbAccounts.Required = false;
-            this.cmbAccounts.SelectedKey = 0;
             this.cmbAccounts.Size = new System.Drawing.Size(66, 23);
             this.cmbAccounts.TabIndex = 49;
             this.cmbAccounts.Visible = false;
@@ -593,7 +590,6 @@
             this.cmbSubsidiaryDetail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiaryDetail.Name = "cmbSubsidiaryDetail";
             this.cmbSubsidiaryDetail.Required = false;
-            this.cmbSubsidiaryDetail.SelectedKey = 0;
             this.cmbSubsidiaryDetail.Size = new System.Drawing.Size(66, 23);
             this.cmbSubsidiaryDetail.TabIndex = 48;
             this.cmbSubsidiaryDetail.Visible = false;

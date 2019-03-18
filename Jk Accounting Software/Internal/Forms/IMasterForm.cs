@@ -83,10 +83,15 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 base.UpdateControls();
 
+                btnPreview.Visible = (FormState == FormStates.fsView)
+                    && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
+                toolStripSeparatorPreview.Visible = btnPreview.Visible;
+
                 btnFirstRecord.Enabled = btnFirstRecord.Enabled && KeyId != 0;
                 btnPreviousRecord.Enabled = btnPreviousRecord.Enabled && KeyId != 0;
                 btnNextRecord.Enabled = btnLastRecord.Enabled && KeyId != KeyList.Count - 1;
                 btnLastRecord.Enabled = btnLastRecord.Enabled && KeyId != KeyList.Count - 1;
+
                 lblCreatedBy.Visible = (MasterColumns.Find(col => col.Name == "CreatedById") != null) && (FormState != FormStates.fsNew);
                 lblModifiedBy.Visible = (MasterColumns.Find(col => col.Name == "ModifiedById") != null) && (FormState != FormStates.fsNew);
 
@@ -141,6 +146,31 @@ namespace Jk_Accounting_Software.Internal.Forms
                     {
                         series.UpdateSeries();
                     }
+
+                RefreshDataSet();
+            }
+
+            protected override void Preview()
+            {
+                base.Preview();
+
+                //print the first item on selection
+                String reportFormName = VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "PrintoutFormName").ToString();
+                IParentForm reportForm = IAppHandler.FindForm(reportFormName, "Printout", true);
+
+                if (reportForm == null)
+                    IMessageHandler.ShowError(ISystemMessages.PrintoutNotSet);
+                else
+                {
+                    IAppHandler.AddUsedForm(this);
+                    this.Hide();
+
+                    if (reportForm.Parameters.Find(p => p.Name == "Id") != null)
+                        reportForm.Parameters.Find(p => p.Name == "Id").Value = this.Parameters.Find(pa => pa.Name == "Id").Value;
+
+                    (reportForm as IReportForm).PrintoutHeader = this.Caption;
+                    reportForm.Run();
+                }
             }
         #endregion
 
@@ -275,13 +305,14 @@ namespace Jk_Accounting_Software.Internal.Forms
                     if (!btnSave.Visible || !btnSave.Enabled)
                         return;
 
+                    //perform Validation first and foremost
+                    this.splitContainer.Panel2.Focus();
+                    OnValidateSave();
+                    if (ValidationFails)
+                        return;
+
                     if (IMessageHandler.Confirm(ISystemMessages.SavingQuestion) == DialogResult.Yes)
                     {
-                    
-                        this.splitContainer.Panel2.Focus();
-                        OnValidateSave();
-                        if (ValidationFails)
-                            return;
                         try
                         {
                             IAppHandler.StartBusy("Executing Save");
@@ -579,6 +610,18 @@ namespace Jk_Accounting_Software.Internal.Forms
                         break;
                     }
                     FocusFirstControl(childControl);
+                }
+            }
+            
+            //this will update all the lookups on ILookUpProvider
+            private void RefreshDataSet()
+            {
+                foreach(JkDataSet ds in JkDataSetList.List)
+                {
+                    if (ITransactionHandler.ExtractTableName(ds.CommandText) == ITransactionHandler.ExtractTableName(this.CommandText))
+                    {
+                        ds.Open();
+                    }
                 }
             }
         #endregion

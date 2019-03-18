@@ -391,7 +391,6 @@
             this.cmbSystemLogTableConfig.Location = new System.Drawing.Point(770, 105);
             this.cmbSystemLogTableConfig.Name = "cmbSystemLogTableConfig";
             this.cmbSystemLogTableConfig.Required = false;
-            this.cmbSystemLogTableConfig.SelectedKey = 0;
             this.cmbSystemLogTableConfig.Size = new System.Drawing.Size(57, 23);
             this.cmbSystemLogTableConfig.TabIndex = 17;
             this.cmbSystemLogTableConfig.Visible = false;

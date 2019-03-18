@@ -87,9 +87,9 @@ namespace Jk_Accounting_Software.External.Accounting
                 dataGridView.RemoveMenuItem("Unapply");
         }
 
-        private void cmbSubsidiary_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbSubsidiary_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (FormState == FormStates.fsView)
+            if (FormState == FormStates.fsView || !EditingReady)
                 return;
 
             String CommandText = "EXEC uspGetUnpaidBills @Id, @SubsidiaryId";
@@ -100,7 +100,7 @@ namespace Jk_Accounting_Software.External.Accounting
             try
             {
                 Adapter.SelectCommand.Parameters.AddWithValue("@Id", Id);
-                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedKey);
+                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedValue);
                 Adapter.Fill(table);
 
                 if (table.Rows.Count == 0)
@@ -136,48 +136,6 @@ namespace Jk_Accounting_Software.External.Accounting
                         newRow[column.ColumnName] = row[column.ColumnName];
                     }
                     dstDetail.DataTable.Rows.Add(newRow);
-                }
-            }
-            finally
-            {
-                Adapter.Dispose();
-                table.Dispose();
-            }
-        }
-
-        private void ECashDisbursementVoucherForm_BeforeRun()
-        {
-            if (FormState == FormStates.fsNew)
-                return;
-
-            String CommandText = "EXEC uspGetUnpaidBills @Id, @SubsidiaryId";
-            SqlDataAdapter Adapter = new SqlDataAdapter(CommandText, Properties.Settings.Default.FreeAccountingSoftwareConnectionString);
-            DataTable table = new DataTable();
-            int Id = int.Parse(Parameters.Find(p => p.Name == "Id").Value);
-
-            try
-            {
-                Adapter.SelectCommand.Parameters.AddWithValue("@Id", Id);
-                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedKey);
-                Adapter.Fill(table);
-
-                foreach (DataRow row in table.Rows)
-                {
-                    foreach (DataRow dtRow in dstDetail.DataTable.Rows)
-                    {
-                        if (dtRow["SourceId"].ToString() == row["SourceId"].ToString())
-                        {
-                            dtRow.BeginEdit();
-                            foreach (DataColumn column in table.Columns)
-                            {
-                                if (dstDetail.Columns.Find(c => c.Name == column.ColumnName).Temporary)
-                                {
-                                    dtRow[column.ColumnName] = row[column.ColumnName];
-                                }
-                            }
-                            dtRow.EndEdit();
-                        }
-                    }
                 }
             }
             finally
@@ -250,6 +208,7 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void ECashDisbursementVoucherForm_AfterRun()
         {
+            LoadBills();
             ShowAmountToApply();
             DisplaySummary();
 
@@ -273,6 +232,48 @@ namespace Jk_Accounting_Software.External.Accounting
             {
                 tabPageJournalEntry.Text = "Journal Entry";
                 tabControlDetails.TabPages.Remove(tabPageJournalEntry);
+            }
+        }
+
+        private void LoadBills()
+        {
+            if (cmbSubsidiary.SelectedValue == null || cmbSubsidiary.SelectedValue == DBNull.Value)
+                return;
+
+            String CommandText = "EXEC uspGetUnpaidBills @Id, @SubsidiaryId";
+            SqlDataAdapter Adapter = new SqlDataAdapter(CommandText, Properties.Settings.Default.FreeAccountingSoftwareConnectionString);
+            DataTable table = new DataTable();
+            int Id = int.Parse(Parameters.Find(p => p.Name == "Id").Value);
+
+            try
+            {
+                Adapter.SelectCommand.Parameters.AddWithValue("@Id", Id);
+                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedValue);
+                Adapter.Fill(table);
+
+                foreach (DataRow row in table.Rows)
+                {
+                    foreach (DataRow dtRow in dstDetail.DataTable.Rows)
+                    {
+                        if (dtRow["SourceId"].ToString() == row["SourceId"].ToString())
+                        {
+                            dtRow.BeginEdit();
+                            foreach (DataColumn column in table.Columns)
+                            {
+                                if (dstDetail.Columns.Find(c => c.Name == column.ColumnName).Temporary)
+                                {
+                                    dtRow[column.ColumnName] = row[column.ColumnName];
+                                }
+                            }
+                            dtRow.EndEdit();
+                        }
+                    }
+                }
+            }
+            finally
+            {
+                Adapter.Dispose();
+                table.Dispose();
             }
         }
 

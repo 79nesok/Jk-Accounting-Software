@@ -12,6 +12,7 @@ namespace Jk_Accounting_Software
     {
         # region Variable Declarations
             int day, hour, min, sec;
+            ILookupProvider VLookUpProvider;
         #endregion
 
         #region Built-in Events
@@ -29,6 +30,9 @@ namespace Jk_Accounting_Software
                 ISecurityHandler.SecurityUserId = 1;
                 ISecurityHandler.CompanyName = "Jk Computer Systems Inc.";
                 ISecurityHandler.SecurityUserName = "Systems Developer";
+
+                //initialize only one instance
+                VLookUpProvider = new ILookupProvider();
             }
 
             private void BaseForm_Load(object sender, EventArgs e)
@@ -127,7 +131,17 @@ namespace Jk_Accounting_Software
                     IAppHandler.FindActiveForm().btnCancel.PerformClick();
 
                 if (e.KeyData == (Keys.Control | Keys.P))
-                    IAppHandler.FindActiveForm().btnPreview.PerformClick();
+                {
+                    IParentForm activeForm = IAppHandler.FindActiveForm();
+
+                    if (activeForm.btnPreview.DropDownItems.Count == 1)
+                        activeForm.btnPreview.PerformButtonClick();
+                    else if (activeForm.btnPreview.DropDownItems.Count > 1)
+                    {
+                        activeForm.btnPreview.ShowDropDown();
+                        activeForm.btnPreview.DropDown.Items[0].Select();
+                    }
+                }
 
                 if (e.KeyData == (Keys.Control | Keys.F4))
                     IAppHandler.FindActiveForm().btnClose.PerformClick();
@@ -135,7 +149,7 @@ namespace Jk_Accounting_Software
                 if (e.KeyData == (Keys.Control | Keys.F))
                 {
                     if (IAppHandler.FindActiveForm().IsListForm())
-                        IAppHandler.FindActiveForm().toolStriptxtFind.Focus();
+                        IAppHandler.FindActiveForm().txtFind.Focus();
                 }
 
                 if (e.KeyData == (Keys.Control | Keys.Home))
@@ -297,8 +311,10 @@ namespace Jk_Accounting_Software
                     VTransactionHandler.LoadData(CommandText, ref VDataTable, null);
                     ISecurityHandler.ProductName = VDataTable.Rows[0]["ProductName"].ToString();
                     ISecurityHandler.ProductVersion = VDataTable.Rows[0]["ProductVersion"].ToString();
-                    this.Text = ISecurityHandler.ProductName + " - Version " + ISecurityHandler.ProductVersion;
-                    IMessageHandler.MessageCaption = this.Text;
+                    IAppHandler.ApplicationText = ISecurityHandler.ProductName + " - Version " + ISecurityHandler.ProductVersion;
+
+                    this.Text = IAppHandler.ApplicationText;
+                    IMessageHandler.MessageCaption = IAppHandler.ApplicationText;
                 }
                 finally
                 {

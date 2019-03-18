@@ -44,12 +44,12 @@
             // 
             // lblMode
             // 
-            this.lblMode.Location = new System.Drawing.Point(700, 0);
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
             // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(808, 34);
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
@@ -57,7 +57,15 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.splitContainerReport);
-            this.splitContainer.Size = new System.Drawing.Size(808, 481);
+            this.splitContainer.Size = new System.Drawing.Size(836, 481);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // splitContainerReport
             // 
@@ -75,7 +83,7 @@
             // splitContainerReport.Panel2
             // 
             this.splitContainerReport.Panel2.Controls.Add(this.reportViewer);
-            this.splitContainerReport.Size = new System.Drawing.Size(808, 412);
+            this.splitContainerReport.Size = new System.Drawing.Size(836, 412);
             this.splitContainerReport.SplitterDistance = 25;
             this.splitContainerReport.SplitterWidth = 1;
             this.splitContainerReport.TabIndex = 0;
@@ -84,7 +92,7 @@
             // 
             this.toolStripReportParam.Location = new System.Drawing.Point(0, 0);
             this.toolStripReportParam.Name = "toolStripReportParam";
-            this.toolStripReportParam.Size = new System.Drawing.Size(808, 25);
+            this.toolStripReportParam.Size = new System.Drawing.Size(836, 25);
             this.toolStripReportParam.TabIndex = 6;
             this.toolStripReportParam.Text = "toolStrip1";
             // 
@@ -93,7 +101,7 @@
             this.reportViewer.Dock = System.Windows.Forms.DockStyle.Top;
             this.reportViewer.Location = new System.Drawing.Point(0, 0);
             this.reportViewer.Name = "reportViewer";
-            this.reportViewer.Size = new System.Drawing.Size(808, 376);
+            this.reportViewer.Size = new System.Drawing.Size(836, 376);
             this.reportViewer.TabIndex = 2;
             this.reportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer.ReportRefresh += new System.ComponentModel.CancelEventHandler(this.reportViewer_ReportRefresh);
@@ -104,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Report";
             this.Name = "IReportForm";
-            this.Size = new System.Drawing.Size(808, 481);
+            this.Size = new System.Drawing.Size(836, 481);
             this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IReportForm_BeforeRun);
             this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IReportForm_AfterRun);
             this.Resize += new System.EventHandler(this.IReportForm_Resize);

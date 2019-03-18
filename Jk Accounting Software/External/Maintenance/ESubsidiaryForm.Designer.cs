@@ -278,7 +278,6 @@
             this.cmbATC.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbATC.Name = "cmbATC";
             this.cmbATC.Required = false;
-            this.cmbATC.SelectedKey = 0;
             this.cmbATC.Size = new System.Drawing.Size(213, 23);
             this.cmbATC.TabIndex = 23;
             // 

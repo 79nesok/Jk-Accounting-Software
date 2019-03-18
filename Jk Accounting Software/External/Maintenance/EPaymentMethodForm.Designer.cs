@@ -156,7 +156,6 @@
             this.cmbAccount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbAccount.Name = "cmbAccount";
             this.cmbAccount.Required = false;
-            this.cmbAccount.SelectedKey = 0;
             this.cmbAccount.Size = new System.Drawing.Size(230, 23);
             this.cmbAccount.TabIndex = 10;
             // 

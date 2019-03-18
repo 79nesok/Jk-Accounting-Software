@@ -51,7 +51,10 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 //load all lookups
                 foreach (JkLookUpComboBox comboBox in IAppHandler.FindControlByType("JkLookUpComboBox", this))
+                {
                     comboBox.LoadData();
+                    comboBox.SelectedValue = DBNull.Value;
+                }
 
                 //clear all datatables
                 VMasterDataTable.Clear();
@@ -104,15 +107,18 @@ namespace Jk_Accounting_Software.Internal.Forms
             public ITransactionHandler VTransactionHandler = new ITransactionHandler();
             public ILookupProvider VLookupProvider; 
             public DataTable VMasterDataTable = new DataTable();
+            public bool EditingReady;
         #endregion
 
         #region Built-in Events
             public IParentForm()
             {
-                VLookupProvider = new ILookupProvider();
                 InitializeComponent();
                 this.Hide();
                 this.Dock = DockStyle.Fill;
+
+                if (JkLookUpProviderList.List.Count > 0)
+                    VLookupProvider = (JkLookUpProviderList.List[0] as ILookupProvider);
             }
 
             private void IParentForm_Resize(object sender, EventArgs e)
@@ -150,23 +156,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 if (!btnPreview.Visible || !btnPreview.Enabled)
                     return;
 
-                //print the first item on selection
-                String reportFormName = VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "PrintoutFormName").ToString();
-                IParentForm reportForm = IAppHandler.FindForm(reportFormName, "Printout", true);
-
-                if (reportForm == null)
-                    IMessageHandler.ShowError(ISystemMessages.PrintoutNotSet);
-                else
-                {
-                    IAppHandler.AddUsedForm(this);
-                    this.Hide();
-
-                    if (reportForm.Parameters.Find(p => p.Name == "Id") != null)
-                        reportForm.Parameters.Find(p => p.Name == "Id").Value = this.Parameters.Find(pa => pa.Name == "Id").Value;
-
-                    (reportForm as IReportForm).PrintoutHeader = this.Caption;
-                    reportForm.Run();
-                }
+                Preview();
             }
         #endregion
 
@@ -179,12 +169,13 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                     if (!this.Visible)
                         this.Show();
-
+                    EditingReady = false;
                     OnBeforeRun();
                 }
                 finally
                 {
                     OnAfterRun();
+                    EditingReady = true;
                     IAppHandler.EndBusy("Preparing controls");
                 }
             }
@@ -205,13 +196,16 @@ namespace Jk_Accounting_Software.Internal.Forms
             protected virtual void UpdateControls()
             {
                 btnNew.Visible = (FormState == FormStates.fsView);
-                btnEdit.Visible = (FormState == FormStates.fsView) && (!IsListForm()); ;
+                btnEdit.Visible = (FormState == FormStates.fsView) && !IsListForm(); ;
                 btnSave.Visible = (FormState != FormStates.fsView);
                 btnCancel.Visible = (FormState != FormStates.fsView);
 
-                toolStriplblFind.Visible = IsListForm();
-                toolStriptxtFind.Visible = IsListForm();
-                toolStripbtnReset.Visible = IsListForm();
+                btnFilter.Visible = false;
+                btnRemoveFilter.Visible = false;
+
+                lblFind.Visible = IsListForm();
+                txtFind.Visible = IsListForm();
+                btnReset.Visible = IsListForm();
 
                 NavigatorSeparatorFirst.Visible = !IsListForm();
                 NavigatorSeparatorSecond.Visible = !IsListForm();
@@ -225,9 +219,6 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnPreviousRecord.Enabled = (FormState == FormStates.fsView);
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
                 btnLastRecord.Enabled = (FormState == FormStates.fsView);
-
-                btnPreview.Visible = (FormState == FormStates.fsView) && !IsListForm() && (VLookupProvider.DataSetLookup(VLookupProvider.dstSystemPrintouts, "FormCaption", this.Caption, "FormCaption") != null);
-                toolStripSeparatorPreview.Visible = btnPreview.Visible;
 
                 ProcessControls(splitContainer.Panel2);
                 LoadPrintoutSelection();
@@ -355,6 +346,10 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 if(!btnHolder.Items.Contains(btn))
                     btnHolder.Items.Add(btn);
+            }
+
+            protected virtual void Preview()
+            {
             }
         #endregion
     }

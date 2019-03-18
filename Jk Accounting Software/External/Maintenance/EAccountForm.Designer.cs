@@ -136,7 +136,6 @@
             this.cmbSystemAccountCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSystemAccountCode.Name = "cmbSystemAccountCode";
             this.cmbSystemAccountCode.Required = false;
-            this.cmbSystemAccountCode.SelectedKey = 0;
             this.cmbSystemAccountCode.Size = new System.Drawing.Size(230, 23);
             this.cmbSystemAccountCode.TabIndex = 10;
             // 

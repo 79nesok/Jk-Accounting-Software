@@ -25,6 +25,35 @@ namespace Jk_Accounting_Software.Internal.Forms
         public IReportForm()
             {
                 InitializeComponent();
+                btnFilter.Click += btnFilter_Click;
+                btnRemoveFilter.Click += btnRemoveFilter_Click;
+            }
+
+            private void btnRemoveFilter_Click(object sender, EventArgs e)
+            {
+                btnFilter.Checked = false;
+                btnRemoveFilter.Enabled = false;
+                GenerateReport();
+            }
+
+            private void btnFilter_Click(object sender, EventArgs e)
+            {
+                List<String> filters = new List<String>();
+
+                filters.Add("(All)");
+                filters.Add("Asset");
+                filters.Add("Liability");
+                filters.Add("Equity");
+                filters.Add("Income");
+                filters.Add("Expense");
+
+                if (IPopupForm.ShowSelection("EReportFilterSelectionForm", "Type", filters) == DialogResult.OK)
+                {
+                    GenerateReport();
+                    btnFilter.Checked = true;
+                }
+
+                btnRemoveFilter.Enabled = btnFilter.Checked;
             }
 
             private void IReportForm_BeforeRun()
@@ -45,7 +74,18 @@ namespace Jk_Accounting_Software.Internal.Forms
                 base.UpdateControls();
 
                 btnHolder.Visible = false;
-                btnNavigatorHolder.Visible = false;
+
+                btnFilter.Visible = this.Caption == "Report";
+                btnRemoveFilter.Visible = this.Caption == "Report";
+                btnRemoveFilter.Enabled = btnFilter.Checked;
+
+                btnFirstRecord.Visible = false;
+                NavigatorSeparatorFirst.Visible = false;
+                btnPreviousRecord.Visible = false;
+                btnNextRecord.Visible = false;
+                NavigatorSeparatorSecond.Visible = false;
+                btnLastRecord.Visible = false;
+
                 lblCreatedBy.Visible = false;
                 lblModifiedBy.Visible = false;
                 lblMode.Visible = false;

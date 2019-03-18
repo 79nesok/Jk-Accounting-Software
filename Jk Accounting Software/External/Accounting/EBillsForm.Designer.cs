@@ -292,7 +292,6 @@
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
-            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(205, 23);
             this.cmbSubsidiary.TabIndex = 15;
             this.cmbSubsidiary.SelectedValueChanged += new System.EventHandler(this.cmbSubsidiary_SelectedValueChanged);
@@ -512,7 +511,6 @@
             this.cmbAccounts.Location = new System.Drawing.Point(762, 144);
             this.cmbAccounts.Name = "cmbAccounts";
             this.cmbAccounts.Required = false;
-            this.cmbAccounts.SelectedKey = 0;
             this.cmbAccounts.Size = new System.Drawing.Size(66, 23);
             this.cmbAccounts.TabIndex = 20;
             this.cmbAccounts.Visible = false;
@@ -533,7 +531,6 @@
             this.cmbSubsidiaryDetail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiaryDetail.Name = "cmbSubsidiaryDetail";
             this.cmbSubsidiaryDetail.Required = false;
-            this.cmbSubsidiaryDetail.SelectedKey = 0;
             this.cmbSubsidiaryDetail.Size = new System.Drawing.Size(66, 23);
             this.cmbSubsidiaryDetail.TabIndex = 19;
             this.cmbSubsidiaryDetail.Visible = false;
@@ -550,7 +547,6 @@
             this.cmbVATTypes.Location = new System.Drawing.Point(762, 114);
             this.cmbVATTypes.Name = "cmbVATTypes";
             this.cmbVATTypes.Required = false;
-            this.cmbVATTypes.SelectedKey = 0;
             this.cmbVATTypes.Size = new System.Drawing.Size(66, 23);
             this.cmbVATTypes.TabIndex = 21;
             this.cmbVATTypes.Visible = false;
@@ -626,7 +622,6 @@
             this.cmbItems.Location = new System.Drawing.Point(762, 85);
             this.cmbItems.Name = "cmbItems";
             this.cmbItems.Required = false;
-            this.cmbItems.SelectedKey = 0;
             this.cmbItems.Size = new System.Drawing.Size(66, 23);
             this.cmbItems.TabIndex = 23;
             this.cmbItems.Visible = false;
@@ -651,7 +646,6 @@
             this.cmbATC.Location = new System.Drawing.Point(762, 24);
             this.cmbATC.Name = "cmbATC";
             this.cmbATC.Required = false;
-            this.cmbATC.SelectedKey = 0;
             this.cmbATC.Size = new System.Drawing.Size(66, 23);
             this.cmbATC.TabIndex = 25;
             this.cmbATC.Visible = false;

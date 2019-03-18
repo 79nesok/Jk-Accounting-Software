@@ -18,6 +18,8 @@ namespace Jk_Accounting_Software.Internal.Classes
         public static DataTable SubCategories = new DataTable();
         public static ToolStripStatusLabel StatusLabel;
         public static ToolStripProgressBar StatusProgressBar;
+        public static String ApplicationText;
+
         private static String InitialStatus;
         private static int CurrentTag = 0;
 
@@ -156,8 +158,9 @@ namespace Jk_Accounting_Software.Internal.Classes
                 result = IImageHandler.ConvertImageToByte((PControl as PictureBox).Image);
             else if (PControl is JkLookUpComboBox)
             {
-                if ((PControl as JkLookUpComboBox).SelectedKey != 0)
-                    result = (PControl as JkLookUpComboBox).SelectedKey;
+                if ((PControl as JkLookUpComboBox).SelectedValue != null
+                    && (PControl as JkLookUpComboBox).SelectedValue != DBNull.Value)
+                    result = (PControl as JkLookUpComboBox).SelectedValue;
             }
             else if (PControl is JkTextBox)
             {
@@ -200,7 +203,7 @@ namespace Jk_Accounting_Software.Internal.Classes
                 if (PValue == DBNull.Value)
                     (PControl as JkLookUpComboBox).Text = String.Empty;
                 else
-                    (PControl as JkLookUpComboBox).SelectedKey = Convert.ToInt32(PValue);
+                    (PControl as JkLookUpComboBox).SelectedValue = PValue;
             }
             else if (PControl is JkTextBox)
             {

@@ -90,7 +90,7 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void cmbSubsidiary_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (FormState == FormStates.fsView)
+            if (FormState == FormStates.fsView || !EditingReady)
                 return;
 
             String CommandText = "EXEC uspGetUnpaidInvoice @Id, @SubsidiaryId";
@@ -101,7 +101,7 @@ namespace Jk_Accounting_Software.External.Accounting
             try
             {
                 Adapter.SelectCommand.Parameters.AddWithValue("@Id", Id);
-                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedKey);
+                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedValue);
                 Adapter.Fill(table);
 
                 if (table.Rows.Count == 0)
@@ -146,9 +146,9 @@ namespace Jk_Accounting_Software.External.Accounting
             }
         }
 
-        private void ECashReceiptVoucherForm_BeforeRun()
+        private void LoadInvoices()
         {
-            if (FormState == FormStates.fsNew)
+            if (cmbSubsidiary.SelectedValue == null || cmbSubsidiary.SelectedValue == DBNull.Value)
                 return;
 
             String CommandText = "EXEC uspGetUnpaidInvoice @Id, @SubsidiaryId";
@@ -159,7 +159,7 @@ namespace Jk_Accounting_Software.External.Accounting
             try
             {
                 Adapter.SelectCommand.Parameters.AddWithValue("@Id", Id);
-                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedKey);
+                Adapter.SelectCommand.Parameters.AddWithValue("@SubsidiaryId", cmbSubsidiary.SelectedValue);
                 Adapter.Fill(table);
 
                 foreach (DataRow row in table.Rows)
@@ -236,6 +236,7 @@ namespace Jk_Accounting_Software.External.Accounting
 
         private void ECashReceiptVoucherForm_AfterRun()
         {
+            LoadInvoices();
             ShowAmountToApply();
             DisplaySummary();
 

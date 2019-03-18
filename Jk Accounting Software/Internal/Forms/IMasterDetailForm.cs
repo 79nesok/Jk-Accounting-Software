@@ -61,9 +61,9 @@ namespace Jk_Accounting_Software.Internal.Forms
                             if (lookUp.Items.Count == 0)
                                 lookUp.LoadData();
 
-                            comboBox.DataSource = lookUp.Items;
-                            comboBox.DisplayMember = "DisplayText";
-                            comboBox.ValueMember = "Key";
+                            comboBox.DataSource = lookUp.DataSource;
+                            comboBox.DisplayMember = lookUp.DisplayText;
+                            comboBox.ValueMember = lookUp.Key;
                         }
                     }
                 }

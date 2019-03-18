@@ -281,10 +281,9 @@
             this.cmbSubsidiary.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSubsidiary.Name = "cmbSubsidiary";
             this.cmbSubsidiary.Required = false;
-            this.cmbSubsidiary.SelectedKey = 0;
             this.cmbSubsidiary.Size = new System.Drawing.Size(194, 23);
             this.cmbSubsidiary.TabIndex = 15;
-            this.cmbSubsidiary.SelectedIndexChanged += new System.EventHandler(this.cmbSubsidiary_SelectedIndexChanged);
+            this.cmbSubsidiary.SelectedValueChanged += new System.EventHandler(this.cmbSubsidiary_SelectedValueChanged);
             // 
             // label9
             // 
@@ -510,7 +509,6 @@
             this.cmbPaymentMethods.Location = new System.Drawing.Point(705, 126);
             this.cmbPaymentMethods.Name = "cmbPaymentMethods";
             this.cmbPaymentMethods.Required = false;
-            this.cmbPaymentMethods.SelectedKey = 0;
             this.cmbPaymentMethods.Size = new System.Drawing.Size(83, 23);
             this.cmbPaymentMethods.TabIndex = 40;
             this.cmbPaymentMethods.Visible = false;
@@ -522,7 +520,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 171);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -546,7 +544,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 161);
             this.dataGridViewJournalEntry.TabIndex = 1;
             // 
             // dstJournalEntry
@@ -602,7 +600,6 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.ECashDisbursementVoucherForm_BeforeRun);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashDisbursementVoucherForm_ValidateSave);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.EBillsPaymentForm_BeforeSave);
             this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECashDisbursementVoucherForm_AfterRun);

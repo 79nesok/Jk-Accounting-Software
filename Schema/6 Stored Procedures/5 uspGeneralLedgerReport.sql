@@ -75,6 +75,11 @@ FROM (
 	FROM @beg b
 ) x
 	INNER JOIN tblAccounts a ON a.Id = x.AccountId
+	INNER JOIN tblReportFilter rf ON rf.SelectionId = a.Id
+		AND rf.SystemUserId = 1
+	INNER JOIN tblReportFilterTypes rft ON rft.Id = rf.ReportFilterTypeId
+		AND rft.Account = 1
+		AND rft.TypeId = a.AccountTypeId
 ORDER BY a.Name, x.Id, x.[Date]
 GO
 

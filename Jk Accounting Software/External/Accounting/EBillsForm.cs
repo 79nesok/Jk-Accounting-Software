@@ -217,11 +217,12 @@ namespace Jk_Accounting_Software.External.Accounting
 
             object ATCId;
 
-            if (cmbSubsidiary.SelectedKey != 0)
+            if (cmbSubsidiary.SelectedValue != null
+                && cmbSubsidiary.SelectedValue != DBNull.Value)
             {
-                ATCId = VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaries, "Id", cmbSubsidiary.SelectedKey, "ATCId");
+                ATCId = VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaries, "Id", cmbSubsidiary.SelectedValue, "ATCId");
 
-                if (ATCId != null || ATCId != DBNull.Value)
+                if (ATCId != null && ATCId != DBNull.Value)
                 {
                     dstDetail.Columns.Find(c => c.Name == "ATCId").DefaultValue = ATCId.ToString();
 

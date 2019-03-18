@@ -34,6 +34,10 @@
             this.splitContainer.SuspendLayout();
             this.SuspendLayout();
             // 
+            // splitContainer
+            // 
+            this.splitContainer.Size = new System.Drawing.Size(836, 506);
+            // 
             // btnClose
             // 
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
@@ -63,7 +67,7 @@
             this.NewFormName = "EBillsForm";
             this.OpenFormName = "EBillsForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(836, 481);
+            this.Size = new System.Drawing.Size(836, 506);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using JkComponents;
 using Jk_Accounting_Software.Internal.Forms;
 using System.Data.SqlTypes;
+using System.Text.RegularExpressions;
 
 namespace Jk_Accounting_Software.Internal.Classes
 {
@@ -43,16 +44,16 @@ namespace Jk_Accounting_Software.Internal.Classes
             VTransaction.Rollback();
         }
 
-        public String ExtractTableName(String PCommandText)
+        public static String ExtractTableName(String PCommandText)
         {
-            String result = "";
+            String result = null;
 
-            if (!String.IsNullOrEmpty(PCommandText))
+            foreach(char letter in Regex.Replace(PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 5), @"\s+", " "))
             {
-                if (PCommandText.IndexOf("WHERE", 0) > 0)
-                    result = PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 4, PCommandText.IndexOf("WHERE", 0) - PCommandText.IndexOf("FROM", 0) - 5).Trim();
+                if (letter == ' ')
+                    return result;
                 else
-                    result = PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 4, PCommandText.Length - PCommandText.IndexOf("FROM", 0) - 4).Trim();
+                    result += letter;
             }
 
             return result;
@@ -183,7 +184,9 @@ namespace Jk_Accounting_Software.Internal.Classes
                 Command.Connection = VConnection;
                 Command.Transaction = VTransaction;
                 Command.ExecuteNonQuery();
-                PParams.Find(p => p.Name == "Id").Value = Command.Parameters[Command.Parameters.Count - 1].Value.ToString();
+
+                if (PParams != null)
+                    PParams.Find(p => p.Name == "Id").Value = Command.Parameters[Command.Parameters.Count - 1].Value.ToString();
             }
             finally
             {
