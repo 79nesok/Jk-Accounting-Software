@@ -7,6 +7,7 @@ using JkComponents;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace Jk_Accounting_Software.Internal.Classes
 {
@@ -22,6 +23,10 @@ namespace Jk_Accounting_Software.Internal.Classes
 
         private static String InitialStatus;
         private static int CurrentTag = 0;
+
+        [DllImport("user32.dll")]
+        public static extern int SendMessage(IntPtr hWnd, Int32 wMsg, bool wParam, Int32 lParam);
+        private const int WM_SETREDRAW = 11;
 
         public static String GetSubCategory(String Name, String Category, String Result)
         {
@@ -233,7 +238,9 @@ namespace Jk_Accounting_Software.Internal.Classes
             else if (PControl is PictureBox)
                 (PControl as PictureBox).Image = null;
             else if (PControl is JkLookUpComboBox)
-                (PControl as JkLookUpComboBox).Text = String.Empty;
+            {
+                (PControl as JkLookUpComboBox).SelectedValue = DBNull.Value;
+            }
             else if (PControl is JkTextBox)
                 (PControl as JkTextBox).Text = String.Empty;
             else if (PControl is MaskedTextBox)
@@ -351,6 +358,17 @@ namespace Jk_Accounting_Software.Internal.Classes
             }
 
             return param.SqlDbType;
+        }
+
+        public static void SuspendDrawing(Control control)
+        {
+            SendMessage(control.Handle, WM_SETREDRAW, false, 0);
+        }
+
+        public static void ResumeDrawing(Control control)
+        {
+            SendMessage(control.Handle, WM_SETREDRAW, true, 0);
+            control.Refresh();
         }
     }
 }

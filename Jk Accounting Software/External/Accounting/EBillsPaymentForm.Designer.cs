@@ -602,7 +602,7 @@
             this.ZLoadMasterColumns = true;
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashDisbursementVoucherForm_ValidateSave);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.EBillsPaymentForm_BeforeSave);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECashDisbursementVoucherForm_AfterRun);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EBillsPaymentForm_SetupControl);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();

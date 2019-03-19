@@ -45,15 +45,15 @@ namespace Jk_Accounting_Software.Internal.Forms
         #endregion
 
         #region Added Events
-            public delegate void BeforeRunHandler();
-            public event BeforeRunHandler BeforeRun;
-            protected virtual void OnBeforeRun()
+            public delegate void SetupDataHandler();
+            [Category("(Custom)")]
+            public event SetupDataHandler SetupData;
+            protected virtual void OnSetupData()
             {
                 //load all lookups
                 foreach (JkLookUpComboBox comboBox in IAppHandler.FindControlByType("JkLookUpComboBox", this))
                 {
                     comboBox.LoadData();
-                    comboBox.SelectedValue = DBNull.Value;
                 }
 
                 //clear all datatables
@@ -64,13 +64,23 @@ namespace Jk_Accounting_Software.Internal.Forms
                 if (CommandText != null && CommandText != "")
                     VTransactionHandler.LoadData(CommandText, ref VMasterDataTable, this.Parameters);
 
-                if (BeforeRun != null)
-                    BeforeRun();
+                if (SetupData != null)
+                    SetupData();
+            }
 
+            public delegate void SetupControlHandler();
+            [Category("(Custom)")]
+            public event SetupControlHandler SetupControl;
+            protected virtual void OnSetupControl()
+            {
                 UpdateControls();
+
+                if (SetupControl != null)
+                    SetupControl();
             }
 
             public delegate void ValidateSaveHandler();
+            [Category("(Custom)")]
             public event ValidateSaveHandler ValidateSave;
             protected virtual void OnValidateSave()
             {
@@ -79,6 +89,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             }
 
             public delegate void BeforeSaveHandler();
+            [Category("(Custom)")]
             public event BeforeSaveHandler BeforeSave;
             protected virtual void OnBeforeSave()
             {
@@ -87,19 +98,12 @@ namespace Jk_Accounting_Software.Internal.Forms
             }
 
             public delegate void AfterSaveHandler();
+            [Category("(Custom)")]
             public event AfterSaveHandler AfterSave;
             protected virtual void OnAfterSave()
             {
                 if (AfterSave != null)
                     AfterSave();
-            }
-
-            public delegate void AfterRunHandler();
-            public event AfterRunHandler AfterRun;
-            protected virtual void OnAfterRun()
-            {
-                if (AfterRun != null)
-                    AfterRun();
             }
         #endregion
 
@@ -169,13 +173,20 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                     if (!this.Visible)
                         this.Show();
+
+                    IAppHandler.SuspendDrawing(this);
                     EditingReady = false;
-                    OnBeforeRun();
+
+                    //setup data first before controls, since there are
+                    //controls which are dependent on data
+                    OnSetupData();
+                    OnSetupControl();
                 }
                 finally
                 {
-                    OnAfterRun();
+                    IAppHandler.ResumeDrawing(this);
                     EditingReady = true;
+
                     IAppHandler.EndBusy("Preparing controls");
                 }
             }
@@ -196,7 +207,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             protected virtual void UpdateControls()
             {
                 btnNew.Visible = (FormState == FormStates.fsView);
-                btnEdit.Visible = (FormState == FormStates.fsView) && !IsListForm(); ;
+                btnEdit.Visible = (FormState == FormStates.fsView) && !IsListForm();
                 btnSave.Visible = (FormState != FormStates.fsView);
                 btnCancel.Visible = (FormState != FormStates.fsView);
 
@@ -220,11 +231,11 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnNextRecord.Enabled = (FormState == FormStates.fsView);
                 btnLastRecord.Enabled = (FormState == FormStates.fsView);
 
-                ProcessControls(splitContainer.Panel2);
+                ProcessDataControls(splitContainer.Panel2);
                 LoadPrintoutSelection();
             }
 
-            private void ProcessControls(Control control)
+            private void ProcessDataControls(Control control)
             {
                 foreach (Control childControl in control.Controls)
                 {
@@ -251,7 +262,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                         || (childControl is JkTextBox && (childControl as JkTextBox).ReadOnly))
                         childControl.TabStop = false;
 
-                    ProcessControls(childControl);
+                    ProcessDataControls(childControl);
                 }
             }
 

@@ -23,7 +23,7 @@ namespace Jk_Accounting_Software.External.Accounting
             dataGridViewJournalEntry.AutoGenerateColumns = false;
         }
 
-        private void ESalesVoucherForm_AfterRun()
+        private void ESalesVoucherForm_SetupControl()
         {
             txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("#,##0.00;(#,##0.00)");
             txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("#,##0.00;(#,##0.00)");
@@ -146,7 +146,7 @@ namespace Jk_Accounting_Software.External.Accounting
             txtPaidAmount.Text = double.Parse(txtPaidAmount.Text).ToString("#,##0.00;(#,##0.00)");
         }
 
-        private void EPurchaseVoucherForm_AfterRun()
+        private void EPurchaseVoucherForm_SetupControl()
         {
             txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("#,##0.00;(#,##0.00)");
             txtVATAmount.Text = double.Parse(txtVATAmount.Text).ToString("#,##0.00;(#,##0.00)");

@@ -61,7 +61,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
-            this.cmbSubsidiaryDetail = new JkComponents.JkLookUpComboBox();
             this.cmbVATTypes = new JkComponents.JkLookUpComboBox();
             this.tabPageJournalEntry = new System.Windows.Forms.TabPage();
             this.dataGridViewJournalEntry = new JkComponents.JkDataGridView();
@@ -96,11 +95,10 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstJournalEntry);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbVATTypes);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbAccounts);
-            this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiaryDetail);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel1);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 443);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -129,17 +127,21 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(837, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 184);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(829, 146);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 156);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(837, 536);
+            this.splitContainer.Size = new System.Drawing.Size(836, 536);
             // 
             // btnClose
             // 
@@ -147,7 +149,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // jkSeriesProvider1
             // 
@@ -515,26 +517,6 @@
             this.cmbAccounts.TabIndex = 20;
             this.cmbAccounts.Visible = false;
             // 
-            // cmbSubsidiaryDetail
-            // 
-            this.cmbSubsidiaryDetail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbSubsidiaryDetail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbSubsidiaryDetail.DataSet = "dstSubsidiaries";
-            this.cmbSubsidiaryDetail.DisplayText = "Name";
-            this.cmbSubsidiaryDetail.DropDownHeight = 200;
-            this.cmbSubsidiaryDetail.DropDownWidth = 300;
-            this.cmbSubsidiaryDetail.ForeColor = System.Drawing.Color.Black;
-            this.cmbSubsidiaryDetail.FormattingEnabled = true;
-            this.cmbSubsidiaryDetail.IntegralHeight = false;
-            this.cmbSubsidiaryDetail.Key = "Id";
-            this.cmbSubsidiaryDetail.Location = new System.Drawing.Point(762, 175);
-            this.cmbSubsidiaryDetail.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.cmbSubsidiaryDetail.Name = "cmbSubsidiaryDetail";
-            this.cmbSubsidiaryDetail.Required = false;
-            this.cmbSubsidiaryDetail.Size = new System.Drawing.Size(66, 23);
-            this.cmbSubsidiaryDetail.TabIndex = 19;
-            this.cmbSubsidiaryDetail.Visible = false;
-            // 
             // cmbVATTypes
             // 
             this.cmbVATTypes.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -558,7 +540,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 146);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -583,7 +565,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 136);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // dstJournalEntry
@@ -680,10 +662,10 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns21"))));
             this.Name = "EBillsForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(837, 536);
+            this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EBillsForm_SetupControl);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.EPurchaseVoucherForm_BeforeSave);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EPurchaseVoucherForm_AfterRun);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
@@ -736,7 +718,6 @@
         private JkComponents.JkTextBox txtBalance;
         private JkComponents.JkLookUpComboBox cmbVATTypes;
         private JkComponents.JkLookUpComboBox cmbAccounts;
-        private JkComponents.JkLookUpComboBox cmbSubsidiaryDetail;
         private JkComponents.JkDataGridView dataGridViewJournalEntry;
         private System.Windows.Forms.TabPage tabPageJournalEntry;
         private JkComponents.JkDetailDataSet dstJournalEntry;

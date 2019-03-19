@@ -635,7 +635,7 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 506);
             this.ZLoadMasterColumns = true;
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECashReceiptVoucherForm_AfterRun);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.ECashReceiptVoucherForm_SetupControl);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();

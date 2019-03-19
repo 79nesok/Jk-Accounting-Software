@@ -384,7 +384,7 @@
             this.Size = new System.Drawing.Size(837, 536);
             this.ZLoadMasterColumns = true;
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.EJournalVoucherForm_AfterRun);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EJournalVoucherForm_SetupControl);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();

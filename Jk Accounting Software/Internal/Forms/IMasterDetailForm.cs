@@ -23,7 +23,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 InitializeComponent();
             }
 
-            private void IMasterDetailForm_BeforeRun()
+            private void IMasterDetailForm_SetupData()
             {
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
                 {
@@ -108,7 +108,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 splitContainerMasterDetail.Size = new Size(splitContainer.Width, splitContainer.Panel2.Height - FormFooter.Height);
             }
 
-            private void IMasterDetailForm_AfterRun()
+            private void IMasterDetailForm_SetupControl()
             {
                 foreach (JkDetailDataSet DataSet in IAppHandler.FindControlByType("JkDetailDataSet", this))
                 {

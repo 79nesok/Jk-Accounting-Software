@@ -48,13 +48,22 @@ namespace Jk_Accounting_Software.Internal.Classes
         {
             String result = null;
 
-            foreach(char letter in Regex.Replace(PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 5), @"\s+", " "))
-            {
-                if (letter == ' ')
-                    return result;
-                else
-                    result += letter;
-            }
+            if (PCommandText.IndexOf("FROM", 0) > 0)
+                foreach(char letter in Regex.Replace(PCommandText.Substring(PCommandText.IndexOf("FROM", 0) + 5), @"\s+", " "))
+                {
+                    if (letter == ' ')
+                        return result;
+                    else
+                        result += letter;
+                }
+            else
+                foreach (char letter in Regex.Replace(PCommandText.Substring(PCommandText.IndexOf("EXEC", 0) + 5), @"\s+", " "))
+                {
+                    if (letter == ' ')
+                        return result;
+                    else
+                        result += letter;
+                }
 
             return result;
         }

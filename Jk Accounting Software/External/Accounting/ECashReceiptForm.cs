@@ -234,7 +234,7 @@ namespace Jk_Accounting_Software.External.Accounting
             column.Visible = (FormState != FormStates.fsView);
         }
 
-        private void ECashReceiptVoucherForm_AfterRun()
+        private void ECashReceiptVoucherForm_SetupControl()
         {
             LoadInvoices();
             ShowAmountToApply();

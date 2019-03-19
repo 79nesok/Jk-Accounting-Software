@@ -59,7 +59,7 @@ namespace Jk_Accounting_Software.External.Accounting
             Post(false);
         }
 
-        private void EJournalVoucherForm_AfterRun()
+        private void EJournalVoucherForm_SetupControl()
         {
             //load journal entry
             if (FormState == FormStates.fsView)

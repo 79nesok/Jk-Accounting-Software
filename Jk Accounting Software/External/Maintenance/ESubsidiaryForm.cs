@@ -20,7 +20,7 @@ namespace Jk_Accounting_Software.External.Maintenance
             InitializeComponent();
         }
 
-        private void ESubsidiaryForm_BeforeRun()
+        private void ESubsidiaryForm_SetupData()
         {
             PluralizationService ps = PluralizationService.CreateService(CultureInfo.GetCultureInfo("en-us"));
             String cap = VLookupProvider.DataSetLookup(VLookupProvider.dstSubsidiaryTypes, "Id", Parameters.Find(p => p.Name == "SubsidiaryTypeId").Value, "Name").ToString();

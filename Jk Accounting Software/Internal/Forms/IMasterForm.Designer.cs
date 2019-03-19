@@ -40,7 +40,15 @@
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 434);
+            this.splitContainer.Size = new System.Drawing.Size(836, 527);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // FormFooter
             // 
@@ -51,9 +59,9 @@
             this.FormFooter.Controls.Add(this.lblModifiedBy);
             this.FormFooter.Controls.Add(this.lblMode);
             this.FormFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.FormFooter.Location = new System.Drawing.Point(0, 400);
+            this.FormFooter.Location = new System.Drawing.Point(0, 493);
             this.FormFooter.Name = "FormFooter";
-            this.FormFooter.Size = new System.Drawing.Size(789, 34);
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             this.FormFooter.TabIndex = 4;
             // 
             // lblCreatedBy
@@ -86,7 +94,7 @@
             this.lblMode.Dock = System.Windows.Forms.DockStyle.Right;
             this.lblMode.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMode.ForeColor = System.Drawing.Color.Black;
-            this.lblMode.Location = new System.Drawing.Point(681, 0);
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
             this.lblMode.Name = "lblMode";
             this.lblMode.Padding = new System.Windows.Forms.Padding(5);
             this.lblMode.Size = new System.Drawing.Size(104, 25);
@@ -100,11 +108,12 @@
             this.Caption = "Master Form";
             this.Controls.Add(this.FormFooter);
             this.Name = "IMasterForm";
-            this.Size = new System.Drawing.Size(789, 434);
+            this.Size = new System.Drawing.Size(836, 527);
+            this.SetupData += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupDataHandler(this.IMasterForm_SetupData);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.IMasterForm_SetupControl);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.IMasterForm_ValidateSave);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterForm_BeforeSave);
             this.AfterSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterSaveHandler(this.IMasterForm_AfterSave);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterForm_AfterRun);
             this.Controls.SetChildIndex(this.splitContainer, 0);
             this.Controls.SetChildIndex(this.FormFooter, 0);
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

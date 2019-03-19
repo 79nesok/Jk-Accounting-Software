@@ -69,7 +69,7 @@
             // 
             this.imageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList.ImageStream")));
             this.imageList.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList.Images.SetKeyName(0, "cabinet.png");
+            this.imageList.Images.SetKeyName(0, "SubCategory.png");
             // 
             // timerDuration
             // 

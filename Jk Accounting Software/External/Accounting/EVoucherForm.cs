@@ -20,7 +20,7 @@ namespace Jk_Accounting_Software.External.Accounting
             InitializeComponent();
         }
 
-        private void EVoucherForm_BeforeRun()
+        private void EVoucherForm_SetupData()
         {
             Caption = VLookupProvider.DataSetLookup(VLookupProvider.dstJournalTypes, "Id", Parameters.Find(p => p.Name == "JournalTypeId").Value, "Name").ToString();
             MasterColumns.Find(mc => mc.Name == "JournalTypeId").DefaultValue = Parameters.Find(p => p.Name == "JournalTypeId").Value;

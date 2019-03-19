@@ -46,7 +46,9 @@
             this.idDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).BeginInit();
             this.splitContainerMasterDetail.Panel1.SuspendLayout();
+            this.splitContainerMasterDetail.Panel2.SuspendLayout();
             this.splitContainerMasterDetail.SuspendLayout();
+            this.tabControlDetails.SuspendLayout();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -64,7 +66,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(789, 458);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 468);
             // 
             // dstDetail
             // 
@@ -79,13 +81,37 @@
     "JournalDetails\r\nWHERE JournalId = @Id";
             this.dstDetail.GridAutoSize = true;
             this.dstDetail.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("dstDetail.Parameters"))));
-            this.dstDetail.Size = new System.Drawing.Size(48, 20);
             this.dstDetail.ZLoadColumns = true;
             this.dstDetail.ZLoadGrid = true;
             // 
+            // tabControlDetails
+            // 
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 269);
+            // 
+            // tabPageDetails
+            // 
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 241);
+            // 
+            // lblMode
+            // 
+            this.lblMode.Location = new System.Drawing.Point(728, 0);
+            // 
+            // FormFooter
+            // 
+            this.FormFooter.Location = new System.Drawing.Point(0, 527);
+            this.FormFooter.Size = new System.Drawing.Size(836, 34);
+            // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(789, 561);
+            this.splitContainer.Size = new System.Drawing.Size(836, 561);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -185,10 +211,13 @@
             // 
             // cmbSubsidiary
             // 
+            this.cmbSubsidiary.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSubsidiary.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSubsidiary.DataSet = "dstSubsidiaries";
             this.cmbSubsidiary.DisplayText = "Name";
             this.cmbSubsidiary.DropDownHeight = 200;
             this.cmbSubsidiary.DropDownWidth = 300;
+            this.cmbSubsidiary.ForeColor = System.Drawing.Color.Black;
             this.cmbSubsidiary.FormattingEnabled = true;
             this.cmbSubsidiary.IntegralHeight = false;
             this.cmbSubsidiary.Key = "Id";
@@ -217,8 +246,11 @@
             // 
             // cmbAccounts
             // 
+            this.cmbAccounts.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbAccounts.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbAccounts.DataSet = "dstAccounts";
             this.cmbAccounts.DisplayText = "Name";
+            this.cmbAccounts.ForeColor = System.Drawing.Color.Black;
             this.cmbAccounts.FormattingEnabled = true;
             this.cmbAccounts.Key = "Id";
             this.cmbAccounts.Location = new System.Drawing.Point(690, 38);
@@ -269,13 +301,15 @@
             this.Name = "EVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 561);
+            this.Size = new System.Drawing.Size(836, 561);
             this.ZLoadMasterColumns = true;
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EVoucherForm_BeforeRun);
+            this.SetupData += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupDataHandler(this.EVoucherForm_SetupData);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EVoucherForm_ValidateSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
+            this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();
             this.splitContainerMasterDetail.ResumeLayout(false);
+            this.tabControlDetails.ResumeLayout(false);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

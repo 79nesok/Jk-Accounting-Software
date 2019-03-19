@@ -99,14 +99,24 @@ namespace Jk_Accounting_Software.Internal.Forms
                     KeyId = _KeyId;
             }
 
-            private void IMasterForm_AfterRun()
+            private void IMasterForm_SetupData()
             {
+                foreach (JkLookUpComboBox comboBox in IAppHandler.FindControlByType("JkLookUpComboBox", this))
+                    if (FormState == FormStates.fsView)
+                        comboBox.RemoveFilterOnDataSource();
+                    else
+                        comboBox.FilterDataSource();
+
                 if (FormState == FormStates.fsNew)
                     AssignControlsDefaultValue();
                 else
                     AssignValuesToControls();
 
                 InitSeriesProviders();
+            }
+
+            private void IMasterForm_SetupControl()
+            {
                 SetRequiredControls();
                 SetFormFooter();
                 FocusFirstControl(this.splitContainer.Panel2);
@@ -479,24 +489,37 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void SetFormFooter()
             {
+                if (FormState == FormStates.fsNew)
+                    return;
+
                 lblMode.Text = "Mode: " + FormState.ToString().Substring(2);
 
-                if (lblCreatedBy.Visible)
+                if (MasterColumns.Find(col => col.Name == "DateCreated") != null)
                 {
-                    lblCreatedBy.Text = String.Format("Created By:     {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSystemUsers, "Id", MasterColumns.Find(col => col.Name == "CreatedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateCreated").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+                    lblCreatedBy.Text =
+                        String.Format("Created By:     {0} on {1}",
+                            VLookupProvider.DataSetLookup(VLookupProvider.dstSystemUsers, "Id", MasterColumns.Find(col => col.Name == "CreatedById").Value, "FormalName"),
+                            Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateCreated").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt")
+                        );
                 }
 
-                if (lblModifiedBy.Visible)
+                if (MasterColumns.Find(col => col.Name == "DateModified") != null)
                 {
-                    lblModifiedBy.Text = String.Format("Modified By:   {0} on {1}", VLookupProvider.DataSetLookup(VLookupProvider.dstSystemUsers, "Id", MasterColumns.Find(col => col.Name == "ModifiedById").Value, "FormalName"), Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateModified").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt"));
+                    lblModifiedBy.Text =
+                        String.Format("Modified By:   {0} on {1}",
+                            VLookupProvider.DataSetLookup(VLookupProvider.dstSystemUsers, "Id", MasterColumns.Find(col => col.Name == "ModifiedById").Value, "FormalName"),
+                            Convert.ToDateTime(MasterColumns.Find(col => col.Name == "DateModified").Value).ToString("MM'/'dd'/'yyyy 'at' hh:mm:ss tt")
+                        );
 
                     if (MasterColumns.Find(col => col.Name == "DateCreated").Value.ToString() == MasterColumns.Find(col => col.Name == "DateModified").Value.ToString())
                     {
+                        lblCreatedBy.Visible = true;
                         lblModifiedBy.Visible = false;
                         lblCreatedBy.Padding = new Padding(5, 5, 5, 5);
                     }
                     else
                     {
+                        lblCreatedBy.Visible = true;
                         lblModifiedBy.Visible = true;
                         lblCreatedBy.Padding = new Padding(5, 0, 0, 0);
                         lblModifiedBy.Padding = new Padding(5, 0, 0, 0);

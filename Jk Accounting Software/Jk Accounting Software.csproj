@@ -623,12 +623,6 @@
     <Compile Include="Internal\Forms\IReportForm.Designer.cs">
       <DependentUpon>IReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Internal\Forms\TestMasterDetail.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Internal\Forms\TestMasterDetail.Designer.cs">
-      <DependentUpon>TestMasterDetail.cs</DependentUpon>
-    </Compile>
     <Compile Include="Internal\Forms\UserControl1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -877,9 +871,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\IReportForm.resx">
       <DependentUpon>IReportForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Internal\Forms\TestMasterDetail.resx">
-      <DependentUpon>TestMasterDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\UserControl1.resx">
       <DependentUpon>UserControl1.cs</DependentUpon>

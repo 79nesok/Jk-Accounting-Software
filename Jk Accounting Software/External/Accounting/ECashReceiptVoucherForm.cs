@@ -32,7 +32,7 @@ namespace Jk_Accounting_Software.External.Accounting
             DisplaySummary();
         }
 
-        private void ECashReceiptVoucherForm_AfterRun()
+        private void ECashReceiptVoucherForm_SetupControl()
         {
             DisplaySummary();
 

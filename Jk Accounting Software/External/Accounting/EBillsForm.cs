@@ -134,7 +134,7 @@ namespace Jk_Accounting_Software.External.Accounting
             txtNetAmount.Text = NetAmount.ToString("#,##0.00;(#,##0.00)");
         }
 
-        private void EPurchaseVoucherForm_AfterRun()
+        private void EBillsForm_SetupControl()
         {
             txtGrossAmount.Text = double.Parse(txtGrossAmount.Text).ToString("#,##0.00;(#,##0.00)");
             txtWTAX.Text = double.Parse(txtWTAX.Text).ToString("#,##0.00;(#,##0.00)");

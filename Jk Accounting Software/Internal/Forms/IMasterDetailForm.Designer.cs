@@ -49,14 +49,9 @@
             this.tabPageDetails.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(729, 0);
-            // 
             // FormFooter
             // 
-            this.FormFooter.Location = new System.Drawing.Point(0, 502);
-            this.FormFooter.Size = new System.Drawing.Size(837, 34);
+            this.FormFooter.Location = new System.Drawing.Point(0, 527);
             // 
             // splitContainer
             // 
@@ -64,7 +59,7 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.splitContainerMasterDetail);
-            this.splitContainer.Size = new System.Drawing.Size(837, 536);
+            this.splitContainer.Size = new System.Drawing.Size(836, 561);
             // 
             // btnClose
             // 
@@ -72,7 +67,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // splitContainerMasterDetail
             // 
@@ -90,7 +85,7 @@
             // splitContainerMasterDetail.Panel2
             // 
             this.splitContainerMasterDetail.Panel2.Controls.Add(this.tabControlDetails);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 458);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 458);
             this.splitContainerMasterDetail.SplitterDistance = 195;
             this.splitContainerMasterDetail.SplitterWidth = 1;
             this.splitContainerMasterDetail.TabIndex = 0;
@@ -132,7 +127,7 @@
             this.dataGridView.GridColor = System.Drawing.Color.Peru;
             this.dataGridView.Location = new System.Drawing.Point(3, 3);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(819, 224);
+            this.dataGridView.Size = new System.Drawing.Size(818, 224);
             this.dataGridView.TabIndex = 19;
             // 
             // tabControlDetails
@@ -142,7 +137,7 @@
             this.tabControlDetails.Location = new System.Drawing.Point(0, 0);
             this.tabControlDetails.Name = "tabControlDetails";
             this.tabControlDetails.SelectedIndex = 0;
-            this.tabControlDetails.Size = new System.Drawing.Size(837, 262);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 262);
             this.tabControlDetails.TabIndex = 0;
             // 
             // tabPageDetails
@@ -152,7 +147,7 @@
             this.tabPageDetails.Location = new System.Drawing.Point(4, 24);
             this.tabPageDetails.Name = "tabPageDetails";
             this.tabPageDetails.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageDetails.Size = new System.Drawing.Size(829, 234);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 234);
             this.tabPageDetails.TabIndex = 0;
             this.tabPageDetails.Text = "Details";
             this.tabPageDetails.UseVisualStyleBackColor = true;
@@ -163,11 +158,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Caption = "Master Detail Form";
             this.Name = "IMasterDetailForm";
-            this.Size = new System.Drawing.Size(837, 536);
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IMasterDetailForm_BeforeRun);
+            this.Size = new System.Drawing.Size(836, 561);
+            this.SetupData += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupDataHandler(this.IMasterDetailForm_SetupData);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.IMasterDetailForm_SetupControl);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.IMasterDetailForm_ValidateSave);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.IMasterDetailForm_BeforeSave);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IMasterDetailForm_AfterRun);
             this.Resize += new System.EventHandler(this.IMasterDetailForm_Resize);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

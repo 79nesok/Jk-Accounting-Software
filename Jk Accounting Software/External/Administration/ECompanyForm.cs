@@ -54,7 +54,7 @@ namespace Jk_Accounting_Software.External.Administration
             }
         }
 
-        private void ECompanyForm_AfterRun()
+        private void ECompanyForm_SetupControl()
         {
             if (FormState == FormStates.fsView)
                 lblLink.Text = "Logo";

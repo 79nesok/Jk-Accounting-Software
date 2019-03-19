@@ -42,14 +42,9 @@
             this.splitContainerReport.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(728, 0);
-            // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
@@ -83,7 +78,7 @@
             // splitContainerReport.Panel2
             // 
             this.splitContainerReport.Panel2.Controls.Add(this.reportViewer);
-            this.splitContainerReport.Size = new System.Drawing.Size(836, 412);
+            this.splitContainerReport.Size = new System.Drawing.Size(836, 422);
             this.splitContainerReport.SplitterDistance = 25;
             this.splitContainerReport.SplitterWidth = 1;
             this.splitContainerReport.TabIndex = 0;
@@ -113,8 +108,8 @@
             this.Caption = "Report";
             this.Name = "IReportForm";
             this.Size = new System.Drawing.Size(836, 481);
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.IReportForm_BeforeRun);
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.IReportForm_AfterRun);
+            this.SetupData += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupDataHandler(this.IReportForm_SetupData);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.IReportForm_SetupControl);
             this.Resize += new System.EventHandler(this.IReportForm_Resize);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();

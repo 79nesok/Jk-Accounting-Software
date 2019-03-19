@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.Internal.Classes;
+using JkComponents;
 
 namespace Jk_Accounting_Software
 {
@@ -76,6 +77,14 @@ namespace Jk_Accounting_Software
                     try
                     {
                         IAppHandler.StartBusy("Executing Refresh");
+
+                        //refresh all dataset
+                        foreach (JkDataSet dataset in JkDataSetList.List)
+                        {
+                            dataset.Open();
+                        }
+
+                        //rerun form
                         form.Run();
                     }
                     finally

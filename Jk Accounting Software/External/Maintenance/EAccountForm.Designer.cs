@@ -58,7 +58,15 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(789, 506);
+            this.splitContainer.Size = new System.Drawing.Size(836, 506);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -75,7 +83,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 437);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 447);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
             // label6
@@ -128,8 +136,11 @@
             // 
             // cmbSystemAccountCode
             // 
+            this.cmbSystemAccountCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbSystemAccountCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSystemAccountCode.DataSet = "dstSystemAccountCodes";
             this.cmbSystemAccountCode.DisplayText = "Name";
+            this.cmbSystemAccountCode.ForeColor = System.Drawing.Color.Black;
             this.cmbSystemAccountCode.FormattingEnabled = true;
             this.cmbSystemAccountCode.Key = "Id";
             this.cmbSystemAccountCode.Location = new System.Drawing.Point(151, 71);
@@ -199,9 +210,9 @@
             this.Name = "EAccountForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
-            this.Size = new System.Drawing.Size(789, 506);
+            this.Size = new System.Drawing.Size(836, 506);
             this.ZLoadMasterColumns = true;
-            this.BeforeRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeRunHandler(this.EAccountForm_BeforeRun);
+            this.SetupData += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupDataHandler(this.EAccountForm_SetupData);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

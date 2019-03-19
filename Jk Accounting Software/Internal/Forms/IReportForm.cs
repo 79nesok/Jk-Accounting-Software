@@ -56,7 +56,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnRemoveFilter.Enabled = btnFilter.Checked;
             }
 
-            private void IReportForm_BeforeRun()
+            private void IReportForm_SetupData()
             {
                 foreach (JkFormParameter param in Parameters)
                     param.Value = IAppHandler.ConvertMaskValue(param.Value).ToString();
@@ -64,7 +64,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 CreateReportParameters();
             }
 
-            private void IReportForm_AfterRun()
+            private void IReportForm_SetupControl()
             {
                 GenerateReport();
             }
@@ -85,6 +85,8 @@ namespace Jk_Accounting_Software.Internal.Forms
                 btnNextRecord.Visible = false;
                 NavigatorSeparatorSecond.Visible = false;
                 btnLastRecord.Visible = false;
+
+                btnNavigatorHolder.Visible = this.Caption == "Report";
 
                 lblCreatedBy.Visible = false;
                 lblModifiedBy.Visible = false;

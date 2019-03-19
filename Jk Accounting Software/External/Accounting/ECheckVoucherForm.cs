@@ -90,7 +90,7 @@ namespace Jk_Accounting_Software.External.Accounting
             Command.ExecuteNonQuery();
         }
 
-        private void ECheckVoucherForm_AfterRun()
+        private void ECheckVoucherForm_SetupControl()
         {
             DisplaySummary();
 

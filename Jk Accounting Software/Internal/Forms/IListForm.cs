@@ -236,7 +236,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 }
             }
 
-            private void IListForm_BeforeRun()
+            private void IListForm_SetupData()
             {
                 SetColumnVisibility();
                 ComputeFooterValues();
@@ -290,7 +290,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 }
             }
 
-            private void IListForm_AfterRun()
+            private void IListForm_SetupControl()
             {
                 SetAutoCompleteForSearchField();
             }

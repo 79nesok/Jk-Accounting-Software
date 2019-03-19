@@ -18,7 +18,7 @@ namespace Jk_Accounting_Software.External.Maintenance
             InitializeComponent();
         }
 
-        private void EAccountForm_BeforeRun()
+        private void EAccountForm_SetupData()
         {
             PluralizationService ps = PluralizationService.CreateService(CultureInfo.GetCultureInfo("en-us"));
             String cap = VLookupProvider.DataSetLookup(VLookupProvider.dstAccountTypes, "Id", Parameters.Find(p => p.Name == "AccountTypeId").Value, "Name").ToString();

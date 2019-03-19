@@ -326,7 +326,7 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(808, 536);
             this.ZLoadMasterColumns = true;
-            this.AfterRun += new Jk_Accounting_Software.Internal.Forms.IParentForm.AfterRunHandler(this.ECompanyForm_AfterRun);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.ECompanyForm_SetupControl);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();

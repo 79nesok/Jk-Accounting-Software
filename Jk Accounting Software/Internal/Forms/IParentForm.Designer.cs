@@ -84,7 +84,7 @@
             // 
             this.splitContainer.Panel2.BackColor = System.Drawing.Color.White;
             this.splitContainer.Size = new System.Drawing.Size(852, 476);
-            this.splitContainer.SplitterDistance = 68;
+            this.splitContainer.SplitterDistance = 58;
             this.splitContainer.SplitterWidth = 1;
             this.splitContainer.TabIndex = 3;
             // 
@@ -98,7 +98,7 @@
             this.flowLayoutPanelTop.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanelTop.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelTop.Name = "flowLayoutPanelTop";
-            this.flowLayoutPanelTop.Size = new System.Drawing.Size(852, 68);
+            this.flowLayoutPanelTop.Size = new System.Drawing.Size(852, 58);
             this.flowLayoutPanelTop.TabIndex = 6;
             // 
             // panelTop
@@ -110,19 +110,19 @@
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Margin = new System.Windows.Forms.Padding(0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(852, 40);
+            this.panelTop.Size = new System.Drawing.Size(852, 30);
             this.panelTop.TabIndex = 7;
             // 
             // lblCaption
             // 
             this.lblCaption.BackColor = System.Drawing.Color.Maroon;
             this.lblCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblCaption.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCaption.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCaption.ForeColor = System.Drawing.Color.Gold;
             this.lblCaption.Location = new System.Drawing.Point(0, 0);
             this.lblCaption.Margin = new System.Windows.Forms.Padding(0);
             this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(815, 40);
+            this.lblCaption.Size = new System.Drawing.Size(815, 30);
             this.lblCaption.TabIndex = 10;
             this.lblCaption.Text = "Parent Form";
             this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -141,7 +141,7 @@
             this.btnClose.Location = new System.Drawing.Point(815, 0);
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(37, 40);
+            this.btnClose.Size = new System.Drawing.Size(37, 30);
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "x";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -158,7 +158,7 @@
             this.panelButton.Controls.Add(this.btnNavigatorHolder);
             this.panelButton.Controls.Add(this.btnHolder);
             this.panelButton.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButton.Location = new System.Drawing.Point(0, 40);
+            this.panelButton.Location = new System.Drawing.Point(0, 30);
             this.panelButton.Margin = new System.Windows.Forms.Padding(0);
             this.panelButton.Name = "panelButton";
             this.panelButton.Size = new System.Drawing.Size(852, 26);
@@ -307,7 +307,7 @@
             this.btnHolder.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.btnHolder.Location = new System.Drawing.Point(0, 0);
             this.btnHolder.Name = "btnHolder";
-            this.btnHolder.Size = new System.Drawing.Size(341, 26);
+            this.btnHolder.Size = new System.Drawing.Size(310, 26);
             this.btnHolder.Stretch = true;
             this.btnHolder.TabIndex = 16;
             this.btnHolder.Text = "toolStrip1";

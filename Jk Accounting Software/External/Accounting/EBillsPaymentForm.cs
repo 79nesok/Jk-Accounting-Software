@@ -206,7 +206,7 @@ namespace Jk_Accounting_Software.External.Accounting
             dataGridView.Columns[dataGridView.GetCellIndex("AmountToApply")].Visible = (FormState != FormStates.fsView);
         }
 
-        private void ECashDisbursementVoucherForm_AfterRun()
+        private void EBillsPaymentForm_SetupControl()
         {
             LoadBills();
             ShowAmountToApply();
