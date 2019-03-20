@@ -60,6 +60,10 @@ namespace Jk_Accounting_Software.External.Report
                     result = "Purchase Journal";
                     break;
 
+                case "Bills Payment":
+                    result = "Cash Disbursement Journal";
+                    break;
+
                 case "Sales Invoice":
                     result = "Sales Journal";
                     break;

@@ -171,14 +171,6 @@ namespace Jk_Accounting_Software.External.Accounting
             }
         }
 
-        protected override void UpdateControls()
-        {
-            base.UpdateControls();
-
-            dataGridView.AllowUserToAddRows = false;
-            btnPreview.Visible = (FormState == FormStates.fsView) && Print2307();
-        }
-
         private bool Print2307()
         {
             bool result = false;
@@ -201,16 +193,51 @@ namespace Jk_Accounting_Software.External.Accounting
             return result;
         }
 
+        private bool HasCheck()
+        {
+            bool result = true;
+
+            SqlCommand Command = new SqlCommand();
+            SqlParameter Result = new SqlParameter();
+
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "uspGetCheckDetails";
+            Command.Parameters.AddWithValue("@Id", Parameters.Find(p => p.Name == "Id").Value);
+
+            Result.ParameterName = "@HasCheck";
+            Result.Direction = ParameterDirection.Output;
+            Result.SqlDbType = SqlDbType.Bit;
+            Command.Parameters.Add(Result);
+
+            VTransactionHandler.ExecuteStoredProc(Command);
+            result = bool.Parse(Command.Parameters["@HasCheck"].Value.ToString());
+
+            return result;
+        }
+
         private void ShowAmountToApply()
         {
             dataGridView.Columns[dataGridView.GetCellIndex("AmountToApply")].Visible = (FormState != FormStates.fsView);
         }
 
-        private void EBillsPaymentForm_SetupControl()
+        private void EBillsPaymentForm_SetupData()
         {
             LoadBills();
-            ShowAmountToApply();
             DisplaySummary();
+        }
+
+        private void EBillsPaymentForm_SetupControl()
+        {
+            dataGridView.AllowUserToAddRows = false;
+            btnPreview.Visible = (FormState == FormStates.fsView) && Print2307();
+
+            foreach (ToolStripMenuItem item in btnPreview.DropDown.Items)
+            {
+                if (item.Text == "Check")
+                    item.Enabled = HasCheck();
+            }
+
+            ShowAmountToApply();
 
             //load journal entry
             if (FormState == FormStates.fsView)

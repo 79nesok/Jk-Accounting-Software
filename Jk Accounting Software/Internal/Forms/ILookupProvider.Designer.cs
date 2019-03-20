@@ -146,8 +146,8 @@
             // dstSystemPrintouts
             // 
             this.dstSystemPrintouts.BackColor = System.Drawing.Color.Khaki;
-            this.dstSystemPrintouts.CommandText = "SELECT FormCaption, Report, PrintoutFormName\r\nFROM tblSystemPrintouts\r\nORDER BY F" +
-    "ormCaption, Report";
+            this.dstSystemPrintouts.CommandText = "SELECT FormCaption, Report, PrintoutFormName\r\nFROM tblSystemPrintouts\r\nWHERE Acti" +
+    "ve = 1\r\nORDER BY FormCaption, [Index]";
             this.dstSystemPrintouts.Connection = this.cnConnection;
             this.dstSystemPrintouts.Filter = null;
             this.dstSystemPrintouts.Filtered = false;

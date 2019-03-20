@@ -10,7 +10,7 @@ SELECT '**' + s.Name + '**' AS Payee,
 	bpd.CheckDate,
 	bpd.CheckNo,
 	'**' + CONVERT(VARCHAR, FORMAT(bpd.Amount,'#,###.00')) + '**' AS Amount,
-	'**' + dbo.fnNumberToWords(bpd.Amount) + dbo.fnGetCenvato(bpd.Amount) + '**' AS AmountInWords
+	'**' + dbo.fnNumberToWords(bpd.Amount) + dbo.fnGetCenvato(bpd.Amount) + ' Only**' AS AmountInWords
 FROM tblBillsPayment bp
 	INNER JOIN tblBillsPaymentDetails bpd ON bpd.BillsPaymentId = bp.Id
 	INNER JOIN tblPaymentMethods pm ON pm.Id = bpd.PaymentMethodId

@@ -194,7 +194,7 @@
             this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label6.Size = new System.Drawing.Size(110, 27);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Transaction No.:";
+            this.label6.Text = "Transaction No:";
             // 
             // txtTransactionNo
             // 
@@ -237,7 +237,7 @@
             this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label7.Size = new System.Drawing.Size(110, 27);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Reference No.:";
+            this.label7.Text = "Reference No:";
             // 
             // txtReferenceNo
             // 
@@ -256,7 +256,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label1.Size = new System.Drawing.Size(110, 27);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Reference No 2.:";
+            this.label1.Text = "Reference No 2:";
             // 
             // txtReferenceNo2
             // 
@@ -540,7 +540,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 156);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -565,7 +565,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 146);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // dstJournalEntry

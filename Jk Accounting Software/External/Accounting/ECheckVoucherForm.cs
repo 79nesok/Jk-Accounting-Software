@@ -90,9 +90,40 @@ namespace Jk_Accounting_Software.External.Accounting
             Command.ExecuteNonQuery();
         }
 
-        private void ECheckVoucherForm_SetupControl()
+        private void ECheckVoucherForm_SetupData()
         {
             DisplaySummary();
+        }
+
+        private bool HasCheck()
+        {
+            bool result = true;
+
+            SqlCommand Command = new SqlCommand();
+            SqlParameter Result = new SqlParameter();
+
+            Command.CommandType = CommandType.StoredProcedure;
+            Command.CommandText = "uspGetCheckDetails";
+            Command.Parameters.AddWithValue("@Id", Parameters.Find(p => p.Name == "Id").Value);
+
+            Result.ParameterName = "@HasCheck";
+            Result.Direction = ParameterDirection.Output;
+            Result.SqlDbType = SqlDbType.Bit;
+            Command.Parameters.Add(Result);
+
+            VTransactionHandler.ExecuteStoredProc(Command);
+            result = bool.Parse(Command.Parameters["@HasCheck"].Value.ToString());
+
+            return result;
+        }
+
+        private void ECheckVoucherForm_SetupControl()
+        {
+            foreach (ToolStripMenuItem item in btnPreview.DropDown.Items)
+            {
+                if (item.Text == "Check")
+                    item.Enabled = HasCheck();
+            }
 
             //load journal entry
             if (FormState == FormStates.fsView)

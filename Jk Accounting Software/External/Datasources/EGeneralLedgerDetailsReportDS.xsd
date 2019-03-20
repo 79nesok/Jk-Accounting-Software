@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="EJournalReportDS" targetNamespace="http://tempuri.org/EJournalReportDS.xsd" xmlns:mstns="http://tempuri.org/EJournalReportDS.xsd" xmlns="http://tempuri.org/EJournalReportDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="EGeneralLedgerDetailsReportDS" targetNamespace="http://tempuri.org/EJournalReportDS.xsd" xmlns:mstns="http://tempuri.org/EJournalReportDS.xsd" xmlns="http://tempuri.org/EJournalReportDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -7,7 +7,7 @@
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="FreeAccountingSoftwareConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="FreeAccountingSoftwareConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Jk_Accounting_Software.Properties.Settings.GlobalReference.Default.FreeAccountingSoftwareConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="tblJournalsTableAdapter" GeneratorDataComponentClassName="tblJournalsTableAdapter" Name="tblJournals" UserDataComponentName="tblJournalsTableAdapter">
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="GeneralLedgerDetailsTableAdapter" GeneratorDataComponentClassName="GeneralLedgerDetailsTableAdapter" Name="GeneralLedgerDetails" UserDataComponentName="GeneralLedgerDetailsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="FreeAccountingSoftwareConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
@@ -106,10 +106,10 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</CommandText>
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="EJournalReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EJournalReportDS" msprop:Generator_UserDSName="EJournalReportDS">
+  <xs:element name="EGeneralLedgerDetailsReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EGeneralLedgerDetailsReportDS" msprop:Generator_UserDSName="EGeneralLedgerDetailsReportDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblJournals" msprop:Generator_TableClassName="tblJournalsDataTable" msprop:Generator_TableVarName="tabletblJournals" msprop:Generator_RowChangedName="tblJournalsRowChanged" msprop:Generator_TablePropName="tblJournals" msprop:Generator_RowDeletingName="tblJournalsRowDeleting" msprop:Generator_RowChangingName="tblJournalsRowChanging" msprop:Generator_RowEvHandlerName="tblJournalsRowChangeEventHandler" msprop:Generator_RowDeletedName="tblJournalsRowDeleted" msprop:Generator_RowClassName="tblJournalsRow" msprop:Generator_UserTableName="tblJournals" msprop:Generator_RowEvArgName="tblJournalsRowChangeEvent">
+        <xs:element name="GeneralLedgerDetails" msprop:Generator_TableClassName="GeneralLedgerDetailsDataTable" msprop:Generator_TableVarName="tableGeneralLedgerDetails" msprop:Generator_RowChangedName="GeneralLedgerDetailsRowChanged" msprop:Generator_TablePropName="GeneralLedgerDetails" msprop:Generator_RowDeletingName="GeneralLedgerDetailsRowDeleting" msprop:Generator_RowChangingName="GeneralLedgerDetailsRowChanging" msprop:Generator_RowEvHandlerName="GeneralLedgerDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="GeneralLedgerDetailsRowDeleted" msprop:Generator_RowClassName="GeneralLedgerDetailsRow" msprop:Generator_UserTableName="GeneralLedgerDetails" msprop:Generator_RowEvArgName="GeneralLedgerDetailsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="TransactionNo" msprop:Generator_ColumnVarNameInTable="columnTransactionNo" msprop:Generator_ColumnPropNameInRow="TransactionNo" msprop:Generator_ColumnPropNameInTable="TransactionNoColumn" msprop:Generator_UserColumnName="TransactionNo">
@@ -193,7 +193,7 @@ SELECT Id, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</CommandText>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:tblJournals" />
+      <xs:selector xpath=".//mstns:GeneralLedgerDetails" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
     <xs:unique name="tblCompaniesJournal_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">

@@ -288,7 +288,7 @@
                             <Actions>
                               <Action>
                                 <Drillthrough>
-                                  <ReportName>=IIf(Fields!Date.Value = "(Beginning Balance)", nothing, "Journal")</ReportName>
+                                  <ReportName>=IIf(Fields!Date.Value = "(Beginning Balance)", nothing, "General Ledger Details")</ReportName>
                                   <Parameters>
                                     <Parameter Name="AccountId">
                                       <Value>=Fields!AccountId.Value</Value>
@@ -318,6 +318,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -660,7 +661,7 @@
                           <Actions>
                             <Action>
                               <Drillthrough>
-                                <ReportName>Journal</ReportName>
+                                <ReportName>General Ledger Details</ReportName>
                                 <Parameters>
                                   <Parameter Name="AccountId">
                                     <Value>=Fields!AccountId.Value</Value>

@@ -97,7 +97,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbPaymentMethods);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.tabControlPaymentDetails);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 443);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -125,21 +125,17 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(836, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 184);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(828, 146);
-            // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(728, 0);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 156);
             // 
             // FormFooter
             // 
-            this.FormFooter.Size = new System.Drawing.Size(836, 34);
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
@@ -181,7 +177,7 @@
             this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label6.Size = new System.Drawing.Size(110, 27);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Transaction No.:";
+            this.label6.Text = "Transaction No:";
             // 
             // txtTransactionNo
             // 
@@ -224,7 +220,7 @@
             this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label7.Size = new System.Drawing.Size(110, 27);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Reference No.:";
+            this.label7.Text = "Reference No:";
             // 
             // txtReferenceNo
             // 
@@ -243,7 +239,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label1.Size = new System.Drawing.Size(110, 27);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Reference No 2.:";
+            this.label1.Text = "Reference No 2:";
             // 
             // txtReferenceNo2
             // 
@@ -520,7 +516,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(825, 171);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 156);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -544,7 +540,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(815, 161);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 146);
             this.dataGridViewJournalEntry.TabIndex = 1;
             // 
             // dstJournalEntry
@@ -600,9 +596,10 @@
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
+            this.SetupData += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupDataHandler(this.EBillsPaymentForm_SetupData);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EBillsPaymentForm_SetupControl);
             this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.ECashDisbursementVoucherForm_ValidateSave);
             this.BeforeSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.BeforeSaveHandler(this.EBillsPaymentForm_BeforeSave);
-            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EBillsPaymentForm_SetupControl);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();

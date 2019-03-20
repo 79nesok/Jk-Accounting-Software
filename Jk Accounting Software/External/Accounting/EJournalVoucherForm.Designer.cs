@@ -74,7 +74,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.cmbSubsidiary);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.jkSeriesProvider);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(837, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 443);
             this.splitContainerMasterDetail.SplitterDistance = 220;
             // 
             // dstDetail
@@ -96,25 +96,21 @@
             // tabControlDetails
             // 
             this.tabControlDetails.Controls.Add(this.tabPageJournalEntry);
-            this.tabControlDetails.Size = new System.Drawing.Size(837, 209);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 219);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageJournalEntry, 0);
             this.tabControlDetails.Controls.SetChildIndex(this.tabPageDetails, 0);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(829, 181);
-            // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(729, 0);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 191);
             // 
             // FormFooter
             // 
-            this.FormFooter.Size = new System.Drawing.Size(837, 34);
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
-            this.splitContainer.Size = new System.Drawing.Size(837, 536);
+            this.splitContainer.Size = new System.Drawing.Size(836, 536);
             // 
             // btnClose
             // 
@@ -122,7 +118,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
-            this.btnClose.Location = new System.Drawing.Point(804, 0);
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
@@ -150,7 +146,7 @@
             this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label6.Size = new System.Drawing.Size(110, 27);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Transaction No.:";
+            this.label6.Text = "Transaction No:";
             // 
             // txtTransactionNo
             // 
@@ -193,7 +189,7 @@
             this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label7.Size = new System.Drawing.Size(110, 27);
             this.label7.TabIndex = 2;
-            this.label7.Text = "Reference No.:";
+            this.label7.Text = "Reference No:";
             // 
             // txtReferenceNo
             // 
@@ -212,7 +208,7 @@
             this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.label1.Size = new System.Drawing.Size(110, 27);
             this.label1.TabIndex = 13;
-            this.label1.Text = "Reference No 2.:";
+            this.label1.Text = "Reference No 2:";
             // 
             // txtReferenceNo2
             // 
@@ -307,7 +303,7 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(796, 181);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 181);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
@@ -331,7 +327,7 @@
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(786, 171);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 171);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // dstJournalEntry
@@ -381,10 +377,10 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns14"))));
             this.Name = "EJournalVoucherForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(837, 536);
+            this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
-            this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
             this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EJournalVoucherForm_SetupControl);
+            this.ValidateSave += new Jk_Accounting_Software.Internal.Forms.IParentForm.ValidateSaveHandler(this.EJournalVoucherForm_ValidateSave);
             this.splitContainerMasterDetail.Panel1.ResumeLayout(false);
             this.splitContainerMasterDetail.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMasterDetail)).EndInit();

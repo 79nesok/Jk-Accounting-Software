@@ -848,7 +848,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Transaction No.:</Value>
+                  <Value>Transaction No:</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
@@ -913,7 +913,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reference No.:</Value>
+                  <Value>Reference No:</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
@@ -1236,7 +1236,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reference No. 2:</Value>
+                  <Value>Reference No 2:</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>

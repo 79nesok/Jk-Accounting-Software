@@ -1,41 +1,75 @@
-DECLARE @tmp TABLE(FormCaption VARCHAR(100), Report VARCHAR(100), PrintoutFormName VARCHAR(100))
+--JV
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Journal Voucher',
+	@Report = 'Journal Voucher',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 0
 
-INSERT INTO @tmp(FormCaption, Report, PrintoutFormName)
-VALUES
-	--JV
-	('Journal Voucher', 'Journal Voucher', 'EJournalPrintoutForm'),
+--B
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Bill',
+	@Report = 'Bill',
+	@PrintoutFormName = 'EBillPrintoutForm',
+	@Index = 0
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Bill',
+	@Report = 'Puchase Journal',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 1
 
-	--B
-	('Bill', 'Bill', 'EBillPrintoutForm'),	--done
-	('Bill', 'Puchase Journal', 'EJournalPrintoutForm'),
+--BP
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Bills Payment',
+	@Report = 'Cash Disbursement Journal',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 0
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Bills Payment',
+	@Report = 'Check',
+	@PrintoutFormName = 'ECheckPrintoutForm',
+	@Index = 1
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Bills Payment',
+	@Report = 'BIR Form 2307',
+	@PrintoutFormName = 'EBIRForm2307PrintoutForm',
+	@Index = 2
 
-	--BP
-	('Bills Payment', 'BIR Form 2307', 'EBIRForm2307PrintoutForm'),--done
-	('Bills Payment', 'Cash Disbursement Journal', 'EJournalPrintoutForm'),
+--CV
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Check Voucher',
+	@Report = 'Check Voucher',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 0
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Check Voucher',
+	@Report = 'Check',
+	@PrintoutFormName = 'ECheckPrintoutForm',
+	@Index = 1
 
-	--CV
-	('Check Voucher', 'Check Voucher', 'EJournalPrintoutForm'),
+--SI
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Sales Invoice',
+	@Report = 'Sales Invoice',
+	@PrintoutFormName = 'ESalesInvoicePrintoutForm',
+	@Index = 0
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Sales Invoice',
+	@Report = 'Sales Journal',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 1
 
-	--SI
-	('Sales Invoice', 'Sales Invoice', 'ESalesInvoicePrintoutForm'), --done
-	('Sales Invoice', 'Sales Journal', 'EJournalPrintoutForm'),
+--CR
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Cash Receipt',
+	@Report = 'Cash Receipt Journal',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 0
 
-	--CR
-	('Cash Receipt', 'Cash Receipt Journal', 'EJournalPrintoutForm'),
-
-	--CRV
-	('Cash Receipt Voucher', 'Cash Receipt Voucher', 'EJournalPrintoutForm')
-
-
-INSERT INTO tblSystemPrintouts(FormCaption, Report, PrintoutFormName)
-SELECT t.FormCaption, t.Report, t.PrintoutFormName
-FROM @tmp t
-WHERE NOT EXISTS(
-	SELECT *
-	FROM tblSystemPrintouts sp
-	WHERE sp.FormCaption = t.FormCaption
-		AND sp.Report = t.Report
-		AND sp.PrintoutFormName = t.PrintoutFormName
-)
+--CRV
+EXEC uspAddSystemPrintout
+	@FormCaption = 'Cash Receipt Voucher',
+	@Report = 'Cash Receipt Voucher',
+	@PrintoutFormName = 'EJournalPrintoutForm',
+	@Index = 0
 GO
 

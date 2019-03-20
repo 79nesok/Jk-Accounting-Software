@@ -752,7 +752,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>Journals</DataSetName>
+        <DataSetName>GeneralLedgerDetails</DataSetName>
         <Top>0.3884cm</Top>
         <Left>0.22437cm</Left>
         <Height>2.20451cm</Height>
@@ -770,7 +770,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Debit.Value, "Journals")</Value>
+                <Value>=Sum(Fields!Debit.Value, "GeneralLedgerDetails")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -806,7 +806,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!Credit.Value, "Journals")</Value>
+                <Value>=Sum(Fields!Credit.Value, "GeneralLedgerDetails")</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -906,7 +906,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>JOURNALS</Value>
+                  <Value>GENERAL LEDGER DETAILS</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>14pt</FontSize>
@@ -920,9 +920,9 @@
             </Paragraph>
           </Paragraphs>
           <Top>1.40558cm</Top>
-          <Left>10.48146cm</Left>
+          <Left>8.41771cm</Left>
           <Height>0.66709cm</Height>
-          <Width>4.97708cm</Width>
+          <Width>9.10458cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -1089,50 +1089,18 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="EJournalReportDS">
+    <DataSource Name="EGeneralLedgerDetailsReportDS">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>59585bf8-3303-4981-8648-40077f0d24f6</rd:DataSourceID>
+      <rd:DataSourceID>79225fee-7a33-46a5-8597-5e7fd56a6953</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="Company">
+    <DataSet Name="GeneralLedgerDetails">
       <Query>
-        <DataSourceName>EJournalReportDS</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="Id">
-          <DataField>Id</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Name">
-          <DataField>Name</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Address">
-          <DataField>Address</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Logo">
-          <DataField>Logo</DataField>
-          <rd:TypeName>System.Byte[]</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>EJournalReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EJournalReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblCompaniesJournal</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblCompaniesJournalTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Journals">
-      <Query>
-        <DataSourceName>EJournalReportDS</DataSourceName>
+        <DataSourceName>EGeneralLedgerDetailsReportDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1182,12 +1150,44 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>EJournalReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EJournalReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>tblJournals</rd:TableName>
+        <rd:DataSetName>EGeneralLedgerDetailsReportDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EGeneralLedgerDetailsReportDS.xsd</rd:SchemaPath>
+        <rd:TableName>GeneralLedgerDetails</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>tblJournalsTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>GeneralLedgerDetailsTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Company">
+      <Query>
+        <DataSourceName>EGeneralLedgerDetailsReportDS</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="Id">
+          <DataField>Id</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Address">
+          <DataField>Address</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Logo">
+          <DataField>Logo</DataField>
+          <rd:TypeName>System.Byte[]</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>EGeneralLedgerDetailsReportDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EGeneralLedgerDetailsReportDS.xsd</rd:SchemaPath>
+        <rd:TableName>tblCompaniesJournal</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>tblCompaniesJournalTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

@@ -1,10 +1,7 @@
-﻿namespace Jk_Accounting_Software.External.Datasources
-{
-}
-namespace Jk_Accounting_Software.External.Datasources {
+﻿namespace Jk_Accounting_Software.External.Datasources {
     
     
-    public partial class EJournalVoucherPrintoutDS {
+    public partial class EJournalPrintoutDS {
         partial class tblCompaniesDataTable
         {
         }
@@ -19,7 +16,7 @@ namespace Jk_Accounting_Software.External.Datasources {
     }
 }
 
-namespace Jk_Accounting_Software.EJournalVoucherPrintoutDSTableAdapters {
+namespace Jk_Accounting_Software.External.DataSources.EJournalPrintoutDSTableAdapters {
     partial class tblCompaniesTableAdapter
     {
     }
