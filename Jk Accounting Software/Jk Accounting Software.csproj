@@ -145,6 +145,12 @@
     <Compile Include="External\Administration\ELogConfigurationListForm.Designer.cs">
       <DependentUpon>ELogConfigurationListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Administration\EUserForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Administration\EUserForm.Designer.cs">
+      <DependentUpon>EUserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Administration\EUsersListForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -582,6 +588,12 @@
     <Compile Include="Internal\Forms\IConnectionProvider.Designer.cs">
       <DependentUpon>IConnectionProvider.cs</DependentUpon>
     </Compile>
+    <Compile Include="Internal\Forms\ILoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Internal\Forms\ILoginForm.Designer.cs">
+      <DependentUpon>ILoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Internal\Forms\ILookupProvider.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -698,6 +710,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Administration\ELogConfigurationListForm.resx">
       <DependentUpon>ELogConfigurationListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Administration\EUserForm.resx">
+      <DependentUpon>EUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Administration\EUsersListForm.resx">
       <DependentUpon>EUsersListForm.cs</DependentUpon>
@@ -858,6 +873,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\IConnectionProvider.resx">
       <DependentUpon>IConnectionProvider.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Internal\Forms\ILoginForm.resx">
+      <DependentUpon>ILoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Internal\Forms\ILookupProvider.resx">
       <DependentUpon>ILookupProvider.cs</DependentUpon>

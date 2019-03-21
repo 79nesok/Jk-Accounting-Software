@@ -26,12 +26,6 @@ namespace Jk_Accounting_Software
                 IAppHandler.StatusLabel = statusLabel;
                 IAppHandler.StatusProgressBar = statusProgressBar;
 
-                //todo: should be based on login
-                ISecurityHandler.CompanyId = 1;
-                ISecurityHandler.SecurityUserId = 1;
-                ISecurityHandler.CompanyName = "Jk Computer Systems Inc.";
-                ISecurityHandler.SecurityUserName = "Systems Developer";
-
                 //initialize only one instance
                 VLookUpProvider = new ILookupProvider();
             }

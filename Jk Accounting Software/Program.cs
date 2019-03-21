@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Jk_Accounting_Software.Internal.Forms;
 
 namespace Jk_Accounting_Software
 {
@@ -49,7 +50,8 @@ namespace Jk_Accounting_Software
                 }
             }
 
-            Application.Run(new IControlHolderForm());
+            if (ILoginForm.LoginSuccessful() == DialogResult.OK)
+                Application.Run(new IControlHolderForm());
         }
     }
 }

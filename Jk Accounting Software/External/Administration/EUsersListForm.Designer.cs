@@ -59,6 +59,7 @@
             this.Name = "EUsersListForm";
             this.NewFormName = "EUserForm";
             this.OpenFormName = "EUserForm";
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
             this.Size = new System.Drawing.Size(836, 481);
             this.ZLoadColumns = true;
             this.ZLoadGrid = true;

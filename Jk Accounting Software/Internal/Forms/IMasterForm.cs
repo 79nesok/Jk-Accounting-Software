@@ -629,7 +629,7 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                         && childControl.Visible)
                     {
-                        childControl.Focus();
+                        childControl.Select();
                         break;
                     }
                     FocusFirstControl(childControl);

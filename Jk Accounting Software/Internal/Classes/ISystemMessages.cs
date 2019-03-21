@@ -71,5 +71,6 @@ namespace Jk_Accounting_Software.Internal.Classes
             return String.Format("Please fill up '{0}', it is a required field.", column);
         }
         public static String SelectAtLeastOne = "Please select at least one.";
+        public static String InvalidLoginCredential = "Invalid login credential.";
     }
 }

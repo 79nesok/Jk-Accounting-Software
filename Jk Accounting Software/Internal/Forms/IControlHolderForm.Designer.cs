@@ -164,7 +164,7 @@
             // 
             // splitContainerBase.Panel2
             // 
-            this.splitContainerBase.Panel2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.splitContainerBase.Panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.splitContainerBase.Size = new System.Drawing.Size(1008, 667);
             this.splitContainerBase.SplitterDistance = 218;
             this.splitContainerBase.SplitterIncrement = 10;
