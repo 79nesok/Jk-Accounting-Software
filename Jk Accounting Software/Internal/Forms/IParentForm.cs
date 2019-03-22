@@ -29,7 +29,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             public string CommandText { get; set; }
 
             [Category("(Custom)")]
-            public string Caption { get { return lblCaption.Text; } set { lblCaption.Text = value; } }
+            public string Caption { get { return lblSystemCaption.Text; } set { lblSystemCaption.Text = value; } }
 
             private List<JkFormParameter> _Parameters = new List<JkFormParameter>();
             [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
@@ -129,7 +129,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 panelTop.Width = this.Width;
                 panelButton.Width = this.Width;
-                lblCaption.Width = this.Width - btnClose.Width;
+                lblSystemCaption.Width = this.Width - btnClose.Width;
             }
 
             private void btnClose_Click(object sender, EventArgs e)

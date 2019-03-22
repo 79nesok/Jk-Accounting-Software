@@ -56,5 +56,25 @@ namespace Jk_Accounting_Software.Internal.Forms
             if (e.KeyCode == Keys.Enter)
                 btnOk.PerformClick();
         }
+
+        private void txtUsername_Enter(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnEnter(lblUsername);
+        }
+
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnLeave(lblUsername);
+        }
+
+        private void txtPassword_Enter(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnEnter(lblPassword);
+        }
+
+        private void txtPassword_Leave(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnLeave(lblPassword);
+        }
     }
 }

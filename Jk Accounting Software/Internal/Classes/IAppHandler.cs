@@ -370,5 +370,17 @@ namespace Jk_Accounting_Software.Internal.Classes
             SendMessage(control.Handle, WM_SETREDRAW, true, 0);
             control.Refresh();
         }
+
+        public static void SetLabelColorOnEnter(Label label)
+        {
+            label.ForeColor = Color.Blue;
+            label.Font = new Font(label.Font.Name, label.Font.Size, FontStyle.Bold);
+        }
+
+        public static void SetLabelColorOnLeave(Label label)
+        {
+            label.ForeColor = SystemColors.ControlText;
+            label.Font = new Font(label.Font.Name, label.Font.Size, FontStyle.Regular);
+        }
     }
 }

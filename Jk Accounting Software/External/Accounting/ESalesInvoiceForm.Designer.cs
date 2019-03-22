@@ -28,34 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ESalesInvoiceForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTransactionNo = new System.Windows.Forms.Label();
             this.txtTransactionNo = new JkComponents.JkTextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.datePicker = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblReferenceNo = new System.Windows.Forms.Label();
             this.txtReferenceNo = new JkComponents.JkTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblReferenceNo2 = new System.Windows.Forms.Label();
             this.txtReferenceNo2 = new JkComponents.JkTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblSubsidiary = new System.Windows.Forms.Label();
             this.cmbSubsidiary = new JkComponents.JkLookUpComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblRemarks = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblGrossAmount = new System.Windows.Forms.Label();
             this.txtGrossAmount = new JkComponents.JkTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblVATAmount = new System.Windows.Forms.Label();
             this.txtVATAmount = new JkComponents.JkTextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblDiscountAmount = new System.Windows.Forms.Label();
             this.txtDiscountAmount = new JkComponents.JkTextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblNetAmount = new System.Windows.Forms.Label();
             this.txtNetAmount = new JkComponents.JkTextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblPaidAmount = new System.Windows.Forms.Label();
             this.txtPaidAmount = new JkComponents.JkTextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
             this.txtBalance = new JkComponents.JkTextBox();
             this.cmbVATTypes = new JkComponents.JkLookUpComboBox();
             this.cmbAccounts = new JkComponents.JkLookUpComboBox();
@@ -148,17 +148,17 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.lblTransactionNo);
             this.flowLayoutPanel2.Controls.Add(this.txtTransactionNo);
-            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.lblDate);
             this.flowLayoutPanel2.Controls.Add(this.datePicker);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.lblReferenceNo);
             this.flowLayoutPanel2.Controls.Add(this.txtReferenceNo);
-            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lblReferenceNo2);
             this.flowLayoutPanel2.Controls.Add(this.txtReferenceNo2);
-            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.lblSubsidiary);
             this.flowLayoutPanel2.Controls.Add(this.cmbSubsidiary);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.lblRemarks);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -166,15 +166,15 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(342, 255);
             this.flowLayoutPanel2.TabIndex = 17;
             // 
-            // label6
+            // lblTransactionNo
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(110, 27);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Transaction No:";
+            this.lblTransactionNo.Location = new System.Drawing.Point(0, 0);
+            this.lblTransactionNo.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTransactionNo.Name = "lblTransactionNo";
+            this.lblTransactionNo.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblTransactionNo.Size = new System.Drawing.Size(110, 27);
+            this.lblTransactionNo.TabIndex = 0;
+            this.lblTransactionNo.Text = "Transaction No:";
             // 
             // txtTransactionNo
             // 
@@ -189,15 +189,15 @@
             this.txtTransactionNo.TabIndex = 1;
             this.txtTransactionNo.TabStop = false;
             // 
-            // label8
+            // lblDate
             // 
-            this.label8.Location = new System.Drawing.Point(0, 27);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label8.Size = new System.Drawing.Size(110, 27);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Date:";
+            this.lblDate.Location = new System.Drawing.Point(0, 27);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblDate.Size = new System.Drawing.Size(110, 27);
+            this.lblDate.TabIndex = 7;
+            this.lblDate.Text = "Date:";
             // 
             // datePicker
             // 
@@ -209,15 +209,15 @@
             this.datePicker.Size = new System.Drawing.Size(205, 23);
             this.datePicker.TabIndex = 8;
             // 
-            // label7
+            // lblReferenceNo
             // 
-            this.label7.Location = new System.Drawing.Point(0, 60);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(110, 27);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Reference No:";
+            this.lblReferenceNo.Location = new System.Drawing.Point(0, 60);
+            this.lblReferenceNo.Margin = new System.Windows.Forms.Padding(0);
+            this.lblReferenceNo.Name = "lblReferenceNo";
+            this.lblReferenceNo.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblReferenceNo.Size = new System.Drawing.Size(110, 27);
+            this.lblReferenceNo.TabIndex = 2;
+            this.lblReferenceNo.Text = "Reference No:";
             // 
             // txtReferenceNo
             // 
@@ -228,15 +228,15 @@
             this.txtReferenceNo.Size = new System.Drawing.Size(205, 23);
             this.txtReferenceNo.TabIndex = 2;
             // 
-            // label1
+            // lblReferenceNo2
             // 
-            this.label1.Location = new System.Drawing.Point(0, 93);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(110, 27);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Reference No 2:";
+            this.lblReferenceNo2.Location = new System.Drawing.Point(0, 93);
+            this.lblReferenceNo2.Margin = new System.Windows.Forms.Padding(0);
+            this.lblReferenceNo2.Name = "lblReferenceNo2";
+            this.lblReferenceNo2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblReferenceNo2.Size = new System.Drawing.Size(110, 27);
+            this.lblReferenceNo2.TabIndex = 13;
+            this.lblReferenceNo2.Text = "Reference No 2:";
             // 
             // txtReferenceNo2
             // 
@@ -247,15 +247,15 @@
             this.txtReferenceNo2.Size = new System.Drawing.Size(205, 23);
             this.txtReferenceNo2.TabIndex = 14;
             // 
-            // label2
+            // lblSubsidiary
             // 
-            this.label2.Location = new System.Drawing.Point(0, 126);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label2.Size = new System.Drawing.Size(110, 27);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Subsidiary:";
+            this.lblSubsidiary.Location = new System.Drawing.Point(0, 126);
+            this.lblSubsidiary.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSubsidiary.Name = "lblSubsidiary";
+            this.lblSubsidiary.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblSubsidiary.Size = new System.Drawing.Size(110, 27);
+            this.lblSubsidiary.TabIndex = 16;
+            this.lblSubsidiary.Text = "Subsidiary:";
             // 
             // cmbSubsidiary
             // 
@@ -277,15 +277,15 @@
             this.cmbSubsidiary.Size = new System.Drawing.Size(205, 23);
             this.cmbSubsidiary.TabIndex = 15;
             // 
-            // label9
+            // lblRemarks
             // 
-            this.label9.Location = new System.Drawing.Point(0, 159);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(110, 27);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Remarks:";
+            this.lblRemarks.Location = new System.Drawing.Point(0, 159);
+            this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRemarks.Name = "lblRemarks";
+            this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblRemarks.Size = new System.Drawing.Size(110, 27);
+            this.lblRemarks.TabIndex = 11;
+            this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
@@ -299,17 +299,17 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.lblGrossAmount);
             this.flowLayoutPanel1.Controls.Add(this.txtGrossAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label4);
+            this.flowLayoutPanel1.Controls.Add(this.lblVATAmount);
             this.flowLayoutPanel1.Controls.Add(this.txtVATAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label5);
+            this.flowLayoutPanel1.Controls.Add(this.lblDiscountAmount);
             this.flowLayoutPanel1.Controls.Add(this.txtDiscountAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label10);
+            this.flowLayoutPanel1.Controls.Add(this.lblNetAmount);
             this.flowLayoutPanel1.Controls.Add(this.txtNetAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label11);
+            this.flowLayoutPanel1.Controls.Add(this.lblPaidAmount);
             this.flowLayoutPanel1.Controls.Add(this.txtPaidAmount);
-            this.flowLayoutPanel1.Controls.Add(this.label12);
+            this.flowLayoutPanel1.Controls.Add(this.lblBalance);
             this.flowLayoutPanel1.Controls.Add(this.txtBalance);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(342, 0);
@@ -317,15 +317,15 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(230, 255);
             this.flowLayoutPanel1.TabIndex = 18;
             // 
-            // label3
+            // lblGrossAmount
             // 
-            this.label3.Location = new System.Drawing.Point(0, 0);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label3.Size = new System.Drawing.Size(116, 27);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Gross Amount:";
+            this.lblGrossAmount.Location = new System.Drawing.Point(0, 0);
+            this.lblGrossAmount.Margin = new System.Windows.Forms.Padding(0);
+            this.lblGrossAmount.Name = "lblGrossAmount";
+            this.lblGrossAmount.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblGrossAmount.Size = new System.Drawing.Size(116, 27);
+            this.lblGrossAmount.TabIndex = 1;
+            this.lblGrossAmount.Text = "Gross Amount:";
             // 
             // txtGrossAmount
             // 
@@ -340,15 +340,15 @@
             this.txtGrossAmount.TabIndex = 2;
             this.txtGrossAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label4
+            // lblVATAmount
             // 
-            this.label4.Location = new System.Drawing.Point(0, 27);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label4.Size = new System.Drawing.Size(116, 27);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "VAT Amount:";
+            this.lblVATAmount.Location = new System.Drawing.Point(0, 27);
+            this.lblVATAmount.Margin = new System.Windows.Forms.Padding(0);
+            this.lblVATAmount.Name = "lblVATAmount";
+            this.lblVATAmount.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblVATAmount.Size = new System.Drawing.Size(116, 27);
+            this.lblVATAmount.TabIndex = 3;
+            this.lblVATAmount.Text = "VAT Amount:";
             // 
             // txtVATAmount
             // 
@@ -363,15 +363,15 @@
             this.txtVATAmount.TabIndex = 4;
             this.txtVATAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label5
+            // lblDiscountAmount
             // 
-            this.label5.Location = new System.Drawing.Point(0, 54);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label5.Size = new System.Drawing.Size(116, 27);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "Discount Amount:";
+            this.lblDiscountAmount.Location = new System.Drawing.Point(0, 54);
+            this.lblDiscountAmount.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDiscountAmount.Name = "lblDiscountAmount";
+            this.lblDiscountAmount.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblDiscountAmount.Size = new System.Drawing.Size(116, 27);
+            this.lblDiscountAmount.TabIndex = 5;
+            this.lblDiscountAmount.Text = "Discount Amount:";
             // 
             // txtDiscountAmount
             // 
@@ -386,15 +386,15 @@
             this.txtDiscountAmount.TabIndex = 6;
             this.txtDiscountAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label10
+            // lblNetAmount
             // 
-            this.label10.Location = new System.Drawing.Point(0, 81);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(116, 27);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Net Amount:";
+            this.lblNetAmount.Location = new System.Drawing.Point(0, 81);
+            this.lblNetAmount.Margin = new System.Windows.Forms.Padding(0);
+            this.lblNetAmount.Name = "lblNetAmount";
+            this.lblNetAmount.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblNetAmount.Size = new System.Drawing.Size(116, 27);
+            this.lblNetAmount.TabIndex = 7;
+            this.lblNetAmount.Text = "Net Amount:";
             // 
             // txtNetAmount
             // 
@@ -409,15 +409,15 @@
             this.txtNetAmount.TabIndex = 8;
             this.txtNetAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label11
+            // lblPaidAmount
             // 
-            this.label11.Location = new System.Drawing.Point(0, 108);
-            this.label11.Margin = new System.Windows.Forms.Padding(0);
-            this.label11.Name = "label11";
-            this.label11.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label11.Size = new System.Drawing.Size(116, 27);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Paid Amount:";
+            this.lblPaidAmount.Location = new System.Drawing.Point(0, 108);
+            this.lblPaidAmount.Margin = new System.Windows.Forms.Padding(0);
+            this.lblPaidAmount.Name = "lblPaidAmount";
+            this.lblPaidAmount.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblPaidAmount.Size = new System.Drawing.Size(116, 27);
+            this.lblPaidAmount.TabIndex = 9;
+            this.lblPaidAmount.Text = "Paid Amount:";
             // 
             // txtPaidAmount
             // 
@@ -432,15 +432,15 @@
             this.txtPaidAmount.TabIndex = 10;
             this.txtPaidAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // label12
+            // lblBalance
             // 
-            this.label12.Location = new System.Drawing.Point(0, 135);
-            this.label12.Margin = new System.Windows.Forms.Padding(0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label12.Size = new System.Drawing.Size(116, 27);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Balance:";
+            this.lblBalance.Location = new System.Drawing.Point(0, 135);
+            this.lblBalance.Margin = new System.Windows.Forms.Padding(0);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblBalance.Size = new System.Drawing.Size(116, 27);
+            this.lblBalance.TabIndex = 11;
+            this.lblBalance.Text = "Balance:";
             // 
             // txtBalance
             // 
@@ -454,6 +454,8 @@
             this.txtBalance.Size = new System.Drawing.Size(90, 16);
             this.txtBalance.TabIndex = 12;
             this.txtBalance.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtBalance.Enter += new System.EventHandler(this.txtBalance_Enter);
+            this.txtBalance.Leave += new System.EventHandler(this.txtBalance_Leave);
             // 
             // cmbVATTypes
             // 
@@ -529,32 +531,32 @@
             this.tabPageJournalEntry.Location = new System.Drawing.Point(4, 24);
             this.tabPageJournalEntry.Name = "tabPageJournalEntry";
             this.tabPageJournalEntry.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 146);
+            this.tabPageJournalEntry.Size = new System.Drawing.Size(824, 156);
             this.tabPageJournalEntry.TabIndex = 1;
             this.tabPageJournalEntry.Text = "Journal Entry";
             this.tabPageJournalEntry.UseVisualStyleBackColor = true;
             // 
             // dataGridViewJournalEntry
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
-            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(255)))), ((int)(((byte)(200)))));
+            this.dataGridViewJournalEntry.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewJournalEntry.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewJournalEntry.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridViewJournalEntry.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewJournalEntry.DataSet = this.dstJournalEntry;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewJournalEntry.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewJournalEntry.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewJournalEntry.GridColor = System.Drawing.Color.Peru;
             this.dataGridViewJournalEntry.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewJournalEntry.Name = "dataGridViewJournalEntry";
-            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 136);
+            this.dataGridViewJournalEntry.Size = new System.Drawing.Size(814, 146);
             this.dataGridViewJournalEntry.TabIndex = 0;
             // 
             // dstJournalEntry
@@ -654,30 +656,30 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTransactionNo;
         private JkComponents.JkTextBox txtTransactionNo;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.DateTimePicker datePicker;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblReferenceNo;
         private JkComponents.JkTextBox txtReferenceNo;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblReferenceNo2;
         private JkComponents.JkTextBox txtReferenceNo2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblSubsidiary;
         private JkComponents.JkLookUpComboBox cmbSubsidiary;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblRemarks;
         private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblGrossAmount;
         private JkComponents.JkTextBox txtGrossAmount;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblVATAmount;
         private JkComponents.JkTextBox txtVATAmount;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDiscountAmount;
         private JkComponents.JkTextBox txtDiscountAmount;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblNetAmount;
         private JkComponents.JkTextBox txtNetAmount;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblPaidAmount;
         private JkComponents.JkTextBox txtPaidAmount;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblBalance;
         private JkComponents.JkTextBox txtBalance;
         private JkComponents.JkLookUpComboBox cmbVATTypes;
         private JkComponents.JkLookUpComboBox cmbAccounts;

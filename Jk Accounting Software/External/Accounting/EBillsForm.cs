@@ -234,5 +234,15 @@ namespace Jk_Accounting_Software.External.Accounting
                 }
             }
         }
+
+        private void txtBalance_Enter(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnEnter(lblBalance);
+        }
+
+        private void txtBalance_Leave(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnLeave(lblBalance);
+        }
     }
 }

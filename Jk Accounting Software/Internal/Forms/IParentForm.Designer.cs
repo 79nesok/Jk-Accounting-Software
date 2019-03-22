@@ -33,7 +33,7 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.flowLayoutPanelTop = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.lblCaption = new System.Windows.Forms.Label();
+            this.lblSystemCaption = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.panelButton = new System.Windows.Forms.Panel();
             this.btnNavigatorHolder = new System.Windows.Forms.ToolStrip();
@@ -104,7 +104,7 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.SystemColors.Control;
-            this.panelTop.Controls.Add(this.lblCaption);
+            this.panelTop.Controls.Add(this.lblSystemCaption);
             this.panelTop.Controls.Add(this.btnClose);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
@@ -113,19 +113,19 @@
             this.panelTop.Size = new System.Drawing.Size(852, 30);
             this.panelTop.TabIndex = 7;
             // 
-            // lblCaption
+            // lblSystemCaption
             // 
-            this.lblCaption.BackColor = System.Drawing.Color.Maroon;
-            this.lblCaption.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblCaption.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCaption.ForeColor = System.Drawing.Color.Gold;
-            this.lblCaption.Location = new System.Drawing.Point(0, 0);
-            this.lblCaption.Margin = new System.Windows.Forms.Padding(0);
-            this.lblCaption.Name = "lblCaption";
-            this.lblCaption.Size = new System.Drawing.Size(815, 30);
-            this.lblCaption.TabIndex = 10;
-            this.lblCaption.Text = "Parent Form";
-            this.lblCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSystemCaption.BackColor = System.Drawing.Color.Maroon;
+            this.lblSystemCaption.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblSystemCaption.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemCaption.ForeColor = System.Drawing.Color.Gold;
+            this.lblSystemCaption.Location = new System.Drawing.Point(0, 0);
+            this.lblSystemCaption.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSystemCaption.Name = "lblSystemCaption";
+            this.lblSystemCaption.Size = new System.Drawing.Size(815, 30);
+            this.lblSystemCaption.TabIndex = 10;
+            this.lblSystemCaption.Text = "Parent Form";
+            this.lblSystemCaption.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
             // 
@@ -395,7 +395,7 @@
         protected System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTop;
         private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Label lblCaption;
+        private System.Windows.Forms.Label lblSystemCaption;
         protected System.Windows.Forms.ToolStrip btnNavigatorHolder;
         protected System.Windows.Forms.ToolStrip btnHolder;
         public System.Windows.Forms.ToolStripButton btnNew;

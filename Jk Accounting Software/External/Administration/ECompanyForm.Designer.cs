@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ECompanyForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblCode = new System.Windows.Forms.Label();
             this.txtCode = new JkComponents.JkTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtName = new JkComponents.JkTextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.txtAddress = new JkComponents.JkTextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblRemarks = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTIN = new System.Windows.Forms.Label();
             this.txtTIN = new System.Windows.Forms.MaskedTextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblZIPCode = new System.Windows.Forms.Label();
             this.txtZIPCode = new JkComponents.JkTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblATC = new System.Windows.Forms.Label();
             this.cmbATC = new JkComponents.JkLookUpComboBox();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.lblLink = new System.Windows.Forms.LinkLabel();
@@ -62,14 +62,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.logoBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(700, 0);
-            // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 502);
-            this.FormFooter.Size = new System.Drawing.Size(808, 34);
             // 
             // splitContainer
             // 
@@ -78,34 +73,42 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.panelLogo);
             this.splitContainer.Panel2.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainer.Size = new System.Drawing.Size(808, 536);
+            this.splitContainer.Size = new System.Drawing.Size(836, 536);
+            // 
+            // btnClose
+            // 
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
+            this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.lblCode);
             this.flowLayoutPanel2.Controls.Add(this.txtCode);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.lblName);
             this.flowLayoutPanel2.Controls.Add(this.txtName);
-            this.flowLayoutPanel2.Controls.Add(this.label8);
+            this.flowLayoutPanel2.Controls.Add(this.lblAddress);
             this.flowLayoutPanel2.Controls.Add(this.txtAddress);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.lblRemarks);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
             this.flowLayoutPanel2.Controls.Add(this.groupBox1);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(330, 467);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(330, 477);
             this.flowLayoutPanel2.TabIndex = 13;
             // 
-            // label6
+            // lblCode
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(84, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Code:";
+            this.lblCode.Location = new System.Drawing.Point(0, 0);
+            this.lblCode.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblCode.Size = new System.Drawing.Size(84, 25);
+            this.lblCode.TabIndex = 0;
+            this.lblCode.Text = "Code:";
             // 
             // txtCode
             // 
@@ -116,15 +119,15 @@
             this.txtCode.Size = new System.Drawing.Size(233, 23);
             this.txtCode.TabIndex = 1;
             // 
-            // label7
+            // lblName
             // 
-            this.label7.Location = new System.Drawing.Point(0, 33);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(84, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Name:";
+            this.lblName.Location = new System.Drawing.Point(0, 33);
+            this.lblName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblName.Name = "lblName";
+            this.lblName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblName.Size = new System.Drawing.Size(84, 25);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name:";
             // 
             // txtName
             // 
@@ -135,15 +138,15 @@
             this.txtName.Size = new System.Drawing.Size(233, 23);
             this.txtName.TabIndex = 2;
             // 
-            // label8
+            // lblAddress
             // 
-            this.label8.Location = new System.Drawing.Point(0, 66);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label8.Size = new System.Drawing.Size(84, 25);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Address:";
+            this.lblAddress.Location = new System.Drawing.Point(0, 66);
+            this.lblAddress.Margin = new System.Windows.Forms.Padding(0);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblAddress.Size = new System.Drawing.Size(84, 25);
+            this.lblAddress.TabIndex = 7;
+            this.lblAddress.Text = "Address:";
             // 
             // txtAddress
             // 
@@ -155,15 +158,15 @@
             this.txtAddress.Size = new System.Drawing.Size(233, 90);
             this.txtAddress.TabIndex = 3;
             // 
-            // label9
+            // lblRemarks
             // 
-            this.label9.Location = new System.Drawing.Point(0, 166);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(84, 25);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Remarks:";
+            this.lblRemarks.Location = new System.Drawing.Point(0, 166);
+            this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRemarks.Name = "lblRemarks";
+            this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblRemarks.Size = new System.Drawing.Size(84, 25);
+            this.lblRemarks.TabIndex = 4;
+            this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
@@ -188,11 +191,11 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Controls.Add(this.label1);
+            this.flowLayoutPanel1.Controls.Add(this.lblTIN);
             this.flowLayoutPanel1.Controls.Add(this.txtTIN);
-            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.lblZIPCode);
             this.flowLayoutPanel1.Controls.Add(this.txtZIPCode);
-            this.flowLayoutPanel1.Controls.Add(this.label3);
+            this.flowLayoutPanel1.Controls.Add(this.lblATC);
             this.flowLayoutPanel1.Controls.Add(this.cmbATC);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
@@ -200,15 +203,15 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(314, 109);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // lblTIN
             // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(84, 25);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "TIN:";
+            this.lblTIN.Location = new System.Drawing.Point(0, 0);
+            this.lblTIN.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTIN.Name = "lblTIN";
+            this.lblTIN.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblTIN.Size = new System.Drawing.Size(84, 25);
+            this.lblTIN.TabIndex = 26;
+            this.lblTIN.Text = "TIN:";
             // 
             // txtTIN
             // 
@@ -220,15 +223,15 @@
             this.txtTIN.TabIndex = 28;
             this.txtTIN.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
-            // label2
+            // lblZIPCode
             // 
-            this.label2.Location = new System.Drawing.Point(0, 33);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label2.Size = new System.Drawing.Size(84, 25);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "ZIP Code:";
+            this.lblZIPCode.Location = new System.Drawing.Point(0, 33);
+            this.lblZIPCode.Margin = new System.Windows.Forms.Padding(0);
+            this.lblZIPCode.Name = "lblZIPCode";
+            this.lblZIPCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblZIPCode.Size = new System.Drawing.Size(84, 25);
+            this.lblZIPCode.TabIndex = 27;
+            this.lblZIPCode.Text = "ZIP Code:";
             // 
             // txtZIPCode
             // 
@@ -239,18 +242,20 @@
             this.txtZIPCode.Size = new System.Drawing.Size(214, 23);
             this.txtZIPCode.TabIndex = 29;
             // 
-            // label3
+            // lblATC
             // 
-            this.label3.Location = new System.Drawing.Point(0, 66);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label3.Size = new System.Drawing.Size(84, 25);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "ATC:";
+            this.lblATC.Location = new System.Drawing.Point(0, 66);
+            this.lblATC.Margin = new System.Windows.Forms.Padding(0);
+            this.lblATC.Name = "lblATC";
+            this.lblATC.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblATC.Size = new System.Drawing.Size(84, 25);
+            this.lblATC.TabIndex = 30;
+            this.lblATC.Text = "ATC:";
             // 
             // cmbATC
             // 
+            this.cmbATC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbATC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbATC.DataSet = "dstATC";
             this.cmbATC.DisplayText = "CodeRate";
             this.cmbATC.ForeColor = System.Drawing.Color.Black;
@@ -272,14 +277,14 @@
             this.panelLogo.Location = new System.Drawing.Point(330, 0);
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Padding = new System.Windows.Forms.Padding(5);
-            this.panelLogo.Size = new System.Drawing.Size(478, 185);
+            this.panelLogo.Size = new System.Drawing.Size(506, 185);
             this.panelLogo.TabIndex = 14;
             // 
             // lblLink
             // 
             this.lblLink.AutoSize = true;
             this.lblLink.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblLink.Location = new System.Drawing.Point(208, 5);
+            this.lblLink.Location = new System.Drawing.Point(236, 5);
             this.lblLink.Margin = new System.Windows.Forms.Padding(0);
             this.lblLink.Name = "lblLink";
             this.lblLink.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -294,7 +299,7 @@
             this.logoBox.BackColor = System.Drawing.Color.White;
             this.logoBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.logoBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.logoBox.Location = new System.Drawing.Point(298, 5);
+            this.logoBox.Location = new System.Drawing.Point(326, 5);
             this.logoBox.Margin = new System.Windows.Forms.Padding(0);
             this.logoBox.Name = "logoBox";
             this.logoBox.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
@@ -324,7 +329,7 @@
             this.MasterColumns.Add(((JkComponents.JkMasterColumn)(resources.GetObject("$this.MasterColumns12"))));
             this.Name = "ECompanyForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
-            this.Size = new System.Drawing.Size(808, 536);
+            this.Size = new System.Drawing.Size(836, 536);
             this.ZLoadMasterColumns = true;
             this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.ECompanyForm_SetupControl);
             this.FormFooter.ResumeLayout(false);
@@ -348,13 +353,13 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCode;
         private JkComponents.JkTextBox txtCode;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblName;
         private JkComponents.JkTextBox txtName;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblAddress;
         private JkComponents.JkTextBox txtAddress;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblRemarks;
         private JkComponents.JkTextBox txtRemarks;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox logoBox;
@@ -362,11 +367,11 @@
         private System.Windows.Forms.LinkLabel lblLink;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTIN;
         private System.Windows.Forms.MaskedTextBox txtTIN;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblZIPCode;
         private JkComponents.JkTextBox txtZIPCode;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblATC;
         private JkComponents.JkLookUpComboBox cmbATC;
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using System.Data.SqlClient;
+using Jk_Accounting_Software.Internal.Classes;
 
 namespace Jk_Accounting_Software.External.Accounting
 {
@@ -194,6 +195,16 @@ namespace Jk_Accounting_Software.External.Accounting
                 ComputeDetailAmount();
             }
             ComputeMasterAmount();
+        }
+
+        private void txtBalance_Enter(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnEnter(lblBalance);
+        }
+
+        private void txtBalance_Leave(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnLeave(lblBalance);
         }
     }
 }

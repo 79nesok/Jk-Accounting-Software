@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EUserForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
             this.txtFirstName = new JkComponents.JkTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblMiddleName = new System.Windows.Forms.Label();
             this.txtMiddleName = new JkComponents.JkTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.txtLastName = new JkComponents.JkTextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblRemarks = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblActive = new System.Windows.Forms.Label();
             this.chkActive = new System.Windows.Forms.CheckBox();
             this.grpBoxLoginInformation = new System.Windows.Forms.GroupBox();
             this.flowLayoutLoginInformation = new System.Windows.Forms.FlowLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsername = new JkComponents.JkTextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new JkComponents.JkTextBox();
@@ -82,15 +82,15 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.lblFirstName);
             this.flowLayoutPanel2.Controls.Add(this.txtFirstName);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.lblMiddleName);
             this.flowLayoutPanel2.Controls.Add(this.txtMiddleName);
-            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lblLastName);
             this.flowLayoutPanel2.Controls.Add(this.txtLastName);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.lblRemarks);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
-            this.flowLayoutPanel2.Controls.Add(this.label10);
+            this.flowLayoutPanel2.Controls.Add(this.lblActive);
             this.flowLayoutPanel2.Controls.Add(this.chkActive);
             this.flowLayoutPanel2.Controls.Add(this.grpBoxLoginInformation);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -99,15 +99,15 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 477);
             this.flowLayoutPanel2.TabIndex = 15;
             // 
-            // label6
+            // lblFirstName
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(145, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "First Name:";
+            this.lblFirstName.Location = new System.Drawing.Point(0, 0);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblFirstName.Size = new System.Drawing.Size(145, 25);
+            this.lblFirstName.TabIndex = 0;
+            this.lblFirstName.Text = "First Name:";
             // 
             // txtFirstName
             // 
@@ -118,15 +118,15 @@
             this.txtFirstName.Size = new System.Drawing.Size(230, 23);
             this.txtFirstName.TabIndex = 0;
             // 
-            // label7
+            // lblMiddleName
             // 
-            this.label7.Location = new System.Drawing.Point(0, 33);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(145, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Middle Name:";
+            this.lblMiddleName.Location = new System.Drawing.Point(0, 33);
+            this.lblMiddleName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMiddleName.Name = "lblMiddleName";
+            this.lblMiddleName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblMiddleName.Size = new System.Drawing.Size(145, 25);
+            this.lblMiddleName.TabIndex = 2;
+            this.lblMiddleName.Text = "Middle Name:";
             // 
             // txtMiddleName
             // 
@@ -137,15 +137,15 @@
             this.txtMiddleName.Size = new System.Drawing.Size(230, 23);
             this.txtMiddleName.TabIndex = 0;
             // 
-            // label1
+            // lblLastName
             // 
-            this.label1.Location = new System.Drawing.Point(0, 66);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(145, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Last Name:";
+            this.lblLastName.Location = new System.Drawing.Point(0, 66);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblLastName.Size = new System.Drawing.Size(145, 25);
+            this.lblLastName.TabIndex = 10;
+            this.lblLastName.Text = "Last Name:";
             // 
             // txtLastName
             // 
@@ -156,15 +156,15 @@
             this.txtLastName.Size = new System.Drawing.Size(230, 23);
             this.txtLastName.TabIndex = 9;
             // 
-            // label9
+            // lblRemarks
             // 
-            this.label9.Location = new System.Drawing.Point(0, 99);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(145, 25);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Remarks:";
+            this.lblRemarks.Location = new System.Drawing.Point(0, 99);
+            this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRemarks.Name = "lblRemarks";
+            this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblRemarks.Size = new System.Drawing.Size(145, 25);
+            this.lblRemarks.TabIndex = 4;
+            this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
@@ -176,15 +176,15 @@
             this.txtRemarks.Size = new System.Drawing.Size(230, 90);
             this.txtRemarks.TabIndex = 0;
             // 
-            // label10
+            // lblActive
             // 
-            this.label10.Location = new System.Drawing.Point(0, 199);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(145, 25);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Active:";
+            this.lblActive.Location = new System.Drawing.Point(0, 199);
+            this.lblActive.Margin = new System.Windows.Forms.Padding(0);
+            this.lblActive.Name = "lblActive";
+            this.lblActive.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblActive.Size = new System.Drawing.Size(145, 25);
+            this.lblActive.TabIndex = 8;
+            this.lblActive.Text = "Active:";
             // 
             // chkActive
             // 
@@ -208,7 +208,7 @@
             // 
             // flowLayoutLoginInformation
             // 
-            this.flowLayoutLoginInformation.Controls.Add(this.label2);
+            this.flowLayoutLoginInformation.Controls.Add(this.lblUsername);
             this.flowLayoutLoginInformation.Controls.Add(this.txtUsername);
             this.flowLayoutLoginInformation.Controls.Add(this.lblPassword);
             this.flowLayoutLoginInformation.Controls.Add(this.txtPassword);
@@ -222,15 +222,15 @@
             this.flowLayoutLoginInformation.Size = new System.Drawing.Size(372, 178);
             this.flowLayoutLoginInformation.TabIndex = 0;
             // 
-            // label2
+            // lblUsername
             // 
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label2.Size = new System.Drawing.Size(139, 25);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Username:";
+            this.lblUsername.Location = new System.Drawing.Point(0, 0);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblUsername.Size = new System.Drawing.Size(139, 25);
+            this.lblUsername.TabIndex = 18;
+            this.lblUsername.Text = "Username:";
             // 
             // txtUsername
             // 
@@ -296,6 +296,8 @@
             this.txtConfirmPassword.TabIndex = 22;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.ValidatePassword);
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.txtConfirmPassword_Enter);
+            this.txtConfirmPassword.Leave += new System.EventHandler(this.txtConfirmPassword_Leave);
             // 
             // lblPasswordNotMatch
             // 
@@ -355,19 +357,19 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblFirstName;
         private JkComponents.JkTextBox txtFirstName;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblMiddleName;
         private JkComponents.JkTextBox txtMiddleName;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLastName;
         private JkComponents.JkTextBox txtLastName;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblRemarks;
         private JkComponents.JkTextBox txtRemarks;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.CheckBox chkActive;
         private System.Windows.Forms.GroupBox grpBoxLoginInformation;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutLoginInformation;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblUsername;
         private JkComponents.JkTextBox txtUsername;
         private System.Windows.Forms.Label lblPassword;
         private JkComponents.JkTextBox txtPassword;

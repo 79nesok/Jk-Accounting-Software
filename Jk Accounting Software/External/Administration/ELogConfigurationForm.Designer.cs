@@ -32,21 +32,21 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ELogConfigurationForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblTableName = new System.Windows.Forms.Label();
             this.txtTableName = new JkComponents.JkTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblCaption = new System.Windows.Forms.Label();
             this.txtCaption = new JkComponents.JkTextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblIdentifierColumnName = new System.Windows.Forms.Label();
             this.txtIdentifierColumnName = new JkComponents.JkTextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblSeparatorColumnName = new System.Windows.Forms.Label();
             this.txtSeparatorColumnName = new JkComponents.JkTextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblSeparatorColumnId = new System.Windows.Forms.Label();
             this.txtSeparatorColumnId = new JkComponents.JkTextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblTrack = new System.Windows.Forms.Label();
             this.chkTrack = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblEnable = new System.Windows.Forms.Label();
             this.chkEnable = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTriggerName = new System.Windows.Forms.Label();
             this.txtTriggerName = new JkComponents.JkTextBox();
             this.tabControlChildTables = new System.Windows.Forms.TabControl();
             this.tabPageChildTables = new System.Windows.Forms.TabPage();
@@ -78,7 +78,7 @@
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.dstChildTables);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.tabControlChildTables);
             this.splitContainerMasterDetail.Panel1.Controls.Add(this.flowLayoutPanel2);
-            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 433);
+            this.splitContainerMasterDetail.Size = new System.Drawing.Size(836, 443);
             this.splitContainerMasterDetail.SplitterDistance = 255;
             // 
             // dstDetail
@@ -101,19 +101,15 @@
             // 
             // tabControlDetails
             // 
-            this.tabControlDetails.Size = new System.Drawing.Size(836, 174);
+            this.tabControlDetails.Size = new System.Drawing.Size(836, 184);
             // 
             // tabPageDetails
             // 
-            this.tabPageDetails.Size = new System.Drawing.Size(828, 146);
-            // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(728, 0);
+            this.tabPageDetails.Size = new System.Drawing.Size(828, 156);
             // 
             // FormFooter
             // 
-            this.FormFooter.Size = new System.Drawing.Size(836, 34);
+            this.FormFooter.Location = new System.Drawing.Point(0, 502);
             // 
             // splitContainer
             // 
@@ -129,21 +125,21 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.lblTableName);
             this.flowLayoutPanel2.Controls.Add(this.txtTableName);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.lblCaption);
             this.flowLayoutPanel2.Controls.Add(this.txtCaption);
-            this.flowLayoutPanel2.Controls.Add(this.label3);
+            this.flowLayoutPanel2.Controls.Add(this.lblIdentifierColumnName);
             this.flowLayoutPanel2.Controls.Add(this.txtIdentifierColumnName);
-            this.flowLayoutPanel2.Controls.Add(this.label4);
+            this.flowLayoutPanel2.Controls.Add(this.lblSeparatorColumnName);
             this.flowLayoutPanel2.Controls.Add(this.txtSeparatorColumnName);
-            this.flowLayoutPanel2.Controls.Add(this.label5);
+            this.flowLayoutPanel2.Controls.Add(this.lblSeparatorColumnId);
             this.flowLayoutPanel2.Controls.Add(this.txtSeparatorColumnId);
-            this.flowLayoutPanel2.Controls.Add(this.label10);
+            this.flowLayoutPanel2.Controls.Add(this.lblTrack);
             this.flowLayoutPanel2.Controls.Add(this.chkTrack);
-            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lblEnable);
             this.flowLayoutPanel2.Controls.Add(this.chkEnable);
-            this.flowLayoutPanel2.Controls.Add(this.label2);
+            this.flowLayoutPanel2.Controls.Add(this.lblTriggerName);
             this.flowLayoutPanel2.Controls.Add(this.txtTriggerName);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
@@ -151,15 +147,15 @@
             this.flowLayoutPanel2.Size = new System.Drawing.Size(402, 255);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
-            // label6
+            // lblTableName
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(155, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Table Name:";
+            this.lblTableName.Location = new System.Drawing.Point(0, 0);
+            this.lblTableName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTableName.Name = "lblTableName";
+            this.lblTableName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblTableName.Size = new System.Drawing.Size(155, 25);
+            this.lblTableName.TabIndex = 0;
+            this.lblTableName.Text = "Table Name:";
             // 
             // txtTableName
             // 
@@ -173,15 +169,15 @@
             this.txtTableName.Size = new System.Drawing.Size(230, 16);
             this.txtTableName.TabIndex = 1;
             // 
-            // label7
+            // lblCaption
             // 
-            this.label7.Location = new System.Drawing.Point(0, 26);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(155, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Caption:";
+            this.lblCaption.Location = new System.Drawing.Point(0, 26);
+            this.lblCaption.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCaption.Name = "lblCaption";
+            this.lblCaption.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblCaption.Size = new System.Drawing.Size(155, 25);
+            this.lblCaption.TabIndex = 2;
+            this.lblCaption.Text = "Caption:";
             // 
             // txtCaption
             // 
@@ -192,15 +188,15 @@
             this.txtCaption.Size = new System.Drawing.Size(230, 23);
             this.txtCaption.TabIndex = 2;
             // 
-            // label3
+            // lblIdentifierColumnName
             // 
-            this.label3.Location = new System.Drawing.Point(0, 59);
-            this.label3.Margin = new System.Windows.Forms.Padding(0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label3.Size = new System.Drawing.Size(155, 25);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Identifier Column Name:";
+            this.lblIdentifierColumnName.Location = new System.Drawing.Point(0, 59);
+            this.lblIdentifierColumnName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblIdentifierColumnName.Name = "lblIdentifierColumnName";
+            this.lblIdentifierColumnName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblIdentifierColumnName.Size = new System.Drawing.Size(155, 25);
+            this.lblIdentifierColumnName.TabIndex = 13;
+            this.lblIdentifierColumnName.Text = "Identifier Column Name:";
             // 
             // txtIdentifierColumnName
             // 
@@ -211,15 +207,15 @@
             this.txtIdentifierColumnName.Size = new System.Drawing.Size(230, 23);
             this.txtIdentifierColumnName.TabIndex = 14;
             // 
-            // label4
+            // lblSeparatorColumnName
             // 
-            this.label4.Location = new System.Drawing.Point(0, 92);
-            this.label4.Margin = new System.Windows.Forms.Padding(0);
-            this.label4.Name = "label4";
-            this.label4.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label4.Size = new System.Drawing.Size(155, 25);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "Separator Column Name:";
+            this.lblSeparatorColumnName.Location = new System.Drawing.Point(0, 92);
+            this.lblSeparatorColumnName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeparatorColumnName.Name = "lblSeparatorColumnName";
+            this.lblSeparatorColumnName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblSeparatorColumnName.Size = new System.Drawing.Size(155, 25);
+            this.lblSeparatorColumnName.TabIndex = 15;
+            this.lblSeparatorColumnName.Text = "Separator Column Name:";
             // 
             // txtSeparatorColumnName
             // 
@@ -230,15 +226,15 @@
             this.txtSeparatorColumnName.Size = new System.Drawing.Size(230, 23);
             this.txtSeparatorColumnName.TabIndex = 16;
             // 
-            // label5
+            // lblSeparatorColumnId
             // 
-            this.label5.Location = new System.Drawing.Point(0, 125);
-            this.label5.Margin = new System.Windows.Forms.Padding(0);
-            this.label5.Name = "label5";
-            this.label5.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label5.Size = new System.Drawing.Size(155, 25);
-            this.label5.TabIndex = 17;
-            this.label5.Text = "Separator Column Id:";
+            this.lblSeparatorColumnId.Location = new System.Drawing.Point(0, 125);
+            this.lblSeparatorColumnId.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSeparatorColumnId.Name = "lblSeparatorColumnId";
+            this.lblSeparatorColumnId.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblSeparatorColumnId.Size = new System.Drawing.Size(155, 25);
+            this.lblSeparatorColumnId.TabIndex = 17;
+            this.lblSeparatorColumnId.Text = "Separator Column Id:";
             // 
             // txtSeparatorColumnId
             // 
@@ -249,15 +245,15 @@
             this.txtSeparatorColumnId.Size = new System.Drawing.Size(230, 23);
             this.txtSeparatorColumnId.TabIndex = 18;
             // 
-            // label10
+            // lblTrack
             // 
-            this.label10.Location = new System.Drawing.Point(0, 158);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(155, 25);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Track:";
+            this.lblTrack.Location = new System.Drawing.Point(0, 158);
+            this.lblTrack.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTrack.Name = "lblTrack";
+            this.lblTrack.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblTrack.Size = new System.Drawing.Size(155, 25);
+            this.lblTrack.TabIndex = 8;
+            this.lblTrack.Text = "Track:";
             // 
             // chkTrack
             // 
@@ -269,15 +265,15 @@
             this.chkTrack.TabIndex = 5;
             this.chkTrack.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblEnable
             // 
-            this.label1.Location = new System.Drawing.Point(0, 193);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(155, 25);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Enable:";
+            this.lblEnable.Location = new System.Drawing.Point(0, 193);
+            this.lblEnable.Margin = new System.Windows.Forms.Padding(0);
+            this.lblEnable.Name = "lblEnable";
+            this.lblEnable.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblEnable.Size = new System.Drawing.Size(155, 25);
+            this.lblEnable.TabIndex = 10;
+            this.lblEnable.Text = "Enable:";
             // 
             // chkEnable
             // 
@@ -289,15 +285,15 @@
             this.chkEnable.TabIndex = 9;
             this.chkEnable.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblTriggerName
             // 
-            this.label2.Location = new System.Drawing.Point(0, 228);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label2.Size = new System.Drawing.Size(155, 25);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Trigger Name:";
+            this.lblTriggerName.Location = new System.Drawing.Point(0, 228);
+            this.lblTriggerName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTriggerName.Name = "lblTriggerName";
+            this.lblTriggerName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblTriggerName.Size = new System.Drawing.Size(155, 25);
+            this.lblTriggerName.TabIndex = 11;
+            this.lblTriggerName.Text = "Trigger Name:";
             // 
             // txtTriggerName
             // 
@@ -439,21 +435,21 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblTableName;
         private JkComponents.JkTextBox txtTableName;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblCaption;
         private JkComponents.JkTextBox txtCaption;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTrack;
         private System.Windows.Forms.CheckBox chkTrack;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblEnable;
         private System.Windows.Forms.CheckBox chkEnable;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTriggerName;
         private JkComponents.JkTextBox txtTriggerName;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblIdentifierColumnName;
         private JkComponents.JkTextBox txtIdentifierColumnName;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblSeparatorColumnName;
         private JkComponents.JkTextBox txtSeparatorColumnName;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblSeparatorColumnId;
         private JkComponents.JkTextBox txtSeparatorColumnId;
         private System.Windows.Forms.TabControl tabControlChildTables;
         private System.Windows.Forms.TabPage tabPageChildTables;

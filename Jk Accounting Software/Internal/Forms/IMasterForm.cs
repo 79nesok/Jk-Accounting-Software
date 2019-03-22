@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using JkComponents;
 using Jk_Accounting_Software.Internal.Classes;
+using System.Drawing;
 
 namespace Jk_Accounting_Software.Internal.Forms
 {
@@ -69,6 +70,7 @@ namespace Jk_Accounting_Software.Internal.Forms
         #region Variable Declarations
             public List<String> KeyList;
             public bool ValidationFails;
+            private bool LabelColorsEventAssigned = false;
         #endregion
 
         #region Built-in Events
@@ -119,6 +121,7 @@ namespace Jk_Accounting_Software.Internal.Forms
             {
                 SetRequiredControls();
                 SetFormFooter();
+                SetLabelsColor();
                 FocusFirstControl(this.splitContainer.Panel2);
             }
 
@@ -645,6 +648,39 @@ namespace Jk_Accounting_Software.Internal.Forms
                     {
                         ds.Open();
                     }
+                }
+            }
+
+            //this procedure will assign the color of its corresponding label
+            //when its corresponding control has been focused
+            private void SetLabelsColor()
+            {
+                if (!LabelColorsEventAssigned)
+                {
+                    foreach (JkMasterColumn column in MasterColumns)
+                    {
+                        if (!String.IsNullOrWhiteSpace(column.LabelName)
+                            && !String.IsNullOrWhiteSpace(column.ControlName))
+                        {
+                            Control label = splitContainer.Panel2.Controls.Find(column.LabelName, true).First();
+                            Control control = splitContainer.Panel2.Controls.Find(column.ControlName, true).First();
+
+                            if (label != null
+                                && control != null)
+                            {
+                                control.Enter += (obj, e) =>
+                                {
+                                    IAppHandler.SetLabelColorOnEnter(label as Label);
+                                };
+
+                                control.Leave += (obj, e) =>
+                                {
+                                    IAppHandler.SetLabelColorOnLeave(label as Label);
+                                };
+                            }
+                        }
+                    }
+                    LabelColorsEventAssigned = true;
                 }
             }
         #endregion

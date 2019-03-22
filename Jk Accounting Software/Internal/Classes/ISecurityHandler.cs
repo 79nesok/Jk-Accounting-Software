@@ -113,7 +113,7 @@ namespace Jk_Accounting_Software.Internal.Classes
         {
             ITransactionHandler VTransactionHandler = new ITransactionHandler();
             String CommandText =
-                "SELECT Id, [Password] FROM tblSystemUsers " +
+                "SELECT Id, [Password], FormalName FROM tblSystemUsers " +
                 "WHERE Username = @Username " +
                 "COLLATE Latin1_General_CS_AS";
             JkFormParameter param = new JkFormParameter();
@@ -133,7 +133,7 @@ namespace Jk_Accounting_Software.Internal.Classes
                 ISecurityHandler.CompanyName = "Jk Computer Systems Inc.";
 
                 ISecurityHandler.SecurityUserId = int.Parse(table.Rows[0][0].ToString());
-                ISecurityHandler.SecurityUserName = Username;
+                ISecurityHandler.SecurityUserName = table.Rows[0][2].ToString();
 
                 return ValidatePassword(Password, table.Rows[0][1].ToString());
             }

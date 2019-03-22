@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EItemForm));
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblCode = new System.Windows.Forms.Label();
             this.txtCode = new JkComponents.JkTextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtName = new JkComponents.JkTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
             this.cmbType = new JkComponents.JkLookUpComboBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblRemarks = new System.Windows.Forms.Label();
             this.txtRemarks = new JkComponents.JkTextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblActive = new System.Windows.Forms.Label();
             this.chkActive = new System.Windows.Forms.CheckBox();
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
@@ -48,14 +48,9 @@
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblMode
-            // 
-            this.lblMode.Location = new System.Drawing.Point(728, 0);
-            // 
             // FormFooter
             // 
             this.FormFooter.Location = new System.Drawing.Point(0, 447);
-            this.FormFooter.Size = new System.Drawing.Size(836, 34);
             // 
             // splitContainer
             // 
@@ -75,31 +70,31 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label6);
+            this.flowLayoutPanel2.Controls.Add(this.lblCode);
             this.flowLayoutPanel2.Controls.Add(this.txtCode);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
+            this.flowLayoutPanel2.Controls.Add(this.lblName);
             this.flowLayoutPanel2.Controls.Add(this.txtName);
-            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.lblType);
             this.flowLayoutPanel2.Controls.Add(this.cmbType);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
+            this.flowLayoutPanel2.Controls.Add(this.lblRemarks);
             this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
-            this.flowLayoutPanel2.Controls.Add(this.label10);
+            this.flowLayoutPanel2.Controls.Add(this.lblActive);
             this.flowLayoutPanel2.Controls.Add(this.chkActive);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 412);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 422);
             this.flowLayoutPanel2.TabIndex = 14;
             // 
-            // label6
+            // lblCode
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(145, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Code:";
+            this.lblCode.Location = new System.Drawing.Point(0, 0);
+            this.lblCode.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblCode.Size = new System.Drawing.Size(145, 25);
+            this.lblCode.TabIndex = 0;
+            this.lblCode.Text = "Code:";
             // 
             // txtCode
             // 
@@ -110,15 +105,15 @@
             this.txtCode.Size = new System.Drawing.Size(230, 23);
             this.txtCode.TabIndex = 0;
             // 
-            // label7
+            // lblName
             // 
-            this.label7.Location = new System.Drawing.Point(0, 33);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(145, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Name:";
+            this.lblName.Location = new System.Drawing.Point(0, 33);
+            this.lblName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblName.Name = "lblName";
+            this.lblName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblName.Size = new System.Drawing.Size(145, 25);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name:";
             // 
             // txtName
             // 
@@ -129,15 +124,15 @@
             this.txtName.Size = new System.Drawing.Size(230, 23);
             this.txtName.TabIndex = 0;
             // 
-            // label1
+            // lblType
             // 
-            this.label1.Location = new System.Drawing.Point(0, 66);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label1.Size = new System.Drawing.Size(145, 25);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Type:";
+            this.lblType.Location = new System.Drawing.Point(0, 66);
+            this.lblType.Margin = new System.Windows.Forms.Padding(0);
+            this.lblType.Name = "lblType";
+            this.lblType.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblType.Size = new System.Drawing.Size(145, 25);
+            this.lblType.TabIndex = 9;
+            this.lblType.Text = "Type:";
             // 
             // cmbType
             // 
@@ -155,15 +150,15 @@
             this.cmbType.Size = new System.Drawing.Size(230, 23);
             this.cmbType.TabIndex = 0;
             // 
-            // label9
+            // lblRemarks
             // 
-            this.label9.Location = new System.Drawing.Point(0, 99);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(145, 25);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Remarks:";
+            this.lblRemarks.Location = new System.Drawing.Point(0, 99);
+            this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRemarks.Name = "lblRemarks";
+            this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblRemarks.Size = new System.Drawing.Size(145, 25);
+            this.lblRemarks.TabIndex = 4;
+            this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
@@ -175,15 +170,15 @@
             this.txtRemarks.Size = new System.Drawing.Size(230, 90);
             this.txtRemarks.TabIndex = 0;
             // 
-            // label10
+            // lblActive
             // 
-            this.label10.Location = new System.Drawing.Point(0, 199);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(145, 25);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Active:";
+            this.lblActive.Location = new System.Drawing.Point(0, 199);
+            this.lblActive.Margin = new System.Windows.Forms.Padding(0);
+            this.lblActive.Name = "lblActive";
+            this.lblActive.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblActive.Size = new System.Drawing.Size(145, 25);
+            this.lblActive.TabIndex = 8;
+            this.lblActive.Text = "Active:";
             // 
             // chkActive
             // 
@@ -230,15 +225,15 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblCode;
         private JkComponents.JkTextBox txtCode;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblName;
         private JkComponents.JkTextBox txtName;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblRemarks;
         private JkComponents.JkTextBox txtRemarks;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.CheckBox chkActive;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblType;
         private JkComponents.JkLookUpComboBox cmbType;
     }
 }

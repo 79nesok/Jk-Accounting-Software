@@ -53,7 +53,9 @@
             this.txtUsername.Required = false;
             this.txtUsername.Size = new System.Drawing.Size(195, 23);
             this.txtUsername.TabIndex = 7;
+            this.txtUsername.Enter += new System.EventHandler(this.txtUsername_Enter);
             this.txtUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKeyPress);
+            this.txtUsername.Leave += new System.EventHandler(this.txtUsername_Leave);
             // 
             // lblPassword
             // 
@@ -73,7 +75,9 @@
             this.txtPassword.Size = new System.Drawing.Size(195, 23);
             this.txtPassword.TabIndex = 8;
             this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.Enter += new System.EventHandler(this.txtPassword_Enter);
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtKeyPress);
+            this.txtPassword.Leave += new System.EventHandler(this.txtPassword_Leave);
             // 
             // btnOk
             // 

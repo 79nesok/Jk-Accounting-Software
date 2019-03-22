@@ -38,8 +38,6 @@ namespace Jk_Accounting_Software.External.Administration
 
             if (FormState == FormStates.fsView)
             {
-                lblPassword.ForeColor = SystemColors.ControlText;
-                lblConfirmPassword.ForeColor = SystemColors.ControlText;
                 lblWeakPassword.Visible = false;
                 lblPasswordNotMatch.Visible = false;
             }
@@ -69,22 +67,12 @@ namespace Jk_Accounting_Software.External.Administration
                 && txtConfirmPassword.TextLength > 0)
             {
                 if (txtPassword.Text != txtConfirmPassword.Text)
-                {
-                    lblPassword.ForeColor = Color.Red;
-                    lblConfirmPassword.ForeColor = Color.Red;
                     lblPasswordNotMatch.Visible = true;
-                }
                 else
-                {
-                    lblPassword.ForeColor = SystemColors.ControlText;
-                    lblConfirmPassword.ForeColor = SystemColors.ControlText;
                     lblPasswordNotMatch.Visible = false;
-                }
             }
             else
             {
-                lblPassword.ForeColor = SystemColors.ControlText;
-                lblConfirmPassword.ForeColor = SystemColors.ControlText;
                 lblPasswordNotMatch.Visible = false;
             }
             ResizeGroupBox();
@@ -126,6 +114,16 @@ namespace Jk_Accounting_Software.External.Administration
                 txtPassword.Text = ISecurityHandler.Encrypt(txtPassword.Text);
             else
                 txtPassword.Text = MasterColumns.Find(mc => mc.Name == "Password").Value.ToString();
+        }
+
+        private void txtConfirmPassword_Enter(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnEnter(lblConfirmPassword);
+        }
+
+        private void txtConfirmPassword_Leave(object sender, EventArgs e)
+        {
+            IAppHandler.SetLabelColorOnLeave(lblConfirmPassword);
         }
     }
 }
