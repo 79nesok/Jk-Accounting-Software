@@ -92,13 +92,13 @@
             this.lblCode.Margin = new System.Windows.Forms.Padding(0);
             this.lblCode.Name = "lblCode";
             this.lblCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblCode.Size = new System.Drawing.Size(145, 25);
+            this.lblCode.Size = new System.Drawing.Size(149, 25);
             this.lblCode.TabIndex = 0;
             this.lblCode.Text = "Code:";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(151, 5);
+            this.txtCode.Location = new System.Drawing.Point(155, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Required = false;
@@ -111,13 +111,13 @@
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblName.Size = new System.Drawing.Size(145, 25);
+            this.lblName.Size = new System.Drawing.Size(149, 25);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(151, 38);
+            this.txtName.Location = new System.Drawing.Point(155, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
             this.txtName.Required = false;
@@ -130,7 +130,7 @@
             this.lblSystemAccountCode.Margin = new System.Windows.Forms.Padding(0);
             this.lblSystemAccountCode.Name = "lblSystemAccountCode";
             this.lblSystemAccountCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblSystemAccountCode.Size = new System.Drawing.Size(145, 33);
+            this.lblSystemAccountCode.Size = new System.Drawing.Size(149, 33);
             this.lblSystemAccountCode.TabIndex = 9;
             this.lblSystemAccountCode.Text = "System Account Code:";
             // 
@@ -143,7 +143,7 @@
             this.cmbSystemAccountCode.ForeColor = System.Drawing.Color.Black;
             this.cmbSystemAccountCode.FormattingEnabled = true;
             this.cmbSystemAccountCode.Key = "Id";
-            this.cmbSystemAccountCode.Location = new System.Drawing.Point(151, 71);
+            this.cmbSystemAccountCode.Location = new System.Drawing.Point(155, 71);
             this.cmbSystemAccountCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbSystemAccountCode.Name = "cmbSystemAccountCode";
             this.cmbSystemAccountCode.Required = false;
@@ -156,13 +156,13 @@
             this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblRemarks.Size = new System.Drawing.Size(145, 25);
+            this.lblRemarks.Size = new System.Drawing.Size(149, 25);
             this.lblRemarks.TabIndex = 4;
             this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(151, 104);
+            this.txtRemarks.Location = new System.Drawing.Point(155, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -176,13 +176,13 @@
             this.lblActive.Margin = new System.Windows.Forms.Padding(0);
             this.lblActive.Name = "lblActive";
             this.lblActive.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblActive.Size = new System.Drawing.Size(145, 25);
+            this.lblActive.Size = new System.Drawing.Size(149, 25);
             this.lblActive.TabIndex = 8;
             this.lblActive.Text = "Active:";
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(151, 204);
+            this.chkActive.Location = new System.Drawing.Point(155, 204);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);

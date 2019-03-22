@@ -106,17 +106,17 @@
             this.lblCode.Margin = new System.Windows.Forms.Padding(0);
             this.lblCode.Name = "lblCode";
             this.lblCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblCode.Size = new System.Drawing.Size(84, 25);
+            this.lblCode.Size = new System.Drawing.Size(80, 25);
             this.lblCode.TabIndex = 0;
             this.lblCode.Text = "Code:";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(90, 5);
+            this.txtCode.Location = new System.Drawing.Point(86, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Required = false;
-            this.txtCode.Size = new System.Drawing.Size(233, 23);
+            this.txtCode.Size = new System.Drawing.Size(230, 23);
             this.txtCode.TabIndex = 1;
             // 
             // lblName
@@ -125,17 +125,17 @@
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblName.Size = new System.Drawing.Size(84, 25);
+            this.lblName.Size = new System.Drawing.Size(80, 25);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(90, 38);
+            this.txtName.Location = new System.Drawing.Point(86, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
             this.txtName.Required = false;
-            this.txtName.Size = new System.Drawing.Size(233, 23);
+            this.txtName.Size = new System.Drawing.Size(230, 23);
             this.txtName.TabIndex = 2;
             // 
             // lblAddress
@@ -144,18 +144,18 @@
             this.lblAddress.Margin = new System.Windows.Forms.Padding(0);
             this.lblAddress.Name = "lblAddress";
             this.lblAddress.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblAddress.Size = new System.Drawing.Size(84, 25);
+            this.lblAddress.Size = new System.Drawing.Size(80, 25);
             this.lblAddress.TabIndex = 7;
             this.lblAddress.Text = "Address:";
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(90, 71);
+            this.txtAddress.Location = new System.Drawing.Point(86, 71);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Required = false;
-            this.txtAddress.Size = new System.Drawing.Size(233, 90);
+            this.txtAddress.Size = new System.Drawing.Size(230, 90);
             this.txtAddress.TabIndex = 3;
             // 
             // lblRemarks
@@ -164,18 +164,18 @@
             this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblRemarks.Size = new System.Drawing.Size(84, 25);
+            this.lblRemarks.Size = new System.Drawing.Size(80, 25);
             this.lblRemarks.TabIndex = 4;
             this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(90, 171);
+            this.txtRemarks.Location = new System.Drawing.Point(86, 171);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
             this.txtRemarks.Required = false;
-            this.txtRemarks.Size = new System.Drawing.Size(233, 90);
+            this.txtRemarks.Size = new System.Drawing.Size(230, 90);
             this.txtRemarks.TabIndex = 4;
             // 
             // groupBox1
@@ -184,7 +184,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox1.Location = new System.Drawing.Point(3, 269);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(320, 131);
+            this.groupBox1.Size = new System.Drawing.Size(315, 131);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tax Information";
@@ -200,7 +200,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(314, 109);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(309, 109);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // lblTIN
@@ -209,17 +209,17 @@
             this.lblTIN.Margin = new System.Windows.Forms.Padding(0);
             this.lblTIN.Name = "lblTIN";
             this.lblTIN.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblTIN.Size = new System.Drawing.Size(84, 25);
+            this.lblTIN.Size = new System.Drawing.Size(80, 25);
             this.lblTIN.TabIndex = 26;
             this.lblTIN.Text = "TIN:";
             // 
             // txtTIN
             // 
-            this.txtTIN.Location = new System.Drawing.Point(90, 5);
+            this.txtTIN.Location = new System.Drawing.Point(86, 5);
             this.txtTIN.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtTIN.Mask = "000-000-000-000";
             this.txtTIN.Name = "txtTIN";
-            this.txtTIN.Size = new System.Drawing.Size(214, 23);
+            this.txtTIN.Size = new System.Drawing.Size(217, 23);
             this.txtTIN.TabIndex = 28;
             this.txtTIN.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             // 
@@ -229,17 +229,17 @@
             this.lblZIPCode.Margin = new System.Windows.Forms.Padding(0);
             this.lblZIPCode.Name = "lblZIPCode";
             this.lblZIPCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblZIPCode.Size = new System.Drawing.Size(84, 25);
+            this.lblZIPCode.Size = new System.Drawing.Size(80, 25);
             this.lblZIPCode.TabIndex = 27;
             this.lblZIPCode.Text = "ZIP Code:";
             // 
             // txtZIPCode
             // 
-            this.txtZIPCode.Location = new System.Drawing.Point(90, 38);
+            this.txtZIPCode.Location = new System.Drawing.Point(86, 38);
             this.txtZIPCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtZIPCode.Name = "txtZIPCode";
             this.txtZIPCode.Required = false;
-            this.txtZIPCode.Size = new System.Drawing.Size(214, 23);
+            this.txtZIPCode.Size = new System.Drawing.Size(217, 23);
             this.txtZIPCode.TabIndex = 29;
             // 
             // lblATC
@@ -248,7 +248,7 @@
             this.lblATC.Margin = new System.Windows.Forms.Padding(0);
             this.lblATC.Name = "lblATC";
             this.lblATC.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblATC.Size = new System.Drawing.Size(84, 25);
+            this.lblATC.Size = new System.Drawing.Size(80, 25);
             this.lblATC.TabIndex = 30;
             this.lblATC.Text = "ATC:";
             // 
@@ -262,11 +262,11 @@
             this.cmbATC.FormattingEnabled = true;
             this.cmbATC.IntegralHeight = false;
             this.cmbATC.Key = "Id";
-            this.cmbATC.Location = new System.Drawing.Point(90, 71);
+            this.cmbATC.Location = new System.Drawing.Point(86, 71);
             this.cmbATC.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbATC.Name = "cmbATC";
             this.cmbATC.Required = false;
-            this.cmbATC.Size = new System.Drawing.Size(214, 23);
+            this.cmbATC.Size = new System.Drawing.Size(217, 23);
             this.cmbATC.TabIndex = 31;
             // 
             // panelLogo

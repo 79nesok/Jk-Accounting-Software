@@ -382,5 +382,17 @@ namespace Jk_Accounting_Software.Internal.Classes
             label.ForeColor = SystemColors.ControlText;
             label.Font = new Font(label.Font.Name, label.Font.Size, FontStyle.Regular);
         }
+
+        public static Control FindFocusedControl(Control control)
+        {
+            ContainerControl container = control as ContainerControl;
+
+            while (container != null)
+            {
+                control = container.ActiveControl;
+                container = control as ContainerControl;
+            }
+            return control;
+        }
     }
 }

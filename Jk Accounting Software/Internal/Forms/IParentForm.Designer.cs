@@ -142,7 +142,8 @@
             this.btnClose.Margin = new System.Windows.Forms.Padding(0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(37, 30);
-            this.btnClose.TabIndex = 8;
+            this.btnClose.TabIndex = 0;
+            this.btnClose.TabStop = false;
             this.btnClose.Text = "x";
             this.btnClose.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCloseToolTip.SetToolTip(this.btnClose, "Close (Ctrl+F4)");

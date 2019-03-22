@@ -31,16 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.lblCode = new System.Windows.Forms.Label();
+            this.txtCode = new JkComponents.JkTextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.txtName = new JkComponents.JkTextBox();
+            this.lblType = new System.Windows.Forms.Label();
+            this.cmbType = new JkComponents.JkLookUpComboBox();
+            this.lblRemarks = new System.Windows.Forms.Label();
+            this.txtRemarks = new JkComponents.JkTextBox();
+            this.lblActive = new System.Windows.Forms.Label();
+            this.chkActive = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,114 +52,124 @@
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.label6);
-            this.flowLayoutPanel2.Controls.Add(this.textBox1);
-            this.flowLayoutPanel2.Controls.Add(this.label7);
-            this.flowLayoutPanel2.Controls.Add(this.textBox2);
-            this.flowLayoutPanel2.Controls.Add(this.label8);
-            this.flowLayoutPanel2.Controls.Add(this.textBox3);
-            this.flowLayoutPanel2.Controls.Add(this.label9);
-            this.flowLayoutPanel2.Controls.Add(this.textBox4);
-            this.flowLayoutPanel2.Controls.Add(this.label10);
-            this.flowLayoutPanel2.Controls.Add(this.checkBox1);
+            this.flowLayoutPanel2.Controls.Add(this.lblCode);
+            this.flowLayoutPanel2.Controls.Add(this.txtCode);
+            this.flowLayoutPanel2.Controls.Add(this.lblName);
+            this.flowLayoutPanel2.Controls.Add(this.txtName);
+            this.flowLayoutPanel2.Controls.Add(this.lblType);
+            this.flowLayoutPanel2.Controls.Add(this.cmbType);
+            this.flowLayoutPanel2.Controls.Add(this.lblRemarks);
+            this.flowLayoutPanel2.Controls.Add(this.txtRemarks);
+            this.flowLayoutPanel2.Controls.Add(this.lblActive);
+            this.flowLayoutPanel2.Controls.Add(this.chkActive);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(330, 506);
-            this.flowLayoutPanel2.TabIndex = 12;
+            this.flowLayoutPanel2.TabIndex = 15;
             // 
-            // label6
+            // lblCode
             // 
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Margin = new System.Windows.Forms.Padding(0);
-            this.label6.Name = "label6";
-            this.label6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label6.Size = new System.Drawing.Size(84, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Code:";
+            this.lblCode.Location = new System.Drawing.Point(0, 0);
+            this.lblCode.Margin = new System.Windows.Forms.Padding(0);
+            this.lblCode.Name = "lblCode";
+            this.lblCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblCode.Size = new System.Drawing.Size(77, 25);
+            this.lblCode.TabIndex = 0;
+            this.lblCode.Text = "Code:";
             // 
-            // textBox1
+            // txtCode
             // 
-            this.textBox1.Location = new System.Drawing.Point(90, 5);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(233, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtCode.Location = new System.Drawing.Point(83, 5);
+            this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCode.Name = "txtCode";
+            this.txtCode.Required = false;
+            this.txtCode.Size = new System.Drawing.Size(230, 20);
+            this.txtCode.TabIndex = 0;
             // 
-            // label7
+            // lblName
             // 
-            this.label7.Location = new System.Drawing.Point(0, 30);
-            this.label7.Margin = new System.Windows.Forms.Padding(0);
-            this.label7.Name = "label7";
-            this.label7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label7.Size = new System.Drawing.Size(84, 25);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Name:";
+            this.lblName.Location = new System.Drawing.Point(0, 30);
+            this.lblName.Margin = new System.Windows.Forms.Padding(0);
+            this.lblName.Name = "lblName";
+            this.lblName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblName.Size = new System.Drawing.Size(77, 25);
+            this.lblName.TabIndex = 2;
+            this.lblName.Text = "Name:";
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Location = new System.Drawing.Point(90, 35);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(233, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtName.Location = new System.Drawing.Point(83, 35);
+            this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtName.Name = "txtName";
+            this.txtName.Required = false;
+            this.txtName.Size = new System.Drawing.Size(230, 20);
+            this.txtName.TabIndex = 0;
             // 
-            // label8
+            // lblType
             // 
-            this.label8.Location = new System.Drawing.Point(0, 60);
-            this.label8.Margin = new System.Windows.Forms.Padding(0);
-            this.label8.Name = "label8";
-            this.label8.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label8.Size = new System.Drawing.Size(84, 25);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Address:";
+            this.lblType.Location = new System.Drawing.Point(0, 60);
+            this.lblType.Margin = new System.Windows.Forms.Padding(0);
+            this.lblType.Name = "lblType";
+            this.lblType.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblType.Size = new System.Drawing.Size(77, 25);
+            this.lblType.TabIndex = 9;
+            this.lblType.Text = "Type:";
             // 
-            // textBox3
+            // cmbType
             // 
-            this.textBox3.Location = new System.Drawing.Point(90, 65);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(233, 90);
-            this.textBox3.TabIndex = 3;
+            this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbType.DataSet = "dstItemTypes";
+            this.cmbType.DisplayText = "Name";
+            this.cmbType.ForeColor = System.Drawing.Color.Black;
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Key = "Id";
+            this.cmbType.Location = new System.Drawing.Point(83, 65);
+            this.cmbType.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Required = false;
+            this.cmbType.Size = new System.Drawing.Size(230, 21);
+            this.cmbType.TabIndex = 0;
             // 
-            // label9
+            // lblRemarks
             // 
-            this.label9.Location = new System.Drawing.Point(0, 160);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label9.Size = new System.Drawing.Size(84, 25);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Remarks:";
+            this.lblRemarks.Location = new System.Drawing.Point(0, 91);
+            this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRemarks.Name = "lblRemarks";
+            this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblRemarks.Size = new System.Drawing.Size(77, 25);
+            this.lblRemarks.TabIndex = 4;
+            this.lblRemarks.Text = "Remarks:";
             // 
-            // textBox4
+            // txtRemarks
             // 
-            this.textBox4.Location = new System.Drawing.Point(90, 165);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(233, 90);
-            this.textBox4.TabIndex = 4;
+            this.txtRemarks.Location = new System.Drawing.Point(83, 96);
+            this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtRemarks.Multiline = true;
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Required = false;
+            this.txtRemarks.Size = new System.Drawing.Size(230, 90);
+            this.txtRemarks.TabIndex = 0;
             // 
-            // label10
+            // lblActive
             // 
-            this.label10.Location = new System.Drawing.Point(0, 260);
-            this.label10.Margin = new System.Windows.Forms.Padding(0);
-            this.label10.Name = "label10";
-            this.label10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.label10.Size = new System.Drawing.Size(84, 25);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Active:";
+            this.lblActive.Location = new System.Drawing.Point(0, 191);
+            this.lblActive.Margin = new System.Windows.Forms.Padding(0);
+            this.lblActive.Name = "lblActive";
+            this.lblActive.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lblActive.Size = new System.Drawing.Size(77, 25);
+            this.lblActive.TabIndex = 8;
+            this.lblActive.Text = "Active:";
             // 
-            // checkBox1
+            // chkActive
             // 
-            this.checkBox1.Location = new System.Drawing.Point(90, 265);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(15, 25);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkActive.Location = new System.Drawing.Point(83, 196);
+            this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.chkActive.Name = "chkActive";
+            this.chkActive.Size = new System.Drawing.Size(15, 25);
+            this.chkActive.TabIndex = 0;
+            this.chkActive.UseVisualStyleBackColor = true;
             // 
             // UserControl1
             // 
@@ -178,16 +188,16 @@
 
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label lblCode;
+        private JkComponents.JkTextBox txtCode;
+        private System.Windows.Forms.Label lblName;
+        private JkComponents.JkTextBox txtName;
+        private System.Windows.Forms.Label lblType;
+        private JkComponents.JkLookUpComboBox cmbType;
+        private System.Windows.Forms.Label lblRemarks;
+        private JkComponents.JkTextBox txtRemarks;
+        private System.Windows.Forms.Label lblActive;
+        private System.Windows.Forms.CheckBox chkActive;
 
 
 

@@ -96,7 +96,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(392, 477);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(436, 477);
             this.flowLayoutPanel2.TabIndex = 15;
             // 
             // lblFirstName
@@ -105,13 +105,13 @@
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(0);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblFirstName.Size = new System.Drawing.Size(145, 25);
+            this.lblFirstName.Size = new System.Drawing.Size(129, 25);
             this.lblFirstName.TabIndex = 0;
             this.lblFirstName.Text = "First Name:";
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(151, 5);
+            this.txtFirstName.Location = new System.Drawing.Point(135, 5);
             this.txtFirstName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Required = false;
@@ -124,13 +124,13 @@
             this.lblMiddleName.Margin = new System.Windows.Forms.Padding(0);
             this.lblMiddleName.Name = "lblMiddleName";
             this.lblMiddleName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblMiddleName.Size = new System.Drawing.Size(145, 25);
+            this.lblMiddleName.Size = new System.Drawing.Size(129, 25);
             this.lblMiddleName.TabIndex = 2;
             this.lblMiddleName.Text = "Middle Name:";
             // 
             // txtMiddleName
             // 
-            this.txtMiddleName.Location = new System.Drawing.Point(151, 38);
+            this.txtMiddleName.Location = new System.Drawing.Point(135, 38);
             this.txtMiddleName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtMiddleName.Name = "txtMiddleName";
             this.txtMiddleName.Required = false;
@@ -143,13 +143,13 @@
             this.lblLastName.Margin = new System.Windows.Forms.Padding(0);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblLastName.Size = new System.Drawing.Size(145, 25);
+            this.lblLastName.Size = new System.Drawing.Size(129, 25);
             this.lblLastName.TabIndex = 10;
             this.lblLastName.Text = "Last Name:";
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(151, 71);
+            this.txtLastName.Location = new System.Drawing.Point(135, 71);
             this.txtLastName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Required = false;
@@ -162,13 +162,13 @@
             this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblRemarks.Size = new System.Drawing.Size(145, 25);
+            this.lblRemarks.Size = new System.Drawing.Size(129, 25);
             this.lblRemarks.TabIndex = 4;
             this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(151, 104);
+            this.txtRemarks.Location = new System.Drawing.Point(135, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -182,14 +182,14 @@
             this.lblActive.Margin = new System.Windows.Forms.Padding(0);
             this.lblActive.Name = "lblActive";
             this.lblActive.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblActive.Size = new System.Drawing.Size(145, 25);
+            this.lblActive.Size = new System.Drawing.Size(129, 25);
             this.lblActive.TabIndex = 8;
             this.lblActive.Text = "Active:";
             // 
             // chkActive
             // 
             this.flowLayoutPanel2.SetFlowBreak(this.chkActive, true);
-            this.chkActive.Location = new System.Drawing.Point(151, 204);
+            this.chkActive.Location = new System.Drawing.Point(135, 204);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);
@@ -201,7 +201,7 @@
             this.grpBoxLoginInformation.Controls.Add(this.flowLayoutLoginInformation);
             this.grpBoxLoginInformation.Location = new System.Drawing.Point(3, 237);
             this.grpBoxLoginInformation.Name = "grpBoxLoginInformation";
-            this.grpBoxLoginInformation.Size = new System.Drawing.Size(378, 200);
+            this.grpBoxLoginInformation.Size = new System.Drawing.Size(426, 200);
             this.grpBoxLoginInformation.TabIndex = 11;
             this.grpBoxLoginInformation.TabStop = false;
             this.grpBoxLoginInformation.Text = "Login Information";
@@ -219,7 +219,7 @@
             this.flowLayoutLoginInformation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutLoginInformation.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutLoginInformation.Name = "flowLayoutLoginInformation";
-            this.flowLayoutLoginInformation.Size = new System.Drawing.Size(372, 178);
+            this.flowLayoutLoginInformation.Size = new System.Drawing.Size(420, 178);
             this.flowLayoutLoginInformation.TabIndex = 0;
             // 
             // lblUsername
@@ -228,17 +228,17 @@
             this.lblUsername.Margin = new System.Windows.Forms.Padding(0);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblUsername.Size = new System.Drawing.Size(139, 25);
+            this.lblUsername.Size = new System.Drawing.Size(129, 25);
             this.lblUsername.TabIndex = 18;
             this.lblUsername.Text = "Username:";
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(145, 5);
+            this.txtUsername.Location = new System.Drawing.Point(135, 5);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Required = false;
-            this.txtUsername.Size = new System.Drawing.Size(219, 23);
+            this.txtUsername.Size = new System.Drawing.Size(224, 23);
             this.txtUsername.TabIndex = 19;
             // 
             // lblPassword
@@ -247,18 +247,18 @@
             this.lblPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblPassword.Size = new System.Drawing.Size(139, 25);
+            this.lblPassword.Size = new System.Drawing.Size(129, 25);
             this.lblPassword.TabIndex = 21;
             this.lblPassword.Text = "Password:";
             // 
             // txtPassword
             // 
             this.txtPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPassword.Location = new System.Drawing.Point(145, 38);
+            this.txtPassword.Location = new System.Drawing.Point(135, 38);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Required = false;
-            this.txtPassword.Size = new System.Drawing.Size(219, 23);
+            this.txtPassword.Size = new System.Drawing.Size(224, 23);
             this.txtPassword.TabIndex = 20;
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.TextChanged += new System.EventHandler(this.ValidatePassword);
@@ -270,7 +270,7 @@
             this.lblWeakPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lblWeakPassword.Name = "lblWeakPassword";
             this.lblWeakPassword.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblWeakPassword.Size = new System.Drawing.Size(364, 42);
+            this.lblWeakPassword.Size = new System.Drawing.Size(415, 23);
             this.lblWeakPassword.TabIndex = 24;
             this.lblWeakPassword.Text = "Please use strong password, combine alphanumeric and special characters";
             this.lblWeakPassword.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -278,21 +278,21 @@
             // 
             // lblConfirmPassword
             // 
-            this.lblConfirmPassword.Location = new System.Drawing.Point(0, 108);
+            this.lblConfirmPassword.Location = new System.Drawing.Point(0, 89);
             this.lblConfirmPassword.Margin = new System.Windows.Forms.Padding(0);
             this.lblConfirmPassword.Name = "lblConfirmPassword";
             this.lblConfirmPassword.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblConfirmPassword.Size = new System.Drawing.Size(139, 25);
+            this.lblConfirmPassword.Size = new System.Drawing.Size(129, 25);
             this.lblConfirmPassword.TabIndex = 23;
             this.lblConfirmPassword.Text = "Confirm Password:";
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(145, 113);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(135, 94);
             this.txtConfirmPassword.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Required = false;
-            this.txtConfirmPassword.Size = new System.Drawing.Size(219, 23);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(224, 23);
             this.txtConfirmPassword.TabIndex = 22;
             this.txtConfirmPassword.UseSystemPasswordChar = true;
             this.txtConfirmPassword.TextChanged += new System.EventHandler(this.ValidatePassword);
@@ -302,11 +302,11 @@
             // lblPasswordNotMatch
             // 
             this.lblPasswordNotMatch.ForeColor = System.Drawing.Color.Red;
-            this.lblPasswordNotMatch.Location = new System.Drawing.Point(0, 141);
+            this.lblPasswordNotMatch.Location = new System.Drawing.Point(0, 122);
             this.lblPasswordNotMatch.Margin = new System.Windows.Forms.Padding(0);
             this.lblPasswordNotMatch.Name = "lblPasswordNotMatch";
             this.lblPasswordNotMatch.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblPasswordNotMatch.Size = new System.Drawing.Size(364, 25);
+            this.lblPasswordNotMatch.Size = new System.Drawing.Size(359, 23);
             this.lblPasswordNotMatch.TabIndex = 25;
             this.lblPasswordNotMatch.Text = "Password not match";
             this.lblPasswordNotMatch.TextAlign = System.Drawing.ContentAlignment.TopCenter;

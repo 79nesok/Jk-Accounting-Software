@@ -15,6 +15,8 @@ namespace Jk_Accounting_Software.Internal.Classes
         public static String ProductName { get; set; }
         public static String ProductVersion { get; set; }
 
+        private const int PBKDF2_ITERATIONS = 5000;
+
         public static bool PasswordStrong(String Password)
         {
             List<char> alphabet = new List<char>();
@@ -63,7 +65,6 @@ namespace Jk_Accounting_Software.Internal.Classes
         {
             const int SALT_BYTE_SIZE = 24;
             const int HASH_BYTE_SIZE = 24;
-            const int PBKDF2_ITERATIONS = 1000;
 
             // Generate a random salt
             RNGCryptoServiceProvider csprng = new RNGCryptoServiceProvider();
@@ -72,8 +73,7 @@ namespace Jk_Accounting_Software.Internal.Classes
 
             // Hash the password and encode the parameters
             byte[] hash = PBKDF2(Password, salt, PBKDF2_ITERATIONS, HASH_BYTE_SIZE);
-            return PBKDF2_ITERATIONS + ":" +
-                Convert.ToBase64String(salt) + ":" +
+            return Convert.ToBase64String(salt) + ":" +
                 Convert.ToBase64String(hash);
         }
 
@@ -86,18 +86,16 @@ namespace Jk_Accounting_Software.Internal.Classes
 
         private static bool ValidatePassword(string password, string correctHash)
         {
-            const int ITERATION_INDEX = 0;
-            const int SALT_INDEX = 1;
-            const int PBKDF2_INDEX = 2;
+            const int SALT_INDEX = 0;
+            const int PBKDF2_INDEX = 1;
 
             // Extract the parameters from the hash
             char[] delimiter = { ':' };
             string[] split = correctHash.Split(delimiter);
-            int iterations = Int32.Parse(split[ITERATION_INDEX]);
             byte[] salt = Convert.FromBase64String(split[SALT_INDEX]);
             byte[] hash = Convert.FromBase64String(split[PBKDF2_INDEX]);
 
-            byte[] testHash = PBKDF2(password, salt, iterations, hash.Length);
+            byte[] testHash = PBKDF2(password, salt, PBKDF2_ITERATIONS, hash.Length);
             return SlowEquals(hash, testHash);
         }
 

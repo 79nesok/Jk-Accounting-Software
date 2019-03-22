@@ -217,6 +217,7 @@ namespace Jk_Accounting_Software
                 treeView.Cursor = Cursors.Hand;
                 treeView.BackColor = Color.Silver;
                 treeView.NodeMouseClick += treeView_NodeMouseClick;
+                treeView.KeyDown += treeView_KeyDown;
                 treeView.Tag = caption;
 
                 try
@@ -254,10 +255,24 @@ namespace Jk_Accounting_Software
 
             private void treeView_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
             {
+                OpenListForm(e.Node);
+            }
+
+            private void treeView_KeyDown(object sender, KeyEventArgs e)
+            {
+                TreeView treeView = (sender as TreeView);
+
+                if (e.KeyCode == Keys.Enter
+                    && treeView.SelectedNode != null)
+                    OpenListForm(treeView.SelectedNode);
+            }
+
+            private void OpenListForm(TreeNode node)
+            {
                 string formname = null;
                 IParentForm form;
 
-                if (e.Node.Nodes.Count == 0)
+                if (node.Nodes.Count == 0)
                 {
                     try
                     {
@@ -268,15 +283,15 @@ namespace Jk_Accounting_Software
                             IAppHandler.FindActiveForm().Hide();
                         }
 
-                        formname = IAppHandler.GetSubCategory(e.Node.Text, e.Node.TreeView.Tag.ToString(), "ListForm");
+                        formname = IAppHandler.GetSubCategory(node.Text, node.TreeView.Tag.ToString(), "ListForm");
 
                         if (formname != null)
                         {
-                            form = IAppHandler.FindForm(formname, e.Node.Text);
+                            form = IAppHandler.FindForm(formname, node.Text);
 
                             if (form != null)
                             {
-                                form.SubCategory = e.Node.Text;
+                                form.SubCategory = node.Text;
                                 form.Run();
                             }
                             else

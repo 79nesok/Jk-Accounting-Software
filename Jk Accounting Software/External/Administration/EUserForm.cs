@@ -114,11 +114,13 @@ namespace Jk_Accounting_Software.External.Administration
                 txtPassword.Text = ISecurityHandler.Encrypt(txtPassword.Text);
             else
                 txtPassword.Text = MasterColumns.Find(mc => mc.Name == "Password").Value.ToString();
+            txtConfirmPassword.Clear();
         }
 
         private void txtConfirmPassword_Enter(object sender, EventArgs e)
         {
-            IAppHandler.SetLabelColorOnEnter(lblConfirmPassword);
+            if (FormState != FormStates.fsView)
+                IAppHandler.SetLabelColorOnEnter(lblConfirmPassword);
         }
 
         private void txtConfirmPassword_Leave(object sender, EventArgs e)

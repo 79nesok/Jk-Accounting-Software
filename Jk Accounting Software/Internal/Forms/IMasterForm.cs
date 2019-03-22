@@ -315,14 +315,23 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                 btnSave.Click += (obj, e) =>
                 {
+                    Control focusedControl = IAppHandler.FindFocusedControl(this);
+
                     if (!btnSave.Visible || !btnSave.Enabled)
                         return;
 
-                    //perform Validation first and foremost
+                    //remove focus on databound controls, so that it will perform its validation or computation
                     this.splitContainer.Panel2.Focus();
+
+                    //perform Validation first
                     OnValidateSave();
                     if (ValidationFails)
+                    {
+                        if (focusedControl != null)
+                            focusedControl.Select();
+
                         return;
+                    }
 
                     if (IMessageHandler.Confirm(ISystemMessages.SavingQuestion) == DialogResult.Yes)
                     {
@@ -401,6 +410,7 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                     if (IMessageHandler.Confirm(ISystemMessages.ClosingOrCancellingQuestion) == DialogResult.Yes)
                     {
+                        this.splitContainer.Panel2.Focus();
                         try
                         {
                             IAppHandler.StartBusy("Executing Cancel");
@@ -492,10 +502,10 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void SetFormFooter()
             {
+                lblMode.Text = "Mode: " + FormState.ToString().Substring(2);
+
                 if (FormState == FormStates.fsNew)
                     return;
-
-                lblMode.Text = "Mode: " + FormState.ToString().Substring(2);
 
                 if (MasterColumns.Find(col => col.Name == "DateCreated") != null)
                 {
@@ -583,7 +593,8 @@ namespace Jk_Accounting_Software.Internal.Forms
 
                         foreach(JkMasterColumn column in MasterColumns)
                         {
-                            if (column.Name == series.TransactionColumn && !String.IsNullOrWhiteSpace(column.ControlName))
+                            if (column.Name == series.TransactionColumn
+                                && !String.IsNullOrWhiteSpace(column.ControlName))
                             {
                                 IAppHandler.SetControlsValue(Controls.Find(column.ControlName, true).First(), series.Value);
                             }
@@ -670,7 +681,8 @@ namespace Jk_Accounting_Software.Internal.Forms
                             {
                                 control.Enter += (obj, e) =>
                                 {
-                                    IAppHandler.SetLabelColorOnEnter(label as Label);
+                                    if (FormState != FormStates.fsView)
+                                        IAppHandler.SetLabelColorOnEnter(label as Label);
                                 };
 
                                 control.Leave += (obj, e) =>

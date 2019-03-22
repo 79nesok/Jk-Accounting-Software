@@ -197,6 +197,7 @@ namespace Jk_Accounting_Software.Internal.Forms
                 dataGridView.AllowUserToAddRows = false;
                 dataGridView.EditMode = DataGridViewEditMode.EditProgrammatically;
                 dataGridView.AllowUserToOrderColumns = true;
+                dataGridView.StandardTab = true;
 
                 btnNew.Click += (obj, e) =>
                 {
@@ -247,7 +248,9 @@ namespace Jk_Accounting_Software.Internal.Forms
 
             private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
             {
-                if (e.ColumnIndex != -1 && e.RowIndex != -1 && !String.IsNullOrWhiteSpace(this.OpenFormName))
+                if (e.ColumnIndex != -1
+                    && e.RowIndex != -1
+                    && !String.IsNullOrWhiteSpace(this.OpenFormName))
                     OnOpenForm(null, dataGridView);
             }
 
@@ -533,6 +536,16 @@ namespace Jk_Accounting_Software.Internal.Forms
                     MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK,
                        MessageBoxIcon.Error);
                 }
+            }
+
+            private void dataGridView_KeyDown(object sender, KeyEventArgs e)
+            {
+                if (e.KeyCode == Keys.Enter
+                    && dataGridView.Rows.Count > 0
+                    && dataGridView.CurrentCell.ColumnIndex != -1
+                    && dataGridView.CurrentRow.Index != -1
+                    && !String.IsNullOrWhiteSpace(this.OpenFormName))
+                    OnOpenForm(null, dataGridView);
             }
         #endregion
 

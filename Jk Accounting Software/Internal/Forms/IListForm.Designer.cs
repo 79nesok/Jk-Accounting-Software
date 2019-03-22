@@ -66,7 +66,7 @@
             this.GridFooter.BackColor = System.Drawing.Color.Ivory;
             this.GridFooter.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.GridFooter.Location = new System.Drawing.Point(0, 378);
+            this.GridFooter.Location = new System.Drawing.Point(0, 388);
             this.GridFooter.Name = "GridFooter";
             this.GridFooter.Size = new System.Drawing.Size(836, 34);
             this.GridFooter.TabIndex = 0;
@@ -87,11 +87,12 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.Size = new System.Drawing.Size(836, 378);
+            this.dataGridView.Size = new System.Drawing.Size(836, 388);
             this.dataGridView.TabIndex = 6;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             this.dataGridView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.dataGridView_ColumnWidthChanged);
             this.dataGridView.Scroll += new System.Windows.Forms.ScrollEventHandler(this.dataGridView_Scroll);
+            this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView_KeyDown);
             // 
             // printDocument
             // 

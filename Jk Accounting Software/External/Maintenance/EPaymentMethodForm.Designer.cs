@@ -96,13 +96,13 @@
             this.lblCode.Margin = new System.Windows.Forms.Padding(0);
             this.lblCode.Name = "lblCode";
             this.lblCode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblCode.Size = new System.Drawing.Size(95, 25);
+            this.lblCode.Size = new System.Drawing.Size(96, 25);
             this.lblCode.TabIndex = 0;
             this.lblCode.Text = "Code:";
             // 
             // txtCode
             // 
-            this.txtCode.Location = new System.Drawing.Point(101, 5);
+            this.txtCode.Location = new System.Drawing.Point(102, 5);
             this.txtCode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtCode.Name = "txtCode";
             this.txtCode.Required = false;
@@ -115,13 +115,13 @@
             this.lblName.Margin = new System.Windows.Forms.Padding(0);
             this.lblName.Name = "lblName";
             this.lblName.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblName.Size = new System.Drawing.Size(95, 25);
+            this.lblName.Size = new System.Drawing.Size(96, 25);
             this.lblName.TabIndex = 2;
             this.lblName.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(101, 38);
+            this.txtName.Location = new System.Drawing.Point(102, 38);
             this.txtName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtName.Name = "txtName";
             this.txtName.Required = false;
@@ -134,7 +134,7 @@
             this.lblAccount.Margin = new System.Windows.Forms.Padding(0);
             this.lblAccount.Name = "lblAccount";
             this.lblAccount.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblAccount.Size = new System.Drawing.Size(95, 33);
+            this.lblAccount.Size = new System.Drawing.Size(96, 33);
             this.lblAccount.TabIndex = 9;
             this.lblAccount.Text = "Account:";
             // 
@@ -147,7 +147,7 @@
             this.cmbAccount.ForeColor = System.Drawing.Color.Black;
             this.cmbAccount.FormattingEnabled = true;
             this.cmbAccount.Key = "Id";
-            this.cmbAccount.Location = new System.Drawing.Point(101, 71);
+            this.cmbAccount.Location = new System.Drawing.Point(102, 71);
             this.cmbAccount.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.cmbAccount.Name = "cmbAccount";
             this.cmbAccount.Required = false;
@@ -160,13 +160,13 @@
             this.lblRemarks.Margin = new System.Windows.Forms.Padding(0);
             this.lblRemarks.Name = "lblRemarks";
             this.lblRemarks.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblRemarks.Size = new System.Drawing.Size(95, 25);
+            this.lblRemarks.Size = new System.Drawing.Size(96, 25);
             this.lblRemarks.TabIndex = 4;
             this.lblRemarks.Text = "Remarks:";
             // 
             // txtRemarks
             // 
-            this.txtRemarks.Location = new System.Drawing.Point(101, 104);
+            this.txtRemarks.Location = new System.Drawing.Point(102, 104);
             this.txtRemarks.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.txtRemarks.Multiline = true;
             this.txtRemarks.Name = "txtRemarks";
@@ -180,14 +180,14 @@
             this.lblForClearing.Margin = new System.Windows.Forms.Padding(0);
             this.lblForClearing.Name = "lblForClearing";
             this.lblForClearing.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblForClearing.Size = new System.Drawing.Size(95, 25);
+            this.lblForClearing.Size = new System.Drawing.Size(96, 25);
             this.lblForClearing.TabIndex = 11;
             this.lblForClearing.Text = "For Clearing:";
             // 
             // chkForClearing
             // 
             this.flowLayoutPanel2.SetFlowBreak(this.chkForClearing, true);
-            this.chkForClearing.Location = new System.Drawing.Point(101, 204);
+            this.chkForClearing.Location = new System.Drawing.Point(102, 204);
             this.chkForClearing.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkForClearing.Name = "chkForClearing";
             this.chkForClearing.Size = new System.Drawing.Size(15, 25);
@@ -200,13 +200,13 @@
             this.lblActive.Margin = new System.Windows.Forms.Padding(0);
             this.lblActive.Name = "lblActive";
             this.lblActive.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.lblActive.Size = new System.Drawing.Size(95, 25);
+            this.lblActive.Size = new System.Drawing.Size(96, 25);
             this.lblActive.TabIndex = 8;
             this.lblActive.Text = "Active:";
             // 
             // chkActive
             // 
-            this.chkActive.Location = new System.Drawing.Point(101, 239);
+            this.chkActive.Location = new System.Drawing.Point(102, 239);
             this.chkActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.chkActive.Name = "chkActive";
             this.chkActive.Size = new System.Drawing.Size(15, 25);
