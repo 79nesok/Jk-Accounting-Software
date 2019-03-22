@@ -6,7 +6,7 @@ IF OBJECT_ID('tblSystemUsers') IS NULL
 		FirstName VARCHAR(100) NOT NULL,
 		MiddleName VARCHAR(100) NULL,
 		LastName VARCHAR(100) NOT NULL,
-		FormalName AS (FirstName + ' ' + CASE WHEN NULLIF(LTRIM(RTRIM(MiddleName)), '') <> NULL THEN LEFT(MiddleName, 1) + '. ' ELSE '' END + LastName),
+		FormalName AS (FirstName + ' ' + CASE WHEN NULLIF(LTRIM(RTRIM(MiddleName)), '') IS NOT NULL THEN LEFT(MiddleName, 1) + '. ' ELSE '' END + LastName),
 		Remarks VARCHAR(1000) NULL,
 		Active BIT NOT NULL CONSTRAINT DF_tblSystemUsers_Active DEFAULT 1,
 		CreatedById INT NOT NULL,

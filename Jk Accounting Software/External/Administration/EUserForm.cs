@@ -35,6 +35,23 @@ namespace Jk_Accounting_Software.External.Administration
             txtConfirmPassword.Visible = FormState == FormStates.fsNew;
             txtConfirmPassword.Enabled = true;
             txtConfirmPassword.Required = FormState == FormStates.fsNew;
+            txtConfirmPassword.Clear();
+
+            if (FormState == FormStates.fsEdit)
+            {
+                lblPassword.Text = "Change Password:";
+                lblPassword.ForeColor = Color.Blue;
+                lblPassword.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Underline);
+                lblPassword.Cursor = Cursors.Hand;
+            }
+            else
+            {
+                lblPassword.Text = "Password:";
+                lblPassword.ForeColor = SystemColors.ControlText;
+                lblPassword.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Regular);
+                lblPassword.Cursor = Cursors.Default;
+            }
+            txtPassword.Enabled = FormState == FormStates.fsNew;
 
             if (FormState == FormStates.fsView)
             {
@@ -90,7 +107,10 @@ namespace Jk_Accounting_Software.External.Administration
                 }
             }
 
-            grpBoxLoginInformation.Size = new Size(grpBoxLoginInformation.Width, height + 50);
+            if (lblWeakPassword.Visible)
+                grpBoxLoginInformation.Size = new Size(426, height + 50);
+            else
+                grpBoxLoginInformation.Size = new Size(375, height + 50);
         }
 
         private void EUserForm_ValidateSave()
@@ -114,7 +134,6 @@ namespace Jk_Accounting_Software.External.Administration
                 txtPassword.Text = ISecurityHandler.Encrypt(txtPassword.Text);
             else
                 txtPassword.Text = MasterColumns.Find(mc => mc.Name == "Password").Value.ToString();
-            txtConfirmPassword.Clear();
         }
 
         private void txtConfirmPassword_Enter(object sender, EventArgs e)
@@ -126,6 +145,20 @@ namespace Jk_Accounting_Software.External.Administration
         private void txtConfirmPassword_Leave(object sender, EventArgs e)
         {
             IAppHandler.SetLabelColorOnLeave(lblConfirmPassword);
+        }
+
+        private void lblPassword_Click(object sender, EventArgs e)
+        {
+            if (FormState == FormStates.fsEdit)
+            {
+                lblPassword.Text = "Password:";
+                lblPassword.Font = new Font(this.Font.Name, this.Font.Size, FontStyle.Regular);
+                lblPassword.ForeColor = SystemColors.ControlText;
+                lblPassword.Cursor = Cursors.Default;
+                txtPassword.Enabled = true;
+                txtPassword.Clear();
+                txtPassword.Select();
+            }
         }
     }
 }

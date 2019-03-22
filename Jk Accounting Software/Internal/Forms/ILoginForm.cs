@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Classes;
+using System.Threading;
 
 namespace Jk_Accounting_Software.Internal.Forms
 {
@@ -22,6 +23,7 @@ namespace Jk_Accounting_Software.Internal.Forms
         {
             if (ISecurityHandler.LoginCredentialAccepted(txtUsername.Text, txtPassword.Text))
             {
+                AnimateProgressBar();
                 DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -75,6 +77,19 @@ namespace Jk_Accounting_Software.Internal.Forms
         private void txtPassword_Leave(object sender, EventArgs e)
         {
             IAppHandler.SetLabelColorOnLeave(lblPassword);
+        }
+
+        private void AnimateProgressBar()
+        {
+            progressBar.Visible = true;
+
+            for (int i = 10; i <= 100; i += 10)
+            {
+                progressBar.Value = i;
+                progressBar.PerformStep();
+                progressBar.Refresh();
+                Thread.Sleep(50);
+            }
         }
     }
 }

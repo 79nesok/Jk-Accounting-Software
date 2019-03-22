@@ -53,15 +53,17 @@ namespace Jk_Accounting_Software.Internal.Classes
 
         //Messages
         public const String NoFormMessage = "No form available";
-        public static String AboutMessage =
-            "Product Name: " + ISecurityHandler.ProductName + "\r" +
-            "Product Version: " + ISecurityHandler.ProductVersion + "\r" +
-            "\r" +
-            "   Thank you for using this software and for questions feel free to contact developer." + "\r" +
-            "\r" +
-            "Name: Jake A. Oandasan" + "\r" +
-            "Country: Philippines" + "\r" +
-            "E-mail: jake.oandasan@yahoo.com";
+        public static String AboutMessage()
+        {
+            return  "Product Name: " + ISecurityHandler.ProductName + "\r" +
+                "Product Version: " + ISecurityHandler.ProductVersion + "\r" +
+                "\r" +
+                "   Thank you for using this software and for questions feel free to contact developer." + "\r" +
+                "\r" +
+                "Name: Jake A. Oandasan" + "\r" +
+                "Country: Philippines" + "\r" +
+                "E-mail: jake.oandasan@yahoo.com";
+        }
         public const String TestConnectionSuccess = "Test connection succeded.";
         public const String FillRequiredFieldMessage = "Please fill up all required fields.";
         public const String NoPendingInvoice = "No pending invoice(s) for the selected subsidiary.";

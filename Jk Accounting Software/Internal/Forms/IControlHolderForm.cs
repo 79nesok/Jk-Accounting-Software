@@ -107,7 +107,7 @@ namespace Jk_Accounting_Software
 
             private void MenuItemAbout_Click(object sender, EventArgs e)
             {
-                IMessageHandler.Inform(ISystemMessages.AboutMessage);
+                IMessageHandler.Inform(ISystemMessages.AboutMessage());
             }
 
             private void IControlHolderForm_FormClosing(object sender, FormClosingEventArgs e)
