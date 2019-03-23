@@ -175,6 +175,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EBalanceSheetChartReport.cs">
+      <DependentUpon>EBalanceSheetChartReport.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EBalanceSheetChartReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EBalanceSheetChartReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\EBillPrintoutDS.cs">
       <DependentUpon>EBillPrintoutDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -211,6 +220,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EDashboardReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EDashboardReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\EIncomeStatementChartReportDS.cs">
+      <DependentUpon>EIncomeStatementChartReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EIncomeStatementChartReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EIncomeStatementChartReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\EJournalsReportDS.cs">
       <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -219,6 +242,15 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="External\Datasources\ESalesAndCollectionChartReportDS.cs">
+      <DependentUpon>ESalesAndCollectionChartReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\ESalesAndCollectionChartReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ESalesAndCollectionChartReportDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="External\Datasources\ESystemLogsReportDS.cs">
       <DependentUpon>ESystemLogsReportDS.xsd</DependentUpon>
@@ -517,6 +549,12 @@
     <Compile Include="External\Report\ECollectionSummaryReportForm.Designer.cs">
       <DependentUpon>ECollectionSummaryReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="External\Report\EDashboardReportForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="External\Report\EDashboardReportForm.Designer.cs">
+      <DependentUpon>EDashboardReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="External\Report\EGeneralJournalReportForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -800,14 +838,19 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Printouts\Aging of Payables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Balance Sheet Chart.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\Bill.rdlc" />
     <EmbeddedResource Include="External\Printouts\BIR Form 2307.rdlc" />
     <EmbeddedResource Include="External\Printouts\Check.rdlc" />
     <EmbeddedResource Include="External\Printouts\Collection Summary.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Dashboard.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Income Statement Chart.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Income Statement Detail Chart.rdlc" />
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Printout.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journals.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Sales and Collection Chart.rdlc" />
     <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
     <EmbeddedResource Include="External\Printouts\System Logs.rdlc" />
@@ -838,6 +881,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\ECollectionSummaryReportForm.resx">
       <DependentUpon>ECollectionSummaryReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="External\Report\EDashboardReportForm.resx">
+      <DependentUpon>EDashboardReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="External\Report\EGeneralJournalReportForm.resx">
       <DependentUpon>EGeneralJournalReportForm.cs</DependentUpon>
@@ -951,6 +997,17 @@
     <None Include="External\Datasources\EAgingOfReceivablesReportDS.xss">
       <DependentUpon>EAgingOfReceivablesReportDS.xsd</DependentUpon>
     </None>
+    <None Include="External\Datasources\EBalanceSheetChartReport.xsc">
+      <DependentUpon>EBalanceSheetChartReport.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EBalanceSheetChartReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EBalanceSheetChartReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EBalanceSheetChartReport.xss">
+      <DependentUpon>EBalanceSheetChartReport.xsd</DependentUpon>
+    </None>
     <None Include="External\Datasources\EBalanceSheetReportDS.xsc">
       <DependentUpon>EBalanceSheetReportDS.xsd</DependentUpon>
     </None>
@@ -1006,6 +1063,17 @@
     <None Include="External\Datasources\ECollectionSummaryReportDS.xss">
       <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
     </None>
+    <None Include="External\Datasources\EDashboardReportDS.xsc">
+      <DependentUpon>EDashboardReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EDashboardReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EDashboardReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EDashboardReportDS.xss">
+      <DependentUpon>EDashboardReportDS.xsd</DependentUpon>
+    </None>
     <None Include="External\Datasources\EGeneralLedgerReportDS.xsc">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
     </None>
@@ -1016,6 +1084,17 @@
     </None>
     <None Include="External\Datasources\EGeneralLedgerReportDS.xss">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EIncomeStatementChartReportDS.xsc">
+      <DependentUpon>EIncomeStatementChartReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EIncomeStatementChartReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EIncomeStatementChartReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EIncomeStatementChartReportDS.xss">
+      <DependentUpon>EIncomeStatementChartReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\EIncomeStatementReportDS.xsc">
       <DependentUpon>EIncomeStatementReportDS.xsd</DependentUpon>
@@ -1060,6 +1139,17 @@
     </None>
     <None Include="External\Datasources\EJournalPrintoutDS.xss">
       <DependentUpon>EJournalPrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ESalesAndCollectionChartReportDS.xsc">
+      <DependentUpon>ESalesAndCollectionChartReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\ESalesAndCollectionChartReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ESalesAndCollectionChartReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\ESalesAndCollectionChartReportDS.xss">
+      <DependentUpon>ESalesAndCollectionChartReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\ESalesInvoicePrintoutDS.xsc">
       <DependentUpon>ESalesInvoicePrintoutDS.xsd</DependentUpon>

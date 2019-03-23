@@ -1,7 +1,4 @@
-﻿namespace Jk_Accounting_Software.External.Datasources
-{
-}
-namespace Jk_Accounting_Software.External.Datasources {
+﻿namespace Jk_Accounting_Software.External.Datasources {
     
     
     public partial class ECheckPrintoutDS {
@@ -13,8 +10,6 @@ namespace Jk_Accounting_Software.External.Datasources {
 
 namespace Jk_Accounting_Software.External.Datasources.ECheckPrintoutDSTableAdapters
 {
-    
-    
     public partial class GetCheckDetailsTableAdapter {
     }
 }

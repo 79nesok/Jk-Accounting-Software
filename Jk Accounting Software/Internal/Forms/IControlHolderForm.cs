@@ -35,6 +35,12 @@ namespace Jk_Accounting_Software
                 CreateCategories();
                 SetProductName();
                 SetLoginDetails();
+
+                //Set dashboard
+                IParentForm  dashboard =IAppHandler.FindForm("EDashboardReportForm");
+                
+                dashboard.Parent = IAppHandler.ParentPanel;
+                dashboard.Run();
             }
 
             private void timerDuration_Tick(object sender, EventArgs e)

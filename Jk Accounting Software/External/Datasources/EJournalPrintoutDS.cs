@@ -16,7 +16,7 @@
     }
 }
 
-namespace Jk_Accounting_Software.External.DataSources.EJournalPrintoutDSTableAdapters {
+namespace Jk_Accounting_Software.External.Datasources.EJournalPrintoutDSTableAdapters {
     partial class tblCompaniesTableAdapter
     {
     }

@@ -1,6 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Report
 {
-    partial class EAgingOfPayablesReportForm
+    partial class EDashboardReportForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EAgingOfPayablesReportForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EDashboardReportForm));
             this.FormFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -51,13 +51,17 @@
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Maroon;
             this.btnClose.Location = new System.Drawing.Point(803, 0);
             // 
-            // EAgingOfPayablesReportForm
+            // EDashboardReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Name = "EAgingOfPayablesReportForm";
+            this.Caption = "Dashboard";
+            this.Name = "EDashboardReportForm";
             this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters"))));
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters1"))));
+            this.Parameters.Add(((JkComponents.JkFormParameter)(resources.GetObject("$this.Parameters2"))));
             this.Size = new System.Drawing.Size(836, 481);
+            this.SetupControl += new Jk_Accounting_Software.Internal.Forms.IParentForm.SetupControlHandler(this.EDashboardReportForm_SetupControl);
             this.FormFooter.ResumeLayout(false);
             this.FormFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VMasterDataTable)).EndInit();
