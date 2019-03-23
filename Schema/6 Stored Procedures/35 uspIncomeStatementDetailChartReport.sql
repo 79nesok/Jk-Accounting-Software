@@ -15,5 +15,6 @@ FROM tblGeneralLedger gl
 WHERE gl.CompanyId = @CompanyId
 	AND gl.[Date] BETWEEN @FromDate AND @ToDate
 GROUP BY a.Name, at.Name, a.AccountTypeId
+ORDER BY a.AccountTypeId
 GO
 

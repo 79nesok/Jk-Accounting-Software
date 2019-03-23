@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.ETrialBalanceReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -31,10 +32,11 @@ namespace Jk_Accounting_Software.External.Report
 
             ETrialBalanceReportDS tbDataSource = new ETrialBalanceReportDS();
             TrialBalanceTableAdapter tbAdapter = new TrialBalanceTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             tbAdapter.Fill(tbDataSource.TrialBalance, CompanyId, FromDate, ToDate, ShowZeroBalance);
-            CompanyAdapter.Fill(tbDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Trial Balance.rdlc";
@@ -45,7 +47,7 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.LocalReport.SetParameters(reportParam);
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("TrialBalance", tbDataSource.Tables["TrialBalance"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", tbDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

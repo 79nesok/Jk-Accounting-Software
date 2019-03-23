@@ -620,6 +620,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>6c22bbd1-068b-43c6-84a1-e10a893ac8cf</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ECompanyDS">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>d3a3bec8-3976-448b-b0fc-7d61ec2d3b7b</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="TrialBalance">
@@ -652,7 +659,7 @@
     </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>ETrialBalanceReportDS</DataSourceName>
+        <DataSourceName>ECompanyDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -678,8 +685,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>ETrialBalanceReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\ETrialBalanceReportDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>ECompanyDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ECompanyDS.xsd</rd:SchemaPath>
         <rd:TableName>tblCompanies</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

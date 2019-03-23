@@ -2,10 +2,6 @@
     
     
     public partial class EJournalPrintoutDS {
-        partial class tblCompaniesDataTable
-        {
-        }
-    
         partial class GetJournalDetailPrintoutDataTable
         {
         }
@@ -17,10 +13,6 @@
 }
 
 namespace Jk_Accounting_Software.External.Datasources.EJournalPrintoutDSTableAdapters {
-    partial class tblCompaniesTableAdapter
-    {
-    }
-
     partial class GetJournalDetailPrintoutTableAdapter
     {
     }

@@ -63,7 +63,6 @@
               <ValueAxisName>Primary</ValueAxisName>
               <CategoryAxisName>Primary</CategoryAxisName>
               <ChartSmartLabel>
-                <Disabled>true</Disabled>
                 <CalloutLineColor>Black</CalloutLineColor>
                 <MinMovingDistance>0pt</MinMovingDistance>
               </ChartSmartLabel>
@@ -246,7 +245,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Income Statement</Caption>
+            <Caption>Balance Sheet</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontFamily>Segoe UI</FontFamily>
@@ -256,7 +255,7 @@
             </Style>
           </ChartTitle>
         </ChartTitles>
-        <Palette>BrightPastel</Palette>
+        <Palette>Pastel</Palette>
         <ChartBorderSkin>
           <Style>
             <BackgroundColor>Gray</BackgroundColor>
@@ -272,8 +271,8 @@
             <VerticalAlign>Top</VerticalAlign>
           </Style>
         </ChartNoDataMessage>
-        <DataSetName>IncomeStatementDetailChartReport</DataSetName>
-        <Top>0.22365cm</Top>
+        <DataSetName>BalanceSheetDetailChartReport</DataSetName>
+        <Top>0.22364cm</Top>
         <Left>0.27cm</Left>
         <Height>5in</Height>
         <Width>7.5in</Width>
@@ -283,18 +282,22 @@
             <Width>2pt</Width>
           </Border>
           <TopBorder>
+            <Color>Black</Color>
             <Style>Solid</Style>
             <Width>2pt</Width>
           </TopBorder>
           <BottomBorder>
+            <Color>Black</Color>
             <Style>Solid</Style>
             <Width>2pt</Width>
           </BottomBorder>
           <LeftBorder>
+            <Color>Black</Color>
             <Style>Solid</Style>
             <Width>2pt</Width>
           </LeftBorder>
           <RightBorder>
+            <Color>Black</Color>
             <Style>Solid</Style>
             <Width>2pt</Width>
           </RightBorder>
@@ -309,7 +312,7 @@
   <Width>19.59cm</Width>
   <Page>
     <PageHeader>
-      <Height>2.19604cm</Height>
+      <Height>2.16958cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -332,7 +335,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.14173cm</Top>
+          <Top>0.10204cm</Top>
           <Left>4.68709cm</Left>
           <Height>0.40597cm</Height>
           <Width>10.21583cm</Width>
@@ -343,7 +346,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>1.23875cm</Top>
+          <Top>1.19906cm</Top>
           <Height>0cm</Height>
           <Width>19.59cm</Width>
           <ZIndex>1</ZIndex>
@@ -360,7 +363,7 @@
           <Value>=First(Fields!Logo.Value, "Company")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>0.12264cm</Top>
+          <Top>0.08295cm</Top>
           <Left>18cm</Left>
           <Height>1cm</Height>
           <Width>1cm</Width>
@@ -390,7 +393,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.5477cm</Top>
+          <Top>0.50801cm</Top>
           <Left>4.68709cm</Left>
           <Height>0.50896cm</Height>
           <Width>10.21583cm</Width>
@@ -408,7 +411,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="From the period of " &amp; Parameters!FromDate.Value &amp; " to " &amp; Parameters!ToDate.Value</Value>
+                  <Value>="As of " &amp; Parameters!AsOfDate.Value</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>9pt</FontSize>
@@ -421,7 +424,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.43488cm</Top>
+          <Top>1.39519cm</Top>
           <Left>4.99578cm</Left>
           <Height>0.61207cm</Height>
           <Width>9.59845cm</Width>
@@ -454,25 +457,25 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="EIncomeStatementChartReportDS">
+    <DataSource Name="EBalanceSheetChartReport">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>c289caa4-4fdd-4ce5-a243-4aff5c09f912</rd:DataSourceID>
+      <rd:DataSourceID>6029210e-c613-4ead-a579-5a770e8232fe</rd:DataSourceID>
     </DataSource>
     <DataSource Name="ECompanyDS">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>bd19158a-b309-4db6-85af-5d40f98a45c4</rd:DataSourceID>
+      <rd:DataSourceID>30baaabb-939c-4fc9-a254-ab3f9605dfd5</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="IncomeStatementDetailChartReport">
+    <DataSet Name="BalanceSheetDetailChartReport">
       <Query>
-        <DataSourceName>EIncomeStatementChartReportDS</DataSourceName>
+        <DataSourceName>EBalanceSheetChartReport</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -486,12 +489,12 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>EIncomeStatementChartReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EIncomeStatementChartReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>IncomeStatementDetailChartReport</rd:TableName>
+        <rd:DataSetName>EBalanceSheetChartReport</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EBalanceSheetChartReport.xsd</rd:SchemaPath>
+        <rd:TableName>BalanceSheetDetailChartReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>IncomeStatementDetailChartReportTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>BalanceSheetDetailChartReportTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="Company">
@@ -532,15 +535,11 @@
     </DataSet>
   </DataSets>
   <ReportParameters>
-    <ReportParameter Name="FromDate">
-      <DataType>String</DataType>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="ToDate">
+    <ReportParameter Name="AsOfDate">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>5231e376-f49d-46e2-b112-90296e21394e</rd:ReportID>
+  <rd:ReportID>8eaf1134-9121-4c09-8d0e-62af80a61b13</rd:ReportID>
 </Report>

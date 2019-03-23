@@ -9,6 +9,7 @@ using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.Internal.Classes;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EGeneralLedgerReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 using Jk_Accounting_Software.External.Datasources.EGeneralLedgerDetailsReportDSTableAdapters;
 
@@ -32,10 +33,11 @@ namespace Jk_Accounting_Software.External.Report
 
             EGeneralLedgerReportDS glDataSource = new EGeneralLedgerReportDS();
             tblGeneralLedgerTableAdapter GeneralLedgerAdapter = new tblGeneralLedgerTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             GeneralLedgerAdapter.Fill(glDataSource.tblGeneralLedger, CompanyId, FromDate, ToDate);
-            CompanyAdapter.Fill(glDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "General Ledger.rdlc";
@@ -46,7 +48,7 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.LocalReport.SetParameters(reportParam);
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GeneralLedger", glDataSource.Tables["tblGeneralLedger"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", glDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
 
@@ -63,7 +65,8 @@ namespace Jk_Accounting_Software.External.Report
 
             EGeneralLedgerDetailsReportDS jDataSource = new EGeneralLedgerDetailsReportDS();
             GeneralLedgerDetailsTableAdapter JournalAdapter = new GeneralLedgerDetailsTableAdapter();
-            tblCompaniesJournalTableAdapter CompanyAdapter = new tblCompaniesJournalTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             if ((e.Report as LocalReport).GetParameters()["ReportType"].Values[0] == "Per Date")
             {
@@ -73,7 +76,7 @@ namespace Jk_Accounting_Software.External.Report
 
             AccountId = int.Parse((e.Report as LocalReport).GetParameters()["AccountId"].Values[0]);
             JournalAdapter.Fill(jDataSource.GeneralLedgerDetails, CompanyId, FromDate, ToDate, AccountId);
-            CompanyAdapter.Fill(jDataSource.tblCompaniesJournal, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
             reportParam[1] = new ReportParameter("ToDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
@@ -81,7 +84,7 @@ namespace Jk_Accounting_Software.External.Report
             (e.Report as LocalReport).SetParameters(reportParam);
 
             (e.Report as LocalReport).DataSources.Add(new ReportDataSource("GeneralLedgerDetails", jDataSource.Tables["GeneralLedgerDetails"]));
-            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", jDataSource.Tables["tblCompaniesJournal"]));
+            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
         }
 
         private void reportViewer_Back(object sender, BackEventArgs e)

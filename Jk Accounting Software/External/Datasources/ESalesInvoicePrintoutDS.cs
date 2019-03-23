@@ -1,33 +1,25 @@
 ﻿namespace Jk_Accounting_Software.External.Datasources
 {
-    
-    
-    public partial class ESalesInvoicePrintoutDS {
-        partial class tblCompaniesDataTable
-        {
-        }
 
+    public partial class ESalesInvoicePrintoutDS
+    {
         partial class tblSalesInvoiceDetailsDataTable
         {
         }
-
+    
         partial class tblSalesInvoicesDataTable
         {
         }
     }
 }
 
-namespace Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTableAdapters
+namespace Jk_Accounting_Software.External.Datasources.ESalesInvoicePrintoutDSTableAdapters
 {
     partial class tblSalesInvoiceDetailsTableAdapter
     {
     }
-
-    partial class tblSalesInvoicesTableAdapter
-    {
-    }
-
-    partial class tblCompaniesTableAdapter
-    {
+    
+    
+    public partial class tblSalesInvoicesTableAdapter {
     }
 }

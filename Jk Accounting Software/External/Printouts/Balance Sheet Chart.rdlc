@@ -43,6 +43,15 @@
                     </Style>
                     <UseValueAsLabel>true</UseValueAsLabel>
                     <Visible>true</Visible>
+                    <ActionInfo>
+                      <Actions>
+                        <Action>
+                          <Drillthrough>
+                            <ReportName>Balance Sheet Detail Chart</ReportName>
+                          </Drillthrough>
+                        </Action>
+                      </Actions>
+                    </ActionInfo>
                   </ChartDataLabel>
                   <Style />
                   <ChartMarker>

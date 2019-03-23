@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xs:schema id="EDashboardReportDS" targetNamespace="http://tempuri.org/EDashboardReportDS.xsd" xmlns:mstns="http://tempuri.org/EDashboardReportDS.xsd" xmlns="http://tempuri.org/EDashboardReportDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+<xs:schema id="ECompanyDS" targetNamespace="http://tempuri.org/ECompanyDS.xsd" xmlns:mstns="http://tempuri.org/ECompanyDS.xsd" xmlns="http://tempuri.org/ECompanyDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
@@ -68,7 +68,7 @@ SELECT Id, Code, Name, Address, Logo FROM tblCompanies WHERE (Id = @Id)</Command
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="EDashboardReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="EDashboardReportDS" msprop:Generator_UserDSName="EDashboardReportDS">
+  <xs:element name="ECompanyDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ECompanyDS" msprop:Generator_UserDSName="ECompanyDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="tblCompanies" msprop:Generator_TableClassName="tblCompaniesDataTable" msprop:Generator_TableVarName="tabletblCompanies" msprop:Generator_TablePropName="tblCompanies" msprop:Generator_RowDeletingName="tblCompaniesRowDeleting" msprop:Generator_RowChangingName="tblCompaniesRowChanging" msprop:Generator_RowEvHandlerName="tblCompaniesRowChangeEventHandler" msprop:Generator_RowDeletedName="tblCompaniesRowDeleted" msprop:Generator_UserTableName="tblCompanies" msprop:Generator_RowChangedName="tblCompaniesRowChanged" msprop:Generator_RowEvArgName="tblCompaniesRowChangeEvent" msprop:Generator_RowClassName="tblCompaniesRow">

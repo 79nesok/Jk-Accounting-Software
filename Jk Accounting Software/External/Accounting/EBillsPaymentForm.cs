@@ -229,12 +229,14 @@ namespace Jk_Accounting_Software.External.Accounting
         private void EBillsPaymentForm_SetupControl()
         {
             dataGridView.AllowUserToAddRows = false;
-            btnPreview.Visible = (FormState == FormStates.fsView) && Print2307();
 
             foreach (ToolStripMenuItem item in btnPreview.DropDown.Items)
             {
                 if (item.Text == "Check")
                     item.Enabled = HasCheck();
+
+                if (item.Text == "BIR Form 2307")
+                    item.Enabled = Print2307();
             }
 
             ShowAmountToApply();

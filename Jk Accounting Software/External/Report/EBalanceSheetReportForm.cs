@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EBalanceSheetReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -31,12 +32,13 @@ namespace Jk_Accounting_Software.External.Report
             AssetTableAdapter assetAdapter = new AssetTableAdapter();
             LiabilityTableAdapter liabilityAdapter = new LiabilityTableAdapter();
             EquityTableAdapter equityAdapter = new EquityTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
             tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             assetAdapter.Fill(bsDataSource.Asset, CompanyId, Date, 1);
             liabilityAdapter.Fill(bsDataSource.Liability, CompanyId, Date, 2);
             equityAdapter.Fill(bsDataSource.Equity, CompanyId, Date, 3);
-            companyAdapter.Fill(bsDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Balance Sheet.rdlc";
@@ -48,7 +50,7 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Asset", bsDataSource.Tables["Asset"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Liability", bsDataSource.Tables["Liability"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Equity", bsDataSource.Tables["Equity"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", bsDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

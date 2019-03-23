@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EJournalPrintoutDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Jk_Accounting_Software.Internal.Classes;
 using Microsoft.Reporting.WinForms;
 
@@ -31,11 +32,12 @@ namespace Jk_Accounting_Software.External.Report
             EJournalPrintoutDS journalDataSource = new EJournalPrintoutDS();
             GetJournalPrintoutTableAdapter journalAdapter = new GetJournalPrintoutTableAdapter();
             GetJournalDetailPrintoutTableAdapter journalDetailsAdapter = new GetJournalDetailPrintoutTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             journalAdapter.Fill(journalDataSource.GetJournalPrintout, Id, this.PrintoutHeader);
             journalDetailsAdapter.Fill(journalDataSource.GetJournalDetailPrintout, Id, this.PrintoutHeader);
-            CompanyAdapter.Fill(journalDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Journal Printout.rdlc";
@@ -46,7 +48,7 @@ namespace Jk_Accounting_Software.External.Report
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GetJournalPrintout", journalDataSource.Tables["GetJournalPrintout"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("GetJournalDetailPrintout", journalDataSource.Tables["GetJournalDetailPrintout"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", journalDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
 

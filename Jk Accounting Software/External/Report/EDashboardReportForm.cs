@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
-using Jk_Accounting_Software.External.Datasources.EDashboardReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Jk_Accounting_Software.External.Datasources.EIncomeStatementChartReportDSTableAdapters;
 using Jk_Accounting_Software.External.Datasources.EBalanceSheetChartReportTableAdapters;
 using Jk_Accounting_Software.External.Datasources.ESalesAndCollectionChartReportDSTableAdapters;
@@ -33,10 +33,10 @@ namespace Jk_Accounting_Software.External.Report
             DateTime ToDate = DateTime.Parse(Parameters.Find(p => p.Name == "ToDate").Value);
             ReportParameter[] reportParam = new ReportParameter[2];
 
-            EDashboardReportDS dbDataSource = new EDashboardReportDS();
+            ECompanyDS companyDataSource = new ECompanyDS();
             tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
-            companyAdapter.Fill(dbDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Dashboard.rdlc";
@@ -48,29 +48,55 @@ namespace Jk_Accounting_Software.External.Report
 
             reportViewer.LocalReport.SetParameters(reportParam);
 
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", dbDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
 
         private void reportViewer_Drillthrough(object sender, DrillthroughEventArgs e)
         {
-            //Income Statement Detail
             int CompanyId = int.Parse(Parameters.Find(p => p.Name == "CompanyId").Value);
             DateTime FromDate = DateTime.Parse(Parameters.Find(p => p.Name == "FromDate").Value);
             DateTime ToDate = DateTime.Parse(Parameters.Find(p => p.Name == "ToDate").Value);
-            ReportParameter[] reportParam = new ReportParameter[2];
 
-            EIncomeStatementChartReportDS isDataSource = new EIncomeStatementChartReportDS();
-            IncomeStatementDetailChartReportTableAdapter isDetailAdapter = new IncomeStatementDetailChartReportTableAdapter();
+            if (e.ReportPath == "Income Statement Detail Chart")
+            {
+                ReportParameter[] reportParam = new ReportParameter[2];
 
-            isDetailAdapter.Fill(isDataSource.IncomeStatementDetailChartReport, CompanyId, FromDate, ToDate);
+                EIncomeStatementChartReportDS isDataSource = new EIncomeStatementChartReportDS();
+                IncomeStatementDetailChartReportTableAdapter isDetailAdapter = new IncomeStatementDetailChartReportTableAdapter();
+                ECompanyDS companyDataSource = new ECompanyDS();
+                tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
-            reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
-            reportParam[1] = new ReportParameter("ToDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
+                isDetailAdapter.Fill(isDataSource.IncomeStatementDetailChartReport, CompanyId, FromDate, ToDate);
+                companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
-            (e.Report as LocalReport).SetParameters(reportParam);
+                reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
+                reportParam[1] = new ReportParameter("ToDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
 
-            (e.Report as LocalReport).DataSources.Add(new ReportDataSource("IncomeStatementDetailChartReport", isDataSource.Tables["IncomeStatementDetailChartReport"]));
+                (e.Report as LocalReport).SetParameters(reportParam);
+
+                (e.Report as LocalReport).DataSources.Add(new ReportDataSource("IncomeStatementDetailChartReport", isDataSource.Tables["IncomeStatementDetailChartReport"]));
+                (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
+            }
+            else if (e.ReportPath == "Balance Sheet Detail Chart")
+            {
+                ReportParameter[] reportParam = new ReportParameter[1];
+
+                EBalanceSheetChartReport bsDataSource = new EBalanceSheetChartReport();
+                BalanceSheetDetailChartReportTableAdapter bsDetailAdapter = new BalanceSheetDetailChartReportTableAdapter();
+                ECompanyDS companyDataSource = new ECompanyDS();
+                tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
+
+                bsDetailAdapter.Fill(bsDataSource.BalanceSheetDetailChartReport, CompanyId, ToDate);
+                companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
+
+                reportParam[0] = new ReportParameter("AsOfDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
+
+                (e.Report as LocalReport).SetParameters(reportParam);
+
+                (e.Report as LocalReport).DataSources.Add(new ReportDataSource("BalanceSheetDetailChartReport", bsDataSource.Tables["BalanceSheetDetailChartReport"]));
+                (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
+            }
         }
 
         private void LocalReport_SubreportProcessing(object sender, SubreportProcessingEventArgs e)
@@ -108,7 +134,6 @@ namespace Jk_Accounting_Software.External.Report
         {
             btnFilter.Visible = false;
             btnRemoveFilter.Visible = false;
-            btnClose.Visible = false;
         }
     }
 }

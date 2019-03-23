@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EIncomeStatementReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -31,11 +32,12 @@ namespace Jk_Accounting_Software.External.Report
             EIncomeStatementReportDS isDataSource = new EIncomeStatementReportDS();
             IncomeTableAdapter incomeAdapter = new IncomeTableAdapter();
             ExpenseTableAdapter expenseAdapter = new ExpenseTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
             tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             incomeAdapter.Fill(isDataSource.Income, CompanyId, FromDate, ToDate, 4);
             expenseAdapter.Fill(isDataSource.Expense, CompanyId, FromDate, ToDate, 5);
-            companyAdapter.Fill(isDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Income Statement.rdlc";
@@ -47,7 +49,7 @@ namespace Jk_Accounting_Software.External.Report
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Income", isDataSource.Tables["Income"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Expense", isDataSource.Tables["Expense"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", isDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

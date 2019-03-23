@@ -3,19 +3,19 @@
   <AutoRefresh>0</AutoRefresh>
   <InitialPageName>te</InitialPageName>
   <DataSources>
-    <DataSource Name="GeneralLedgerDS">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>3d6f05fe-9dbc-4edd-bcde-ef4d342a1d37</rd:DataSourceID>
-    </DataSource>
     <DataSource Name="EGeneralLedgerReportDS">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>b3b05880-9aa4-48b5-88a4-fe722eda3faf</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="ECompanyDS">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>7f85429a-2294-4f1f-bbaa-276e7599dc45</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -61,7 +61,7 @@
     </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>EGeneralLedgerReportDS</DataSourceName>
+        <DataSourceName>ECompanyDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -87,8 +87,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>EGeneralLedgerReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EGeneralLedgerReportDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>ECompanyDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ECompanyDS.xsd</rd:SchemaPath>
         <rd:TableName>tblCompanies</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -318,7 +318,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>

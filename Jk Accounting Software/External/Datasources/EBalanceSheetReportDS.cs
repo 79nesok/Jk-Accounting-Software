@@ -3,10 +3,6 @@
     
     
     public partial class EBalanceSheetReportDS {
-        partial class tblCompaniesDataTable
-        {
-        }
-    
         partial class EquityDataTable
         {
         }
@@ -23,10 +19,6 @@
 
 namespace Jk_Accounting_Software.External.Datasources.EBalanceSheetReportDSTableAdapters
 {
-    partial class tblCompaniesTableAdapter
-    {
-    }
-
     partial class EquityTableAdapter
     {
     }
@@ -34,8 +26,7 @@ namespace Jk_Accounting_Software.External.Datasources.EBalanceSheetReportDSTable
     partial class LiabilityTableAdapter
     {
     }
-    
-    
+
     public partial class AssetTableAdapter {
     }
 }

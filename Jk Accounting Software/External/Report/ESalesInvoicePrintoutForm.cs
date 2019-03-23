@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
-using Jk_Accounting_Software.External.Datasources.ESalesInvoiceReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ESalesInvoicePrintoutDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 using Jk_Accounting_Software.Internal.Classes;
 
@@ -32,18 +33,19 @@ namespace Jk_Accounting_Software.External.Report
             ESalesInvoicePrintoutDS siDataSource = new ESalesInvoicePrintoutDS();
             tblSalesInvoicesTableAdapter SIAdapter = new tblSalesInvoicesTableAdapter();
             tblSalesInvoiceDetailsTableAdapter SIDetailsAdapter = new tblSalesInvoiceDetailsTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             SIAdapter.Fill(siDataSource.tblSalesInvoices, Id);
             SIDetailsAdapter.Fill(siDataSource.tblSalesInvoiceDetails, Id);
-            CompanyAdapter.Fill(siDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Sales Invoice.rdlc";
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("SalesInvoice", siDataSource.Tables["tblSalesInvoices"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("SalesInvoiceDetails", siDataSource.Tables["tblSalesInvoiceDetails"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", siDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

@@ -1577,6 +1577,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>d9c17355-8b93-459e-a018-9ee126a70f01</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ECompanyDS">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>91de5b97-a30f-4d5b-a4b4-227be5a7d659</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="Bills">
@@ -1709,7 +1716,7 @@
     </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>EBillPrintoutDS</DataSourceName>
+        <DataSourceName>ECompanyDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1735,8 +1742,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>EBillPrintoutDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EBillPrintoutDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>ECompanyDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ECompanyDS.xsd</rd:SchemaPath>
         <rd:TableName>tblCompanies</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

@@ -6,10 +6,6 @@
         {
         }
     
-        partial class tblCompaniesDataTable
-        {
-        }
-    
         partial class tblBillsDataTable
         {
         }
@@ -20,11 +16,6 @@ namespace Jk_Accounting_Software.External.Datasources.EBillPrintoutDSTableAdapte
     partial class tblBillDetailsTableAdapter
     {
     }
-
-    partial class tblCompaniesTableAdapter
-    {
-    }
-    
     
     public partial class tblBillsTableAdapter {
     }

@@ -3,16 +3,14 @@
     
     
     public partial class EGeneralLedgerReportDS {
+        partial class tblGeneralLedgerDataTable
+        {
+        }
     }
 }
 
 namespace Jk_Accounting_Software.External.Datasources.EGeneralLedgerReportDSTableAdapters
-{
-    partial class tblCompaniesTableAdapter
-    {
-    }
-    
-    
+{   
     public partial class tblGeneralLedgerTableAdapter {
     }
 }

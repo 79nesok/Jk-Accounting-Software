@@ -1055,6 +1055,13 @@
       </ConnectionProperties>
       <rd:DataSourceID>fe95787c-c590-4f86-8b37-c9a8e58fad2a</rd:DataSourceID>
     </DataSource>
+    <DataSource Name="ECompanyDS">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>b27235c8-98d0-4303-90de-6ae931e7fb0a</rd:DataSourceID>
+    </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="Asset">
@@ -1131,7 +1138,7 @@
     </DataSet>
     <DataSet Name="Company">
       <Query>
-        <DataSourceName>EBalanceSheetReportDS</DataSourceName>
+        <DataSourceName>ECompanyDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1157,8 +1164,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>EBalanceSheetReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Free-Accounting-Software\Free Accounting Software\External\Datasources\EBalanceSheetReportDS.xsd</rd:SchemaPath>
+        <rd:DataSetName>ECompanyDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ECompanyDS.xsd</rd:SchemaPath>
         <rd:TableName>tblCompanies</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

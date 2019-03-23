@@ -1,12 +1,6 @@
 ﻿namespace Jk_Accounting_Software.External.Datasources
-{
-    
-    
-    public partial class ETrialBalanceReportDS {
-        partial class tblCompaniesDataTable
-        {
-        }
-    
+{  
+    public partial class ETrialBalanceReportDS {    
         partial class TrialBalanceDataTable
         {
         }
@@ -14,12 +8,7 @@
 }
 
 namespace Jk_Accounting_Software.External.Datasources.ETrialBalanceReportDSTableAdapters
-{
-    partial class tblCompaniesTableAdapter
-    {
-    }
-    
-    
+{    
     public partial class TrialBalanceTableAdapter {
     }
 }

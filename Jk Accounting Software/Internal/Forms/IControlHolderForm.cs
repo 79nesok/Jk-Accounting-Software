@@ -37,10 +37,7 @@ namespace Jk_Accounting_Software
                 SetLoginDetails();
 
                 //Set dashboard
-                IParentForm  dashboard =IAppHandler.FindForm("EDashboardReportForm");
-                
-                dashboard.Parent = IAppHandler.ParentPanel;
-                dashboard.Run();
+                OpenDashboard();
             }
 
             private void timerDuration_Tick(object sender, EventArgs e)
@@ -109,6 +106,11 @@ namespace Jk_Accounting_Software
             private void MenuItemHelp_Click(object sender, EventArgs e)
             {
                 IMessageHandler.Inform("Show Help Form");
+            }
+
+            private void MenuItemDashboard_Click(object sender, EventArgs e)
+            {
+                OpenDashboard();
             }
 
             private void MenuItemAbout_Click(object sender, EventArgs e)
@@ -352,6 +354,31 @@ namespace Jk_Accounting_Software
                 lblUserValue.Text = ISecurityHandler.SecurityUserName;
                 lblTimeValue.Text = IAppHandler.ConvertMaskValue("@Date").ToString();
                 timerDuration.Start();
+            }
+
+            private void OpenDashboard()
+            {
+                try
+                {
+                    IAppHandler.StartBusy("Opening dashboard");
+
+                    if (IAppHandler.FindActiveForm() != null)
+                    {
+                        if (IAppHandler.FindActiveForm().Name == "EDashboardReportForm")
+                            return;
+
+                        IAppHandler.AddUsedForm(IAppHandler.FindActiveForm());
+                        IAppHandler.FindActiveForm().Hide();
+                    }
+
+                    IParentForm dashboard = IAppHandler.FindForm("EDashboardReportForm");
+                    dashboard.Parent = IAppHandler.ParentPanel;
+                    dashboard.Run();
+                }
+                finally
+                {
+                    IAppHandler.EndBusy("Opening dashboard");
+                }
             }
         #endregion
     }

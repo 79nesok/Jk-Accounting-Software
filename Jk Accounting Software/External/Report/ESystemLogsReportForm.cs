@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.ESystemLogsReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 using System.Data.SqlClient;
 using JkComponents;
@@ -35,10 +36,11 @@ namespace Jk_Accounting_Software.External.Report
 
             ESystemLogsReportDS logDataSource = new ESystemLogsReportDS();
             GetSystemLogReportTableAdapter logAdapter = new GetSystemLogReportTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             logAdapter.Fill(logDataSource.GetSystemLogReport, CompanyId, FromDate, ToDate, SubCategory);
-            CompanyAdapter.Fill(logDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "System Logs.rdlc";
@@ -51,7 +53,7 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.LocalReport.SetParameters(reportParam);
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("SystemLogs", logDataSource.Tables["GetSystemLogReport"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", logDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EBillPrintoutDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -31,18 +32,19 @@ namespace Jk_Accounting_Software.External.Report
             EBillPrintoutDS billDataSource = new EBillPrintoutDS();
             tblBillsTableAdapter bAdapter = new tblBillsTableAdapter();
             tblBillDetailsTableAdapter bDetailsAdapter = new tblBillDetailsTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             bAdapter.Fill(billDataSource.tblBills, Id);
             bDetailsAdapter.Fill(billDataSource.tblBillDetails, Id);
-            CompanyAdapter.Fill(billDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Bill.rdlc";
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Bills", billDataSource.Tables["tblBills"]));
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("BillDetails", billDataSource.Tables["tblBillDetails"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", billDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

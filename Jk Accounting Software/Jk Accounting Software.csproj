@@ -220,10 +220,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="External\Datasources\EDashboardReportDS.Designer.cs">
+    <Compile Include="External\Datasources\ECompanyDS.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EDashboardReportDS.xsd</DependentUpon>
+      <DependentUpon>ECompanyDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="External\Datasources\EIncomeStatementChartReportDS.cs">
       <DependentUpon>EIncomeStatementChartReportDS.xsd</DependentUpon>
@@ -839,6 +839,7 @@
     <EmbeddedResource Include="External\Printouts\Aging of Payables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Aging of Receivables.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet Chart.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Balance Sheet Detail Chart.rdlc" />
     <EmbeddedResource Include="External\Printouts\Balance Sheet.rdlc" />
     <EmbeddedResource Include="External\Printouts\Bill.rdlc" />
     <EmbeddedResource Include="External\Printouts\BIR Form 2307.rdlc" />
@@ -1063,16 +1064,16 @@
     <None Include="External\Datasources\ECollectionSummaryReportDS.xss">
       <DependentUpon>ECollectionSummaryReportDS.xsd</DependentUpon>
     </None>
-    <None Include="External\Datasources\EDashboardReportDS.xsc">
-      <DependentUpon>EDashboardReportDS.xsd</DependentUpon>
+    <None Include="External\Datasources\ECompanyDS.xsc">
+      <DependentUpon>ECompanyDS.xsd</DependentUpon>
     </None>
-    <None Include="External\Datasources\EDashboardReportDS.xsd">
+    <None Include="External\Datasources\ECompanyDS.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EDashboardReportDS.Designer.cs</LastGenOutput>
+      <LastGenOutput>ECompanyDS.Designer.cs</LastGenOutput>
     </None>
-    <None Include="External\Datasources\EDashboardReportDS.xss">
-      <DependentUpon>EDashboardReportDS.xsd</DependentUpon>
+    <None Include="External\Datasources\ECompanyDS.xss">
+      <DependentUpon>ECompanyDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\EGeneralLedgerReportDS.xsc">
       <DependentUpon>EGeneralLedgerReportDS.xsd</DependentUpon>

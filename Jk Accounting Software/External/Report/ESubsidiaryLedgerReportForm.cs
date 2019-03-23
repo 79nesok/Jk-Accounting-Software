@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.ESubsidiaryLedgerReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -30,10 +31,11 @@ namespace Jk_Accounting_Software.External.Report
 
             ESubsidiaryLedgerReportDS slDataSource = new ESubsidiaryLedgerReportDS();
             tblSubsidiaryLedgerTableAdapter SubsidiaryLedgerAdapter = new tblSubsidiaryLedgerTableAdapter();
-            tblCompaniesTableAdapter CompanyAdapter = new tblCompaniesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
+            tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             SubsidiaryLedgerAdapter.Fill(slDataSource.tblSubsidiaryLedger, CompanyId, FromDate, ToDate);
-            CompanyAdapter.Fill(slDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Subsidiary Ledger.rdlc";
@@ -44,7 +46,7 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.LocalReport.SetParameters(reportParam);
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("SubsidiaryLedger", slDataSource.Tables["tblSubsidiaryLedger"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", slDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

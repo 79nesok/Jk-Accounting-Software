@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Jk_Accounting_Software.Internal.Forms;
 using Jk_Accounting_Software.External.Datasources;
 using Jk_Accounting_Software.External.Datasources.EAgingOfPayablesReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -30,10 +31,11 @@ namespace Jk_Accounting_Software.External.Report
 
             EAgingOfPayablesReportDS agingDataSource = new EAgingOfPayablesReportDS();
             AgingOfPayablesTableAdapter agingAdapter = new AgingOfPayablesTableAdapter();
+            ECompanyDS companyDataSource = new ECompanyDS();
             tblCompaniesTableAdapter companyAdapter = new tblCompaniesTableAdapter();
 
             agingAdapter.Fill(agingDataSource.AgingOfPayables, CompanyId);
-            companyAdapter.Fill(agingDataSource.tblCompanies, CompanyId);
+            companyAdapter.Fill(companyDataSource.tblCompanies, CompanyId);
 
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Aging of Payables.rdlc";
@@ -43,7 +45,7 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.LocalReport.SetParameters(reportParam);
 
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource("AgingOfPayables", agingDataSource.Tables["AgingOfPayables"]));
-            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", agingDataSource.Tables["tblCompanies"]));
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
             reportViewer.RefreshReport();
         }
     }

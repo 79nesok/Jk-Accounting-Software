@@ -55,6 +55,7 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MenuItemDashboard = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerBase)).BeginInit();
             this.splitContainerBase.Panel1.SuspendLayout();
@@ -82,8 +83,9 @@
             this.menuStripMain.Font = new System.Drawing.Font("Tahoma", 9F);
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuItemActions,
-            this.MenuItemHelp,
-            this.MenuItemAbout});
+            this.MenuItemDashboard,
+            this.MenuItemAbout,
+            this.MenuItemHelp});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1008, 24);
@@ -363,6 +365,13 @@
             this.statusLabel.Size = new System.Drawing.Size(75, 17);
             this.statusLabel.Text = "Login Successful...";
             // 
+            // MenuItemDashboard
+            // 
+            this.MenuItemDashboard.Name = "MenuItemDashboard";
+            this.MenuItemDashboard.Size = new System.Drawing.Size(89, 20);
+            this.MenuItemDashboard.Text = "&DASHBOARD";
+            this.MenuItemDashboard.Click += new System.EventHandler(this.MenuItemDashboard_Click);
+            // 
             // IControlHolderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,6 +434,7 @@
         private System.Windows.Forms.Label lblUserValue;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Label lblUser;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemDashboard;
 
     }
 }
