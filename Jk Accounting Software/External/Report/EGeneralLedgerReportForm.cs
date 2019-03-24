@@ -54,8 +54,6 @@ namespace Jk_Accounting_Software.External.Report
 
         private void reportViewer_Drillthrough(object sender, DrillthroughEventArgs e)
         {
-            toolStripReportParam.Visible = false;
-
             int CompanyId = int.Parse(Parameters.Find(p => p.Name == "CompanyId").Value);
             int AccountId = 0;
             DateTime FromDate = DateTime.Parse(Parameters.Find(p => p.Name == "FromDate").Value);
@@ -85,11 +83,6 @@ namespace Jk_Accounting_Software.External.Report
 
             (e.Report as LocalReport).DataSources.Add(new ReportDataSource("GeneralLedgerDetails", jDataSource.Tables["GeneralLedgerDetails"]));
             (e.Report as LocalReport).DataSources.Add(new ReportDataSource("Company", companyDataSource.Tables["tblCompanies"]));
-        }
-
-        private void reportViewer_Back(object sender, BackEventArgs e)
-        {
-            toolStripReportParam.Visible = true;
         }
     }
 }

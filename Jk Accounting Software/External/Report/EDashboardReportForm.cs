@@ -13,6 +13,7 @@ using Jk_Accounting_Software.External.Datasources.ECompanyDSTableAdapters;
 using Jk_Accounting_Software.External.Datasources.EIncomeStatementChartReportDSTableAdapters;
 using Jk_Accounting_Software.External.Datasources.EBalanceSheetChartReportTableAdapters;
 using Jk_Accounting_Software.External.Datasources.ESalesAndCollectionChartReportDSTableAdapters;
+using Jk_Accounting_Software.External.Datasources.EPayablesAndPaymentChartReportDSTableAdapters;
 using Microsoft.Reporting.WinForms;
 
 namespace Jk_Accounting_Software.External.Report
@@ -41,7 +42,6 @@ namespace Jk_Accounting_Software.External.Report
             reportViewer.Reset();
             reportViewer.LocalReport.ReportPath = Properties.Settings.Default.ReportPath + "Dashboard.rdlc";
             reportViewer.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
-            reportViewer.Drillthrough += reportViewer_Drillthrough;
 
             reportParam[0] = new ReportParameter("FromDate", FromDate.ToString("MM'/'dd'/'yyyy"), false);
             reportParam[1] = new ReportParameter("ToDate", ToDate.ToString("MM'/'dd'/'yyyy"), false);
@@ -128,6 +128,14 @@ namespace Jk_Accounting_Software.External.Report
             scAdapter.Fill(scDataSource.SalesAndCollectionChartReport, CompanyId, FromDate, ToDate);
 
             e.DataSources.Add(new ReportDataSource("SalesAndCollectionChartReport", scDataSource.Tables["SalesAndCollectionChartReport"]));
+
+            //Payables and Payment
+            EPayablesAndPaymentChartReportDS ppDataSource = new EPayablesAndPaymentChartReportDS();
+            PayablesAndPaymentChartReportTableAdapter ppAdapter = new PayablesAndPaymentChartReportTableAdapter();
+
+            ppAdapter.Fill(ppDataSource.PayablesAndPaymentChartReport, CompanyId, FromDate, ToDate);
+
+            e.DataSources.Add(new ReportDataSource("PayablesAndPaymentChartReport", ppDataSource.Tables["PayablesAndPaymentChartReport"]));
         }
 
         private void EDashboardReportForm_SetupControl()

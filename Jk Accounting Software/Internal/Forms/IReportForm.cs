@@ -22,7 +22,7 @@ namespace Jk_Accounting_Software.Internal.Forms
         #endregion
 
         #region Built-in Events
-        public IReportForm()
+            public IReportForm()
             {
                 InitializeComponent();
                 btnFilter.Click += btnFilter_Click;
@@ -111,6 +111,16 @@ namespace Jk_Accounting_Software.Internal.Forms
                 {
                     IAppHandler.EndBusy("Reloading report");
                 }
+            }
+
+            private void reportViewer_Drillthrough(object sender, DrillthroughEventArgs e)
+            {
+                toolStripReportParam.Visible = false;
+            }
+
+            private void reportViewer_Back(object sender, BackEventArgs e)
+            {
+                toolStripReportParam.Visible = true;
             }
         #endregion
 

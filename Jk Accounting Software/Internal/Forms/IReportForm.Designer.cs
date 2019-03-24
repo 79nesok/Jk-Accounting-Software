@@ -100,6 +100,8 @@
             this.reportViewer.TabIndex = 2;
             this.reportViewer.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer.ReportRefresh += new System.ComponentModel.CancelEventHandler(this.reportViewer_ReportRefresh);
+            this.reportViewer.Back += new Microsoft.Reporting.WinForms.BackEventHandler(this.reportViewer_Back);
+            this.reportViewer.Drillthrough += new Microsoft.Reporting.WinForms.DrillthroughEventHandler(this.reportViewer_Drillthrough);
             // 
             // IReportForm
             // 

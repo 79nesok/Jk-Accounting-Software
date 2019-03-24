@@ -38,6 +38,7 @@
             // reportViewer
             // 
             this.reportViewer.Size = new System.Drawing.Size(836, 359);
+            this.reportViewer.Drillthrough += new Microsoft.Reporting.WinForms.DrillthroughEventHandler(this.reportViewer_Drillthrough);
             // 
             // splitContainer
             // 

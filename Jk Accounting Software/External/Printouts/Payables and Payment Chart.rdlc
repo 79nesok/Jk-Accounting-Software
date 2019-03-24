@@ -2,11 +2,11 @@
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <Body>
     <ReportItems>
-      <Chart Name="Chart2">
+      <Chart Name="Chart1">
         <ChartCategoryHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Group Name="Chart2_CategoryGroup">
+              <Group Name="Chart1_CategoryGroup">
                 <GroupExpressions>
                   <GroupExpression>=Fields!Month.Value</GroupExpression>
                 </GroupExpressions>
@@ -18,20 +18,20 @@
         <ChartSeriesHierarchy>
           <ChartMembers>
             <ChartMember>
-              <Label>Sales</Label>
+              <Label>Payables</Label>
             </ChartMember>
             <ChartMember>
-              <Label>Collection</Label>
+              <Label>Payment</Label>
             </ChartMember>
           </ChartMembers>
         </ChartSeriesHierarchy>
         <ChartData>
           <ChartSeriesCollection>
-            <ChartSeries Name="Sales">
+            <ChartSeries Name="Payables">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Sum(Fields!Sales.Value)</Y>
+                    <Y>=Sum(Fields!Payables.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -60,11 +60,11 @@
                 <MinMovingDistance>0pt</MinMovingDistance>
               </ChartSmartLabel>
             </ChartSeries>
-            <ChartSeries Name="Collection">
+            <ChartSeries Name="Payment">
               <ChartDataPoints>
                 <ChartDataPoint>
                   <ChartDataPointValues>
-                    <Y>=Sum(Fields!Collection.Value)</Y>
+                    <Y>=Sum(Fields!Payment.Value)</Y>
                   </ChartDataPointValues>
                   <ChartDataLabel>
                     <Style />
@@ -261,6 +261,7 @@
           <ChartLegend Name="Default">
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
+              <FontFamily>Segoe UI</FontFamily>
               <FontSize>8pt</FontSize>
             </Style>
             <ChartLegendTitle>
@@ -277,7 +278,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Sales and Collection</Caption>
+            <Caption>Payables and Payment</Caption>
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontFamily>Segoe UI</FontFamily>
@@ -287,6 +288,7 @@
             </Style>
           </ChartTitle>
         </ChartTitles>
+        <Palette>BrightPastel</Palette>
         <ChartBorderSkin>
           <Style>
             <BackgroundColor>Gray</BackgroundColor>
@@ -302,12 +304,13 @@
             <VerticalAlign>Top</VerticalAlign>
           </Style>
         </ChartNoDataMessage>
-        <DataSetName>SalesAndCollectionChartReport</DataSetName>
+        <DataSetName>PayablesAndPaymentChartReport</DataSetName>
         <Height>6in</Height>
         <Width>8in</Width>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Color>LightGrey</Color>
+            <Style>Solid</Style>
           </Border>
           <BackgroundColor>White</BackgroundColor>
           <BackgroundGradientType>None</BackgroundGradientType>
@@ -326,18 +329,18 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ESalesAndCollectionChartReportDS">
+    <DataSource Name="EPayablesAndPaymentChartReportDS">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>f3ad28e4-c151-4543-9028-4997e253df8d</rd:DataSourceID>
+      <rd:DataSourceID>7f82843f-d63e-45c3-9cb4-75c6119ecc0d</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="SalesAndCollectionChartReport">
+    <DataSet Name="PayablesAndPaymentChartReport">
       <Query>
-        <DataSourceName>ESalesAndCollectionChartReportDS</DataSourceName>
+        <DataSourceName>EPayablesAndPaymentChartReportDS</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -345,25 +348,25 @@
           <DataField>Month</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Sales">
-          <DataField>Sales</DataField>
+        <Field Name="Payables">
+          <DataField>Payables</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
-        <Field Name="Collection">
-          <DataField>Collection</DataField>
+        <Field Name="Payment">
+          <DataField>Payment</DataField>
           <rd:TypeName>System.Decimal</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>ESalesAndCollectionChartReportDS</rd:DataSetName>
-        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\ESalesAndCollectionChartReportDS.xsd</rd:SchemaPath>
-        <rd:TableName>SalesAndCollectionChartReport</rd:TableName>
+        <rd:DataSetName>EPayablesAndPaymentChartReportDS</rd:DataSetName>
+        <rd:SchemaPath>E:\Projects\C#\Jk-Accounting-Software\Jk Accounting Software\External\Datasources\EPayablesAndPaymentChartReportDS.xsd</rd:SchemaPath>
+        <rd:TableName>PayablesAndPaymentChartReport</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>SalesAndCollectionChartReportTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>PayablesAndPaymentChartReportTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>6d6100c1-7c9f-42d1-80b8-1251bd9414de</rd:ReportID>
+  <rd:ReportID>7207d2e8-a915-4442-9d55-93f9908438e1</rd:ReportID>
 </Report>

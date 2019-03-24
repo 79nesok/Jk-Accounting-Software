@@ -243,6 +243,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EJournalsReportDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="External\Datasources\EPayablesAndPaymentChartReportDS.cs">
+      <DependentUpon>EPayablesAndPaymentChartReportDS.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="External\Datasources\EPayablesAndPaymentChartReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EPayablesAndPaymentChartReportDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="External\Datasources\ESalesAndCollectionChartReportDS.cs">
       <DependentUpon>ESalesAndCollectionChartReportDS.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -851,6 +860,7 @@
     <EmbeddedResource Include="External\Printouts\Income Statement.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journal Printout.rdlc" />
     <EmbeddedResource Include="External\Printouts\Journals.rdlc" />
+    <EmbeddedResource Include="External\Printouts\Payables and Payment Chart.rdlc" />
     <EmbeddedResource Include="External\Printouts\Sales and Collection Chart.rdlc" />
     <EmbeddedResource Include="External\Printouts\Sales Invoice.rdlc" />
     <EmbeddedResource Include="External\Printouts\Subsidiary Ledger.rdlc" />
@@ -1140,6 +1150,17 @@
     </None>
     <None Include="External\Datasources\EJournalPrintoutDS.xss">
       <DependentUpon>EJournalPrintoutDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EPayablesAndPaymentChartReportDS.xsc">
+      <DependentUpon>EPayablesAndPaymentChartReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="External\Datasources\EPayablesAndPaymentChartReportDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EPayablesAndPaymentChartReportDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="External\Datasources\EPayablesAndPaymentChartReportDS.xss">
+      <DependentUpon>EPayablesAndPaymentChartReportDS.xsd</DependentUpon>
     </None>
     <None Include="External\Datasources\ESalesAndCollectionChartReportDS.xsc">
       <DependentUpon>ESalesAndCollectionChartReportDS.xsd</DependentUpon>

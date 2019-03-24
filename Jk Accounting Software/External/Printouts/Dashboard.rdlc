@@ -4,7 +4,7 @@
     <ReportItems>
       <Subreport Name="IncomeStatement">
         <ReportName>Income Statement Chart</ReportName>
-        <Top>0.08725cm</Top>
+        <Top>4.01108cm</Top>
         <Left>2cm</Left>
         <Height>3in</Height>
         <Width>3.5in</Width>
@@ -17,7 +17,7 @@
       </Subreport>
       <Subreport Name="BalanceSheet">
         <ReportName>Balance Sheet Chart</ReportName>
-        <Top>0.08725cm</Top>
+        <Top>4.01108cm</Top>
         <Left>12.8625cm</Left>
         <Height>3in</Height>
         <Width>3.5in</Width>
@@ -43,10 +43,10 @@
       </Subreport>
       <Subreport Name="SalesAndCollection">
         <ReportName>Sales and Collection Chart</ReportName>
-        <Top>7.87083cm</Top>
-        <Left>5.33375cm</Left>
-        <Height>3.5in</Height>
-        <Width>5.5in</Width>
+        <Top>12.63075cm</Top>
+        <Left>2.81cm</Left>
+        <Height>6in</Height>
+        <Width>8in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -67,14 +67,72 @@
           </RightBorder>
         </Style>
       </Subreport>
+      <Subreport Name="PayablesAndPayment">
+        <ReportName>Payables and Payment Chart</ReportName>
+        <Top>29.08431cm</Top>
+        <Left>2.81cm</Left>
+        <Height>6in</Height>
+        <Width>8in</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+            <Width>2pt</Width>
+          </Border>
+          <TopBorder>
+            <Style>Solid</Style>
+          </TopBorder>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <LeftBorder>
+            <Style>Solid</Style>
+          </LeftBorder>
+          <RightBorder>
+            <Style>Solid</Style>
+          </RightBorder>
+        </Style>
+      </Subreport>
+      <Rectangle Name="Rectangle1">
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>12.04596cm</Top>
+        <Left>2.05528cm</Left>
+        <Height>0.40979cm</Height>
+        <Width>19.50672cm</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
+      <Rectangle Name="Rectangle2">
+        <PageBreak>
+          <BreakLocation>End</BreakLocation>
+        </PageBreak>
+        <KeepTogether>true</KeepTogether>
+        <Top>28.49865cm</Top>
+        <Left>3.21664cm</Left>
+        <Height>0.40979cm</Height>
+        <Width>19.50672cm</Width>
+        <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Rectangle>
     </ReportItems>
-    <Height>6.72917in</Height>
+    <Height>44.60125cm</Height>
     <Style />
   </Body>
   <Width>25.94cm</Width>
   <Page>
     <PageHeader>
-      <Height>2.06374cm</Height>
+      <Height>2.01082cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -97,7 +155,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.09146cm</Top>
+          <Top>0.04062cm</Top>
           <Left>7.86209cm</Left>
           <Height>0.40597cm</Height>
           <Width>10.21583cm</Width>
@@ -108,7 +166,7 @@
           </Style>
         </Textbox>
         <Line Name="Line1">
-          <Top>1.18848cm</Top>
+          <Top>1.15673cm</Top>
           <Height>0cm</Height>
           <Width>25.94cm</Width>
           <ZIndex>1</ZIndex>
@@ -125,7 +183,7 @@
           <Value>=First(Fields!Logo.Value, "Company")</Value>
           <MIMEType>image/jpeg</MIMEType>
           <Sizing>FitProportional</Sizing>
-          <Top>0.07237cm</Top>
+          <Top>0.04062cm</Top>
           <Left>24cm</Left>
           <Height>1cm</Height>
           <Width>1cm</Width>
@@ -155,7 +213,7 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <Top>0.49743cm</Top>
+          <Top>0.46568cm</Top>
           <Left>7.86209cm</Left>
           <Height>0.50896cm</Height>
           <Width>10.21583cm</Width>
@@ -186,7 +244,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.35286cm</Top>
+          <Top>1.32111cm</Top>
           <Left>8.17078cm</Left>
           <Height>0.61207cm</Height>
           <Width>9.59845cm</Width>
