@@ -4,10 +4,18 @@
     <ReportItems>
       <Subreport Name="IncomeStatement">
         <ReportName>Income Statement Chart</ReportName>
-        <Top>4.01108cm</Top>
+        <Parameters>
+          <Parameter Name="FromDate">
+            <Value>=Parameters!FromDate.Value</Value>
+          </Parameter>
+          <Parameter Name="ToDate">
+            <Value>=Parameters!ToDate.Value</Value>
+          </Parameter>
+        </Parameters>
+        <Top>1.40758cm</Top>
         <Left>2cm</Left>
-        <Height>3in</Height>
-        <Width>3.5in</Width>
+        <Height>4in</Height>
+        <Width>4in</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -17,28 +25,21 @@
       </Subreport>
       <Subreport Name="BalanceSheet">
         <ReportName>Balance Sheet Chart</ReportName>
-        <Top>4.01108cm</Top>
+        <Parameters>
+          <Parameter Name="AsOfDate">
+            <Value>=Parameters!ToDate.Value</Value>
+          </Parameter>
+        </Parameters>
+        <Top>1.40758cm</Top>
         <Left>12.8625cm</Left>
-        <Height>3in</Height>
-        <Width>3.5in</Width>
+        <Height>4in</Height>
+        <Width>4in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
             <Width>2pt</Width>
           </Border>
-          <TopBorder>
-            <Style>Solid</Style>
-          </TopBorder>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <LeftBorder>
-            <Style>Solid</Style>
-          </LeftBorder>
-          <RightBorder>
-            <Style>Solid</Style>
-          </RightBorder>
         </Style>
       </Subreport>
       <Subreport Name="SalesAndCollection">
@@ -132,7 +133,7 @@
   <Width>25.94cm</Width>
   <Page>
     <PageHeader>
-      <Height>2.01082cm</Height>
+      <Height>1.34936cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -222,41 +223,6 @@
             <Border>
               <Style>None</Style>
             </Border>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox3">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>="From the period of " &amp; Parameters!FromDate.Value &amp; " to " &amp; Parameters!ToDate.Value</Value>
-                  <Style>
-                    <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>9pt</FontSize>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style>
-                <TextAlign>Center</TextAlign>
-              </Style>
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.32111cm</Top>
-          <Left>8.17078cm</Left>
-          <Height>0.61207cm</Height>
-          <Width>9.59845cm</Width>
-          <ZIndex>4</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
       </ReportItems>

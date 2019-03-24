@@ -6,7 +6,7 @@ CREATE PROCEDURE uspIncomeStatementDetailChartReport(@CompanyId INT, @FromDate D
 AS
 SET NOCOUNT ON
 
-SELECT a.Name + ' - ' + at.Name AS Account,
+SELECT at.Name + ':   ' + a.Name AS Account,
 	CASE WHEN a.AccountTypeId = 4 THEN SUM(gl.Credit - gl.Debit) ELSE SUM(gl.Debit - gl.Credit) END AS Balance
 FROM tblGeneralLedger gl
 	INNER JOIN tblAccounts a ON a.Id = gl.AccountId

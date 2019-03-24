@@ -259,7 +259,7 @@
         </ChartLegends>
         <ChartTitles>
           <ChartTitle Name="Default">
-            <Caption>Balance Sheet</Caption>
+            <Caption />
             <Style>
               <BackgroundGradientType>None</BackgroundGradientType>
               <FontFamily>Segoe UI</FontFamily>
@@ -286,6 +286,7 @@
           </Style>
         </ChartNoDataMessage>
         <DataSetName>BalanceSheetChartReport</DataSetName>
+        <Top>1.3cm</Top>
         <Height>3in</Height>
         <Width>4in</Width>
         <Style>
@@ -297,13 +298,78 @@
           <BackgroundGradientType>None</BackgroundGradientType>
         </Style>
       </Chart>
+      <Textbox Name="Textbox3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Balance Sheet</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.01958in</Top>
+        <Left>1.30729in</Left>
+        <Height>0.15625in</Height>
+        <Width>1.38542in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox4">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>="As of " &amp; Parameters!AsOfDate.Value</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox3</rd:DefaultName>
+        <Top>0.20986in</Top>
+        <Left>0.20312in</Left>
+        <Height>0.22069in</Height>
+        <Width>3.59375in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>3in</Height>
+    <Height>4in</Height>
     <Style />
   </Body>
   <Width>4in</Width>
   <Page>
-    <PageHeight>3in</PageHeight>
+    <PageHeight>4in</PageHeight>
     <PageWidth>4in</PageWidth>
     <ColumnSpacing>0.05118in</ColumnSpacing>
     <Style />
@@ -344,6 +410,12 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ReportParameters>
+    <ReportParameter Name="AsOfDate">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>aaeb24b6-cdd1-47a3-b7c0-ea6c4c675d3d</rd:ReportID>
 </Report>
